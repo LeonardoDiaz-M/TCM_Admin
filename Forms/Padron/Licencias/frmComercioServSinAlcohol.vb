@@ -4,87 +4,53 @@ Imports System.Text.RegularExpressions
 Imports System.Web.Security
 Public Class frmComercioServSinAlcohol
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
     Private cxn As New cxnData
-    Private newrow As Object
-    Public parent As Form = Nothing
     Private Sub frmComercioServSinAlcohol_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TabOrderSequence(Me, SMcMaster.TabOrderManager.TabScheme.AcrossFirst)
         Me.lblCurrentMenu.Text = Me.Text
         load_Combos()
         If id <> "0" Then
-            btnEditar.Visible = True
-            btnGuardar.Visible = False
-            btnElimina.Visible = True
-        Else
-            ActivaFormulario(True)
-            btnGuardar.Visible = True
-            btnEditar.Visible = False
-            btnElimina.Visible = False
-        End If
-        If id <> "0" Then
             Me.Tbl_lic_municipalesTableAdapter.FillByLA(Me.DsLicencias.tbl_lic_municipales, id)
-            'Me.BindingSource1.Position = Me.BindingSource1.Find("cve_licencia", id)
         Else
             uneUltMes.Value = 12
             uneUltAnio.Value = Nothing
         End If
-        'load_Permiso()
+        load_Permiso()
         Me.txtClavecatastral.Focus()
         Me.mskLVIni.Focus()
         Me.txtClavecatastral.Focus()
-
-        LoadRol()
     End Sub
     Private Sub load_Permiso()
-        Me.btnGuardar.Visible = False
-        btnElimina.Visible = False
-        Me.txtNoLic.Enabled = False
         Dim cxn_load As New cxnData
-        Me.Text = "Detalle de la Licencia  " & id.ToString
-        If id <> "0" Then
-            cxn_load.Select_SQL("SELECT cve_col,cve_loc,cve_catastral from tbl_lic_municipales where cve_licencia='" & id.ToString & "'")
-            Me.txtClavecatastral.Text = cxn_load.arrayValores(2)
-            Me.ucoLocalidad.Value = cxn_load.arrayValores(1)
-            If cxn_load.arrayValores(1) <> "-1" And cxn_load.arrayValores(1) IsNot Nothing And cxn_load.arrayValores(1) <> "" Then
-                'cmbLocalidad_SelectedValueChanged(Nothing, Nothing)
-                Me.ucoColonia.Value = cxn.arrayValores(0)
-            End If
-        End If
-        If tipo_Permiso = 0 And Not delete_record Then 'Solo Lectura
-            Me.grpDatosCuenta.Enabled = False
-            Me.grpPropietario.Enabled = False
-            Me.grpPAE.Enabled = False
-        ElseIf tipo_Permiso = 1 And delete_record Then 'Eliminar Registro
-            Me.grpDatosCuenta.Enabled = False
-            Me.grpPropietario.Enabled = False
-            Me.grpPAE.Enabled = False
-            btnElimina.Visible = True
-        ElseIf tipo_Permiso = 1 And id <> "0" Then  'Actualizar Registro
-            Me.grpDatosCuenta.Enabled = True
-            Me.btnGuardar.Visible = True
-        ElseIf tipo_Permiso = 1 And id = "0" Then 'Agregar Registro
-            Me.Text = "Nuevo Licencia"
-            Me.grpDatosCuenta.Enabled = True
-            Me.btnGuardar.Visible = True
-            Me.BindingNavigator.BindingSource.AddNew()
+        Me.lblCurrentMenu.Text = Me.Text
+        Me.txtNoLic.Enabled = False
+        Me.btnElimina.Visible = False
+        Me.btnGuardar.Visible = IIf(id = "0", Insertar, False)
+        Me.btnEditar.Visible = IIf(id = "0", False, Editar)
+        Me.grpDatosCuenta.Enabled = IIf(id = "0", True, False)
+        Me.grpPAE.Enabled = IIf(id = "0", True, False)
+        Me.grpPropietario.Enabled = IIf(id = "0", True, False)
+        Me.grpUltimoPago.Enabled = IIf(id = "0", True, False)
+        If id = "0" Then
+            Me.BindingNavigator1.BindingSource.AddNew()
             cxn_load.Select_SQL("exec sp_DDL_Derechos 'LA',''")
+            Me.txtNoLic.Text = cxn_load.arrayValores(0)
             Me.BindingSource.Current("cve_licencia") = cxn_load.arrayValores(0)
             cxn_load.Select_SQL("select getdate(), month(getdate()),year(getdate()) ")
             Me.BindingSource.Current("ult_año_pago") = cxn_load.arrayValores(2)
             Me.BindingSource.Current("ult_mes_pago") = cxn_load.arrayValores(1)
             Me.BindingSource.Current("fecha_ini_oper") = cxn_load.arrayValores(0)
-            Me.txtNoLic.Text = cxn_load.arrayValores(0)
             ucoTipoContribuyente.Value = -1
             ucoStatus.Value = -1
             ucoLocalidad.Value = -1
             ucoPae.Value = -1
             cmbGiro.SelectedValue = -1
-            'cmbTipoAnuncio.SelectedValue = -1
             If Me.mskLVIni.Value Is Nothing Then
                 Me.mskLVIni.Value = "10/4/2017 02:00:00 AM"
                 mskLVFin.Focus()
@@ -110,15 +76,18 @@ Public Class frmComercioServSinAlcohol
             End If
             mskLVIni.Focus()
             Me.txtClavecatastral.Focus()
+        Else
+            cxn_load.Select_SQL("SELECT cve_col,cve_loc,cve_catastral from tbl_lic_municipales where cve_licencia='" & id.ToString & "'")
+            Me.txtClavecatastral.Text = cxn_load.arrayValores(2)
+            Me.ucoLocalidad.Value = cxn_load.arrayValores(1)
+            If cxn_load.arrayValores(1) <> "-1" And cxn_load.arrayValores(1) IsNot Nothing And cxn_load.arrayValores(1) <> "" Then
+                Me.ucoColonia.Value = cxn_load.arrayValores(0)
+            End If
         End If
-    End Sub
-    Private Sub LoadRol()
-        btnEditar.Enabled = Roles.IsUserInRole(Usuario, Editar)
-        btnElimina.Enabled = Roles.IsUserInRole(Usuario, Borrar)
-        btnGuardar.Enabled = Roles.IsUserInRole(Usuario, Insertar)
     End Sub
 
     Private Sub load_Combos()
+        Dim cxn As New cxnData
         cxn.Get_SQL_Combobox("exec sp_DDL_Derechos 'Anuncio',''", Me.cmbTipoAnuncio, "Descripcion", "clave")
         cxn.Get_SQL_Combobox("exec sp_DDL_Derechos 'GiroSin',''", Me.cmbGiro, "Descripcion", "clave")
         cxn.fLlenaDropDownUltra(ucoStatus, "SELECT cve_status,descripcion from tbl_Status_Contribuyente")
@@ -128,10 +97,10 @@ Public Class frmComercioServSinAlcohol
     End Sub
 
     Private Function valida_datos() As Boolean
-
         Dim ban As Boolean = False
         Dim ocurriounError As Integer = 0
         Dim mensaje As String = ""
+
         Try
             ErrorProvider1.Clear()
             'cuenta
@@ -372,7 +341,7 @@ Public Class frmComercioServSinAlcohol
         Try
             If MsgBox("¿Seguro de Eliminar el Registro?", vbYesNo, "Confirmación") = vbYes Then
                 Me.Validate()
-                Me.BindingNavigator.BindingSource.RemoveCurrent()
+                Me.BindingNavigator1.BindingSource.RemoveCurrent()
                 Me.Tbl_lic_municipalesTableAdapter.Update(Me.DsLicencias.tbl_lic_municipales)
                 cMensajes.DisplayMessage(Me, "Datos eliminados correctamente! ", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1)
                 MsgBox("Registro eliminado", MsgBoxStyle.Information, "Licencias")
@@ -442,11 +411,8 @@ Public Class frmComercioServSinAlcohol
                     ActivaFormulario(False)
                     cMensajes.DisplayMessage(Me, "Datos modificados correctamente! ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                     id = Me.txtNoLic.Text
-                    tipo_Permiso = 1
                     System.Threading.Thread.Sleep(1500)
                 Else
-
-
                     Dim fec_alta As DateTime
                     cxn.Select_SQL("select getdate(),DATEADD(YEAR,-100,GETDATE())")
                     fec_alta = cxn.arrayValores(0)
@@ -511,17 +477,16 @@ Public Class frmComercioServSinAlcohol
                                                                CDate(Me.txtFechaIniOp.Value).ToShortDateString,'Fecha_ini _operacion
                                                                IIf(Me.chkNotificado.Checked = True, Me.ucoPae.Value, Nothing),
                                                                IIf(Me.chkNotificado.Checked = True, Me.txtNoActos.Value, Nothing),
-                                                               Me.txtCurp.Text,
                                                                Me.txtemail.Text,
+                                                               Me.txtCurp.Text,
                                                                My.User.Name,
-                                                               Me.txtLatitud.Text,
-                                                               Me.txtLongitud.Text
+                                                               IIf(Me.txtLatitud.Text.Trim <> "", Me.txtLatitud.Text.Trim, ""),
+                                                               IIf(Me.txtLongitud.Text.Trim <> "", Me.txtLongitud.Text.Trim, "")
                                                                )
 
                     Me.Tbl_lic_municipalesTableAdapter.Update(Me.DsLicencias.tbl_lic_municipales)
                     cMensajes.DisplayMessage(Me, "Datos registrados correctamente! ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                     id = Me.txtNoLic.Text
-                    tipo_Permiso = 1
                     System.Threading.Thread.Sleep(1500)
                     Me.frmComercioServSinAlcohol_Load(Nothing, Nothing)
                 End If
@@ -534,8 +499,9 @@ Public Class frmComercioServSinAlcohol
         Try
             'valida permiso de edicion
             ActivaFormulario(True)
-            btnGuardar.Visible = True
+            btnGuardar.Visible = Editar
             btnEditar.Visible = False
+            Me.btnElimina.Visible = Borrar
             txtClavecatastral.Focus()
         Catch ex As Exception
             cMensajes.DisplayMessage(Me, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
@@ -552,30 +518,11 @@ Public Class frmComercioServSinAlcohol
         End Try
     End Sub
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Enabled = True
-        Me.Close()
+        GenericCloseChlildForm(Me)
     End Sub
     Private Sub frmAnuncios_Closing(sender As Object, e As CancelEventArgs) Handles MyBase.Closing
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Visible = True
+        GenericCloseChlildForm(Me)
     End Sub
-
-    'Private Sub txtAInicio_LostFocus(sender As Object, e As EventArgs)
-    '    If Me.txtAInicio.Text.Length = 4 Then
-    '        If CInt(Me.txtAInicio.Text.Replace(" ", "")) < 1900 Or CInt(Me.txtAInicio.Text.Replace(" ", "")) > Year(Now()) Then
-    '            Me.SystemMessages1.SysMsg("El año Inicio debe ser mayor a 1900 y menor a " & Year(Now()).ToString, True)
-    '            Me.txtAInicio.SelectAll()
-    '            Me.txtAInicio.Focus()
-    '        Else
-    '            Me.SystemMessages1.Visible = False
-    '        End If
-    '    Else
-    '        Me.SystemMessages1.SysMsg("Error en el campo Año de inicio, no es un año", True)
-    '    End If
-    'End Sub
 
     Private Sub txtClavecatastral_TextChanged(sender As Object, e As EventArgs) Handles txtClavecatastral.TextChanged
         If Me.txtClavecatastral.Text.Length = 16 Then
@@ -706,5 +653,15 @@ Public Class frmComercioServSinAlcohol
         frm.Show(txtNoLic.Text.Trim, "COMSINVTAALC", Me)
     End Sub
 
-
+    Private Sub btnMapa_Click(sender As Object, e As EventArgs) Handles btnMapa.Click
+        Dim frm As New frmGoogleMaps
+        frm.txtLatitud.Text = Me.txtLatitud.Text
+        frm.txtLongitud.Text = Me.txtLongitud.Text
+        frm.lblTipoPadron.Text = "tbl_lic_municipales"
+        frm.lblClavePadron.Text = Me.txtNoLic.Text
+        frm.lblCampo.Text = "cve_licencia"
+        frm.lblNombreContribuyente.Text = Me.txtNombre.Text
+        frm.ShowDialog(Me)
+        Me.frmComercioServSinAlcohol_Load(Nothing, Nothing)
+    End Sub
 End Class

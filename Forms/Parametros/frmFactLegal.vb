@@ -5,28 +5,23 @@ Imports Infragistics.Win.UltraWinExplorerBar
 Imports Infragistics.Win.UltraMessageBox
 Imports System.Web.Security
 Public Class frmFactLegal
-
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
-    Public idUsuario As String = My.User.Name
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
     Private cxn As New cxnData
-    Private newrow As Object
-    Public parent As Form = Nothing
-    Private currentmenu As String = ""
+    Private currentmenu As String = currentmenu
     Private ejfiscal As String = "0"
     Private Sub frmFactLegal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'DsParametros1.recargos' Puede moverla o quitarla según sea necesario.
+        TabOrderSequence(Me, SMcMaster.TabOrderManager.TabScheme.AcrossFirst)
         load_Permiso()
         If id <> "0" Then
             Me.RecargosTableAdapter.Fill(Me.DsParametros.recargos)
             Me.ParametrBindingSource.Position = Me.ParametrBindingSource.Find("id_rec", id)
-            btnEliminar.Visible = True
+            btnElimina.Visible = True
         Else
             cMensajes.DisplayMessage(Me, "Edite los registros correspondientes para el ejercicio fiscal!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
         End If
@@ -35,9 +30,13 @@ Public Class frmFactLegal
     Private Sub load_Permiso()
         Dim ban_enabled As Boolean = False
         Dim ejfiscal As String = ""
-        Me.btnGuardar.Visible = False
-        btnEliminar.Visible = False
-        btnBack.Visible = False
+        Me.lblCurrentMenu.Text = Me.Text
+        Me.btnElimina.Visible = False
+        Me.btnGuardar.Visible = IIf(id = "0", Insertar, False)
+        Me.btnEditar.Visible = IIf(id = "0", False, Editar)
+        Me.grParImpPred.Enabled = IIf(id = "0", True, False)
+        Me.grpParBasico.Enabled = IIf(id = "0", True, False)
+
 
         If id <> "0" Then
             'determina el año corriente
@@ -81,20 +80,11 @@ Public Class frmFactLegal
 
             End If
         End If
-
-        'LoadRol()
         btnBack.Visible = True
     End Sub
 
-    Private Sub LoadRol()
-        btnEditar.Enabled = Roles.IsUserInRole(Usuario, Editar)
-        btnEliminar.Enabled = Roles.IsUserInRole(Usuario, Borrar)
-        btnGuardar.Enabled = Roles.IsUserInRole(Usuario, Insertar)
-    End Sub
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Enabled = True
-        Me.Close()
+        GenericCloseChlildForm(Me)
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
@@ -153,9 +143,13 @@ Public Class frmFactLegal
         Return ban
     End Function
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
-        btnGuardar.Visible = True
-        btnEditar.Visible = False
-        grpParBasico.Enabled = True
+        Me.btnEditar.Visible = False
+        Me.btnGuardar.Visible = Editar
+        Me.btnElimina.Visible = Borrar
+        If Me.btnGuardar.Visible Then
+            Me.grParImpPred.Enabled = True
+            Me.grpParBasico.Enabled = True
+        End If
     End Sub
     Private Sub btnUndo_Click(sender As Object, e As EventArgs) Handles btnUndo.Click
         ErrorProvider1.Clear()
@@ -166,8 +160,7 @@ Public Class frmFactLegal
 
     End Sub
     Private Sub frmFactLegal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
+        GenericCloseChlildForm(Me)
     End Sub
 
     Private Sub frmFactLegal_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
@@ -183,11 +176,11 @@ Public Class frmFactLegal
         End If
     End Sub
 
-    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnElimina.Click
         Try
             If MsgBox("¿Seguro de Eliminar el Registro?", vbYesNo, "Confirmación") = vbYes Then
                 Me.Validate()
-                Me.BindingNavigator2.BindingSource.RemoveCurrent()
+                Me.BindingNavigator1.BindingSource.RemoveCurrent()
                 Me.RecargosTableAdapter.Update(Me.DsParametros.recargos)
                 cMensajes.DisplayMessage(Me, "Datos eliminados", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1)
                 Me.Close()

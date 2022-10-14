@@ -5,27 +5,20 @@ Imports System.Text.RegularExpressions
 Imports System.Web.Security
 Public Class frmPredial
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
-    Public idUsuario As String = My.User.Name
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
     Private cxn As New cxnData
-    Private newrow As Object
-    Public parent As Form = Nothing
     Private Sub frmPredial_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'DasPredial.arc_predial' Puede moverla o quitarla según sea necesario.
         Try
-            Me.lblCurrentMenu2.Text = Me.Text
+            Me.lblCurrentMenu.Text = Me.Text
             load_Combos()
             If id <> "0" Then
                 Me.Arc_predialTableAdapter.FillBy(Me.DasPredial.arc_predial, id)
-                'Me.BindingSource1.Position = Me.BindingSource1.Find("cve_catastral", id)
             End If
-            LoadRol()
         Catch ex As Exception
             cMensajes.DisplayMessage(Me, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
         End Try
@@ -37,44 +30,21 @@ Public Class frmPredial
         cxn.fLlenaDropDownUltra(ucoTipoPredio, "SELECT tipo_predio,descripcion from tip_predio")
         cxn.fLlenaDropDownUltra(ucoPae, "Select clave, nombre from Pae")
     End Sub
-    Private Sub LoadRol()
-        btnEditar.Enabled = Roles.IsUserInRole(Usuario, Editar)
-        'btnElimina.Enabled = Roles.IsUserInRole(Usuario, Borrar)
-        btnGuardar.Enabled = Roles.IsUserInRole(Usuario, Insertar)
-    End Sub
-
-
     Private Sub load_Permiso()
-        Me.btnGuardar.Visible = False
-        btnUndo.Visible = False
-        Dim resp As DialogResult = DialogResult.Yes
-        Me.Text = "Detalles del Predio: " & id.ToString
-        If tipo_Permiso = 0 And Not delete_record Then 'Solo Lectura
-            Me.grpDatosCuenta.Enabled = False
-            Me.grpPropietario.Enabled = False
-            Me.grpPAE.Enabled = False
-            Me.grpUltimoPago.Enabled = False
-        ElseIf tipo_Permiso = 1 And delete_record Then 'Eliminar Registro
-            resp = ShowContinueMessage("Operación no Permitida", " ",
-                                        "No se encontrarón datos con el query" & vbCrLf &
-                                        "¿Desea Guardar los cambios?", Me.UltraMessageBoxManager1,
-                                        MessageBoxButtons.YesNo)
-            Me.Close()
-        ElseIf tipo_Permiso = 1 And id <> "0" Then  'Actualizar Registro
-            Me.grpDatosCuenta.Enabled = True
-            Me.grpPropietario.Enabled = True
-            Me.txtcveCatastral.ReadOnly = True
-            Me.grpUltimoPago.Enabled = True
-            Me.grpPAE.Enabled = True
-            Me.btnGuardar.Visible = True
-            btnUndo.Visible = True
-        ElseIf tipo_Permiso = 1 And id = "0" Then 'Agregar Registro
-            resp = ShowContinueMessage("Operación no Permitida", " ",
-                                        "No se encontrarón datos con el query" & vbCrLf &
-                                        "¿Desea Guardar los cambios?", Me.UltraMessageBoxManager1,
-                                        MessageBoxButtons.YesNo)
-            Me.Close()
-
+        Me.lblCurrentMenu.Text = Me.Text
+        Me.btnGuardar.Visible = IIf(id = "0", Insertar, False)
+        Me.btnEditar.Visible = IIf(id = "0", False, Editar)
+        Me.grpDatosCuenta.Enabled = IIf(id = "0", True, False)
+        Me.grpPAE.Enabled = IIf(id = "0", True, False)
+        Me.grpPropietario.Enabled = IIf(id = "0", True, False)
+        Me.grpUltimoPago.Enabled = IIf(id = "0", True, False)
+        If id = "0" Then
+            Me.BindingNavigator1.BindingSource.AddNew()
+        Else
+            Me.cxn.Select_SQL("SELECT cve_tip_con,status,latitud,longitud from tbl_lic_municipales where cve_licencia='" & id & "'")
+            Me.ucoStatus.Value = cxn.arrayValores(1)
+            Me.txtLatitud.Text = cxn.arrayValores(2)
+            Me.txtLongitud.Text = cxn.arrayValores(3)
         End If
     End Sub
 
@@ -82,7 +52,7 @@ Public Class frmPredial
         Try
             If valida_datos() Then
                 Me.Validate()
-                Me.ArcpredialBindingSource.Current("usuario") = Usuario
+                Me.ArcpredialBindingSource.Current("usuario") = CurrentUsrName
                 Me.ArcpredialBindingSource.EndEdit()
                 Me.Arc_predialTableAdapter.Update(Me.DasPredial.arc_predial)
                 ActivaFormulario(False)
@@ -268,39 +238,12 @@ Public Class frmPredial
         Return ban
     End Function
 
-    'Private Sub btnCerrar_Click(sender As Object, e As EventArgs)
-    '    Me.Close()
-    'End Sub
-
-    'Private Sub btnElimina_Click(sender As Object, e As EventArgs)
-
-    '    If MsgBox("¿Seguro de Eliminar el Registro?", vbYesNo, "Confirmación") = vbYes Then
-    '        Me.Validate()
-    '        Me.BindingSource1.Current("status_cta") = "1"
-    '        Me.BindingSource1.EndEdit()
-
-    '        Me.Arc_predialTableAdapter.Update(Me.DsPredial.arc_predial)
-    '        ' Me.cxn.Select_SQL("exec sp_arcagua_registramovtos '" & Me.txtCuenta.Text.Trim & "','E','" & My.User.Name.ToString & "'")
-    '        If cxn.arrayValores(0).ToString = "1" Then
-    '            cMensajes.DisplayMessage(Me, "Datos actualizados ", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1)
-    '            Me.Close()
-    '        Else
-    '            cMensajes.DisplayMessage(Me, "Error al registrar los movimientos ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
-    '        End If
-    '    End If
-    'End Sub
-
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Enabled = True
-        Me.Close()
+        GenericCloseChlildForm(Me)
     End Sub
 
     Private Sub frmPredial_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Visible = True
+        GenericCloseChlildForm(Me)
     End Sub
 
     Private Sub frmPredial_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
@@ -421,7 +364,7 @@ Public Class frmPredial
         Try
             'valida permiso de edicion
             ActivaFormulario(True)
-            btnGuardar.Visible = True
+            btnGuardar.Visible = Editar
             btnEditar.Visible = False
             txtcveCatastral.Focus()
         Catch ex As Exception
@@ -434,7 +377,16 @@ Public Class frmPredial
         frm.Show(txtcveCatastral.Text.Trim, "PREDIAL", Me)
     End Sub
 
-    Private Sub UltraExpandableGroupBoxPanel2_Paint(sender As Object, e As PaintEventArgs) Handles UltraExpandableGroupBoxPanel2.Paint
-
+    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+        Dim frm As New frmGoogleMaps
+        frm.txtLatitud.Text = Me.txtLatitud.Text
+        frm.txtLongitud.Text = Me.txtLongitud.Text
+        frm.lblTipoPadron.Text = "arc_predial"
+        frm.lblClavePadron.Text = Me.txtcveCatastral.Text.Trim
+        frm.lblCampo.Text = "cve_catastral"
+        frm.lblNombreContribuyente.Text = Me.txtPropietario.Text
+        frm.lblUbicacion.Text = Me.txtUbicacion.Text
+        frm.ShowDialog(Me)
+        Me.frmPredial_Load(Nothing, Nothing)
     End Sub
 End Class

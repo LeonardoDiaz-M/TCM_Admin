@@ -62,8 +62,11 @@ Partial Class frmCatDatosMunicipio
         Me.btnUndo = New System.Windows.Forms.ToolStripButton()
         Me.btnGuardar = New System.Windows.Forms.ToolStripButton()
         Me.btnEditar = New System.Windows.Forms.ToolStripButton()
-        Me.btnEliminar = New System.Windows.Forms.ToolStripButton()
+        Me.btnElimina = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.lblCurrentMenu = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.btnNPrimero = New System.Windows.Forms.ToolStripButton()
         Me.btnNPrevio = New System.Windows.Forms.ToolStripButton()
         Me.btnNCurrent = New System.Windows.Forms.ToolStripTextBox()
@@ -140,11 +143,12 @@ Partial Class frmCatDatosMunicipio
         'BindingNavigator1
         '
         Me.BindingNavigator1.AddNewItem = Nothing
+        Me.BindingNavigator1.BackColor = System.Drawing.Color.White
         Me.BindingNavigator1.BindingSource = Me.DatosmpioBindingSource
         Me.BindingNavigator1.CountItem = Me.btnNTotal
         Me.BindingNavigator1.DeleteItem = Nothing
         Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(30, 30)
-        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnGuardar, Me.btnEditar, Me.btnEliminar, Me.ToolStripLabel1, Me.btnNPrimero, Me.btnNPrevio, Me.btnNCurrent, Me.btnNTotal, Me.btnNSiguiente, Me.btnNUltimo})
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnGuardar, Me.btnEditar, Me.btnElimina, Me.ToolStripSeparator1, Me.ToolStripLabel1, Me.lblCurrentMenu, Me.ToolStripLabel2, Me.btnNPrimero, Me.btnNPrevio, Me.btnNCurrent, Me.btnNTotal, Me.btnNSiguiente, Me.btnNUltimo})
         Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
         Me.BindingNavigator1.MoveFirstItem = Me.btnNPrimero
         Me.BindingNavigator1.MoveLastItem = Me.btnNUltimo
@@ -165,13 +169,14 @@ Partial Class frmCatDatosMunicipio
         'DsParametros
         '
         Me.DsParametros.DataSetName = "dsParametros"
+        Me.DsParametros.EnforceConstraints = False
         Me.DsParametros.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'btnNTotal
         '
         Me.btnNTotal.Name = "btnNTotal"
-        Me.btnNTotal.Size = New System.Drawing.Size(37, 34)
-        Me.btnNTotal.Text = "de {0}"
+        Me.btnNTotal.Size = New System.Drawing.Size(35, 34)
+        Me.btnNTotal.Text = "of {0}"
         Me.btnNTotal.ToolTipText = "Número total de elementos"
         '
         'btnBack
@@ -215,24 +220,41 @@ Partial Class frmCatDatosMunicipio
         Me.btnEditar.Text = "ToolStripButton1"
         Me.btnEditar.ToolTipText = "Editar registro"
         '
-        'btnEliminar
+        'btnElimina
         '
-        Me.btnEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnEliminar.Image = Global.TCMAdmin.My.Resources.Resources.IconDelete
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.RightToLeftAutoMirrorImage = True
-        Me.btnEliminar.Size = New System.Drawing.Size(34, 34)
-        Me.btnEliminar.Text = "Eliminar"
-        Me.btnEliminar.ToolTipText = "Eliminar registro"
-        Me.btnEliminar.Visible = False
+        Me.btnElimina.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnElimina.Image = Global.TCMAdmin.My.Resources.Resources.IconDelete
+        Me.btnElimina.Name = "btnElimina"
+        Me.btnElimina.RightToLeftAutoMirrorImage = True
+        Me.btnElimina.Size = New System.Drawing.Size(34, 34)
+        Me.btnElimina.Text = "Eliminar"
+        Me.btnElimina.ToolTipText = "Eliminar registro"
+        Me.btnElimina.Visible = False
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 37)
         '
         'ToolStripLabel1
         '
-        Me.ToolStripLabel1.AutoSize = False
-        Me.ToolStripLabel1.BackColor = System.Drawing.Color.Transparent
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(500, 34)
-        Me.ToolStripLabel1.Text = "                       "
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(40, 34)
+        Me.ToolStripLabel1.Text = "           "
+        '
+        'lblCurrentMenu
+        '
+        Me.lblCurrentMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentMenu.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblCurrentMenu.Name = "lblCurrentMenu"
+        Me.lblCurrentMenu.Size = New System.Drawing.Size(119, 34)
+        Me.lblCurrentMenu.Text = "ToolStripLabel2"
+        '
+        'ToolStripLabel2
+        '
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(40, 34)
+        Me.ToolStripLabel2.Text = "           "
         '
         'btnNPrimero
         '
@@ -256,6 +278,7 @@ Partial Class frmCatDatosMunicipio
         '
         Me.btnNCurrent.AccessibleName = "Posición"
         Me.btnNCurrent.AutoSize = False
+        Me.btnNCurrent.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.btnNCurrent.Name = "btnNCurrent"
         Me.btnNCurrent.Size = New System.Drawing.Size(50, 23)
         Me.btnNCurrent.Text = "0"
@@ -285,13 +308,14 @@ Partial Class frmCatDatosMunicipio
         Me.grpDatosMunicipio.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grpDatosMunicipio.Enabled = False
         Me.grpDatosMunicipio.ExpandedSize = New System.Drawing.Size(1013, 560)
+        Me.grpDatosMunicipio.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpDatosMunicipio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpDatosMunicipio.Location = New System.Drawing.Point(0, 37)
         Me.grpDatosMunicipio.Name = "grpDatosMunicipio"
         Me.grpDatosMunicipio.Size = New System.Drawing.Size(1013, 560)
         Me.grpDatosMunicipio.TabIndex = 0
         Me.grpDatosMunicipio.Text = "Datos Generales del H. Ayuntamiento"
-        Me.grpDatosMunicipio.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpDatosMunicipio.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'grParImpPred
         '
@@ -310,9 +334,9 @@ Partial Class frmCatDatosMunicipio
         Me.grParImpPred.Controls.Add(Me.lblCuenta)
         Me.grParImpPred.Controls.Add(Me.txtNombre)
         Me.grParImpPred.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grParImpPred.Location = New System.Drawing.Point(3, 19)
+        Me.grParImpPred.Location = New System.Drawing.Point(2, 21)
         Me.grParImpPred.Name = "grParImpPred"
-        Me.grParImpPred.Size = New System.Drawing.Size(1007, 538)
+        Me.grParImpPred.Size = New System.Drawing.Size(1009, 537)
         Me.grParImpPred.TabIndex = 0
         '
         'UltraGroupBox2
@@ -334,6 +358,7 @@ Partial Class frmCatDatosMunicipio
         Me.UltraGroupBox2.Size = New System.Drawing.Size(620, 237)
         Me.UltraGroupBox2.TabIndex = 177
         Me.UltraGroupBox2.Text = "Directivos "
+        Me.UltraGroupBox2.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'txtNombrePresidente
         '
@@ -540,6 +565,7 @@ Partial Class frmCatDatosMunicipio
         Me.UltraGroupBox1.Size = New System.Drawing.Size(341, 237)
         Me.UltraGroupBox1.TabIndex = 176
         Me.UltraGroupBox1.Text = "Grupo Municipios"
+        Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'ucoGrupoDesarrolloUrbLic
         '
@@ -557,7 +583,7 @@ Partial Class frmCatDatosMunicipio
         '
         Me.chkCobraDrenaje.AutoSize = True
         Me.chkCobraDrenaje.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DatosmpioBindingSource, "cobra_drenaje", True))
-        Me.chkCobraDrenaje.Location = New System.Drawing.Point(234, 180)
+        Me.chkCobraDrenaje.Location = New System.Drawing.Point(233, 182)
         Me.chkCobraDrenaje.Name = "chkCobraDrenaje"
         Me.chkCobraDrenaje.Size = New System.Drawing.Size(15, 14)
         Me.chkCobraDrenaje.TabIndex = 5
@@ -882,11 +908,14 @@ Partial Class frmCatDatosMunicipio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1013, 597)
+        Me.ControlBox = False
         Me.Controls.Add(Me.grpDatosMunicipio)
         Me.Controls.Add(Me.BindingNavigator1)
         Me.KeyPreview = True
         Me.Name = "frmCatDatosMunicipio"
+        Me.Text = "Datos Generales del Municipio"
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BindingNavigator1.ResumeLayout(False)
         Me.BindingNavigator1.PerformLayout()
@@ -926,8 +955,7 @@ Partial Class frmCatDatosMunicipio
     Friend WithEvents btnUndo As ToolStripButton
     Friend WithEvents btnGuardar As ToolStripButton
     Friend WithEvents btnEditar As ToolStripButton
-    Friend WithEvents btnEliminar As ToolStripButton
-    Friend WithEvents ToolStripLabel1 As ToolStripLabel
+    Friend WithEvents btnElimina As ToolStripButton
     Friend WithEvents btnNPrimero As ToolStripButton
     Friend WithEvents btnNPrevio As ToolStripButton
     Friend WithEvents btnNCurrent As ToolStripTextBox
@@ -977,4 +1005,8 @@ Partial Class frmCatDatosMunicipio
     Friend WithEvents Datos_mpioTableAdapter As dsParametrosTableAdapters.datos_mpioTableAdapter
     Friend WithEvents UltraGroupBox1 As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents UltraGroupBox2 As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents ToolStripLabel1 As ToolStripLabel
+    Friend WithEvents lblCurrentMenu As ToolStripLabel
+    Friend WithEvents ToolStripLabel2 As ToolStripLabel
 End Class

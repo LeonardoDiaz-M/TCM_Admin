@@ -3,34 +3,29 @@ Imports Infragistics.Win.UltraWinTabControl
 Imports System.Web.Security
 Public Class frmCatStatusContribuyente
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
-    Private cxn As New cxnData
-    Private newrow As Object
-    Public parent As Form = Nothing
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public myparent As Form = Nothing
     Private Sub frmCatStatusContribuyente_Load(sender As Object, e As EventArgs) Handles Me.Load
-        'TODO: esta línea de código carga datos en la tabla 'DsCatalogos.tbl_status_contribuyente' Puede moverla o quitarla según sea necesario.
-
+        TabOrderSequence(Me, SMcMaster.TabOrderManager.TabScheme.AcrossFirst)
+        load_Permiso()
+        Me.Tbl_status_contribuyenteTableAdapter.Fill(Me.DsCatalogos.tbl_status_contribuyente)
         If id <> "0" Then
-            Me.Tbl_status_contribuyenteTableAdapter.Fill(Me.DsCatalogos.tbl_status_contribuyente)
             Me.TblstatuscontribuyenteBindingSource.Position = Me.TblstatuscontribuyenteBindingSource.Find("cve_status", id)
-        Else
-            uexDatos.Enabled = True
-            btnEditar.Visible = False
-            btnGuardar.Visible = True
             txtDescripcion.SelectAll()
         End If
-        'LoadRol()
     End Sub
-    Private Sub LoadRol()
-        btnEditar.Enabled = Roles.IsUserInRole(Usuario, Editar)
-        btnElimina.Enabled = Roles.IsUserInRole(Usuario, Borrar)
-        btnGuardar.Enabled = Roles.IsUserInRole(Usuario, Insertar)
+    Private Sub load_Permiso()
+        Me.lblCurrentMenu.Text = Me.Text
+        Me.btnElimina.Visible = False
+        Me.btnGuardar.Visible = IIf(id = "0", Insertar, False)
+        Me.btnEditar.Visible = IIf(id = "0", False, Editar)
+        Me.uexDatos.Enabled = IIf(id = "0", True, False)
+        If id = "0" Then
+            Me.BindingNavigator1.BindingSource.AddNew()
+        End If
     End Sub
     Private Function valida_datos() As Boolean
         Dim ban As Boolean = False
@@ -68,11 +63,10 @@ Public Class frmCatStatusContribuyente
                     cMensajes.DisplayMessage(Me, "Datos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                 Else
                     Tbl_status_contribuyenteTableAdapter.Insert(txtDescripcion.Text.Trim, chkDetenerCobro.Checked)
-                    btnGuardar.Visible = False
-                    btnEditar.Visible = False
-                    uexDatos.Enabled = False
-
+                    Me.Tbl_status_contribuyenteTableAdapter.Update(DsCatalogos.tbl_status_contribuyente)
                     cMensajes.DisplayMessage(Me, "Datos Registrados ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                    id = Me.txtId.Text
+                    frmCatStatusContribuyente_Load(Nothing, Nothing)
                 End If
             End If
         Catch ex As Exception
@@ -81,19 +75,17 @@ Public Class frmCatStatusContribuyente
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Enabled = True
-        Me.Close()
+        GenericCloseChlildForm(Me)
     End Sub
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
-        uexDatos.Enabled = True
-        btnGuardar.Visible = True
-        btnEditar.Visible = False
+        Me.btnEditar.Visible = False
+        Me.btnGuardar.Visible = Editar
+        Me.btnElimina.Visible = Borrar
+        If Me.btnGuardar.Visible Then
+            Me.uexDatos.Enabled = True
+        End If
     End Sub
-
-
-
     Private Sub btnElimina_Click(sender As Object, e As EventArgs) Handles btnElimina.Click
         Try
             If MsgBox("¿Seguro de Eliminar el Registro?", vbYesNo, "Confirmación") = vbYes Then
@@ -110,10 +102,7 @@ Public Class frmCatStatusContribuyente
     End Sub
 
     Private Sub frmCatStatusContribuyente_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Visible = True
+        GenericCloseChlildForm(Me)
     End Sub
 
 

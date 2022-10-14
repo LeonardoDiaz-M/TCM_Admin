@@ -73,9 +73,10 @@ Partial Class frmAguaRegistroConsumo_Alta
         '
         Me.lblPeriodo.AutoSize = True
         Me.lblPeriodo.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPeriodo.Location = New System.Drawing.Point(244, 142)
+        Me.lblPeriodo.Location = New System.Drawing.Point(325, 175)
+        Me.lblPeriodo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblPeriodo.Name = "lblPeriodo"
-        Me.lblPeriodo.Size = New System.Drawing.Size(83, 16)
+        Me.lblPeriodo.Size = New System.Drawing.Size(137, 25)
         Me.lblPeriodo.TabIndex = 87
         Me.lblPeriodo.Text = "Bimestre/Mes:"
         Me.lblPeriodo.UseAppStyling = False
@@ -84,9 +85,10 @@ Partial Class frmAguaRegistroConsumo_Alta
         '
         Me.UltraLabel1.AutoSize = True
         Me.UltraLabel1.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel1.Location = New System.Drawing.Point(98, 140)
+        Me.UltraLabel1.Location = New System.Drawing.Point(131, 172)
+        Me.UltraLabel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UltraLabel1.Name = "UltraLabel1"
-        Me.UltraLabel1.Size = New System.Drawing.Size(30, 16)
+        Me.UltraLabel1.Size = New System.Drawing.Size(49, 25)
         Me.UltraLabel1.TabIndex = 88
         Me.UltraLabel1.Text = "Año:"
         Me.UltraLabel1.UseAppStyling = False
@@ -98,11 +100,12 @@ Partial Class frmAguaRegistroConsumo_Alta
         Me.txtanio.Appearance = Appearance1
         Me.txtanio.BackColor = System.Drawing.Color.White
         Me.txtanio.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtanio.Location = New System.Drawing.Point(133, 136)
+        Me.txtanio.Location = New System.Drawing.Point(177, 167)
+        Me.txtanio.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtanio.Name = "txtanio"
         Me.txtanio.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
         Me.txtanio.ReadOnly = True
-        Me.txtanio.Size = New System.Drawing.Size(69, 25)
+        Me.txtanio.Size = New System.Drawing.Size(92, 29)
         Me.txtanio.TabIndex = 85
         Me.txtanio.UseAppStyling = False
         '
@@ -110,9 +113,10 @@ Partial Class frmAguaRegistroConsumo_Alta
         '
         Me.UltraLabel7.AutoSize = True
         Me.UltraLabel7.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel7.Location = New System.Drawing.Point(396, 262)
+        Me.UltraLabel7.Location = New System.Drawing.Point(528, 322)
+        Me.UltraLabel7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UltraLabel7.Name = "UltraLabel7"
-        Me.UltraLabel7.Size = New System.Drawing.Size(59, 16)
+        Me.UltraLabel7.Size = New System.Drawing.Size(99, 25)
         Me.UltraLabel7.TabIndex = 100
         Me.UltraLabel7.Text = "Consumo:"
         Me.UltraLabel7.UseAppStyling = False
@@ -121,9 +125,10 @@ Partial Class frmAguaRegistroConsumo_Alta
         '
         Me.UltraLabel6.AutoSize = True
         Me.UltraLabel6.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel6.Location = New System.Drawing.Point(366, 231)
+        Me.UltraLabel6.Location = New System.Drawing.Point(488, 284)
+        Me.UltraLabel6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UltraLabel6.Name = "UltraLabel6"
-        Me.UltraLabel6.Size = New System.Drawing.Size(86, 16)
+        Me.UltraLabel6.Size = New System.Drawing.Size(143, 25)
         Me.UltraLabel6.TabIndex = 99
         Me.UltraLabel6.Text = "Lectura actual:"
         Me.UltraLabel6.UseAppStyling = False
@@ -131,11 +136,12 @@ Partial Class frmAguaRegistroConsumo_Alta
         'uneLecturaActual
         '
         Me.uneLecturaActual.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneLecturaActual.Location = New System.Drawing.Point(460, 227)
+        Me.uneLecturaActual.Location = New System.Drawing.Point(613, 279)
+        Me.uneLecturaActual.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.uneLecturaActual.MinValue = 0
         Me.uneLecturaActual.Name = "uneLecturaActual"
         Me.uneLecturaActual.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneLecturaActual.Size = New System.Drawing.Size(100, 25)
+        Me.uneLecturaActual.Size = New System.Drawing.Size(133, 29)
         Me.uneLecturaActual.TabIndex = 95
         Me.uneLecturaActual.UseAppStyling = False
         '
@@ -143,9 +149,10 @@ Partial Class frmAguaRegistroConsumo_Alta
         '
         Me.UltraLabel5.AutoSize = True
         Me.UltraLabel5.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel5.Location = New System.Drawing.Point(356, 202)
+        Me.UltraLabel5.Location = New System.Drawing.Point(475, 249)
+        Me.UltraLabel5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UltraLabel5.Name = "UltraLabel5"
-        Me.UltraLabel5.Size = New System.Drawing.Size(96, 16)
+        Me.UltraLabel5.Size = New System.Drawing.Size(159, 25)
         Me.UltraLabel5.TabIndex = 98
         Me.UltraLabel5.Text = "Lectura anterior:"
         Me.UltraLabel5.UseAppStyling = False
@@ -153,17 +160,19 @@ Partial Class frmAguaRegistroConsumo_Alta
         'uneLecturaAnterior
         '
         Me.uneLecturaAnterior.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneLecturaAnterior.Location = New System.Drawing.Point(460, 198)
+        Me.uneLecturaAnterior.Location = New System.Drawing.Point(613, 244)
+        Me.uneLecturaAnterior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.uneLecturaAnterior.MinValue = 0
         Me.uneLecturaAnterior.Name = "uneLecturaAnterior"
         Me.uneLecturaAnterior.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneLecturaAnterior.Size = New System.Drawing.Size(100, 25)
+        Me.uneLecturaAnterior.Size = New System.Drawing.Size(133, 29)
         Me.uneLecturaAnterior.TabIndex = 94
         Me.uneLecturaAnterior.UseAppStyling = False
         '
         'optLectura
         '
         Me.optLectura.BorderStyle = Infragistics.Win.UIElementBorderStyle.None
+        Me.optLectura.CheckedIndex = 0
         Appearance2.FontData.SizeInPoints = 10.0!
         Me.optLectura.ItemAppearance = Appearance2
         ValueListItem3.CheckState = System.Windows.Forms.CheckState.Checked
@@ -175,18 +184,21 @@ Partial Class frmAguaRegistroConsumo_Alta
         ValueListItem2.DisplayText = "Por Consumo minimo"
         Me.optLectura.Items.AddRange(New Infragistics.Win.ValueListItem() {ValueListItem3, ValueListItem1, ValueListItem2})
         Me.optLectura.ItemSpacingVertical = 5
-        Me.optLectura.Location = New System.Drawing.Point(69, 188)
+        Me.optLectura.Location = New System.Drawing.Point(92, 231)
+        Me.optLectura.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.optLectura.Name = "optLectura"
-        Me.optLectura.Size = New System.Drawing.Size(249, 74)
+        Me.optLectura.Size = New System.Drawing.Size(332, 91)
         Me.optLectura.TabIndex = 101
+        Me.optLectura.Text = "Por Lectura"
         '
         'UltraLabel9
         '
         Me.UltraLabel9.AutoSize = True
         Me.UltraLabel9.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel9.Location = New System.Drawing.Point(81, 62)
+        Me.UltraLabel9.Location = New System.Drawing.Point(108, 76)
+        Me.UltraLabel9.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UltraLabel9.Name = "UltraLabel9"
-        Me.UltraLabel9.Size = New System.Drawing.Size(47, 16)
+        Me.UltraLabel9.Size = New System.Drawing.Size(79, 25)
         Me.UltraLabel9.TabIndex = 104
         Me.UltraLabel9.Text = "Cuenta:"
         Me.UltraLabel9.UseAppStyling = False
@@ -195,9 +207,10 @@ Partial Class frmAguaRegistroConsumo_Alta
         '
         Me.UltraLabel8.AutoSize = True
         Me.UltraLabel8.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel8.Location = New System.Drawing.Point(76, 91)
+        Me.UltraLabel8.Location = New System.Drawing.Point(101, 112)
+        Me.UltraLabel8.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UltraLabel8.Name = "UltraLabel8"
-        Me.UltraLabel8.Size = New System.Drawing.Size(52, 16)
+        Me.UltraLabel8.Size = New System.Drawing.Size(87, 25)
         Me.UltraLabel8.TabIndex = 103
         Me.UltraLabel8.Text = "Nombre:"
         Me.UltraLabel8.UseAppStyling = False
@@ -213,13 +226,14 @@ Partial Class frmAguaRegistroConsumo_Alta
         Me.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNombre.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2010
         Me.txtNombre.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombre.Location = New System.Drawing.Point(133, 89)
+        Me.txtNombre.Location = New System.Drawing.Point(177, 110)
+        Me.txtNombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtNombre.MaxLength = 120
         Me.txtNombre.Multiline = True
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.ReadOnly = True
         Me.txtNombre.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtNombre.Size = New System.Drawing.Size(330, 23)
+        Me.txtNombre.Size = New System.Drawing.Size(440, 28)
         Me.txtNombre.TabIndex = 102
         '
         'txtNumeroCuenta
@@ -233,13 +247,14 @@ Partial Class frmAguaRegistroConsumo_Alta
         Me.txtNumeroCuenta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNumeroCuenta.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2010
         Me.txtNumeroCuenta.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNumeroCuenta.Location = New System.Drawing.Point(133, 60)
+        Me.txtNumeroCuenta.Location = New System.Drawing.Point(177, 74)
+        Me.txtNumeroCuenta.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtNumeroCuenta.MaxLength = 120
         Me.txtNumeroCuenta.Multiline = True
         Me.txtNumeroCuenta.Name = "txtNumeroCuenta"
         Me.txtNumeroCuenta.ReadOnly = True
         Me.txtNumeroCuenta.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtNumeroCuenta.Size = New System.Drawing.Size(118, 23)
+        Me.txtNumeroCuenta.Size = New System.Drawing.Size(157, 28)
         Me.txtNumeroCuenta.TabIndex = 105
         '
         'BindingNavigator1
@@ -258,7 +273,7 @@ Partial Class frmAguaRegistroConsumo_Alta
         Me.BindingNavigator1.Name = "BindingNavigator1"
         Me.BindingNavigator1.PositionItem = Nothing
         Me.BindingNavigator1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.BindingNavigator1.Size = New System.Drawing.Size(612, 43)
+        Me.BindingNavigator1.Size = New System.Drawing.Size(816, 43)
         Me.BindingNavigator1.TabIndex = 106
         Me.BindingNavigator1.Text = "BindingNavigator1"
         '
@@ -269,7 +284,7 @@ Partial Class frmAguaRegistroConsumo_Alta
         Me.btnBack.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.btnBack.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(28, 40)
+        Me.btnBack.Size = New System.Drawing.Size(29, 40)
         Me.btnBack.Text = "ToolStripButton1"
         Me.btnBack.ToolTipText = "Regresar"
         '
@@ -294,11 +309,12 @@ Partial Class frmAguaRegistroConsumo_Alta
         'uneConsumo
         '
         Me.uneConsumo.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneConsumo.Location = New System.Drawing.Point(460, 256)
+        Me.uneConsumo.Location = New System.Drawing.Point(613, 315)
+        Me.uneConsumo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.uneConsumo.MinValue = 0
         Me.uneConsumo.Name = "uneConsumo"
         Me.uneConsumo.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneConsumo.Size = New System.Drawing.Size(100, 25)
+        Me.uneConsumo.Size = New System.Drawing.Size(133, 29)
         Me.uneConsumo.TabIndex = 107
         Me.uneConsumo.UseAppStyling = False
         '
@@ -313,13 +329,14 @@ Partial Class frmAguaRegistroConsumo_Alta
         Me.unePeriodo.Appearance = Appearance6
         Me.unePeriodo.BackColor = System.Drawing.Color.White
         Me.unePeriodo.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.unePeriodo.Location = New System.Drawing.Point(336, 137)
+        Me.unePeriodo.Location = New System.Drawing.Point(448, 169)
+        Me.unePeriodo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.unePeriodo.MaxValue = 12
         Me.unePeriodo.MinValue = 0
         Me.unePeriodo.Name = "unePeriodo"
         Me.unePeriodo.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
         Me.unePeriodo.ReadOnly = True
-        Me.unePeriodo.Size = New System.Drawing.Size(61, 25)
+        Me.unePeriodo.Size = New System.Drawing.Size(81, 29)
         Me.unePeriodo.TabIndex = 108
         Me.unePeriodo.UseAppStyling = False
         '
@@ -338,32 +355,34 @@ Partial Class frmAguaRegistroConsumo_Alta
         Me.txtRuta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtRuta.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2010
         Me.txtRuta.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRuta.Location = New System.Drawing.Point(396, 60)
+        Me.txtRuta.Location = New System.Drawing.Point(528, 74)
+        Me.txtRuta.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtRuta.MaxLength = 120
         Me.txtRuta.Multiline = True
         Me.txtRuta.Name = "txtRuta"
         Me.txtRuta.ReadOnly = True
         Me.txtRuta.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtRuta.Size = New System.Drawing.Size(67, 23)
+        Me.txtRuta.Size = New System.Drawing.Size(89, 28)
         Me.txtRuta.TabIndex = 110
         '
         'UltraLabel2
         '
         Me.UltraLabel2.AutoSize = True
         Me.UltraLabel2.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel2.Location = New System.Drawing.Point(356, 62)
+        Me.UltraLabel2.Location = New System.Drawing.Point(475, 76)
+        Me.UltraLabel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UltraLabel2.Name = "UltraLabel2"
-        Me.UltraLabel2.Size = New System.Drawing.Size(34, 16)
+        Me.UltraLabel2.Size = New System.Drawing.Size(56, 25)
         Me.UltraLabel2.TabIndex = 109
         Me.UltraLabel2.Text = "Ruta:"
         Me.UltraLabel2.UseAppStyling = False
         '
         'frmAguaRegistroConsumo_Alta
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(612, 305)
+        Me.ClientSize = New System.Drawing.Size(816, 375)
         Me.Controls.Add(Me.txtRuta)
         Me.Controls.Add(Me.UltraLabel2)
         Me.Controls.Add(Me.unePeriodo)
@@ -383,6 +402,7 @@ Partial Class frmAguaRegistroConsumo_Alta
         Me.Controls.Add(Me.UltraLabel1)
         Me.Controls.Add(Me.txtanio)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmAguaRegistroConsumo_Alta"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Registro Consumo Alta"

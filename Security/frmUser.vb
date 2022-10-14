@@ -2,165 +2,222 @@
 Imports System.ComponentModel
 Public Class frmUser
     Public id As String = "0"
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
     Private cxn As New cxnData
     Private newrow As Object
-    Public myparent As Form = Nothing
-    Private pswreq As Boolean = False
+    Public myParent As Form = Nothing
     Private Sub frmUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DsAgua.tbl_User' table. You can move, or remove it, as needed.
-        Me.Tbl_UserTableAdapter.Fill(Me.DsAgua.tbl_User)
-        'TODO: This line of code loads data into the 'DsAgua.tbl_Rol' table. You can move, or remove it, as needed.                
-        cxn.Get_SQL_Combobox("SELECT * from tbl_rol where status=0", Me.cmbRol, "RolName", "idRol")
+        Me.lblCurrentMenu.Text = Me.Text
+        TabOrderSequence(Me, SMcMaster.TabOrderManager.TabScheme.DownFirst)
+        Me.Users_ProfilesTableAdapter.Fill(Me.DsSeguridad.Users_Profiles)
+        cxn.Get_SQL_Combobox("SELECT * from tbl_rol where status=1", Me.cmbRol, "RolName", "idRol")
+        cxn.Get_SQL_Combobox("SELECT * from tb_WEBRol where status=1", Me.cmbRolWEB, "WebRolName", "idWebRol")
+        cxn.fLlenaDropDownUltra(Me.ucoPuesto, "Select pueId,pueDescripcion from puestos")
+        cxn.fLlenaDropDownUltra(ucoOficina, "Select comun, nombre from Oficinas")
         If id <> "0" Then
-            Me.BindingSource1.Position = Me.BindingSource1.Find("UserId", id)
+            Me.BindingSource1.Position = Me.BindingSource1.Find("id", id)
         End If
+
         load_Permiso()
     End Sub
     Private Sub load_Permiso()
-        Me.btnGuardar.Visible = False
-        btnElimina.Visible = False
-        Me.Text = "Detalle del Usuario "
-        Dim idrol As String = ""
-        If id <> "0" Then
-            cxn.Select_SQL("select idRol,status from tbl_User where UserId='" & Me.txtUserId.Text.Trim & "'")
-            idrol = cxn.arrayValores(0)
-            Me.cmbRol.SelectedValue = idrol
-            Me.txtPassword.Text = ""
-            Me.txtPswConfirm.Text = ""
-            Me.chkActive.Checked = IIf(cxn.arrayValores(1) = 0, True, False)
-        End If
-        If tipo_Permiso = 0 And Not delete_record Then 'Solo Lectura
-            Me.grpDatosUsr.Enabled = False
-        ElseIf tipo_Permiso = 1 And delete_record Then 'Eliminar Registro
-            Me.grpDatosUsr.Enabled = False
-            btnElimina.Visible = True
-            btnUndo.Visible = True
-        ElseIf tipo_Permiso = 1 And id <> "0" Then  'Actualizar Registro
-            Me.grpDatosUsr.Enabled = True
-            Me.btnGuardar.Visible = True
-            btnUndo.Visible = True
-            Me.txtUserId.Enabled = False
-        ElseIf tipo_Permiso = 1 And id = "0" Then 'Agregar Registro
-            Me.Text = "Nuevo Usuario"
-            Me.grpDatosUsr.Enabled = True
-            Me.btnGuardar.Visible = True
+
+        Me.btnElimina.Visible = False
+        Me.btnGuardar.Visible = IIf(id = "0", Insertar, False)
+        Me.btnEditar.Visible = IIf(id = "0", False, Editar)
+        Me.grpDatos.Enabled = IIf(id = "0", Insertar, False)
+        Me.grpSistema.Enabled = IIf(id = "0", Insertar, False)
+        Me.btnActiva.Visible = False
+        If id = "0" Then
             Me.BindingNavigator1.BindingSource.AddNew()
-            pswreq = True
+            Me.chkActive.Checked = True
+            Me.txtFechaCreacion.Text = Now
+            Me.btnReset.Visible = False
+        Else
+            cxn.Select_SQL("Select proFechaBaja from Users_Profiles where id=" & id)
+            If cxn.arrayValores(0) IsNot Nothing And cxn.arrayValores(0) <> "" And cxn.err = "" Then
+                Me.grpDatos.Enabled = False
+                Me.grpSistema.Enabled = False
+                Me.btnActiva.Visible = True
+                Me.btnEditar.Visible = False
+                Me.btnElimina.Visible = False
+                Me.btnGuardar.Visible = False
+            End If
         End If
     End Sub
     Private Function valida_datos() As Boolean
         Dim ban As Boolean = False
         Try
-            If Me.txtPassword.Text.Trim = "" And Me.txtPswConfirm.Text.Trim = "" And id <> "0" Then
-                pswreq = False
-            End If
+
             If Me.txtUserId.Text.Trim.Length > 0 Then
-                If Me.txtNombre.Text.Trim.Trim.Length > 0 Then
-                    If Me.cmbRol.SelectedIndex > 0 Then
-                        ban = True
+                If Me.txtMaterno.Text.Trim.Length > 0 And Me.txtPaterno.Text.Trim.Length > 0 And Me.txtNombre.Text.Trim.Length > 0 Then
+                    If Me.ucoOficina.SelectedRow.Index >= 0 And Me.ucoPuesto.SelectedRow.Index >= 0 Then
+                        If Me.cmbRol.SelectedIndex > 0 Then
+                            ban = True
+                            If Me.chkWEB.Checked Then
+                                If Me.cmbRolWEB.SelectedIndex > 0 Then
+                                    ban = True
+                                Else
+                                    ban = False
+                                    cMensajes.DisplayMessage(Me, "El Campo ROL WEB es requerido...", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                                    Me.cmbRolWEB.Focus()
+                                End If
+                            End If
+                        Else
+                            cMensajes.DisplayMessage(Me, "El Campo ROL es requerido...", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                            Me.cmbRol.Focus()
+                        End If
                     Else
-                        SystemMessages1.SysMsg("El campo ROL es requerido.", True)
-                        Me.cmbRol.Focus()
+                        cMensajes.DisplayMessage(Me, "Los campos Nombre, Paterno y Materno son  requeridos ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                        If ucoOficina.SelectedRow.Index = 0 Then
+                            Me.ucoOficina.Focus()
+                        Else
+                            Me.ucoPuesto.Focus()
+                        End If
                     End If
                 Else
-                    SystemMessages1.SysMsg("El campo Descripción es requerido.", True)
+                    cMensajes.DisplayMessage(Me, "Los campos Nombre, Paterno y Materno son  requeridos ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                     Me.txtNombre.Focus()
                 End If
             Else
-                SystemMessages1.SysMsg("El campo Rol es requerido.", True)
+                cMensajes.DisplayMessage(Me, "El campo UserId es requerido ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                 Me.txtUserId.Focus()
             End If
-            If pswreq Then
-                ban = False
-                If Me.txtPassword.Text.Trim <> "" Then
-                    If Me.txtPassword.Text.Trim.Length >= 7 Then
-                        If Me.txtPassword.Text.Trim.Any(AddressOf Char.IsUpper) Then
-                            If Me.txtPassword.Text.Trim.Any(AddressOf Char.IsPunctuation) Then
-                                If StrComp(Me.txtPassword.Text.Trim, Me.txtPswConfirm.Text.Trim, vbTextCompare) = 0 Then
-                                    ban = True
-                                Else
-                                    SystemMessages1.SysMsg("El Password y la confirmación deben ser iguales ", True)
-                                    Me.txtPassword.Focus()
-                                End If
-                            Else
-                                SystemMessages1.SysMsg("El Password debe tener 1 Símbolo", True)
-                                Me.txtPassword.Focus()
-                            End If
-                        Else
-                            SystemMessages1.SysMsg("El Password debe tener 1 Mayúscula", True)
-                            Me.txtPassword.Focus()
-                        End If
-                    Else
-                        SystemMessages1.SysMsg("El Password debe tener al menos 7 caracteres.", True)
-                        Me.txtPassword.Focus()
-                    End If
-                Else
-                    SystemMessages1.SysMsg("El Password es requerido.", True)
-                    Me.txtPassword.Focus()
-                End If
-            End If
         Catch ex As Exception
-
+            cMensajes.DisplayMessage(Me, "valida_datos: " & vbCrLf & ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
         End Try
         Return ban
     End Function
-    Private Sub btnCerrar_Click(sender As Object, e As EventArgs)
-        Me.Close()
-    End Sub
+
     Private Sub btnElimina_Click(sender As Object, e As EventArgs) Handles btnElimina.Click
         Try
-            If MsgBox("¿Seguro de Eliminar el Registro?", vbYesNo, "Confirmación") = vbYes Then
+            If MsgBox("¿Seguro de Desactivar el Usuario?", vbYesNo, "Confirmación") = vbYes Then
                 Me.Validate()
-                Me.BindingNavigator1.BindingSource.RemoveCurrent()
-                Me.Tbl_UserTableAdapter.Update(Me.DsAgua.tbl_User)
-                SystemMessages1.SysMsg("Datos eliminados ", )
-                MsgBox("Registro eliminado", MsgBoxStyle.Information, "Usuarios")
-                Me.Close()
-            End If
-
-        Catch ex As Exception
-            SystemMessages1.SysMsg("Error al registrar los movimientos ", True)
-        End Try
-    End Sub
-    Private Sub btnUndo_Click(sender As Object, e As EventArgs) Handles btnUndo.Click
-        Me.Close()
-    End Sub
-    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        Try
-            If valida_datos() Then
-                If tipo_Permiso = 1 And id <> "0" Then
-                    Me.Validate()
-                    Me.BindingSource1.Current("Password") = Me.txtPassword.Text
-                    id = Me.txtUserId.Text
-                    Me.BindingSource1.Current("UserId") = id
-                    Me.BindingSource1.Current("Status") = IIf(Me.chkActive.Checked, 0, 1)
-                    Me.BindingSource1.EndEdit()
-                    Me.Tbl_UserTableAdapter.Update(Me.DsAgua.tbl_User)
-                    SystemMessages1.SysMsg("Datos actualizados ")
-                Else
-                    Tbl_UserTableAdapter.Insert(Me.txtUserId.Text.Trim.ToUpperInvariant, Me.txtNombre.Text.Trim.ToUpperInvariant, Me.cmbRol.SelectedIndex, Nothing, IIf(Me.chkActive.Checked, 0, 1), Me.txtPassword.Text)
-                    Me.Tbl_UserTableAdapter.Update(Me.DsAgua.tbl_User)
-                    SystemMessages1.SysMsg("Datos Registrados ")
-                End If
-                tipo_Permiso = 1
+                cxn.Select_SQL("select getdate()")
+                Me.BindingSource1.Current("UltimaModificacion") = cxn.arrayValores(0)
+                Me.BindingSource1.Current("proFechaBaja") = cxn.arrayValores(0)
+                Me.BindingSource1.Current("proActivo") = 0
+                Me.BindingSource1.EndEdit()
+                Me.Users_ProfilesTableAdapter.Update(Me.DsSeguridad.Users_Profiles)
+                cMensajes.DisplayMessage(Me, "Usuario Eliminado... ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                 frmUser_Load(Nothing, Nothing)
             End If
         Catch ex As Exception
-            SystemMessages1.SysMsg(ex.Message, True)
+            cMensajes.DisplayMessage(Me, "Elimina " & ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
         End Try
     End Sub
-    Private Sub frmMovtosPadron_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        Dim Maintab As UltraTabControl = TryCast(myparent.Controls.Find("UltraTabControl1", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
-        Dim Mainbar As ToolStrip = TryCast(myparent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Visible = True
+
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+        Try
+            If valida_datos() Then
+                Me.cxn.Select_SQL("select getdate()")
+                If id <> "0" And Editar Then
+                    Me.Validate()
+                    Me.BindingSource1.Current("UltimaModificacion") = cxn.arrayValores(0)
+                    Me.BindingSource1.Current("proActivo") = IIf(Me.chkActive.Checked, 1, 0)
+                    Me.BindingSource1.Current("proValidaUbicacion") = IIf(Me.chkAddress.Checked, 1, 0)
+                    Me.BindingSource1.EndEdit()
+                    Me.Users_ProfilesTableAdapter.Update(Me.DsSeguridad.Users_Profiles)
+                    cMensajes.DisplayMessage(Me, "Datos Actualizados ", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1)
+                Else
+                    Dim userKey As Guid = Guid.NewGuid()
+                    Users_ProfilesTableAdapter.Insert(Me.txtUserId.Text.Trim.ToUpperInvariant,
+                                                       Me.txtNombre.Text.Trim.ToUpperInvariant,
+                                                       Me.txtPaterno.Text.Trim.ToUpperInvariant,
+                                                       Me.txtMaterno.Text.Trim.ToUpperInvariant,
+                                                       Me.ucoPuesto.Value, Me.ucoOficina.Value,
+                                                       Me.txtTelefono.Text.Trim,
+                                                       IIf(Me.chkActive.Checked, True, False),
+                                                       cxn.arrayValores(0), 'Fecha Alta
+                                                       Nothing, Nothing, IIf(Me.chkAddress.Checked, True, False),
+                                                       Me.txtNumeroCaja.Text.Trim, userKey,
+                                                       Nothing, Me.cmbRol.SelectedValue,
+                                                       Me.txtEmail.Text.Trim, Nothing, cxn.arrayValores(0),
+                                                       IIf(Me.chkWEB.Checked, True, False),
+                                                       IIf(Me.chkWEB.Checked, Me.cmbRol.SelectedValue, Nothing)
+                                                       )
+                    Me.Users_ProfilesTableAdapter.Update(Me.DsSeguridad.Users_Profiles)
+                    cxn.Select_SQL("update Users_Profiles set Password=HASHBYTES('SHA2_512', 
+                                    proUserId+CAST(UsrKey AS NVARCHAR(36))) where proUserId='" & Me.txtUserId.Text.Trim & "'")
+                    cMensajes.DisplayMessage(Me, "Usuario registrado ", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1)
+                End If
+                frmUser_Load(Nothing, Nothing)
+            End If
+        Catch ex As Exception
+            cMensajes.DisplayMessage(Me, "Guardar " & ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1)
+        End Try
+    End Sub
+    Private Sub frmUser_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        Try
+            GenericCloseChlildForm(Me)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Private Sub btnEditar_Click_1(sender As Object, e As EventArgs) Handles btnEditar.Click
+        Me.btnEditar.Visible = False
+        Me.btnGuardar.Visible = Editar
+        Me.btnElimina.Visible = Borrar
+        If Me.btnGuardar.Visible Then
+            Me.grpDatos.Enabled = True
+            Me.grpSistema.Enabled = True
+        End If
     End Sub
 
-    Private Sub txtPassword_TextChanged(sender As Object, e As EventArgs) Handles txtPassword.TextChanged
-        If Me.txtPassword.Text.Trim <> "" Or Me.txtPswConfirm.Text.Trim <> "" Then
-            pswreq = True
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        GenericCloseChlildForm(Me)
+    End Sub
+
+    Private Sub btnActiva_Click(sender As Object, e As EventArgs) Handles btnActiva.Click
+        Try
+            If MsgBox("¿Seguro de ACTIVAR el Usuario?", vbYesNo, "Confirmación") = vbYes Then
+                Me.Validate()
+                cxn.Select_SQL("select getdate()")
+                Me.BindingSource1.Current("UltimaModificacion") = cxn.arrayValores(0)
+                Me.BindingSource1.Current("proFechaBaja") = DBNull.Value
+                Me.BindingSource1.EndEdit()
+                Me.Users_ProfilesTableAdapter.Update(Me.DsSeguridad.Users_Profiles)
+                cMensajes.DisplayMessage(Me, "Usuario ACTIVADO... ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                frmUser_Load(Nothing, Nothing)
+            End If
+        Catch ex As Exception
+            cMensajes.DisplayMessage(Me, "Elimina " & ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+        End Try
+    End Sub
+
+    Private Sub BindingSource1_BindingComplete(sender As Object, e As BindingCompleteEventArgs) Handles BindingSource1.BindingComplete
+        If id <> "0" Then
+            If Me.txtBaja.Text.Trim <> "" Or Me.txtBaja.Text.Trim IsNot Nothing Then
+                Me.grpDatos.Enabled = False
+                Me.grpSistema.Enabled = False
+                Me.btnActiva.Visible = True
+                Me.btnEditar.Visible = False
+                Me.btnElimina.Visible = False
+                Me.btnGuardar.Visible = False
+            End If
         End If
+
+    End Sub
+
+    Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
+        Try
+            If MsgBox("¿Seguro de RESETEAR PASSWORD del Usuario?", vbYesNo, "Confirmación") = vbYes Then
+                cxn.Select_SQL("update Users_Profiles set UltimoAcceso=null, 
+                                    Password=HASHBYTES('SHA2_512',
+                                    proUserId+CAST(UsrKey AS NVARCHAR(36))) 
+                                where proUserId='" & Me.txtUserId.Text.Trim & "'")
+                cMensajes.DisplayMessage(Me, "Password Cambiado... ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                frmUser_Load(Nothing, Nothing)
+            End If
+        Catch ex As Exception
+            cMensajes.DisplayMessage(Me, "Elimina " & ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+        End Try
+    End Sub
+
+    Private Sub chkWEB_CheckedChanged(sender As Object, e As EventArgs) Handles chkWEB.CheckedChanged
+        Me.cmbRolWEB.Enabled = Me.chkWEB.Checked
     End Sub
 End Class

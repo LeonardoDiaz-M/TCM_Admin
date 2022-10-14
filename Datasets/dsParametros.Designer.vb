@@ -35,8 +35,6 @@ Partial Public Class dsParametros
     
     Private tabletbl_tarifas_agua As tbl_tarifas_aguaDataTable
     
-    Private tabletbl1_predial As tbl1_predialDataTable
-    
     Private tabletbl1_tarifas_agua As tbl1_tarifas_aguaDataTable
     
     Private tabletipo_inmueble As tipo_inmuebleDataTable
@@ -48,14 +46,6 @@ Partial Public Class dsParametros
     Private tabledatos_mpio As datos_mpioDataTable
     
     Private tabletbl_derechos As tbl_derechosDataTable
-    
-    Private relationtbl1_predial_tbl_predial As Global.System.Data.DataRelation
-    
-    Private relationtbl_tarifas_agua_tbl1_tarifas_agua As Global.System.Data.DataRelation
-    
-    Private relationtipo_inmueble_tbl_tarifas_agua As Global.System.Data.DataRelation
-    
-    Private relationtbl_DiametroToma_tbl_tarifas_agua As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -100,9 +90,6 @@ Partial Public Class dsParametros
             End If
             If (Not (ds.Tables("tbl_tarifas_agua")) Is Nothing) Then
                 MyBase.Tables.Add(New tbl_tarifas_aguaDataTable(ds.Tables("tbl_tarifas_agua")))
-            End If
-            If (Not (ds.Tables("tbl1_predial")) Is Nothing) Then
-                MyBase.Tables.Add(New tbl1_predialDataTable(ds.Tables("tbl1_predial")))
             End If
             If (Not (ds.Tables("tbl1_tarifas_agua")) Is Nothing) Then
                 MyBase.Tables.Add(New tbl1_tarifas_aguaDataTable(ds.Tables("tbl1_tarifas_agua")))
@@ -186,16 +173,6 @@ Partial Public Class dsParametros
     Public ReadOnly Property tbl_tarifas_agua() As tbl_tarifas_aguaDataTable
         Get
             Return Me.tabletbl_tarifas_agua
-        End Get
-    End Property
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-     Global.System.ComponentModel.Browsable(false),  _
-     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property tbl1_predial() As tbl1_predialDataTable
-        Get
-            Return Me.tabletbl1_predial
         End Get
     End Property
     
@@ -341,9 +318,6 @@ Partial Public Class dsParametros
             If (Not (ds.Tables("tbl_tarifas_agua")) Is Nothing) Then
                 MyBase.Tables.Add(New tbl_tarifas_aguaDataTable(ds.Tables("tbl_tarifas_agua")))
             End If
-            If (Not (ds.Tables("tbl1_predial")) Is Nothing) Then
-                MyBase.Tables.Add(New tbl1_predialDataTable(ds.Tables("tbl1_predial")))
-            End If
             If (Not (ds.Tables("tbl1_tarifas_agua")) Is Nothing) Then
                 MyBase.Tables.Add(New tbl1_tarifas_aguaDataTable(ds.Tables("tbl1_tarifas_agua")))
             End If
@@ -424,12 +398,6 @@ Partial Public Class dsParametros
                 Me.tabletbl_tarifas_agua.InitVars
             End If
         End If
-        Me.tabletbl1_predial = CType(MyBase.Tables("tbl1_predial"),tbl1_predialDataTable)
-        If (initTable = true) Then
-            If (Not (Me.tabletbl1_predial) Is Nothing) Then
-                Me.tabletbl1_predial.InitVars
-            End If
-        End If
         Me.tabletbl1_tarifas_agua = CType(MyBase.Tables("tbl1_tarifas_agua"),tbl1_tarifas_aguaDataTable)
         If (initTable = true) Then
             If (Not (Me.tabletbl1_tarifas_agua) Is Nothing) Then
@@ -466,10 +434,6 @@ Partial Public Class dsParametros
                 Me.tabletbl_derechos.InitVars
             End If
         End If
-        Me.relationtbl1_predial_tbl_predial = Me.Relations("tbl1_predial_tbl_predial")
-        Me.relationtbl_tarifas_agua_tbl1_tarifas_agua = Me.Relations("tbl_tarifas_agua_tbl1_tarifas_agua")
-        Me.relationtipo_inmueble_tbl_tarifas_agua = Me.Relations("tipo_inmueble_tbl_tarifas_agua")
-        Me.relationtbl_DiametroToma_tbl_tarifas_agua = Me.Relations("tbl_DiametroToma_tbl_tarifas_agua")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -490,8 +454,6 @@ Partial Public Class dsParametros
         MyBase.Tables.Add(Me.tablearc_sub)
         Me.tabletbl_tarifas_agua = New tbl_tarifas_aguaDataTable()
         MyBase.Tables.Add(Me.tabletbl_tarifas_agua)
-        Me.tabletbl1_predial = New tbl1_predialDataTable()
-        MyBase.Tables.Add(Me.tabletbl1_predial)
         Me.tabletbl1_tarifas_agua = New tbl1_tarifas_aguaDataTable()
         MyBase.Tables.Add(Me.tabletbl1_tarifas_agua)
         Me.tabletipo_inmueble = New tipo_inmuebleDataTable()
@@ -504,14 +466,6 @@ Partial Public Class dsParametros
         MyBase.Tables.Add(Me.tabledatos_mpio)
         Me.tabletbl_derechos = New tbl_derechosDataTable()
         MyBase.Tables.Add(Me.tabletbl_derechos)
-        Me.relationtbl1_predial_tbl_predial = New Global.System.Data.DataRelation("tbl1_predial_tbl_predial", New Global.System.Data.DataColumn() {Me.tabletbl1_predial.id_grupo_impColumn}, New Global.System.Data.DataColumn() {Me.tabletbl_predial.id_grupo_impColumn}, false)
-        Me.Relations.Add(Me.relationtbl1_predial_tbl_predial)
-        Me.relationtbl_tarifas_agua_tbl1_tarifas_agua = New Global.System.Data.DataRelation("tbl_tarifas_agua_tbl1_tarifas_agua", New Global.System.Data.DataColumn() {Me.tabletbl_tarifas_agua.id_grupo_aguaColumn}, New Global.System.Data.DataColumn() {Me.tabletbl1_tarifas_agua.id_grupo_aguaColumn}, false)
-        Me.Relations.Add(Me.relationtbl_tarifas_agua_tbl1_tarifas_agua)
-        Me.relationtipo_inmueble_tbl_tarifas_agua = New Global.System.Data.DataRelation("tipo_inmueble_tbl_tarifas_agua", New Global.System.Data.DataColumn() {Me.tabletipo_inmueble.claveColumn}, New Global.System.Data.DataColumn() {Me.tabletbl_tarifas_agua.tipo_inmuebleColumn}, false)
-        Me.Relations.Add(Me.relationtipo_inmueble_tbl_tarifas_agua)
-        Me.relationtbl_DiametroToma_tbl_tarifas_agua = New Global.System.Data.DataRelation("tbl_DiametroToma_tbl_tarifas_agua", New Global.System.Data.DataColumn() {Me.tabletbl_DiametroToma.idTomaColumn}, New Global.System.Data.DataColumn() {Me.tabletbl_tarifas_agua.diametro_tomaColumn}, false)
-        Me.Relations.Add(Me.relationtbl_DiametroToma_tbl_tarifas_agua)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -541,12 +495,6 @@ Partial Public Class dsParametros
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Private Function ShouldSerializetbl_tarifas_agua() As Boolean
-        Return false
-    End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Private Function ShouldSerializetbl1_predial() As Boolean
         Return false
     End Function
     
@@ -658,9 +606,6 @@ Partial Public Class dsParametros
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Public Delegate Sub tbl_tarifas_aguaRowChangeEventHandler(ByVal sender As Object, ByVal e As tbl_tarifas_aguaRowChangeEvent)
-    
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Delegate Sub tbl1_predialRowChangeEventHandler(ByVal sender As Object, ByVal e As tbl1_predialRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Public Delegate Sub tbl1_tarifas_aguaRowChangeEventHandler(ByVal sender As Object, ByVal e As tbl1_tarifas_aguaRowChangeEvent)
@@ -1598,33 +1543,17 @@ Partial Public Class dsParametros
         
         Private columnid_tarifa_predial As Global.System.Data.DataColumn
         
-        Private columnid_grupo_imp As Global.System.Data.DataColumn
-        
         Private columnaño_fiscal As Global.System.Data.DataColumn
         
         Private columnlim_inferior As Global.System.Data.DataColumn
         
         Private columnlim_superior As Global.System.Data.DataColumn
         
-        Private columnlim_inf_terr As Global.System.Data.DataColumn
-        
-        Private columnlim_sup_terr As Global.System.Data.DataColumn
-        
-        Private columnlim_inf_cons As Global.System.Data.DataColumn
-        
-        Private columnlim_sup_cons As Global.System.Data.DataColumn
-        
         Private columncuota_fija As Global.System.Data.DataColumn
         
         Private columnfactor_valor As Global.System.Data.DataColumn
         
-        Private columnfactor_terreno As Global.System.Data.DataColumn
-        
-        Private columnfactor_construc As Global.System.Data.DataColumn
-        
         Private columnfracc_articulo As Global.System.Data.DataColumn
-        
-        Private columngpo_mun As Global.System.Data.DataColumn
         
         Private columntip_impuesto As Global.System.Data.DataColumn
         
@@ -1673,14 +1602,6 @@ Partial Public Class dsParametros
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property id_grupo_impColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnid_grupo_imp
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property año_fiscalColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnaño_fiscal
@@ -1705,38 +1626,6 @@ Partial Public Class dsParametros
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property lim_inf_terrColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnlim_inf_terr
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property lim_sup_terrColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnlim_sup_terr
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property lim_inf_consColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnlim_inf_cons
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property lim_sup_consColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnlim_sup_cons
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property cuota_fijaColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columncuota_fija
@@ -1753,33 +1642,9 @@ Partial Public Class dsParametros
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property factor_terrenoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnfactor_terreno
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property factor_construcColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnfactor_construc
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property fracc_articuloColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnfracc_articulo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property gpo_munColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columngpo_mun
             End Get
         End Property
         
@@ -1828,12 +1693,9 @@ Partial Public Class dsParametros
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function Addtbl_predialRow(ByVal parenttbl1_predialRowBytbl1_predial_tbl_predial As tbl1_predialRow, ByVal año_fiscal As Decimal, ByVal lim_inferior As Decimal, ByVal lim_superior As Decimal, ByVal lim_inf_terr As Decimal, ByVal lim_sup_terr As Decimal, ByVal lim_inf_cons As Decimal, ByVal lim_sup_cons As Decimal, ByVal cuota_fija As Decimal, ByVal factor_valor As Decimal, ByVal factor_terreno As Decimal, ByVal factor_construc As Decimal, ByVal fracc_articulo As String, ByVal gpo_mun As Decimal, ByVal tip_impuesto As String) As tbl_predialRow
+        Public Overloads Function Addtbl_predialRow(ByVal año_fiscal As Decimal, ByVal lim_inferior As Decimal, ByVal lim_superior As Decimal, ByVal cuota_fija As Decimal, ByVal factor_valor As Decimal, ByVal fracc_articulo As String, ByVal tip_impuesto As String) As tbl_predialRow
             Dim rowtbl_predialRow As tbl_predialRow = CType(Me.NewRow,tbl_predialRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, año_fiscal, lim_inferior, lim_superior, lim_inf_terr, lim_sup_terr, lim_inf_cons, lim_sup_cons, cuota_fija, factor_valor, factor_terreno, factor_construc, fracc_articulo, gpo_mun, tip_impuesto}
-            If (Not (parenttbl1_predialRowBytbl1_predial_tbl_predial) Is Nothing) Then
-                columnValuesArray(1) = parenttbl1_predialRowBytbl1_predial_tbl_predial(0)
-            End If
+            Dim columnValuesArray() As Object = New Object() {Nothing, año_fiscal, lim_inferior, lim_superior, cuota_fija, factor_valor, fracc_articulo, tip_impuesto}
             rowtbl_predialRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowtbl_predialRow)
             Return rowtbl_predialRow
@@ -1863,20 +1725,12 @@ Partial Public Class dsParametros
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnid_tarifa_predial = MyBase.Columns("id_tarifa_predial")
-            Me.columnid_grupo_imp = MyBase.Columns("id_grupo_imp")
             Me.columnaño_fiscal = MyBase.Columns("año_fiscal")
             Me.columnlim_inferior = MyBase.Columns("lim_inferior")
             Me.columnlim_superior = MyBase.Columns("lim_superior")
-            Me.columnlim_inf_terr = MyBase.Columns("lim_inf_terr")
-            Me.columnlim_sup_terr = MyBase.Columns("lim_sup_terr")
-            Me.columnlim_inf_cons = MyBase.Columns("lim_inf_cons")
-            Me.columnlim_sup_cons = MyBase.Columns("lim_sup_cons")
             Me.columncuota_fija = MyBase.Columns("cuota_fija")
             Me.columnfactor_valor = MyBase.Columns("factor_valor")
-            Me.columnfactor_terreno = MyBase.Columns("factor_terreno")
-            Me.columnfactor_construc = MyBase.Columns("factor_construc")
             Me.columnfracc_articulo = MyBase.Columns("fracc_articulo")
-            Me.columngpo_mun = MyBase.Columns("gpo_mun")
             Me.columntip_impuesto = MyBase.Columns("tip_impuesto")
         End Sub
         
@@ -1885,34 +1739,18 @@ Partial Public Class dsParametros
         Private Sub InitClass()
             Me.columnid_tarifa_predial = New Global.System.Data.DataColumn("id_tarifa_predial", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnid_tarifa_predial)
-            Me.columnid_grupo_imp = New Global.System.Data.DataColumn("id_grupo_imp", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnid_grupo_imp)
             Me.columnaño_fiscal = New Global.System.Data.DataColumn("año_fiscal", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnaño_fiscal)
             Me.columnlim_inferior = New Global.System.Data.DataColumn("lim_inferior", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnlim_inferior)
             Me.columnlim_superior = New Global.System.Data.DataColumn("lim_superior", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnlim_superior)
-            Me.columnlim_inf_terr = New Global.System.Data.DataColumn("lim_inf_terr", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnlim_inf_terr)
-            Me.columnlim_sup_terr = New Global.System.Data.DataColumn("lim_sup_terr", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnlim_sup_terr)
-            Me.columnlim_inf_cons = New Global.System.Data.DataColumn("lim_inf_cons", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnlim_inf_cons)
-            Me.columnlim_sup_cons = New Global.System.Data.DataColumn("lim_sup_cons", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnlim_sup_cons)
             Me.columncuota_fija = New Global.System.Data.DataColumn("cuota_fija", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncuota_fija)
             Me.columnfactor_valor = New Global.System.Data.DataColumn("factor_valor", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnfactor_valor)
-            Me.columnfactor_terreno = New Global.System.Data.DataColumn("factor_terreno", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnfactor_terreno)
-            Me.columnfactor_construc = New Global.System.Data.DataColumn("factor_construc", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnfactor_construc)
             Me.columnfracc_articulo = New Global.System.Data.DataColumn("fracc_articulo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnfracc_articulo)
-            Me.columngpo_mun = New Global.System.Data.DataColumn("gpo_mun", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columngpo_mun)
             Me.columntip_impuesto = New Global.System.Data.DataColumn("tip_impuesto", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntip_impuesto)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid_tarifa_predial}, true))
@@ -2577,12 +2415,6 @@ Partial Public Class dsParametros
         
         Private columnid_tarifa As Global.System.Data.DataColumn
         
-        Private columnid_grupo_agua As Global.System.Data.DataColumn
-        
-        Private columntipo_inmueble As Global.System.Data.DataColumn
-        
-        Private columndiametro_toma As Global.System.Data.DataColumn
-        
         Private columnlim_inferior As Global.System.Data.DataColumn
         
         Private columnlim_superior As Global.System.Data.DataColumn
@@ -2590,6 +2422,26 @@ Partial Public Class dsParametros
         Private columncuota_minima As Global.System.Data.DataColumn
         
         Private columnfactor As Global.System.Data.DataColumn
+        
+        Private columntipo_inmueble As Global.System.Data.DataColumn
+        
+        Private columndiametro_toma As Global.System.Data.DataColumn
+        
+        Private columnaño_fiscal As Global.System.Data.DataColumn
+        
+        Private columntip_usuario As Global.System.Data.DataColumn
+        
+        Private columntipo_servicio As Global.System.Data.DataColumn
+        
+        Private columnfracc_articulo As Global.System.Data.DataColumn
+        
+        Private columngpo_mun As Global.System.Data.DataColumn
+        
+        Private columndesc_tarifa As Global.System.Data.DataColumn
+        
+        Private columntipo_cuota As Global.System.Data.DataColumn
+        
+        Private columnobservacion As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -2636,30 +2488,6 @@ Partial Public Class dsParametros
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property id_grupo_aguaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnid_grupo_agua
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property tipo_inmuebleColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columntipo_inmueble
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property diametro_tomaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columndiametro_toma
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property lim_inferiorColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnlim_inferior
@@ -2687,6 +2515,86 @@ Partial Public Class dsParametros
         Public ReadOnly Property factorColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnfactor
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property tipo_inmuebleColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntipo_inmueble
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property diametro_tomaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndiametro_toma
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property año_fiscalColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnaño_fiscal
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property tip_usuarioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntip_usuario
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property tipo_servicioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntipo_servicio
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property fracc_articuloColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfracc_articulo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property gpo_munColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columngpo_mun
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property desc_tarifaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndesc_tarifa
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property tipo_cuotaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntipo_cuota
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property observacionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnobservacion
             End Get
         End Property
         
@@ -2727,15 +2635,9 @@ Partial Public Class dsParametros
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function Addtbl_tarifas_aguaRow(ByVal id_grupo_agua As Integer, ByVal parenttipo_inmuebleRowBytipo_inmueble_tbl_tarifas_agua As tipo_inmuebleRow, ByVal parenttbl_DiametroTomaRowBytbl_DiametroToma_tbl_tarifas_agua As tbl_DiametroTomaRow, ByVal lim_inferior As Decimal, ByVal lim_superior As Decimal, ByVal cuota_minima As Decimal, ByVal factor As Decimal) As tbl_tarifas_aguaRow
+        Public Overloads Function Addtbl_tarifas_aguaRow(ByVal lim_inferior As Decimal, ByVal lim_superior As Decimal, ByVal cuota_minima As Decimal, ByVal factor As Decimal, ByVal tipo_inmueble As Decimal, ByVal diametro_toma As Decimal, ByVal año_fiscal As Decimal, ByVal tip_usuario As Decimal, ByVal tipo_servicio As Decimal, ByVal fracc_articulo As String, ByVal gpo_mun As Decimal, ByVal desc_tarifa As String, ByVal tipo_cuota As Decimal, ByVal observacion As String) As tbl_tarifas_aguaRow
             Dim rowtbl_tarifas_aguaRow As tbl_tarifas_aguaRow = CType(Me.NewRow,tbl_tarifas_aguaRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, id_grupo_agua, Nothing, Nothing, lim_inferior, lim_superior, cuota_minima, factor}
-            If (Not (parenttipo_inmuebleRowBytipo_inmueble_tbl_tarifas_agua) Is Nothing) Then
-                columnValuesArray(2) = parenttipo_inmuebleRowBytipo_inmueble_tbl_tarifas_agua(0)
-            End If
-            If (Not (parenttbl_DiametroTomaRowBytbl_DiametroToma_tbl_tarifas_agua) Is Nothing) Then
-                columnValuesArray(3) = parenttbl_DiametroTomaRowBytbl_DiametroToma_tbl_tarifas_agua(0)
-            End If
+            Dim columnValuesArray() As Object = New Object() {Nothing, lim_inferior, lim_superior, cuota_minima, factor, tipo_inmueble, diametro_toma, año_fiscal, tip_usuario, tipo_servicio, fracc_articulo, gpo_mun, desc_tarifa, tipo_cuota, observacion}
             rowtbl_tarifas_aguaRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowtbl_tarifas_aguaRow)
             Return rowtbl_tarifas_aguaRow
@@ -2765,13 +2667,20 @@ Partial Public Class dsParametros
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnid_tarifa = MyBase.Columns("id_tarifa")
-            Me.columnid_grupo_agua = MyBase.Columns("id_grupo_agua")
-            Me.columntipo_inmueble = MyBase.Columns("tipo_inmueble")
-            Me.columndiametro_toma = MyBase.Columns("diametro_toma")
             Me.columnlim_inferior = MyBase.Columns("lim_inferior")
             Me.columnlim_superior = MyBase.Columns("lim_superior")
             Me.columncuota_minima = MyBase.Columns("cuota_minima")
             Me.columnfactor = MyBase.Columns("factor")
+            Me.columntipo_inmueble = MyBase.Columns("tipo_inmueble")
+            Me.columndiametro_toma = MyBase.Columns("diametro_toma")
+            Me.columnaño_fiscal = MyBase.Columns("año_fiscal")
+            Me.columntip_usuario = MyBase.Columns("tip_usuario")
+            Me.columntipo_servicio = MyBase.Columns("tipo_servicio")
+            Me.columnfracc_articulo = MyBase.Columns("fracc_articulo")
+            Me.columngpo_mun = MyBase.Columns("gpo_mun")
+            Me.columndesc_tarifa = MyBase.Columns("desc_tarifa")
+            Me.columntipo_cuota = MyBase.Columns("tipo_cuota")
+            Me.columnobservacion = MyBase.Columns("observacion")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2779,12 +2688,6 @@ Partial Public Class dsParametros
         Private Sub InitClass()
             Me.columnid_tarifa = New Global.System.Data.DataColumn("id_tarifa", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnid_tarifa)
-            Me.columnid_grupo_agua = New Global.System.Data.DataColumn("id_grupo_agua", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnid_grupo_agua)
-            Me.columntipo_inmueble = New Global.System.Data.DataColumn("tipo_inmueble", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columntipo_inmueble)
-            Me.columndiametro_toma = New Global.System.Data.DataColumn("diametro_toma", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndiametro_toma)
             Me.columnlim_inferior = New Global.System.Data.DataColumn("lim_inferior", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnlim_inferior)
             Me.columnlim_superior = New Global.System.Data.DataColumn("lim_superior", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
@@ -2793,6 +2696,26 @@ Partial Public Class dsParametros
             MyBase.Columns.Add(Me.columncuota_minima)
             Me.columnfactor = New Global.System.Data.DataColumn("factor", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnfactor)
+            Me.columntipo_inmueble = New Global.System.Data.DataColumn("tipo_inmueble", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntipo_inmueble)
+            Me.columndiametro_toma = New Global.System.Data.DataColumn("diametro_toma", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndiametro_toma)
+            Me.columnaño_fiscal = New Global.System.Data.DataColumn("año_fiscal", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnaño_fiscal)
+            Me.columntip_usuario = New Global.System.Data.DataColumn("tip_usuario", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntip_usuario)
+            Me.columntipo_servicio = New Global.System.Data.DataColumn("tipo_servicio", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntipo_servicio)
+            Me.columnfracc_articulo = New Global.System.Data.DataColumn("fracc_articulo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfracc_articulo)
+            Me.columngpo_mun = New Global.System.Data.DataColumn("gpo_mun", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columngpo_mun)
+            Me.columndesc_tarifa = New Global.System.Data.DataColumn("desc_tarifa", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndesc_tarifa)
+            Me.columntipo_cuota = New Global.System.Data.DataColumn("tipo_cuota", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntipo_cuota)
+            Me.columnobservacion = New Global.System.Data.DataColumn("observacion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnobservacion)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid_tarifa}, true))
             Me.columnid_tarifa.AutoIncrement = true
             Me.columnid_tarifa.AutoIncrementSeed = -1
@@ -2800,6 +2723,9 @@ Partial Public Class dsParametros
             Me.columnid_tarifa.AllowDBNull = false
             Me.columnid_tarifa.ReadOnly = true
             Me.columnid_tarifa.Unique = true
+            Me.columnfracc_articulo.MaxLength = 10
+            Me.columndesc_tarifa.MaxLength = 40
+            Me.columnobservacion.MaxLength = 40
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2886,328 +2812,6 @@ Partial Public Class dsParametros
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "tbl_tarifas_aguaDataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class tbl1_predialDataTable
-        Inherits Global.System.Data.TypedTableBase(Of tbl1_predialRow)
-        
-        Private columnid_grupo_imp As Global.System.Data.DataColumn
-        
-        Private columnaño_fiscal As Global.System.Data.DataColumn
-        
-        Private columntip_impuesto As Global.System.Data.DataColumn
-        
-        Private columnfracc_articulo As Global.System.Data.DataColumn
-        
-        Private columngpo_mun As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "tbl1_predial"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property id_grupo_impColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnid_grupo_imp
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property año_fiscalColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnaño_fiscal
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property tip_impuestoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columntip_impuesto
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property fracc_articuloColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnfracc_articulo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property gpo_munColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columngpo_mun
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As tbl1_predialRow
-            Get
-                Return CType(Me.Rows(index),tbl1_predialRow)
-            End Get
-        End Property
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event tbl1_predialRowChanging As tbl1_predialRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event tbl1_predialRowChanged As tbl1_predialRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event tbl1_predialRowDeleting As tbl1_predialRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event tbl1_predialRowDeleted As tbl1_predialRowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Sub Addtbl1_predialRow(ByVal row As tbl1_predialRow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function Addtbl1_predialRow(ByVal año_fiscal As Decimal, ByVal tip_impuesto As String, ByVal fracc_articulo As String, ByVal gpo_mun As Decimal) As tbl1_predialRow
-            Dim rowtbl1_predialRow As tbl1_predialRow = CType(Me.NewRow,tbl1_predialRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, año_fiscal, tip_impuesto, fracc_articulo, gpo_mun}
-            rowtbl1_predialRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowtbl1_predialRow)
-            Return rowtbl1_predialRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindByaño_fiscaltip_impuestofracc_articulogpo_mun(ByVal año_fiscal As Decimal, ByVal tip_impuesto As String, ByVal fracc_articulo As String, ByVal gpo_mun As Decimal) As tbl1_predialRow
-            Return CType(Me.Rows.Find(New Object() {año_fiscal, tip_impuesto, fracc_articulo, gpo_mun}),tbl1_predialRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As tbl1_predialDataTable = CType(MyBase.Clone,tbl1_predialDataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New tbl1_predialDataTable()
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Friend Sub InitVars()
-            Me.columnid_grupo_imp = MyBase.Columns("id_grupo_imp")
-            Me.columnaño_fiscal = MyBase.Columns("año_fiscal")
-            Me.columntip_impuesto = MyBase.Columns("tip_impuesto")
-            Me.columnfracc_articulo = MyBase.Columns("fracc_articulo")
-            Me.columngpo_mun = MyBase.Columns("gpo_mun")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Private Sub InitClass()
-            Me.columnid_grupo_imp = New Global.System.Data.DataColumn("id_grupo_imp", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnid_grupo_imp)
-            Me.columnaño_fiscal = New Global.System.Data.DataColumn("año_fiscal", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnaño_fiscal)
-            Me.columntip_impuesto = New Global.System.Data.DataColumn("tip_impuesto", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columntip_impuesto)
-            Me.columnfracc_articulo = New Global.System.Data.DataColumn("fracc_articulo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnfracc_articulo)
-            Me.columngpo_mun = New Global.System.Data.DataColumn("gpo_mun", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columngpo_mun)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnaño_fiscal, Me.columntip_impuesto, Me.columnfracc_articulo, Me.columngpo_mun}, true))
-            Me.columnid_grupo_imp.AutoIncrement = true
-            Me.columnid_grupo_imp.AutoIncrementSeed = -1
-            Me.columnid_grupo_imp.AutoIncrementStep = -1
-            Me.columnid_grupo_imp.AllowDBNull = false
-            Me.columnid_grupo_imp.ReadOnly = true
-            Me.columnaño_fiscal.AllowDBNull = false
-            Me.columntip_impuesto.AllowDBNull = false
-            Me.columntip_impuesto.MaxLength = 1
-            Me.columnfracc_articulo.AllowDBNull = false
-            Me.columnfracc_articulo.MaxLength = 4
-            Me.columngpo_mun.AllowDBNull = false
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Newtbl1_predialRow() As tbl1_predialRow
-            Return CType(Me.NewRow,tbl1_predialRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New tbl1_predialRow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(tbl1_predialRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.tbl1_predialRowChangedEvent) Is Nothing) Then
-                RaiseEvent tbl1_predialRowChanged(Me, New tbl1_predialRowChangeEvent(CType(e.Row,tbl1_predialRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.tbl1_predialRowChangingEvent) Is Nothing) Then
-                RaiseEvent tbl1_predialRowChanging(Me, New tbl1_predialRowChangeEvent(CType(e.Row,tbl1_predialRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.tbl1_predialRowDeletedEvent) Is Nothing) Then
-                RaiseEvent tbl1_predialRowDeleted(Me, New tbl1_predialRowChangeEvent(CType(e.Row,tbl1_predialRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.tbl1_predialRowDeletingEvent) Is Nothing) Then
-                RaiseEvent tbl1_predialRowDeleting(Me, New tbl1_predialRowChangeEvent(CType(e.Row,tbl1_predialRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Removetbl1_predialRow(ByVal row As tbl1_predialRow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As dsParametros = New dsParametros()
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "tbl1_predialDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -6088,21 +5692,6 @@ Partial Public Class dsParametros
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property id_grupo_imp() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tabletbl_predial.id_grupo_impColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'id_grupo_imp' de la tabla 'tbl_predial' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletbl_predial.id_grupo_impColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property año_fiscal() As Decimal
             Get
                 Try 
@@ -6148,66 +5737,6 @@ Partial Public Class dsParametros
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property lim_inf_terr() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tabletbl_predial.lim_inf_terrColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'lim_inf_terr' de la tabla 'tbl_predial' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletbl_predial.lim_inf_terrColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property lim_sup_terr() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tabletbl_predial.lim_sup_terrColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'lim_sup_terr' de la tabla 'tbl_predial' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletbl_predial.lim_sup_terrColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property lim_inf_cons() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tabletbl_predial.lim_inf_consColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'lim_inf_cons' de la tabla 'tbl_predial' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletbl_predial.lim_inf_consColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property lim_sup_cons() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tabletbl_predial.lim_sup_consColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'lim_sup_cons' de la tabla 'tbl_predial' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletbl_predial.lim_sup_consColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property cuota_fija() As Decimal
             Get
                 Try 
@@ -6238,36 +5767,6 @@ Partial Public Class dsParametros
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property factor_terreno() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tabletbl_predial.factor_terrenoColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'factor_terreno' de la tabla 'tbl_predial' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletbl_predial.factor_terrenoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property factor_construc() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tabletbl_predial.factor_construcColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'factor_construc' de la tabla 'tbl_predial' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletbl_predial.factor_construcColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property fracc_articulo() As String
             Get
                 Try 
@@ -6278,21 +5777,6 @@ Partial Public Class dsParametros
             End Get
             Set
                 Me(Me.tabletbl_predial.fracc_articuloColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property gpo_mun() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tabletbl_predial.gpo_munColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'gpo_mun' de la tabla 'tbl_predial' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletbl_predial.gpo_munColumn) = value
             End Set
         End Property
         
@@ -6310,29 +5794,6 @@ Partial Public Class dsParametros
                 Me(Me.tabletbl_predial.tip_impuestoColumn) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property tbl1_predialRow() As tbl1_predialRow
-            Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("tbl1_predial_tbl_predial")),tbl1_predialRow)
-            End Get
-            Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("tbl1_predial_tbl_predial"))
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isid_grupo_impNull() As Boolean
-            Return Me.IsNull(Me.tabletbl_predial.id_grupo_impColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setid_grupo_impNull()
-            Me(Me.tabletbl_predial.id_grupo_impColumn) = Global.System.Convert.DBNull
-        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -6372,54 +5833,6 @@ Partial Public Class dsParametros
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Islim_inf_terrNull() As Boolean
-            Return Me.IsNull(Me.tabletbl_predial.lim_inf_terrColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setlim_inf_terrNull()
-            Me(Me.tabletbl_predial.lim_inf_terrColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Islim_sup_terrNull() As Boolean
-            Return Me.IsNull(Me.tabletbl_predial.lim_sup_terrColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setlim_sup_terrNull()
-            Me(Me.tabletbl_predial.lim_sup_terrColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Islim_inf_consNull() As Boolean
-            Return Me.IsNull(Me.tabletbl_predial.lim_inf_consColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setlim_inf_consNull()
-            Me(Me.tabletbl_predial.lim_inf_consColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Islim_sup_consNull() As Boolean
-            Return Me.IsNull(Me.tabletbl_predial.lim_sup_consColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setlim_sup_consNull()
-            Me(Me.tabletbl_predial.lim_sup_consColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Iscuota_fijaNull() As Boolean
             Return Me.IsNull(Me.tabletbl_predial.cuota_fijaColumn)
         End Function
@@ -6444,30 +5857,6 @@ Partial Public Class dsParametros
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isfactor_terrenoNull() As Boolean
-            Return Me.IsNull(Me.tabletbl_predial.factor_terrenoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setfactor_terrenoNull()
-            Me(Me.tabletbl_predial.factor_terrenoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isfactor_construcNull() As Boolean
-            Return Me.IsNull(Me.tabletbl_predial.factor_construcColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setfactor_construcNull()
-            Me(Me.tabletbl_predial.factor_construcColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Isfracc_articuloNull() As Boolean
             Return Me.IsNull(Me.tabletbl_predial.fracc_articuloColumn)
         End Function
@@ -6476,18 +5865,6 @@ Partial Public Class dsParametros
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Setfracc_articuloNull()
             Me(Me.tabletbl_predial.fracc_articuloColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isgpo_munNull() As Boolean
-            Return Me.IsNull(Me.tabletbl_predial.gpo_munColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setgpo_munNull()
-            Me(Me.tabletbl_predial.gpo_munColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6750,51 +6127,6 @@ Partial Public Class dsParametros
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property id_grupo_agua() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tabletbl_tarifas_agua.id_grupo_aguaColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'id_grupo_agua' de la tabla 'tbl_tarifas_agua' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletbl_tarifas_agua.id_grupo_aguaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property tipo_inmueble() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tabletbl_tarifas_agua.tipo_inmuebleColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'tipo_inmueble' de la tabla 'tbl_tarifas_agua' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletbl_tarifas_agua.tipo_inmuebleColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property diametro_toma() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tabletbl_tarifas_agua.diametro_tomaColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'diametro_toma' de la tabla 'tbl_tarifas_agua' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletbl_tarifas_agua.diametro_tomaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property lim_inferior() As Decimal
             Get
                 Try 
@@ -6855,61 +6187,154 @@ Partial Public Class dsParametros
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property tipo_inmuebleRow() As tipo_inmuebleRow
+        Public Property tipo_inmueble() As Decimal
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("tipo_inmueble_tbl_tarifas_agua")),tipo_inmuebleRow)
+                Try 
+                    Return CType(Me(Me.tabletbl_tarifas_agua.tipo_inmuebleColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'tipo_inmueble' de la tabla 'tbl_tarifas_agua' es DBNull.", e)
+                End Try
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("tipo_inmueble_tbl_tarifas_agua"))
+                Me(Me.tabletbl_tarifas_agua.tipo_inmuebleColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property tbl_DiametroTomaRow() As tbl_DiametroTomaRow
+        Public Property diametro_toma() As Decimal
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("tbl_DiametroToma_tbl_tarifas_agua")),tbl_DiametroTomaRow)
+                Try 
+                    Return CType(Me(Me.tabletbl_tarifas_agua.diametro_tomaColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'diametro_toma' de la tabla 'tbl_tarifas_agua' es DBNull.", e)
+                End Try
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("tbl_DiametroToma_tbl_tarifas_agua"))
+                Me(Me.tabletbl_tarifas_agua.diametro_tomaColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isid_grupo_aguaNull() As Boolean
-            Return Me.IsNull(Me.tabletbl_tarifas_agua.id_grupo_aguaColumn)
-        End Function
+        Public Property año_fiscal() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tabletbl_tarifas_agua.año_fiscalColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'año_fiscal' de la tabla 'tbl_tarifas_agua' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletbl_tarifas_agua.año_fiscalColumn) = value
+            End Set
+        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setid_grupo_aguaNull()
-            Me(Me.tabletbl_tarifas_agua.id_grupo_aguaColumn) = Global.System.Convert.DBNull
-        End Sub
+        Public Property tip_usuario() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tabletbl_tarifas_agua.tip_usuarioColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'tip_usuario' de la tabla 'tbl_tarifas_agua' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletbl_tarifas_agua.tip_usuarioColumn) = value
+            End Set
+        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Istipo_inmuebleNull() As Boolean
-            Return Me.IsNull(Me.tabletbl_tarifas_agua.tipo_inmuebleColumn)
-        End Function
+        Public Property tipo_servicio() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tabletbl_tarifas_agua.tipo_servicioColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'tipo_servicio' de la tabla 'tbl_tarifas_agua' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletbl_tarifas_agua.tipo_servicioColumn) = value
+            End Set
+        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Settipo_inmuebleNull()
-            Me(Me.tabletbl_tarifas_agua.tipo_inmuebleColumn) = Global.System.Convert.DBNull
-        End Sub
+        Public Property fracc_articulo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabletbl_tarifas_agua.fracc_articuloColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'fracc_articulo' de la tabla 'tbl_tarifas_agua' es DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletbl_tarifas_agua.fracc_articuloColumn) = value
+            End Set
+        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isdiametro_tomaNull() As Boolean
-            Return Me.IsNull(Me.tabletbl_tarifas_agua.diametro_tomaColumn)
-        End Function
+        Public Property gpo_mun() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tabletbl_tarifas_agua.gpo_munColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'gpo_mun' de la tabla 'tbl_tarifas_agua' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletbl_tarifas_agua.gpo_munColumn) = value
+            End Set
+        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setdiametro_tomaNull()
-            Me(Me.tabletbl_tarifas_agua.diametro_tomaColumn) = Global.System.Convert.DBNull
-        End Sub
+        Public Property desc_tarifa() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabletbl_tarifas_agua.desc_tarifaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'desc_tarifa' de la tabla 'tbl_tarifas_agua' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletbl_tarifas_agua.desc_tarifaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property tipo_cuota() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tabletbl_tarifas_agua.tipo_cuotaColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'tipo_cuota' de la tabla 'tbl_tarifas_agua' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletbl_tarifas_agua.tipo_cuotaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property observacion() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabletbl_tarifas_agua.observacionColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'observacion' de la tabla 'tbl_tarifas_agua' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletbl_tarifas_agua.observacionColumn) = value
+            End Set
+        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -6961,94 +6386,123 @@ Partial Public Class dsParametros
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Gettbl1_tarifas_aguaRows() As tbl1_tarifas_aguaRow()
-            If (Me.Table.ChildRelations("tbl_tarifas_agua_tbl1_tarifas_agua") Is Nothing) Then
-                Return New tbl1_tarifas_aguaRow(-1) {}
-            Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("tbl_tarifas_agua_tbl1_tarifas_agua")),tbl1_tarifas_aguaRow())
-            End If
+        Public Function Istipo_inmuebleNull() As Boolean
+            Return Me.IsNull(Me.tabletbl_tarifas_agua.tipo_inmuebleColumn)
         End Function
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    Partial Public Class tbl1_predialRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tabletbl1_predial As tbl1_predialDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tabletbl1_predial = CType(Me.Table,tbl1_predialDataTable)
+        Public Sub Settipo_inmuebleNull()
+            Me(Me.tabletbl_tarifas_agua.tipo_inmuebleColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property id_grupo_imp() As Integer
-            Get
-                Return CType(Me(Me.tabletbl1_predial.id_grupo_impColumn),Integer)
-            End Get
-            Set
-                Me(Me.tabletbl1_predial.id_grupo_impColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property año_fiscal() As Decimal
-            Get
-                Return CType(Me(Me.tabletbl1_predial.año_fiscalColumn),Decimal)
-            End Get
-            Set
-                Me(Me.tabletbl1_predial.año_fiscalColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property tip_impuesto() As String
-            Get
-                Return CType(Me(Me.tabletbl1_predial.tip_impuestoColumn),String)
-            End Get
-            Set
-                Me(Me.tabletbl1_predial.tip_impuestoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property fracc_articulo() As String
-            Get
-                Return CType(Me(Me.tabletbl1_predial.fracc_articuloColumn),String)
-            End Get
-            Set
-                Me(Me.tabletbl1_predial.fracc_articuloColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property gpo_mun() As Decimal
-            Get
-                Return CType(Me(Me.tabletbl1_predial.gpo_munColumn),Decimal)
-            End Get
-            Set
-                Me(Me.tabletbl1_predial.gpo_munColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Gettbl_predialRows() As tbl_predialRow()
-            If (Me.Table.ChildRelations("tbl1_predial_tbl_predial") Is Nothing) Then
-                Return New tbl_predialRow(-1) {}
-            Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("tbl1_predial_tbl_predial")),tbl_predialRow())
-            End If
+        Public Function Isdiametro_tomaNull() As Boolean
+            Return Me.IsNull(Me.tabletbl_tarifas_agua.diametro_tomaColumn)
         End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setdiametro_tomaNull()
+            Me(Me.tabletbl_tarifas_agua.diametro_tomaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Isaño_fiscalNull() As Boolean
+            Return Me.IsNull(Me.tabletbl_tarifas_agua.año_fiscalColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setaño_fiscalNull()
+            Me(Me.tabletbl_tarifas_agua.año_fiscalColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Istip_usuarioNull() As Boolean
+            Return Me.IsNull(Me.tabletbl_tarifas_agua.tip_usuarioColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Settip_usuarioNull()
+            Me(Me.tabletbl_tarifas_agua.tip_usuarioColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Istipo_servicioNull() As Boolean
+            Return Me.IsNull(Me.tabletbl_tarifas_agua.tipo_servicioColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Settipo_servicioNull()
+            Me(Me.tabletbl_tarifas_agua.tipo_servicioColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Isfracc_articuloNull() As Boolean
+            Return Me.IsNull(Me.tabletbl_tarifas_agua.fracc_articuloColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setfracc_articuloNull()
+            Me(Me.tabletbl_tarifas_agua.fracc_articuloColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Isgpo_munNull() As Boolean
+            Return Me.IsNull(Me.tabletbl_tarifas_agua.gpo_munColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setgpo_munNull()
+            Me(Me.tabletbl_tarifas_agua.gpo_munColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Isdesc_tarifaNull() As Boolean
+            Return Me.IsNull(Me.tabletbl_tarifas_agua.desc_tarifaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setdesc_tarifaNull()
+            Me(Me.tabletbl_tarifas_agua.desc_tarifaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Istipo_cuotaNull() As Boolean
+            Return Me.IsNull(Me.tabletbl_tarifas_agua.tipo_cuotaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Settipo_cuotaNull()
+            Me(Me.tabletbl_tarifas_agua.tipo_cuotaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsobservacionNull() As Boolean
+            Return Me.IsNull(Me.tabletbl_tarifas_agua.observacionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetobservacionNull()
+            Me(Me.tabletbl_tarifas_agua.observacionColumn) = Global.System.Convert.DBNull
+        End Sub
     End Class
     
     '''<summary>
@@ -7160,17 +6614,6 @@ Partial Public Class dsParametros
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property tbl_tarifas_aguaRow() As tbl_tarifas_aguaRow
-            Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("tbl_tarifas_agua_tbl1_tarifas_agua")),tbl_tarifas_aguaRow)
-            End Get
-            Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("tbl_tarifas_agua_tbl1_tarifas_agua"))
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Istipo_cuotaNull() As Boolean
             Return Me.IsNull(Me.tabletbl1_tarifas_agua.tipo_cuotaColumn)
         End Function
@@ -7229,16 +6672,6 @@ Partial Public Class dsParametros
                 Me(Me.tabletipo_inmueble.nom_cortoColumn) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Gettbl_tarifas_aguaRows() As tbl_tarifas_aguaRow()
-            If (Me.Table.ChildRelations("tipo_inmueble_tbl_tarifas_agua") Is Nothing) Then
-                Return New tbl_tarifas_aguaRow(-1) {}
-            Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("tipo_inmueble_tbl_tarifas_agua")),tbl_tarifas_aguaRow())
-            End If
-        End Function
     End Class
     
     '''<summary>
@@ -7277,16 +6710,6 @@ Partial Public Class dsParametros
                 Me(Me.tabletbl_DiametroToma.DiametroColumn) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Gettbl_tarifas_aguaRows() As tbl_tarifas_aguaRow()
-            If (Me.Table.ChildRelations("tbl_DiametroToma_tbl_tarifas_agua") Is Nothing) Then
-                Return New tbl_tarifas_aguaRow(-1) {}
-            Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("tbl_DiametroToma_tbl_tarifas_agua")),tbl_tarifas_aguaRow())
-            End If
-        End Function
     End Class
     
     '''<summary>
@@ -8366,42 +7789,6 @@ Partial Public Class dsParametros
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property Row() As tbl_tarifas_aguaRow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Class tbl1_predialRowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As tbl1_predialRow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub New(ByVal row As tbl1_predialRow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Row() As tbl1_predialRow
             Get
                 Return Me.eventRow
             End Get
@@ -10026,186 +9413,43 @@ Namespace dsParametrosTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "tbl_predial"
             tableMapping.ColumnMappings.Add("id_tarifa_predial", "id_tarifa_predial")
-            tableMapping.ColumnMappings.Add("id_grupo_imp", "id_grupo_imp")
             tableMapping.ColumnMappings.Add("año_fiscal", "año_fiscal")
             tableMapping.ColumnMappings.Add("lim_inferior", "lim_inferior")
             tableMapping.ColumnMappings.Add("lim_superior", "lim_superior")
-            tableMapping.ColumnMappings.Add("lim_inf_terr", "lim_inf_terr")
-            tableMapping.ColumnMappings.Add("lim_sup_terr", "lim_sup_terr")
-            tableMapping.ColumnMappings.Add("lim_inf_cons", "lim_inf_cons")
-            tableMapping.ColumnMappings.Add("lim_sup_cons", "lim_sup_cons")
             tableMapping.ColumnMappings.Add("cuota_fija", "cuota_fija")
             tableMapping.ColumnMappings.Add("factor_valor", "factor_valor")
-            tableMapping.ColumnMappings.Add("factor_terreno", "factor_terreno")
-            tableMapping.ColumnMappings.Add("factor_construc", "factor_construc")
             tableMapping.ColumnMappings.Add("fracc_articulo", "fracc_articulo")
-            tableMapping.ColumnMappings.Add("gpo_mun", "gpo_mun")
             tableMapping.ColumnMappings.Add("tip_impuesto", "tip_impuesto")
             Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tbl_predial] WHERE (([id_tarifa_predial] = @Original_id_tarifa"& _ 
-                "_predial) AND ((@IsNull_id_grupo_imp = 1 AND [id_grupo_imp] IS NULL) OR ([id_gru"& _ 
-                "po_imp] = @Original_id_grupo_imp)) AND ((@IsNull_año_fiscal = 1 AND [año_fiscal]"& _ 
-                " IS NULL) OR ([año_fiscal] = @Original_año_fiscal)) AND ((@IsNull_lim_inferior ="& _ 
-                " 1 AND [lim_inferior] IS NULL) OR ([lim_inferior] = @Original_lim_inferior)) AND"& _ 
-                " ((@IsNull_lim_superior = 1 AND [lim_superior] IS NULL) OR ([lim_superior] = @Or"& _ 
-                "iginal_lim_superior)) AND ((@IsNull_lim_inf_terr = 1 AND [lim_inf_terr] IS NULL)"& _ 
-                " OR ([lim_inf_terr] = @Original_lim_inf_terr)) AND ((@IsNull_lim_sup_terr = 1 AN"& _ 
-                "D [lim_sup_terr] IS NULL) OR ([lim_sup_terr] = @Original_lim_sup_terr)) AND ((@I"& _ 
-                "sNull_lim_inf_cons = 1 AND [lim_inf_cons] IS NULL) OR ([lim_inf_cons] = @Origina"& _ 
-                "l_lim_inf_cons)) AND ((@IsNull_lim_sup_cons = 1 AND [lim_sup_cons] IS NULL) OR ("& _ 
-                "[lim_sup_cons] = @Original_lim_sup_cons)) AND ((@IsNull_cuota_fija = 1 AND [cuot"& _ 
-                "a_fija] IS NULL) OR ([cuota_fija] = @Original_cuota_fija)) AND ((@IsNull_factor_"& _ 
-                "valor = 1 AND [factor_valor] IS NULL) OR ([factor_valor] = @Original_factor_valo"& _ 
-                "r)) AND ((@IsNull_factor_terreno = 1 AND [factor_terreno] IS NULL) OR ([factor_t"& _ 
-                "erreno] = @Original_factor_terreno)) AND ((@IsNull_factor_construc = 1 AND [fact"& _ 
-                "or_construc] IS NULL) OR ([factor_construc] = @Original_factor_construc)) AND (("& _ 
-                "@IsNull_fracc_articulo = 1 AND [fracc_articulo] IS NULL) OR ([fracc_articulo] = "& _ 
-                "@Original_fracc_articulo)) AND ((@IsNull_gpo_mun = 1 AND [gpo_mun] IS NULL) OR ("& _ 
-                "[gpo_mun] = @Original_gpo_mun)) AND ((@IsNull_tip_impuesto = 1 AND [tip_impuesto"& _ 
-                "] IS NULL) OR ([tip_impuesto] = @Original_tip_impuesto)))"
-            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_tarifa_predial", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_tarifa_predial", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_id_grupo_imp", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_grupo_imp", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_grupo_imp", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_grupo_imp", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_año_fiscal", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "año_fiscal", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_año_fiscal", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 4, 0, "año_fiscal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_lim_inferior", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "lim_inferior", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_lim_inferior", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_inferior", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_lim_superior", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "lim_superior", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_lim_superior", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_superior", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_lim_inf_terr", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "lim_inf_terr", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_lim_inf_terr", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_inf_terr", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_lim_sup_terr", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "lim_sup_terr", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_lim_sup_terr", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_sup_terr", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_lim_inf_cons", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "lim_inf_cons", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_lim_inf_cons", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_inf_cons", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_lim_sup_cons", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "lim_sup_cons", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_lim_sup_cons", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_sup_cons", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_cuota_fija", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cuota_fija", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cuota_fija", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 12, 2, "cuota_fija", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_factor_valor", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "factor_valor", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_factor_valor", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 6, "factor_valor", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_factor_terreno", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "factor_terreno", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_factor_terreno", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 6, "factor_terreno", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_factor_construc", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "factor_construc", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_factor_construc", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 6, "factor_construc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_fracc_articulo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fracc_articulo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_fracc_articulo", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fracc_articulo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_gpo_mun", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "gpo_mun", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_gpo_mun", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 1, 0, "gpo_mun", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_tip_impuesto", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tip_impuesto", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_tip_impuesto", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tip_impuesto", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tbl_predial] ([id_grupo_imp], [año_fiscal], [lim_inferior], [l"& _ 
-                "im_superior], [lim_inf_terr], [lim_sup_terr], [lim_inf_cons], [lim_sup_cons], [c"& _ 
-                "uota_fija], [factor_valor], [factor_terreno], [factor_construc], [fracc_articulo"& _ 
-                "], [gpo_mun], [tip_impuesto]) VALUES (@id_grupo_imp, @año_fiscal, @lim_inferior,"& _ 
-                " @lim_superior, @lim_inf_terr, @lim_sup_terr, @lim_inf_cons, @lim_sup_cons, @cuo"& _ 
-                "ta_fija, @factor_valor, @factor_terreno, @factor_construc, @fracc_articulo, @gpo"& _ 
-                "_mun, @tip_impuesto);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id_tarifa_predial, id_grupo_imp, año_fiscal, lim_i"& _ 
-                "nferior, lim_superior, lim_inf_terr, lim_sup_terr, lim_inf_cons, lim_sup_cons, c"& _ 
-                "uota_fija, factor_valor, factor_terreno, factor_construc, fracc_articulo, gpo_mu"& _ 
-                "n, tip_impuesto FROM tbl_predial WHERE (id_tarifa_predial = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [tbl_predial] ([año_fiscal], [lim_inferior], [lim_superior], [cuota_f"& _ 
+                "ija], [factor_valor], [fracc_articulo], [tip_impuesto]) VALUES (@año_fiscal, @li"& _ 
+                "m_inferior, @lim_superior, @cuota_fija, @factor_valor, @fracc_articulo, @tip_imp"& _ 
+                "uesto)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_grupo_imp", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_grupo_imp", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@año_fiscal", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 4, 0, "año_fiscal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_inferior", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_inferior", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_superior", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_superior", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_inf_terr", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_inf_terr", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_sup_terr", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_sup_terr", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_inf_cons", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_inf_cons", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_sup_cons", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_sup_cons", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cuota_fija", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 12, 2, "cuota_fija", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@factor_valor", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 6, "factor_valor", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@factor_terreno", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 6, "factor_terreno", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@factor_construc", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 6, "factor_construc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fracc_articulo", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fracc_articulo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@gpo_mun", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 1, 0, "gpo_mun", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tip_impuesto", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tip_impuesto", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tbl_predial] SET [id_grupo_imp] = @id_grupo_imp, [año_fiscal] = @añ"& _ 
-                "o_fiscal, [lim_inferior] = @lim_inferior, [lim_superior] = @lim_superior, [lim_i"& _ 
-                "nf_terr] = @lim_inf_terr, [lim_sup_terr] = @lim_sup_terr, [lim_inf_cons] = @lim_"& _ 
-                "inf_cons, [lim_sup_cons] = @lim_sup_cons, [cuota_fija] = @cuota_fija, [factor_va"& _ 
-                "lor] = @factor_valor, [factor_terreno] = @factor_terreno, [factor_construc] = @f"& _ 
-                "actor_construc, [fracc_articulo] = @fracc_articulo, [gpo_mun] = @gpo_mun, [tip_i"& _ 
-                "mpuesto] = @tip_impuesto WHERE (([id_tarifa_predial] = @Original_id_tarifa_predi"& _ 
-                "al) AND ((@IsNull_id_grupo_imp = 1 AND [id_grupo_imp] IS NULL) OR ([id_grupo_imp"& _ 
-                "] = @Original_id_grupo_imp)) AND ((@IsNull_año_fiscal = 1 AND [año_fiscal] IS NU"& _ 
-                "LL) OR ([año_fiscal] = @Original_año_fiscal)) AND ((@IsNull_lim_inferior = 1 AND"& _ 
-                " [lim_inferior] IS NULL) OR ([lim_inferior] = @Original_lim_inferior)) AND ((@Is"& _ 
-                "Null_lim_superior = 1 AND [lim_superior] IS NULL) OR ([lim_superior] = @Original"& _ 
-                "_lim_superior)) AND ((@IsNull_lim_inf_terr = 1 AND [lim_inf_terr] IS NULL) OR (["& _ 
-                "lim_inf_terr] = @Original_lim_inf_terr)) AND ((@IsNull_lim_sup_terr = 1 AND [lim"& _ 
-                "_sup_terr] IS NULL) OR ([lim_sup_terr] = @Original_lim_sup_terr)) AND ((@IsNull_"& _ 
-                "lim_inf_cons = 1 AND [lim_inf_cons] IS NULL) OR ([lim_inf_cons] = @Original_lim_"& _ 
-                "inf_cons)) AND ((@IsNull_lim_sup_cons = 1 AND [lim_sup_cons] IS NULL) OR ([lim_s"& _ 
-                "up_cons] = @Original_lim_sup_cons)) AND ((@IsNull_cuota_fija = 1 AND [cuota_fija"& _ 
-                "] IS NULL) OR ([cuota_fija] = @Original_cuota_fija)) AND ((@IsNull_factor_valor "& _ 
-                "= 1 AND [factor_valor] IS NULL) OR ([factor_valor] = @Original_factor_valor)) AN"& _ 
-                "D ((@IsNull_factor_terreno = 1 AND [factor_terreno] IS NULL) OR ([factor_terreno"& _ 
-                "] = @Original_factor_terreno)) AND ((@IsNull_factor_construc = 1 AND [factor_con"& _ 
-                "struc] IS NULL) OR ([factor_construc] = @Original_factor_construc)) AND ((@IsNul"& _ 
-                "l_fracc_articulo = 1 AND [fracc_articulo] IS NULL) OR ([fracc_articulo] = @Origi"& _ 
-                "nal_fracc_articulo)) AND ((@IsNull_gpo_mun = 1 AND [gpo_mun] IS NULL) OR ([gpo_m"& _ 
-                "un] = @Original_gpo_mun)) AND ((@IsNull_tip_impuesto = 1 AND [tip_impuesto] IS N"& _ 
-                "ULL) OR ([tip_impuesto] = @Original_tip_impuesto)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id_tarifa_predial, "& _ 
-                "id_grupo_imp, año_fiscal, lim_inferior, lim_superior, lim_inf_terr, lim_sup_terr"& _ 
-                ", lim_inf_cons, lim_sup_cons, cuota_fija, factor_valor, factor_terreno, factor_c"& _ 
-                "onstruc, fracc_articulo, gpo_mun, tip_impuesto FROM tbl_predial WHERE (id_tarifa"& _ 
-                "_predial = @id_tarifa_predial)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE tbl_predial"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET          año_fiscal = @año_fiscal, lim_inferior = @lim_in"& _ 
+                "ferior, lim_superior = @lim_superior, cuota_fija = @cuota_fija, factor_valor = @"& _ 
+                "factor_valor, fracc_articulo = @fracc_articulo, tip_impuesto = @tip_impuesto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WH"& _ 
+                "ERE  (id_tarifa_predial = @Original_id_tarifa_predial)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_grupo_imp", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_grupo_imp", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@año_fiscal", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 4, 0, "año_fiscal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_inferior", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_inferior", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_superior", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_superior", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_inf_terr", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_inf_terr", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_sup_terr", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_sup_terr", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_inf_cons", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_inf_cons", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_sup_cons", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_sup_cons", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cuota_fija", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 12, 2, "cuota_fija", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@factor_valor", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 6, "factor_valor", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@factor_terreno", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 6, "factor_terreno", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@factor_construc", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 6, "factor_construc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fracc_articulo", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fracc_articulo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@gpo_mun", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 1, 0, "gpo_mun", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tip_impuesto", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tip_impuesto", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_tarifa_predial", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_tarifa_predial", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_id_grupo_imp", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_grupo_imp", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_grupo_imp", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_grupo_imp", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_año_fiscal", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "año_fiscal", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_año_fiscal", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 4, 0, "año_fiscal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_lim_inferior", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "lim_inferior", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_lim_inferior", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_inferior", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_lim_superior", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "lim_superior", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_lim_superior", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_superior", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_lim_inf_terr", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "lim_inf_terr", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_lim_inf_terr", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_inf_terr", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_lim_sup_terr", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "lim_sup_terr", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_lim_sup_terr", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_sup_terr", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_lim_inf_cons", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "lim_inf_cons", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_lim_inf_cons", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_inf_cons", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_lim_sup_cons", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "lim_sup_cons", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_lim_sup_cons", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_sup_cons", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_cuota_fija", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cuota_fija", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cuota_fija", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 12, 2, "cuota_fija", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_factor_valor", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "factor_valor", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_factor_valor", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 6, "factor_valor", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_factor_terreno", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "factor_terreno", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_factor_terreno", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 6, "factor_terreno", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_factor_construc", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "factor_construc", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_factor_construc", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 14, 6, "factor_construc", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_fracc_articulo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fracc_articulo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_fracc_articulo", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fracc_articulo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_gpo_mun", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "gpo_mun", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_gpo_mun", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 1, 0, "gpo_mun", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_tip_impuesto", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tip_impuesto", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_tip_impuesto", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tip_impuesto", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_tarifa_predial", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "id_tarifa_predial", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@año_fiscal", Global.System.Data.SqlDbType.[Decimal], 5, Global.System.Data.ParameterDirection.Input, 4, 0, "año_fiscal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_inferior", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_inferior", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_superior", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 14, 2, "lim_superior", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cuota_fija", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 12, 2, "cuota_fija", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@factor_valor", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 14, 6, "factor_valor", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fracc_articulo", Global.System.Data.SqlDbType.[Char], 4, Global.System.Data.ParameterDirection.Input, 0, 0, "fracc_articulo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tip_impuesto", Global.System.Data.SqlDbType.[Char], 1, Global.System.Data.ParameterDirection.Input, 0, 0, "tip_impuesto", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_tarifa_predial", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "id_tarifa_predial", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10218,22 +9462,12 @@ Namespace dsParametrosTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT id_tarifa_predial, id_grupo_imp, año_fiscal, lim_inferior, lim_superior, l"& _ 
-                "im_inf_terr, lim_sup_terr, lim_inf_cons, lim_sup_cons, cuota_fija, factor_valor,"& _ 
-                " factor_terreno, factor_construc, fracc_articulo, gpo_mun, tip_impuesto FROM dbo"& _ 
-                ".tbl_predial"
+            Me._commandCollection(0).CommandText = "SELECT id_tarifa_predial, año_fiscal, lim_inferior, lim_superior, cuota_fija, fac"& _ 
+                "tor_valor, fracc_articulo, tip_impuesto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM     tbl_predial"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        id_tarifa_predial, id_grupo_imp, año_fiscal, lim_inferior, lim_supe"& _ 
-                "rior, lim_inf_terr, lim_sup_terr, lim_inf_cons, lim_sup_cons, cuota_fija, factor"& _ 
-                "_valor, factor_terreno, factor_construc, fracc_articulo, gpo_mun, tip_impuesto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "FROM            tbl_predial"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     id_grupo_imp=@IdTarifa"
-            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IdTarifa", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "id_grupo_imp", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10255,40 +9489,6 @@ Namespace dsParametrosTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As dsParametros.tbl_predialDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As dsParametros.tbl_predialDataTable = New dsParametros.tbl_predialDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByKey(ByVal dataTable As dsParametros.tbl_predialDataTable, ByVal IdTarifa As Global.System.Nullable(Of Integer)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (IdTarifa.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IdTarifa.Value,Integer)
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByKey(ByVal IdTarifa As Global.System.Nullable(Of Integer)) As dsParametros.tbl_predialDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (IdTarifa.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IdTarifa.Value,Integer)
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
             Dim dataTable As dsParametros.tbl_predialDataTable = New dsParametros.tbl_predialDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -10325,224 +9525,42 @@ Namespace dsParametrosTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete( _
-                    ByVal Original_id_tarifa_predial As Integer,  _
-                    ByVal Original_id_grupo_imp As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_año_fiscal As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_lim_inferior As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_lim_superior As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_lim_inf_terr As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_lim_sup_terr As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_lim_inf_cons As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_lim_sup_cons As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_cuota_fija As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_factor_valor As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_factor_terreno As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_factor_construc As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_fracc_articulo As String,  _
-                    ByVal Original_gpo_mun As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_tip_impuesto As String) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_id_tarifa_predial,Integer)
-            If (Original_id_grupo_imp.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_id_grupo_imp.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
-            If (Original_año_fiscal.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_año_fiscal.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
-            End If
-            If (Original_lim_inferior.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_lim_inferior.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
-            End If
-            If (Original_lim_superior.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_lim_superior.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
-            End If
-            If (Original_lim_inf_terr.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_lim_inf_terr.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
-            End If
-            If (Original_lim_sup_terr.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_lim_sup_terr.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
-            If (Original_lim_inf_cons.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_lim_inf_cons.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
-            End If
-            If (Original_lim_sup_cons.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_lim_sup_cons.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
-            End If
-            If (Original_cuota_fija.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_cuota_fija.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
-            End If
-            If (Original_factor_valor.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_factor_valor.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
-            End If
-            If (Original_factor_terreno.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_factor_terreno.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
-            End If
-            If (Original_factor_construc.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_factor_construc.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
-            End If
-            If (Original_fracc_articulo Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(26).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_fracc_articulo,String)
-            End If
-            If (Original_gpo_mun.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_gpo_mun.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(28).Value = Global.System.DBNull.Value
-            End If
-            If (Original_tip_impuesto Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(30).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_tip_impuesto,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal id_grupo_imp As Global.System.Nullable(Of Integer), ByVal año_fiscal As Global.System.Nullable(Of Decimal), ByVal lim_inferior As Global.System.Nullable(Of Decimal), ByVal lim_superior As Global.System.Nullable(Of Decimal), ByVal lim_inf_terr As Global.System.Nullable(Of Decimal), ByVal lim_sup_terr As Global.System.Nullable(Of Decimal), ByVal lim_inf_cons As Global.System.Nullable(Of Decimal), ByVal lim_sup_cons As Global.System.Nullable(Of Decimal), ByVal cuota_fija As Global.System.Nullable(Of Decimal), ByVal factor_valor As Global.System.Nullable(Of Decimal), ByVal factor_terreno As Global.System.Nullable(Of Decimal), ByVal factor_construc As Global.System.Nullable(Of Decimal), ByVal fracc_articulo As String, ByVal gpo_mun As Global.System.Nullable(Of Decimal), ByVal tip_impuesto As String) As Integer
-            If (id_grupo_imp.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(id_grupo_imp.Value,Integer)
+        Public Overloads Overridable Function Insert(ByVal año_fiscal As Global.System.Nullable(Of Decimal), ByVal lim_inferior As Global.System.Nullable(Of Decimal), ByVal lim_superior As Global.System.Nullable(Of Decimal), ByVal cuota_fija As Global.System.Nullable(Of Decimal), ByVal factor_valor As Global.System.Nullable(Of Decimal), ByVal fracc_articulo As String, ByVal tip_impuesto As String) As Integer
+            If (año_fiscal.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(año_fiscal.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (año_fiscal.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(año_fiscal.Value,Decimal)
+            If (lim_inferior.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(lim_inferior.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (lim_inferior.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(lim_inferior.Value,Decimal)
+            If (lim_superior.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(lim_superior.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (lim_superior.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(lim_superior.Value,Decimal)
+            If (cuota_fija.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(cuota_fija.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (lim_inf_terr.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(lim_inf_terr.Value,Decimal)
+            If (factor_valor.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(factor_valor.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (lim_sup_terr.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(lim_sup_terr.Value,Decimal)
-            Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
-            End If
-            If (lim_inf_cons.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(lim_inf_cons.Value,Decimal)
-            Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
-            End If
-            If (lim_sup_cons.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(lim_sup_cons.Value,Decimal)
-            Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
-            End If
-            If (cuota_fija.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(cuota_fija.Value,Decimal)
-            Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
-            End If
-            If (factor_valor.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(factor_valor.Value,Decimal)
-            Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
-            End If
-            If (factor_terreno.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(factor_terreno.Value,Decimal)
-            Else
-                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
-            End If
-            If (factor_construc.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(factor_construc.Value,Decimal)
-            Else
-                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
-            End If
             If (fracc_articulo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(12).Value = CType(fracc_articulo,String)
-            End If
-            If (gpo_mun.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(13).Value = CType(gpo_mun.Value,Decimal)
-            Else
-                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(fracc_articulo,String)
             End If
             If (tip_impuesto Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(14).Value = CType(tip_impuesto,String)
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(tip_impuesto,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -10563,221 +9581,43 @@ Namespace dsParametrosTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal id_grupo_imp As Global.System.Nullable(Of Integer),  _
-                    ByVal año_fiscal As Global.System.Nullable(Of Decimal),  _
-                    ByVal lim_inferior As Global.System.Nullable(Of Decimal),  _
-                    ByVal lim_superior As Global.System.Nullable(Of Decimal),  _
-                    ByVal lim_inf_terr As Global.System.Nullable(Of Decimal),  _
-                    ByVal lim_sup_terr As Global.System.Nullable(Of Decimal),  _
-                    ByVal lim_inf_cons As Global.System.Nullable(Of Decimal),  _
-                    ByVal lim_sup_cons As Global.System.Nullable(Of Decimal),  _
-                    ByVal cuota_fija As Global.System.Nullable(Of Decimal),  _
-                    ByVal factor_valor As Global.System.Nullable(Of Decimal),  _
-                    ByVal factor_terreno As Global.System.Nullable(Of Decimal),  _
-                    ByVal factor_construc As Global.System.Nullable(Of Decimal),  _
-                    ByVal fracc_articulo As String,  _
-                    ByVal gpo_mun As Global.System.Nullable(Of Decimal),  _
-                    ByVal tip_impuesto As String,  _
-                    ByVal Original_id_tarifa_predial As Integer,  _
-                    ByVal Original_id_grupo_imp As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_año_fiscal As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_lim_inferior As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_lim_superior As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_lim_inf_terr As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_lim_sup_terr As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_lim_inf_cons As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_lim_sup_cons As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_cuota_fija As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_factor_valor As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_factor_terreno As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_factor_construc As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_fracc_articulo As String,  _
-                    ByVal Original_gpo_mun As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_tip_impuesto As String,  _
-                    ByVal id_tarifa_predial As Integer) As Integer
-            If (id_grupo_imp.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(id_grupo_imp.Value,Integer)
+        Public Overloads Overridable Function Update(ByVal año_fiscal As Global.System.Nullable(Of Decimal), ByVal lim_inferior As Global.System.Nullable(Of Decimal), ByVal lim_superior As Global.System.Nullable(Of Decimal), ByVal cuota_fija As Global.System.Nullable(Of Decimal), ByVal factor_valor As Global.System.Nullable(Of Decimal), ByVal fracc_articulo As String, ByVal tip_impuesto As String, ByVal Original_id_tarifa_predial As Integer) As Integer
+            If (año_fiscal.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(año_fiscal.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (año_fiscal.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(año_fiscal.Value,Decimal)
+            If (lim_inferior.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(lim_inferior.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (lim_inferior.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(lim_inferior.Value,Decimal)
+            If (lim_superior.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(lim_superior.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (lim_superior.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(lim_superior.Value,Decimal)
+            If (cuota_fija.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(cuota_fija.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (lim_inf_terr.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(lim_inf_terr.Value,Decimal)
+            If (factor_valor.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(factor_valor.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (lim_sup_terr.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(lim_sup_terr.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
-            End If
-            If (lim_inf_cons.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(lim_inf_cons.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
-            End If
-            If (lim_sup_cons.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(lim_sup_cons.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
-            End If
-            If (cuota_fija.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(cuota_fija.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
-            End If
-            If (factor_valor.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(factor_valor.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
-            End If
-            If (factor_terreno.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(factor_terreno.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
-            End If
-            If (factor_construc.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(factor_construc.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
-            End If
             If (fracc_articulo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(fracc_articulo,String)
-            End If
-            If (gpo_mun.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(gpo_mun.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(fracc_articulo,String)
             End If
             If (tip_impuesto Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(tip_impuesto,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(tip_impuesto,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_id_tarifa_predial,Integer)
-            If (Original_id_grupo_imp.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_id_grupo_imp.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
-            End If
-            If (Original_año_fiscal.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_año_fiscal.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
-            End If
-            If (Original_lim_inferior.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_lim_inferior.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
-            End If
-            If (Original_lim_superior.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_lim_superior.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
-            End If
-            If (Original_lim_inf_terr.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_lim_inf_terr.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
-            End If
-            If (Original_lim_sup_terr.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_lim_sup_terr.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
-            End If
-            If (Original_lim_inf_cons.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_lim_inf_cons.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
-            End If
-            If (Original_lim_sup_cons.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_lim_sup_cons.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
-            End If
-            If (Original_cuota_fija.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_cuota_fija.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
-            End If
-            If (Original_factor_valor.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_factor_valor.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
-            End If
-            If (Original_factor_terreno.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_factor_terreno.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
-            End If
-            If (Original_factor_construc.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_factor_construc.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
-            End If
-            If (Original_fracc_articulo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_fracc_articulo,String)
-            End If
-            If (Original_gpo_mun.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_gpo_mun.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
-            End If
-            If (Original_tip_impuesto Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_tip_impuesto,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(46).Value = CType(id_tarifa_predial,Integer)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_id_tarifa_predial,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -10791,45 +9631,6 @@ Namespace dsParametrosTableAdapters
                     Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal id_grupo_imp As Global.System.Nullable(Of Integer),  _
-                    ByVal año_fiscal As Global.System.Nullable(Of Decimal),  _
-                    ByVal lim_inferior As Global.System.Nullable(Of Decimal),  _
-                    ByVal lim_superior As Global.System.Nullable(Of Decimal),  _
-                    ByVal lim_inf_terr As Global.System.Nullable(Of Decimal),  _
-                    ByVal lim_sup_terr As Global.System.Nullable(Of Decimal),  _
-                    ByVal lim_inf_cons As Global.System.Nullable(Of Decimal),  _
-                    ByVal lim_sup_cons As Global.System.Nullable(Of Decimal),  _
-                    ByVal cuota_fija As Global.System.Nullable(Of Decimal),  _
-                    ByVal factor_valor As Global.System.Nullable(Of Decimal),  _
-                    ByVal factor_terreno As Global.System.Nullable(Of Decimal),  _
-                    ByVal factor_construc As Global.System.Nullable(Of Decimal),  _
-                    ByVal fracc_articulo As String,  _
-                    ByVal gpo_mun As Global.System.Nullable(Of Decimal),  _
-                    ByVal tip_impuesto As String,  _
-                    ByVal Original_id_tarifa_predial As Integer,  _
-                    ByVal Original_id_grupo_imp As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_año_fiscal As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_lim_inferior As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_lim_superior As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_lim_inf_terr As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_lim_sup_terr As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_lim_inf_cons As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_lim_sup_cons As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_cuota_fija As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_factor_valor As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_factor_terreno As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_factor_construc As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_fracc_articulo As String,  _
-                    ByVal Original_gpo_mun As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_tip_impuesto As String) As Integer
-            Return Me.Update(id_grupo_imp, año_fiscal, lim_inferior, lim_superior, lim_inf_terr, lim_sup_terr, lim_inf_cons, lim_sup_cons, cuota_fija, factor_valor, factor_terreno, factor_construc, fracc_articulo, gpo_mun, tip_impuesto, Original_id_tarifa_predial, Original_id_grupo_imp, Original_año_fiscal, Original_lim_inferior, Original_lim_superior, Original_lim_inf_terr, Original_lim_sup_terr, Original_lim_inf_cons, Original_lim_sup_cons, Original_cuota_fija, Original_factor_valor, Original_factor_terreno, Original_factor_construc, Original_fracc_articulo, Original_gpo_mun, Original_tip_impuesto, Original_id_tarifa_predial)
         End Function
     End Class
     
@@ -11644,94 +10445,67 @@ Namespace dsParametrosTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "tbl_tarifas_agua"
             tableMapping.ColumnMappings.Add("id_tarifa", "id_tarifa")
-            tableMapping.ColumnMappings.Add("tipo_inmueble", "tipo_inmueble")
-            tableMapping.ColumnMappings.Add("diametro_toma", "diametro_toma")
             tableMapping.ColumnMappings.Add("lim_inferior", "lim_inferior")
             tableMapping.ColumnMappings.Add("lim_superior", "lim_superior")
             tableMapping.ColumnMappings.Add("cuota_minima", "cuota_minima")
             tableMapping.ColumnMappings.Add("factor", "factor")
-            tableMapping.ColumnMappings.Add("id_grupo_agua", "id_grupo_agua")
+            tableMapping.ColumnMappings.Add("tipo_inmueble", "tipo_inmueble")
+            tableMapping.ColumnMappings.Add("diametro_toma", "diametro_toma")
+            tableMapping.ColumnMappings.Add("año_fiscal", "año_fiscal")
+            tableMapping.ColumnMappings.Add("tip_usuario", "tip_usuario")
+            tableMapping.ColumnMappings.Add("tipo_servicio", "tipo_servicio")
+            tableMapping.ColumnMappings.Add("fracc_articulo", "fracc_articulo")
+            tableMapping.ColumnMappings.Add("gpo_mun", "gpo_mun")
+            tableMapping.ColumnMappings.Add("desc_tarifa", "desc_tarifa")
+            tableMapping.ColumnMappings.Add("tipo_cuota", "tipo_cuota")
+            tableMapping.ColumnMappings.Add("observacion", "observacion")
             Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [tbl_tarifas_agua] WHERE (([id_tarifa] = @Original_id_tarifa) AND ((@"& _ 
-                "IsNull_id_grupo_agua = 1 AND [id_grupo_agua] IS NULL) OR ([id_grupo_agua] = @Ori"& _ 
-                "ginal_id_grupo_agua)) AND ((@IsNull_tipo_inmueble = 1 AND [tipo_inmueble] IS NUL"& _ 
-                "L) OR ([tipo_inmueble] = @Original_tipo_inmueble)) AND ((@IsNull_diametro_toma ="& _ 
-                " 1 AND [diametro_toma] IS NULL) OR ([diametro_toma] = @Original_diametro_toma)) "& _ 
-                "AND ((@IsNull_lim_inferior = 1 AND [lim_inferior] IS NULL) OR ([lim_inferior] = "& _ 
-                "@Original_lim_inferior)) AND ((@IsNull_lim_superior = 1 AND [lim_superior] IS NU"& _ 
-                "LL) OR ([lim_superior] = @Original_lim_superior)) AND ((@IsNull_cuota_minima = 1"& _ 
-                " AND [cuota_minima] IS NULL) OR ([cuota_minima] = @Original_cuota_minima)) AND ("& _ 
-                "(@IsNull_factor = 1 AND [factor] IS NULL) OR ([factor] = @Original_factor)))"
-            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_tarifa", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_tarifa", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_id_grupo_agua", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_grupo_agua", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_grupo_agua", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_grupo_agua", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_tipo_inmueble", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tipo_inmueble", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_tipo_inmueble", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 2, 0, "tipo_inmueble", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_diametro_toma", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "diametro_toma", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_diametro_toma", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 4, 0, "diametro_toma", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_lim_inferior", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "lim_inferior", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_lim_inferior", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 12, 2, "lim_inferior", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_lim_superior", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "lim_superior", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_lim_superior", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 12, 2, "lim_superior", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_cuota_minima", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cuota_minima", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cuota_minima", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 11, 6, "cuota_minima", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_factor", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "factor", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_factor", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 11, 6, "factor", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [tbl_tarifas_agua] ([id_grupo_agua], [tipo_inmueble], [diametro_toma]"& _ 
-                ", [lim_inferior], [lim_superior], [cuota_minima], [factor]) VALUES (@id_grupo_ag"& _ 
-                "ua, @tipo_inmueble, @diametro_toma, @lim_inferior, @lim_superior, @cuota_minima,"& _ 
-                " @factor)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [tbl_tarifas_agua] ([tipo_inmueble], [diametro_toma], [lim_inferior],"& _ 
+                " [lim_superior], [cuota_minima], [factor], [año_fiscal], [tip_usuario], [tipo_se"& _ 
+                "rvicio], [fracc_articulo], [gpo_mun], [desc_tarifa], [tipo_cuota], [observacion]"& _ 
+                ") VALUES (@tipo_inmueble, @diametro_toma, @lim_inferior, @lim_superior, @cuota_m"& _ 
+                "inima, @factor, @año_fiscal, @tip_usuario, @tipo_servicio, @fracc_articulo, @gpo"& _ 
+                "_mun, @desc_tarifa, @tipo_cuota, @observacion)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_grupo_agua", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_grupo_agua", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tipo_inmueble", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 2, 0, "tipo_inmueble", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@diametro_toma", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 4, 0, "diametro_toma", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_inferior", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 12, 2, "lim_inferior", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_superior", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 12, 2, "lim_superior", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_superior", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 16, 2, "lim_superior", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cuota_minima", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 11, 6, "cuota_minima", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@factor", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 11, 6, "factor", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@año_fiscal", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 4, 0, "año_fiscal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tip_usuario", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 1, 0, "tip_usuario", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tipo_servicio", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 1, 0, "tipo_servicio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fracc_articulo", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fracc_articulo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@gpo_mun", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 1, 0, "gpo_mun", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@desc_tarifa", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "desc_tarifa", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tipo_cuota", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 1, 0, "tipo_cuota", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@observacion", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "observacion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [tbl_tarifas_agua] SET [id_grupo_agua] = @id_grupo_agua, [tipo_inmueble] ="& _ 
-                " @tipo_inmueble, [diametro_toma] = @diametro_toma, [lim_inferior] = @lim_inferio"& _ 
-                "r, [lim_superior] = @lim_superior, [cuota_minima] = @cuota_minima, [factor] = @f"& _ 
-                "actor WHERE (([id_tarifa] = @Original_id_tarifa) AND ((@IsNull_id_grupo_agua = 1"& _ 
-                " AND [id_grupo_agua] IS NULL) OR ([id_grupo_agua] = @Original_id_grupo_agua)) AN"& _ 
-                "D ((@IsNull_tipo_inmueble = 1 AND [tipo_inmueble] IS NULL) OR ([tipo_inmueble] ="& _ 
-                " @Original_tipo_inmueble)) AND ((@IsNull_diametro_toma = 1 AND [diametro_toma] I"& _ 
-                "S NULL) OR ([diametro_toma] = @Original_diametro_toma)) AND ((@IsNull_lim_inferi"& _ 
-                "or = 1 AND [lim_inferior] IS NULL) OR ([lim_inferior] = @Original_lim_inferior))"& _ 
-                " AND ((@IsNull_lim_superior = 1 AND [lim_superior] IS NULL) OR ([lim_superior] ="& _ 
-                " @Original_lim_superior)) AND ((@IsNull_cuota_minima = 1 AND [cuota_minima] IS N"& _ 
-                "ULL) OR ([cuota_minima] = @Original_cuota_minima)) AND ((@IsNull_factor = 1 AND "& _ 
-                "[factor] IS NULL) OR ([factor] = @Original_factor)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE tbl_tarifas_agua"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET          año_fiscal = @año_fiscal, tip_usuario = @ti"& _ 
+                "p_usuario, tipo_servicio = @tipo_servicio, tipo_inmueble = @tipo_inmueble, diame"& _ 
+                "tro_toma = @diametro_toma, fracc_articulo = @fracc_articulo, lim_inferior = @lim"& _ 
+                "_inferior, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  lim_superior = @lim_superior, cuota_minima = @cuo"& _ 
+                "ta_minima, factor = @factor, gpo_mun = @gpo_mun, desc_tarifa = @desc_tarifa, obs"& _ 
+                "ervacion = @observacion, tipo_cuota"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE  (id_tarifa = @Original_id_tarifa)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_grupo_agua", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_grupo_agua", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tipo_inmueble", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 2, 0, "tipo_inmueble", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@diametro_toma", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 4, 0, "diametro_toma", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_inferior", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 12, 2, "lim_inferior", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_superior", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 12, 2, "lim_superior", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cuota_minima", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 11, 6, "cuota_minima", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@factor", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 11, 6, "factor", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_tarifa", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_tarifa", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_id_grupo_agua", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_grupo_agua", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_grupo_agua", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_grupo_agua", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_tipo_inmueble", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tipo_inmueble", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_tipo_inmueble", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 2, 0, "tipo_inmueble", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_diametro_toma", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "diametro_toma", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_diametro_toma", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 4, 0, "diametro_toma", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_lim_inferior", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "lim_inferior", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_lim_inferior", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 12, 2, "lim_inferior", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_lim_superior", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "lim_superior", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_lim_superior", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 12, 2, "lim_superior", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_cuota_minima", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cuota_minima", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cuota_minima", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 11, 6, "cuota_minima", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_factor", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "factor", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_factor", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 11, 6, "factor", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@año_fiscal", Global.System.Data.SqlDbType.[Decimal], 5, Global.System.Data.ParameterDirection.Input, 4, 0, "año_fiscal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tip_usuario", Global.System.Data.SqlDbType.[Decimal], 5, Global.System.Data.ParameterDirection.Input, 1, 0, "tip_usuario", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tipo_servicio", Global.System.Data.SqlDbType.[Decimal], 5, Global.System.Data.ParameterDirection.Input, 1, 0, "tipo_servicio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tipo_inmueble", Global.System.Data.SqlDbType.[Decimal], 5, Global.System.Data.ParameterDirection.Input, 2, 0, "tipo_inmueble", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@diametro_toma", Global.System.Data.SqlDbType.[Decimal], 5, Global.System.Data.ParameterDirection.Input, 4, 0, "diametro_toma", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fracc_articulo", Global.System.Data.SqlDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, 0, 0, "fracc_articulo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_inferior", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 12, 2, "lim_inferior", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lim_superior", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 16, 2, "lim_superior", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cuota_minima", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 11, 6, "cuota_minima", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@factor", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 11, 6, "factor", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@gpo_mun", Global.System.Data.SqlDbType.[Decimal], 5, Global.System.Data.ParameterDirection.Input, 1, 0, "gpo_mun", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@desc_tarifa", Global.System.Data.SqlDbType.[Char], 40, Global.System.Data.ParameterDirection.Input, 0, 0, "desc_tarifa", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@observacion", Global.System.Data.SqlDbType.[Char], 40, Global.System.Data.ParameterDirection.Input, 0, 0, "observacion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_tarifa", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "id_tarifa", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11744,19 +10518,13 @@ Namespace dsParametrosTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT id_tarifa,id_grupo_agua,tipo_inmueble,diametro_toma,lim_inferior,lim_super"& _ 
-                "ior,cuota_minima,factor FROM tbl_tarifas_agua "
+            Me._commandCollection(0).CommandText = "SELECT id_tarifa, tipo_inmueble, diametro_toma, lim_inferior, lim_superior, cuota"& _ 
+                "_minima, factor, año_fiscal, tip_usuario, tipo_servicio, fracc_articulo, gpo_mun"& _ 
+                ", desc_tarifa, tipo_cuota, observacion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM     tbl_tarifas_agua"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT id_tarifa,id_grupo_agua,tipo_inmueble,diametro_toma,lim_inferior,lim_super"& _ 
-                "ior,cuota_minima,factor FROM tbl_tarifas_agua"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" WHERE (id_grupo_agua = @IdTarifa"& _ 
-                ") ORDER BY lim_inferior"
-            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IdTarifa", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "id_grupo_agua", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11778,40 +10546,6 @@ Namespace dsParametrosTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As dsParametros.tbl_tarifas_aguaDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As dsParametros.tbl_tarifas_aguaDataTable = New dsParametros.tbl_tarifas_aguaDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByKey(ByVal dataTable As dsParametros.tbl_tarifas_aguaDataTable, ByVal IdTarifa As Global.System.Nullable(Of Integer)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (IdTarifa.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IdTarifa.Value,Integer)
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataBy(ByVal IdTarifa As Global.System.Nullable(Of Integer)) As dsParametros.tbl_tarifas_aguaDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (IdTarifa.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IdTarifa.Value,Integer)
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
             Dim dataTable As dsParametros.tbl_tarifas_aguaDataTable = New dsParametros.tbl_tarifas_aguaDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -11848,113 +10582,78 @@ Namespace dsParametrosTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_id_tarifa As Integer, ByVal Original_id_grupo_agua As Global.System.Nullable(Of Integer), ByVal Original_tipo_inmueble As Global.System.Nullable(Of Decimal), ByVal Original_diametro_toma As Global.System.Nullable(Of Decimal), ByVal Original_lim_inferior As Global.System.Nullable(Of Decimal), ByVal Original_lim_superior As Global.System.Nullable(Of Decimal), ByVal Original_cuota_minima As Global.System.Nullable(Of Decimal), ByVal Original_factor As Global.System.Nullable(Of Decimal)) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_id_tarifa,Integer)
-            If (Original_id_grupo_agua.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_id_grupo_agua.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
-            If (Original_tipo_inmueble.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_tipo_inmueble.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
-            End If
-            If (Original_diametro_toma.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_diametro_toma.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
-            End If
-            If (Original_lim_inferior.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_lim_inferior.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
-            End If
-            If (Original_lim_superior.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_lim_superior.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
-            End If
-            If (Original_cuota_minima.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_cuota_minima.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
-            If (Original_factor.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_factor.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal id_grupo_agua As Global.System.Nullable(Of Integer), ByVal tipo_inmueble As Global.System.Nullable(Of Decimal), ByVal diametro_toma As Global.System.Nullable(Of Decimal), ByVal lim_inferior As Global.System.Nullable(Of Decimal), ByVal lim_superior As Global.System.Nullable(Of Decimal), ByVal cuota_minima As Global.System.Nullable(Of Decimal), ByVal factor As Global.System.Nullable(Of Decimal)) As Integer
-            If (id_grupo_agua.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(id_grupo_agua.Value,Integer)
+        Public Overloads Overridable Function Insert(ByVal tipo_inmueble As Global.System.Nullable(Of Decimal), ByVal diametro_toma As Global.System.Nullable(Of Decimal), ByVal lim_inferior As Global.System.Nullable(Of Decimal), ByVal lim_superior As Global.System.Nullable(Of Decimal), ByVal cuota_minima As Global.System.Nullable(Of Decimal), ByVal factor As Global.System.Nullable(Of Decimal), ByVal año_fiscal As Global.System.Nullable(Of Decimal), ByVal tip_usuario As Global.System.Nullable(Of Decimal), ByVal tipo_servicio As Global.System.Nullable(Of Decimal), ByVal fracc_articulo As String, ByVal gpo_mun As Global.System.Nullable(Of Decimal), ByVal desc_tarifa As String, ByVal tipo_cuota As Global.System.Nullable(Of Decimal), ByVal observacion As String) As Integer
+            If (tipo_inmueble.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(tipo_inmueble.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (tipo_inmueble.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(tipo_inmueble.Value,Decimal)
+            If (diametro_toma.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(diametro_toma.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (diametro_toma.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(diametro_toma.Value,Decimal)
+            If (lim_inferior.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(lim_inferior.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (lim_inferior.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(lim_inferior.Value,Decimal)
+            If (lim_superior.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(lim_superior.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (lim_superior.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(lim_superior.Value,Decimal)
+            If (cuota_minima.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(cuota_minima.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (cuota_minima.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(cuota_minima.Value,Decimal)
+            If (factor.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(factor.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
-            If (factor.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(factor.Value,Decimal)
+            If (año_fiscal.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(año_fiscal.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
+            If (tip_usuario.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(tip_usuario.Value,Decimal)
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (tipo_servicio.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(tipo_servicio.Value,Decimal)
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (fracc_articulo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(fracc_articulo,String)
+            End If
+            If (gpo_mun.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(gpo_mun.Value,Decimal)
+            Else
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (desc_tarifa Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(desc_tarifa,String)
+            End If
+            If (tipo_cuota.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(tipo_cuota.Value,Decimal)
+            Else
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (observacion Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(observacion,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -11974,92 +10673,73 @@ Namespace dsParametrosTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal id_grupo_agua As Global.System.Nullable(Of Integer), ByVal tipo_inmueble As Global.System.Nullable(Of Decimal), ByVal diametro_toma As Global.System.Nullable(Of Decimal), ByVal lim_inferior As Global.System.Nullable(Of Decimal), ByVal lim_superior As Global.System.Nullable(Of Decimal), ByVal cuota_minima As Global.System.Nullable(Of Decimal), ByVal factor As Global.System.Nullable(Of Decimal), ByVal Original_id_tarifa As Integer, ByVal Original_id_grupo_agua As Global.System.Nullable(Of Integer), ByVal Original_tipo_inmueble As Global.System.Nullable(Of Decimal), ByVal Original_diametro_toma As Global.System.Nullable(Of Decimal), ByVal Original_lim_inferior As Global.System.Nullable(Of Decimal), ByVal Original_lim_superior As Global.System.Nullable(Of Decimal), ByVal Original_cuota_minima As Global.System.Nullable(Of Decimal), ByVal Original_factor As Global.System.Nullable(Of Decimal)) As Integer
-            If (id_grupo_agua.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(id_grupo_agua.Value,Integer)
+        Public Overloads Overridable Function Update(ByVal año_fiscal As Global.System.Nullable(Of Decimal), ByVal tip_usuario As Global.System.Nullable(Of Decimal), ByVal tipo_servicio As Global.System.Nullable(Of Decimal), ByVal tipo_inmueble As Global.System.Nullable(Of Decimal), ByVal diametro_toma As Global.System.Nullable(Of Decimal), ByVal fracc_articulo As String, ByVal lim_inferior As Global.System.Nullable(Of Decimal), ByVal lim_superior As Global.System.Nullable(Of Decimal), ByVal cuota_minima As Global.System.Nullable(Of Decimal), ByVal factor As Global.System.Nullable(Of Decimal), ByVal gpo_mun As Global.System.Nullable(Of Decimal), ByVal desc_tarifa As String, ByVal observacion As String, ByVal Original_id_tarifa As Integer) As Integer
+            If (año_fiscal.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(año_fiscal.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (tipo_inmueble.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(tipo_inmueble.Value,Decimal)
+            If (tip_usuario.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(tip_usuario.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (diametro_toma.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(diametro_toma.Value,Decimal)
+            If (tipo_servicio.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(tipo_servicio.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (lim_inferior.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(lim_inferior.Value,Decimal)
+            If (tipo_inmueble.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(tipo_inmueble.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (lim_superior.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(lim_superior.Value,Decimal)
+            If (diametro_toma.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(diametro_toma.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (cuota_minima.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(cuota_minima.Value,Decimal)
-            Else
+            If (fracc_articulo Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(fracc_articulo,String)
             End If
-            If (factor.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(factor.Value,Decimal)
+            If (lim_inferior.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(lim_inferior.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_id_tarifa,Integer)
-            If (Original_id_grupo_agua.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_id_grupo_agua.Value,Integer)
+            If (lim_superior.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(lim_superior.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (cuota_minima.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(cuota_minima.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (factor.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(factor.Value,Decimal)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
-            If (Original_tipo_inmueble.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_tipo_inmueble.Value,Decimal)
+            If (gpo_mun.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(gpo_mun.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (desc_tarifa Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
-            End If
-            If (Original_diametro_toma.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_diametro_toma.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(desc_tarifa,String)
             End If
-            If (Original_lim_inferior.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_lim_inferior.Value,Decimal)
+            If (observacion Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(observacion,String)
             End If
-            If (Original_lim_superior.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_lim_superior.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
-            End If
-            If (Original_cuota_minima.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_cuota_minima.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
-            End If
-            If (Original_factor.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_factor.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_id_tarifa,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -12073,374 +10753,6 @@ Namespace dsParametrosTableAdapters
                     Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the connection and commands used to retrieve and save data.
-    '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class tbl1_predialTableAdapter
-        Inherits Global.System.ComponentModel.Component
-        
-        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
-        Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
-        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
-        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
-        Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
-            Get
-                If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
-                End If
-                Return Me._adapter
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
-            Get
-                If (Me._connection Is Nothing) Then
-                    Me.InitConnection
-                End If
-                Return Me._connection
-            End Get
-            Set
-                Me._connection = value
-                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
-                End If
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
-                    End If
-                    i = (i + 1)
-                Loop
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
-            Get
-                Return Me._transaction
-            End Get
-            Set
-                Me._transaction = value
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    Me.CommandCollection(i).Transaction = Me._transaction
-                    i = (i + 1)
-                Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
-                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
-                    Me.Adapter.InsertCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
-                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
-                End If
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
-            Get
-                If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
-                End If
-                Return Me._commandCollection
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property ClearBeforeFill() As Boolean
-            Get
-                Return Me._clearBeforeFill
-            End Get
-            Set
-                Me._clearBeforeFill = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Private Sub InitAdapter()
-            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
-            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
-            tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "tbl1_predial"
-            tableMapping.ColumnMappings.Add("id_grupo_imp", "id_grupo_imp")
-            tableMapping.ColumnMappings.Add("año_fiscal", "año_fiscal")
-            tableMapping.ColumnMappings.Add("tip_impuesto", "tip_impuesto")
-            tableMapping.ColumnMappings.Add("fracc_articulo", "fracc_articulo")
-            tableMapping.ColumnMappings.Add("gpo_mun", "gpo_mun")
-            Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tbl1_predial] WHERE (([id_grupo_imp] = @Original_id_grupo_imp)"& _ 
-                " AND ([año_fiscal] = @Original_año_fiscal) AND ([tip_impuesto] = @Original_tip_i"& _ 
-                "mpuesto) AND ([fracc_articulo] = @Original_fracc_articulo) AND ([gpo_mun] = @Ori"& _ 
-                "ginal_gpo_mun))"
-            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_grupo_imp", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_grupo_imp", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_año_fiscal", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 4, 0, "año_fiscal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_tip_impuesto", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tip_impuesto", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_fracc_articulo", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fracc_articulo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_gpo_mun", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 1, 0, "gpo_mun", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tbl1_predial] ([año_fiscal], [tip_impuesto], [fracc_articulo],"& _ 
-                " [gpo_mun]) VALUES (@año_fiscal, @tip_impuesto, @fracc_articulo, @gpo_mun);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SEL"& _ 
-                "ECT id_grupo_imp, año_fiscal, tip_impuesto, fracc_articulo, gpo_mun FROM tbl1_pr"& _ 
-                "edial WHERE (año_fiscal = @año_fiscal) AND (fracc_articulo = @fracc_articulo) AN"& _ 
-                "D (gpo_mun = @gpo_mun) AND (tip_impuesto = @tip_impuesto)"
-            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@año_fiscal", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 4, 0, "año_fiscal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tip_impuesto", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tip_impuesto", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fracc_articulo", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fracc_articulo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@gpo_mun", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 1, 0, "gpo_mun", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tbl1_predial] SET [año_fiscal] = @año_fiscal, [tip_impuesto] = @tip"& _ 
-                "_impuesto, [fracc_articulo] = @fracc_articulo, [gpo_mun] = @gpo_mun WHERE (([id_"& _ 
-                "grupo_imp] = @Original_id_grupo_imp) AND ([año_fiscal] = @Original_año_fiscal) A"& _ 
-                "ND ([tip_impuesto] = @Original_tip_impuesto) AND ([fracc_articulo] = @Original_f"& _ 
-                "racc_articulo) AND ([gpo_mun] = @Original_gpo_mun));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id_grupo_imp, año_f"& _ 
-                "iscal, tip_impuesto, fracc_articulo, gpo_mun FROM tbl1_predial WHERE (año_fiscal"& _ 
-                " = @año_fiscal) AND (fracc_articulo = @fracc_articulo) AND (gpo_mun = @gpo_mun) "& _ 
-                "AND (tip_impuesto = @tip_impuesto)"
-            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@año_fiscal", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 4, 0, "año_fiscal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tip_impuesto", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tip_impuesto", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fracc_articulo", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fracc_articulo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@gpo_mun", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 1, 0, "gpo_mun", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_grupo_imp", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id_grupo_imp", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_año_fiscal", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 4, 0, "año_fiscal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_tip_impuesto", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tip_impuesto", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_fracc_articulo", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fracc_articulo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_gpo_mun", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 1, 0, "gpo_mun", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Private Sub InitConnection()
-            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.TCMAdmin.My.MySettings.Default.base_mpioConnectionString
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
-            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT id_grupo_imp, año_fiscal, tip_impuesto, fracc_articulo, gpo_mun FROM dbo.t"& _ 
-                "bl1_predial"
-            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As dsParametros.tbl1_predialDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As dsParametros.tbl1_predialDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As dsParametros.tbl1_predialDataTable = New dsParametros.tbl1_predialDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As dsParametros.tbl1_predialDataTable) As Integer
-            Return Me.Adapter.Update(dataTable)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As dsParametros) As Integer
-            Return Me.Adapter.Update(dataSet, "tbl1_predial")
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(dataRows)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_id_grupo_imp As Integer, ByVal Original_año_fiscal As Decimal, ByVal Original_tip_impuesto As String, ByVal Original_fracc_articulo As String, ByVal Original_gpo_mun As Decimal) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_id_grupo_imp,Integer)
-            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_año_fiscal,Decimal)
-            If (Original_tip_impuesto Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_tip_impuesto")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_tip_impuesto,String)
-            End If
-            If (Original_fracc_articulo Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_fracc_articulo")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_fracc_articulo,String)
-            End If
-            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_gpo_mun,Decimal)
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal año_fiscal As Decimal, ByVal tip_impuesto As String, ByVal fracc_articulo As String, ByVal gpo_mun As Decimal) As Integer
-            Me.Adapter.InsertCommand.Parameters(0).Value = CType(año_fiscal,Decimal)
-            If (tip_impuesto Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("tip_impuesto")
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(tip_impuesto,String)
-            End If
-            If (fracc_articulo Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("fracc_articulo")
-            Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(fracc_articulo,String)
-            End If
-            Me.Adapter.InsertCommand.Parameters(3).Value = CType(gpo_mun,Decimal)
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal año_fiscal As Decimal, ByVal tip_impuesto As String, ByVal fracc_articulo As String, ByVal gpo_mun As Decimal, ByVal Original_id_grupo_imp As Integer, ByVal Original_año_fiscal As Decimal, ByVal Original_tip_impuesto As String, ByVal Original_fracc_articulo As String, ByVal Original_gpo_mun As Decimal) As Integer
-            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(año_fiscal,Decimal)
-            If (tip_impuesto Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("tip_impuesto")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(tip_impuesto,String)
-            End If
-            If (fracc_articulo Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("fracc_articulo")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(fracc_articulo,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(gpo_mun,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_id_grupo_imp,Integer)
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_año_fiscal,Decimal)
-            If (Original_tip_impuesto Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_tip_impuesto")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_tip_impuesto,String)
-            End If
-            If (Original_fracc_articulo Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_fracc_articulo")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_fracc_articulo,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_gpo_mun,Decimal)
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Original_id_grupo_imp As Integer, ByVal Original_año_fiscal As Decimal, ByVal Original_tip_impuesto As String, ByVal Original_fracc_articulo As String, ByVal Original_gpo_mun As Decimal) As Integer
-            Return Me.Update(Original_año_fiscal, Original_tip_impuesto, Original_fracc_articulo, Original_gpo_mun, Original_id_grupo_imp, Original_año_fiscal, Original_tip_impuesto, Original_fracc_articulo, Original_gpo_mun)
         End Function
     End Class
     
@@ -15687,8 +13999,6 @@ Namespace dsParametrosTableAdapters
         
         Private _tbl_tarifas_aguaTableAdapter As tbl_tarifas_aguaTableAdapter
         
-        Private _tbl1_predialTableAdapter As tbl1_predialTableAdapter
-        
         Private _tbl1_tarifas_aguaTableAdapter As tbl1_tarifas_aguaTableAdapter
         
         Private _tipo_inmuebleTableAdapter As tipo_inmuebleTableAdapter
@@ -15783,20 +14093,6 @@ Namespace dsParametrosTableAdapters
             End Get
             Set
                 Me._tbl_tarifas_aguaTableAdapter = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property tbl1_predialTableAdapter() As tbl1_predialTableAdapter
-            Get
-                Return Me._tbl1_predialTableAdapter
-            End Get
-            Set
-                Me._tbl1_predialTableAdapter = value
             End Set
         End Property
         
@@ -15923,10 +14219,6 @@ Namespace dsParametrosTableAdapters
                             AndAlso (Not (Me._tbl_tarifas_aguaTableAdapter.Connection) Is Nothing)) Then
                     Return Me._tbl_tarifas_aguaTableAdapter.Connection
                 End If
-                If ((Not (Me._tbl1_predialTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._tbl1_predialTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._tbl1_predialTableAdapter.Connection
-                End If
                 If ((Not (Me._tbl1_tarifas_aguaTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._tbl1_tarifas_aguaTableAdapter.Connection) Is Nothing)) Then
                     Return Me._tbl1_tarifas_aguaTableAdapter.Connection
@@ -15979,9 +14271,6 @@ Namespace dsParametrosTableAdapters
                 If (Not (Me._tbl_tarifas_aguaTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
-                If (Not (Me._tbl1_predialTableAdapter) Is Nothing) Then
-                    count = (count + 1)
-                End If
                 If (Not (Me._tbl1_tarifas_aguaTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
@@ -16011,42 +14300,6 @@ Namespace dsParametrosTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Function UpdateUpdatedRows(ByVal dataSet As dsParametros, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._tipo_inmuebleTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.tipo_inmueble.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._tipo_inmuebleTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._tbl_DiametroTomaTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.tbl_DiametroToma.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._tbl_DiametroTomaTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._tbl_tarifas_aguaTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.tbl_tarifas_agua.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._tbl_tarifas_aguaTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._tbl1_predialTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.tbl1_predial.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._tbl1_predialTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._parametrTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.parametr.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
@@ -16083,12 +14336,39 @@ Namespace dsParametrosTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
+            If (Not (Me._tbl_tarifas_aguaTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.tbl_tarifas_agua.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._tbl_tarifas_aguaTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
             If (Not (Me._tbl1_tarifas_aguaTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.tbl1_tarifas_agua.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._tbl1_tarifas_aguaTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._tipo_inmuebleTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.tipo_inmueble.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._tipo_inmuebleTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._tbl_DiametroTomaTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.tbl_DiametroToma.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._tbl_DiametroTomaTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -16129,38 +14409,6 @@ Namespace dsParametrosTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Function UpdateInsertedRows(ByVal dataSet As dsParametros, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._tipo_inmuebleTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.tipo_inmueble.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._tipo_inmuebleTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
-            If (Not (Me._tbl_DiametroTomaTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.tbl_DiametroToma.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._tbl_DiametroTomaTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
-            If (Not (Me._tbl_tarifas_aguaTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.tbl_tarifas_agua.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._tbl_tarifas_aguaTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
-            If (Not (Me._tbl1_predialTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.tbl1_predial.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._tbl1_predialTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._parametrTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.parametr.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
@@ -16193,11 +14441,35 @@ Namespace dsParametrosTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
+            If (Not (Me._tbl_tarifas_aguaTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.tbl_tarifas_agua.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._tbl_tarifas_aguaTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             If (Not (Me._tbl1_tarifas_aguaTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.tbl1_tarifas_agua.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._tbl1_tarifas_aguaTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._tipo_inmuebleTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.tipo_inmueble.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._tipo_inmuebleTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._tbl_DiametroTomaTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.tbl_DiametroToma.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._tbl_DiametroTomaTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -16259,11 +14531,35 @@ Namespace dsParametrosTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
+            If (Not (Me._tbl_DiametroTomaTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.tbl_DiametroToma.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._tbl_DiametroTomaTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._tipo_inmuebleTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.tipo_inmueble.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._tipo_inmuebleTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
             If (Not (Me._tbl1_tarifas_aguaTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.tbl1_tarifas_agua.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._tbl1_tarifas_aguaTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._tbl_tarifas_aguaTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.tbl_tarifas_agua.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._tbl_tarifas_aguaTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -16296,38 +14592,6 @@ Namespace dsParametrosTableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._parametrTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._tbl1_predialTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.tbl1_predial.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._tbl1_predialTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._tbl_tarifas_aguaTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.tbl_tarifas_agua.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._tbl_tarifas_aguaTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._tbl_DiametroTomaTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.tbl_DiametroToma.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._tbl_DiametroTomaTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._tipo_inmuebleTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.tipo_inmueble.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._tipo_inmuebleTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -16394,11 +14658,6 @@ Namespace dsParametrosTableAdapters
             End If
             If ((Not (Me._tbl_tarifas_aguaTableAdapter) Is Nothing)  _
                         AndAlso (Me.MatchTableAdapterConnection(Me._tbl_tarifas_aguaTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
-                        "sma cadena de conexión.")
-            End If
-            If ((Not (Me._tbl1_predialTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._tbl1_predialTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
                         "sma cadena de conexión.")
             End If
@@ -16507,15 +14766,6 @@ Namespace dsParametrosTableAdapters
                     If Me._tbl_tarifas_aguaTableAdapter.Adapter.AcceptChangesDuringUpdate Then
                         Me._tbl_tarifas_aguaTableAdapter.Adapter.AcceptChangesDuringUpdate = false
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._tbl_tarifas_aguaTableAdapter.Adapter)
-                    End If
-                End If
-                If (Not (Me._tbl1_predialTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._tbl1_predialTableAdapter, Me._tbl1_predialTableAdapter.Connection)
-                    Me._tbl1_predialTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._tbl1_predialTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
-                    If Me._tbl1_predialTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._tbl1_predialTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._tbl1_predialTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._tbl1_tarifas_aguaTableAdapter) Is Nothing) Then
@@ -16651,10 +14901,6 @@ Namespace dsParametrosTableAdapters
                 If (Not (Me._tbl_tarifas_aguaTableAdapter) Is Nothing) Then
                     Me._tbl_tarifas_aguaTableAdapter.Connection = CType(revertConnections(Me._tbl_tarifas_aguaTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._tbl_tarifas_aguaTableAdapter.Transaction = Nothing
-                End If
-                If (Not (Me._tbl1_predialTableAdapter) Is Nothing) Then
-                    Me._tbl1_predialTableAdapter.Connection = CType(revertConnections(Me._tbl1_predialTableAdapter),Global.System.Data.SqlClient.SqlConnection)
-                    Me._tbl1_predialTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._tbl1_tarifas_aguaTableAdapter) Is Nothing) Then
                     Me._tbl1_tarifas_aguaTableAdapter.Connection = CType(revertConnections(Me._tbl1_tarifas_aguaTableAdapter),Global.System.Data.SqlClient.SqlConnection)

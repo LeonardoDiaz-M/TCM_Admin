@@ -7,35 +7,24 @@ Imports Infragistics.Win.UltraWinEditors
 
 Public Class frmParamBasic
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
-    Public idUsuario As String = My.User.Name
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
     Private cxn As New cxnData
-    Private newrow As Object
-    Public parent As Form = Nothing
-    Private currentmenu As String = ""
+    Private currentmenu As String = currentmenu
 
     Private Sub frmParamBasic_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DsParametros1.parametr' table. You can move, or remove it, as needed.        
         Try
+            TabOrderSequence(Me, SMcMaster.TabOrderManager.TabScheme.AcrossFirst)
             If id <> "0" Then
                 Me.ParametrTableAdapter.Fill(Me.DsParametros.parametr)
                 Me.ParametrBindingSource.Position = Me.ParametrBindingSource.Find("id_parametro", id)
-                btnEliminar.Visible = True
-            Else
-                panParametros.Enabled = True
-                btnEditar.Visible = False
-                btnGuardar.Visible = True
-                uneAnio.ReadOnly = False
-                uneAnio.Value = Nothing
-                uneAnio.SelectAll()
             End If
-            'load_Permiso()
+            load_Permiso()
+            uneAnio.SelectAll()
         Catch ex As Exception
             cMensajes.DisplayMessage(Me, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
         End Try
@@ -43,10 +32,18 @@ Public Class frmParamBasic
     End Sub
     Private Sub load_Permiso()
         Dim ban_enabled As Boolean = False
-        Me.btnGuardar.Visible = False
-        btnEliminar.Visible = False
-        btnBack.Visible = False
-        If id <> "0" Then
+        Me.lblCurrentMenu.Text = Me.Text
+        Me.btnElimina.Visible = False
+        Me.btnGuardar.Visible = IIf(id = "0", Insertar, False)
+        Me.btnEditar.Visible = IIf(id = "0", False, Editar)
+        Me.grParImpPred.Enabled = IIf(id = "0", True, False)
+        Me.grpGral.Enabled = IIf(id = "0", True, False)
+        Me.grpimppred.Enabled = IIf(id = "0", True, False)
+        Me.grpLicMun.Enabled = IIf(id = "0", True, False)
+        Me.grpParBasico.Enabled = IIf(id = "0", True, False)
+        Me.gpogpos.Enabled = IIf(id = "0", True, False)
+        If id = "0" Then
+            Me.BindingNavigator1.BindingSource.AddNew()
             cxn.Select_SQL("select ejerfis from parametr where id_parametro=" & id.ToString)
         Else
             cxn.Select_SQL("select year(getdate())")
@@ -56,27 +53,10 @@ Public Class frmParamBasic
                 ShowContinueMessage("EL EJERCICIO FISCAL DE ESTE AÑO YA HA SIDO CAPTURADO")
                 Me.Close()
             End If
+            uneAnio.ReadOnly = False
+            uneAnio.Value = Nothing
         End If
         Me.lblEjFiscal.Text = "Ejercicio Fiscal: " & cxn.arrayValores(0).ToString
-        If tipo_Permiso = 0 And Not delete_record Then 'Solo Lectura
-            ban_enabled = False
-        ElseIf tipo_Permiso = 1 And delete_record Then 'Eliminar Registro
-            ban_enabled = False
-            btnEliminar.Visible = True
-            btnBack.Visible = True
-        ElseIf tipo_Permiso = 1 And id <> "0" Then  'Actualizar Registro
-            ban_enabled = True
-            Me.btnGuardar.Visible = True
-            btnBack.Visible = True
-        ElseIf tipo_Permiso = 1 And id = "0" Then 'Agregar Registro            
-            ban_enabled = True
-            Me.btnGuardar.Visible = True
-            Me.BindingNavigator1.BindingSource.AddNew()
-        End If
-        Me.grpParBasico.Enabled = ban_enabled
-        Me.grpLicMun.Enabled = ban_enabled
-        Me.gpogpos.Enabled = ban_enabled
-        Me.grpimppred.Enabled = ban_enabled
         btnBack.Visible = True
     End Sub
     Private Function ShowContinueMessage(ByVal message As String) As DialogResult
@@ -239,17 +219,14 @@ Public Class frmParamBasic
     End Function
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
+        Dim Mainbar As ToolStrip = TryCast(myparent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
         Mainbar.Enabled = True
         Me.Close()
         Me.Dispose()
     End Sub
 
     Private Sub frmPredial_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Visible = True
+        GenericCloseChlildForm(Me)
     End Sub
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Try
@@ -264,18 +241,16 @@ Public Class frmParamBasic
                     cMensajes.DisplayMessage(Me, "Datos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
 
                 Else
-                    ParametrTableAdapter.Insert(Me.uneAnio.Value, CDec(Me.uneSalarioMinimoC.Value), Me.uneSalarioMinimoA.Value,
+                    id = ParametrTableAdapter.Insert(Me.uneAnio.Value, CDec(Me.uneSalarioMinimoC.Value), Me.uneSalarioMinimoA.Value,
                                                 CDec(Me.uneFactorPredial.Value), CDec(Me.uneMesIniRecarg.Value), CDec(Me.uneDiaIniRecarg.Value),
                                                 CDec(Me.uneRecContEsp.Value), CDec(Me.uneRecContMor.Value), CDec(Me.uneFactorMultas.Value),
                                                 CDec(Me.uneMesIniRecarg.Value), CDec(Me.uneDiaIniRecarg.Value), CDec(Me.uneMaxIncremAnual.Value),
                                                  CDec(Me.uneGruCobroAgua.Value), CDec(Me.uneGruLicVtaAlcohol.Value), CDec(Me.uneGruDesUrbano.Value),
                                                  CDec(Me.uneGrupoMunSalarios.Value), CDec(Me.uneFactorDrenaje.Value), CDec(uneConsumoMinimoAgua.Value))
                     Me.ParametrTableAdapter.Update(Me.DsParametros.parametr)
-                    Me.btnGuardar.Visible = False
-                    Me.btnEditar.Visible = True
                     cMensajes.DisplayMessage(Me, "Datos Registrados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
-                    Me.Close()
                 End If
+                Me.frmParamBasic_Load(Nothing, Nothing)
             End If
         Catch ex As Exception
             cMensajes.DisplayMessage(Me, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
@@ -283,21 +258,29 @@ Public Class frmParamBasic
     End Sub
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
-        panParametros.Enabled = True
-        btnGuardar.Visible = True
-        btnEditar.Visible = False
+        Me.btnEditar.Visible = False
+        Me.btnGuardar.Visible = Editar
+        Me.btnElimina.Visible = Borrar
+        If Me.btnGuardar.Visible Then
+            Me.grParImpPred.Enabled = True
+            Me.grpGral.Enabled = True
+            Me.grpimppred.Enabled = True
+            Me.grpLicMun.Enabled = True
+            Me.grpParBasico.Enabled = True
+            Me.gpogpos.Enabled = True
+        End If
     End Sub
 
     Private Sub btnUndo_Click(sender As Object, e As EventArgs) Handles btnUndo.Click
         ErrorProvider1.Clear()
         ParametrBindingSource.CancelEdit()
         If id <> "0" Then
-            btnEliminar.Visible = True
+            btnElimina.Visible = True
             btnGuardar.Visible = False
             btnEditar.Visible = True
             panParametros.Enabled = False
         Else
-            btnEliminar.Visible = False
+            btnElimina.Visible = False
             btnGuardar.Visible = True
             btnEditar.Visible = False
             panParametros.Enabled = True
@@ -320,7 +303,7 @@ Public Class frmParamBasic
         End If
     End Sub
 
-    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnElimina.Click
         Try
             If MsgBox("¿Seguro de Eliminar el Registro?", vbYesNo, "Confirmación") = vbYes Then
                 Me.Validate()

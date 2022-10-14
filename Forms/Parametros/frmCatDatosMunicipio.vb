@@ -3,38 +3,35 @@ Imports Infragistics.Win.UltraWinTabControl
 Imports System.Web.Security
 Public Class frmCatDatosMunicipio
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
-    Public idUsuario As String = My.User.Name
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
     Private cxn As New cxnData
-    Private newrow As Object
-    Public parent As Form = Nothing
     Private currentmenu As String = ""
 
     Private Sub frmCatDatosMunicipio_Load(sender As Object, e As EventArgs) Handles Me.Load
+        TabOrderSequence(Me, SMcMaster.TabOrderManager.TabScheme.AcrossFirst)
         If id <> "0" Then
-            'TODO: esta línea de código carga datos en la tabla 'DsCatalogos.oficinas' Puede moverla o quitarla según sea necesario.
             Me.Datos_mpioTableAdapter.Fill(Me.DsParametros.datos_mpio)
             Me.DatosmpioBindingSource.Position = Me.DatosmpioBindingSource.Find("num_mun", id)
-            btnEliminar.Visible = True
-            txtNumeroMunicipio.ReadOnly = True
-        Else
-            grpDatosMunicipio.Enabled = True
-            txtNumeroMunicipio.ReadOnly = False
-            btnEditar.Visible = False
-            btnGuardar.Visible = True
-            txtNumeroMunicipio.SelectAll()
         End If
-        LoadRol()
+        load_Permiso()
+        txtNumeroMunicipio.ReadOnly = True
     End Sub
-    Private Sub LoadRol()
-        btnEditar.Enabled = Roles.IsUserInRole(Usuario, Editar)
-        btnEliminar.Enabled = Roles.IsUserInRole(Usuario, Borrar)
-        btnGuardar.Enabled = Roles.IsUserInRole(Usuario, Insertar)
+    Private Sub load_Permiso()
+        txtNumeroMunicipio.ReadOnly = True
+        Me.lblCurrentMenu.Text = Me.Text
+        Me.btnElimina.Visible = False
+        Me.btnGuardar.Visible = IIf(id = "0", Insertar, False)
+        Me.btnEditar.Visible = IIf(id = "0", False, Editar)
+        Me.grpDatosMunicipio.Enabled = IIf(id = "0", True, False)
+        If id = "0" Then
+            Me.BindingNavigator1.BindingSource.AddNew()
+            txtNumeroMunicipio.ReadOnly = False
+        End If
     End Sub
 
     Private Function valida_datos() As Boolean
@@ -130,7 +127,7 @@ Public Class frmCatDatosMunicipio
             End If
 
 
-            If Me.ucoGrupoMunicipio.SelectedIndex < 1 Then
+            If Me.ucoGrupoMunicipio.SelectedIndex < 0 Then
                 ErrorProvider1.SetError(ucoGrupoMunicipio, "Error")
                 ocurriounError += 1
                 mensaje += "- " & "El campo Grupo Municipio es requerido." & "<br />"
@@ -144,21 +141,21 @@ Public Class frmCatDatosMunicipio
                 Me.ucoGrupoPredial.Focus()
             End If
 
-            If Me.ucoGrupoAgua.SelectedIndex < 1 Then
+            If Me.ucoGrupoAgua.SelectedIndex < 0 Then
                 ErrorProvider1.SetError(ucoGrupoAgua, "Error")
                 ocurriounError += 1
                 mensaje += "- " & "El campo Grupo Agua es requerido." & "<br />"
                 Me.ucoGrupoAgua.Focus()
             End If
 
-            If Me.ucoGrupoLicFunc.SelectedIndex < 1 Then
+            If Me.ucoGrupoLicFunc.SelectedIndex < 0 Then
                 ErrorProvider1.SetError(ucoGrupoLicFunc, "Error")
                 ocurriounError += 1
                 mensaje += "- " & "El campo Grupo Licencias Funcionamiento es requerido." & "<br />"
                 Me.ucoGrupoLicFunc.Focus()
             End If
 
-            If Me.ucoGrupoDesarrolloUrbLic.SelectedIndex < 1 Then
+            If Me.ucoGrupoDesarrolloUrbLic.SelectedIndex < 0 Then
                 ErrorProvider1.SetError(ucoGrupoDesarrolloUrbLic, "Error")
                 ocurriounError += 1
                 mensaje += "- " & "El campo Grupo Desarrollo Urbano Licencias es requerido." & "<br />"
@@ -196,7 +193,8 @@ Public Class frmCatDatosMunicipio
 
                     Me.Datos_mpioTableAdapter.Update(Me.DsParametros.datos_mpio)
                     cMensajes.DisplayMessage(Me, "Datos Registrados", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1)
-                    Me.Close()
+                    id = Me.txtNumeroMunicipio.Text
+                    Me.frmCatDatosMunicipio_Load(Nothing, Nothing)
                 End If
             End If
         Catch ex As Exception
@@ -207,9 +205,10 @@ Public Class frmCatDatosMunicipio
         txtNumeroMunicipio.ReadOnly = True
         grpDatosMunicipio.Enabled = True
         btnEditar.Visible = False
-        btnGuardar.Visible = True
+        btnGuardar.Visible = Editar
+        Me.btnElimina.Visible = Borrar
     End Sub
-    Private Sub btnElimina_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+    Private Sub btnElimina_Click(sender As Object, e As EventArgs) Handles btnElimina.Click
         Try
             If MsgBox("¿Seguro de Eliminar el Registro?", vbYesNo, "Confirmación") = vbYes Then
                 Me.Validate()
@@ -224,17 +223,8 @@ Public Class frmCatDatosMunicipio
         End Try
     End Sub
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Enabled = True
-        Me.Close()
-        Me.Dispose()
+        GenericCloseChlildForm(Me)
     End Sub
-
-
-
-    'Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-    '    Me.OficinasBindingSource.Position = Me.OficinasBindingSource.Find("nom_colonia", txtBusca.Text)
-    'End Sub
 
     Private Sub btnUndo_Click_1(sender As Object, e As EventArgs) Handles btnUndo.Click
         ErrorProvider1.Clear()
@@ -255,10 +245,7 @@ Public Class frmCatDatosMunicipio
         End If
     End Sub
     Private Sub frmCatDatosMunicipio_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Visible = True
+        GenericCloseChlildForm(Me)
     End Sub
 
     Private Sub frmCatDatosMunicipio_Activated(sender As Object, e As EventArgs) Handles Me.Activated

@@ -23,28 +23,30 @@ Partial Class frmCatTipoinmueble
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCatTipoinmueble))
         Me.DsAgua = New TCMAdmin.dsAgua()
-        Me.lblNomCorto = New Infragistics.Win.Misc.UltraLabel()
-        Me.lblClave = New Infragistics.Win.Misc.UltraLabel()
-        Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.btnUndo = New System.Windows.Forms.ToolStripButton()
-        Me.btnGuardar = New System.Windows.Forms.ToolStripButton()
-        Me.btnElimina = New System.Windows.Forms.ToolStripButton()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.lblNombre = New Infragistics.Win.Misc.UltraLabel()
-        Me.txtClave = New System.Windows.Forms.MaskedTextBox()
-        Me.txtNombre = New System.Windows.Forms.TextBox()
-        Me.txtNomCorto = New System.Windows.Forms.TextBox()
         Me.Tipo_inmuebleTableAdapter = New TCMAdmin.dsAguaTableAdapters.tipo_inmuebleTableAdapter()
-        Me.SystemMessages1 = New TCMAdmin.SystemMessages()
+        Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.btnBack = New System.Windows.Forms.ToolStripButton()
+        Me.btnGuardar = New System.Windows.Forms.ToolStripButton()
+        Me.btnEditar = New System.Windows.Forms.ToolStripButton()
+        Me.btnElimina = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
+        Me.lblCurrentMenu = New System.Windows.Forms.ToolStripLabel()
         Me.grpDatosCuenta = New Infragistics.Win.Misc.UltraGroupBox()
+        Me.lblClave = New Infragistics.Win.Misc.UltraLabel()
+        Me.txtClave = New System.Windows.Forms.MaskedTextBox()
+        Me.lblNombre = New Infragistics.Win.Misc.UltraLabel()
+        Me.txtNombre = New System.Windows.Forms.TextBox()
+        Me.lblNomCorto = New Infragistics.Win.Misc.UltraLabel()
+        Me.txtNomCorto = New System.Windows.Forms.TextBox()
         CType(Me.DsAgua, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.BindingNavigator1.SuspendLayout()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.BindingNavigator1.SuspendLayout()
         CType(Me.grpDatosCuenta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpDatosCuenta.SuspendLayout()
         Me.SuspendLayout()
@@ -54,23 +56,18 @@ Partial Class frmCatTipoinmueble
         Me.DsAgua.DataSetName = "dsAgua"
         Me.DsAgua.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'lblNomCorto
+        'BindingSource1
         '
-        Me.lblNomCorto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNomCorto.Location = New System.Drawing.Point(191, 31)
-        Me.lblNomCorto.Name = "lblNomCorto"
-        Me.lblNomCorto.Size = New System.Drawing.Size(106, 22)
-        Me.lblNomCorto.TabIndex = 1
-        Me.lblNomCorto.Text = "Nombre Corto:"
+        Me.BindingSource1.DataMember = "tipo_inmueble"
+        Me.BindingSource1.DataSource = Me.DsAgua
         '
-        'lblClave
+        'ErrorProvider1
         '
-        Me.lblClave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblClave.Location = New System.Drawing.Point(36, 33)
-        Me.lblClave.Name = "lblClave"
-        Me.lblClave.Size = New System.Drawing.Size(56, 23)
-        Me.lblClave.TabIndex = 4
-        Me.lblClave.Text = "Clave:"
+        Me.ErrorProvider1.ContainerControl = Me
+        '
+        'Tipo_inmuebleTableAdapter
+        '
+        Me.Tipo_inmuebleTableAdapter.ClearBeforeFill = True
         '
         'BindingNavigator1
         '
@@ -79,7 +76,8 @@ Partial Class frmCatTipoinmueble
         Me.BindingNavigator1.BindingSource = Me.BindingSource1
         Me.BindingNavigator1.CountItem = Nothing
         Me.BindingNavigator1.DeleteItem = Nothing
-        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnUndo, Me.btnGuardar, Me.btnElimina})
+        Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(36, 36)
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnGuardar, Me.btnEditar, Me.btnElimina, Me.ToolStripSeparator1, Me.ToolStripLabel2, Me.lblCurrentMenu})
         Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
         Me.BindingNavigator1.MoveFirstItem = Nothing
         Me.BindingNavigator1.MoveLastItem = Nothing
@@ -88,102 +86,68 @@ Partial Class frmCatTipoinmueble
         Me.BindingNavigator1.Name = "BindingNavigator1"
         Me.BindingNavigator1.PositionItem = Nothing
         Me.BindingNavigator1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.BindingNavigator1.Size = New System.Drawing.Size(634, 25)
-        Me.BindingNavigator1.TabIndex = 4
-        Me.BindingNavigator1.Text = "BindingNavigator1"
+        Me.BindingNavigator1.Size = New System.Drawing.Size(881, 43)
+        Me.BindingNavigator1.TabIndex = 20
+        Me.BindingNavigator1.Text = "BindingNavigator2"
         '
-        'BindingSource1
+        'btnBack
         '
-        Me.BindingSource1.DataMember = "tipo_inmueble"
-        Me.BindingSource1.DataSource = Me.DsAgua
-        '
-        'btnUndo
-        '
-        Me.btnUndo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnUndo.Image = Global.TCMAdmin.My.Resources.Resources.back
-        Me.btnUndo.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnUndo.Name = "btnUndo"
-        Me.btnUndo.Size = New System.Drawing.Size(23, 22)
-        Me.btnUndo.Text = "ToolStripButton1"
-        Me.btnUndo.ToolTipText = "Deshacer cambios"
+        Me.btnBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnBack.Image = Global.TCMAdmin.My.Resources.Resources.IconBack
+        Me.btnBack.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.btnBack.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(29, 40)
+        Me.btnBack.Text = "ToolStripButton1"
+        Me.btnBack.ToolTipText = "Regresar"
         '
         'btnGuardar
         '
         Me.btnGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnGuardar.Image = Global.TCMAdmin.My.Resources.Resources.save
+        Me.btnGuardar.Image = Global.TCMAdmin.My.Resources.Resources.IconSave
         Me.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(23, 22)
+        Me.btnGuardar.Size = New System.Drawing.Size(40, 40)
         Me.btnGuardar.Text = "ToolStripButton1"
-        Me.btnGuardar.ToolTipText = "Guardar Datos"
+        Me.btnGuardar.ToolTipText = "Guardar"
+        '
+        'btnEditar
+        '
+        Me.btnEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnEditar.Image = Global.TCMAdmin.My.Resources.Resources.IconEdit
+        Me.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnEditar.Name = "btnEditar"
+        Me.btnEditar.Size = New System.Drawing.Size(40, 40)
+        Me.btnEditar.Text = "ToolStripButton1"
+        Me.btnEditar.ToolTipText = "Editar"
         '
         'btnElimina
         '
         Me.btnElimina.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnElimina.Image = CType(resources.GetObject("btnElimina.Image"), System.Drawing.Image)
+        Me.btnElimina.Image = Global.TCMAdmin.My.Resources.Resources.IconDelete
         Me.btnElimina.Name = "btnElimina"
         Me.btnElimina.RightToLeftAutoMirrorImage = True
-        Me.btnElimina.Size = New System.Drawing.Size(23, 22)
+        Me.btnElimina.Size = New System.Drawing.Size(40, 40)
         Me.btnElimina.Text = "Eliminar"
         '
-        'ErrorProvider1
+        'ToolStripSeparator1
         '
-        Me.ErrorProvider1.ContainerControl = Me
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 43)
         '
-        'lblNombre
+        'ToolStripLabel2
         '
-        Me.lblNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombre.Location = New System.Drawing.Point(24, 62)
-        Me.lblNombre.Name = "lblNombre"
-        Me.lblNombre.Size = New System.Drawing.Size(68, 22)
-        Me.lblNombre.TabIndex = 0
-        Me.lblNombre.Text = "Nombre:"
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(53, 40)
+        Me.ToolStripLabel2.Text = "           "
         '
-        'txtClave
+        'lblCurrentMenu
         '
-        Me.txtClave.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "clave", True))
-        Me.txtClave.Enabled = False
-        Me.txtClave.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtClave.Location = New System.Drawing.Point(98, 30)
-        Me.txtClave.Mask = "########"
-        Me.txtClave.Name = "txtClave"
-        Me.txtClave.Size = New System.Drawing.Size(75, 20)
-        Me.txtClave.TabIndex = 1
-        '
-        'txtNombre
-        '
-        Me.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtNombre.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "nombre", True))
-        Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombre.Location = New System.Drawing.Point(98, 59)
-        Me.txtNombre.MaxLength = 50
-        Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(444, 22)
-        Me.txtNombre.TabIndex = 5
-        '
-        'txtNomCorto
-        '
-        Me.txtNomCorto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtNomCorto.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "nom_corto", True))
-        Me.txtNomCorto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNomCorto.Location = New System.Drawing.Point(303, 28)
-        Me.txtNomCorto.MaxLength = 2
-        Me.txtNomCorto.Name = "txtNomCorto"
-        Me.txtNomCorto.Size = New System.Drawing.Size(100, 22)
-        Me.txtNomCorto.TabIndex = 6
-        '
-        'Tipo_inmuebleTableAdapter
-        '
-        Me.Tipo_inmuebleTableAdapter.ClearBeforeFill = True
-        '
-        'SystemMessages1
-        '
-        Me.SystemMessages1.AutoScroll = True
-        Me.SystemMessages1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.SystemMessages1.Location = New System.Drawing.Point(13, 29)
-        Me.SystemMessages1.Name = "SystemMessages1"
-        Me.SystemMessages1.Size = New System.Drawing.Size(614, 26)
-        Me.SystemMessages1.TabIndex = 7
+        Me.lblCurrentMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentMenu.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblCurrentMenu.Name = "lblCurrentMenu"
+        Me.lblCurrentMenu.Size = New System.Drawing.Size(141, 40)
+        Me.lblCurrentMenu.Text = "ToolStripLabel2"
         '
         'grpDatosCuenta
         '
@@ -193,36 +157,104 @@ Partial Class frmCatTipoinmueble
         Me.grpDatosCuenta.Controls.Add(Me.txtNombre)
         Me.grpDatosCuenta.Controls.Add(Me.lblNomCorto)
         Me.grpDatosCuenta.Controls.Add(Me.txtNomCorto)
-        Me.grpDatosCuenta.Dock = System.Windows.Forms.DockStyle.Top
+        Me.grpDatosCuenta.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grpDatosCuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
         Me.grpDatosCuenta.HeaderBorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
-        Me.grpDatosCuenta.Location = New System.Drawing.Point(0, 25)
+        Me.grpDatosCuenta.Location = New System.Drawing.Point(0, 43)
+        Me.grpDatosCuenta.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grpDatosCuenta.Name = "grpDatosCuenta"
-        Me.grpDatosCuenta.Size = New System.Drawing.Size(634, 89)
-        Me.grpDatosCuenta.TabIndex = 13
+        Me.grpDatosCuenta.Size = New System.Drawing.Size(881, 142)
+        Me.grpDatosCuenta.TabIndex = 21
         Me.grpDatosCuenta.Text = "Datos"
         Me.grpDatosCuenta.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
+        'lblClave
+        '
+        Me.lblClave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblClave.Location = New System.Drawing.Point(48, 41)
+        Me.lblClave.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lblClave.Name = "lblClave"
+        Me.lblClave.Size = New System.Drawing.Size(75, 28)
+        Me.lblClave.TabIndex = 4
+        Me.lblClave.Text = "Clave:"
+        '
+        'txtClave
+        '
+        Me.txtClave.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "clave", True))
+        Me.txtClave.Enabled = False
+        Me.txtClave.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtClave.Location = New System.Drawing.Point(131, 37)
+        Me.txtClave.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtClave.Mask = "########"
+        Me.txtClave.Name = "txtClave"
+        Me.txtClave.Size = New System.Drawing.Size(99, 23)
+        Me.txtClave.TabIndex = 1
+        '
+        'lblNombre
+        '
+        Me.lblNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNombre.Location = New System.Drawing.Point(32, 76)
+        Me.lblNombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lblNombre.Name = "lblNombre"
+        Me.lblNombre.Size = New System.Drawing.Size(91, 27)
+        Me.lblNombre.TabIndex = 0
+        Me.lblNombre.Text = "Nombre:"
+        '
+        'txtNombre
+        '
+        Me.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtNombre.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "nombre", True))
+        Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNombre.Location = New System.Drawing.Point(131, 73)
+        Me.txtNombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtNombre.MaxLength = 50
+        Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.Size = New System.Drawing.Size(591, 26)
+        Me.txtNombre.TabIndex = 5
+        '
+        'lblNomCorto
+        '
+        Me.lblNomCorto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNomCorto.Location = New System.Drawing.Point(255, 38)
+        Me.lblNomCorto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lblNomCorto.Name = "lblNomCorto"
+        Me.lblNomCorto.Size = New System.Drawing.Size(141, 27)
+        Me.lblNomCorto.TabIndex = 1
+        Me.lblNomCorto.Text = "Nombre Corto:"
+        '
+        'txtNomCorto
+        '
+        Me.txtNomCorto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtNomCorto.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "nom_corto", True))
+        Me.txtNomCorto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNomCorto.Location = New System.Drawing.Point(404, 34)
+        Me.txtNomCorto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtNomCorto.MaxLength = 2
+        Me.txtNomCorto.Name = "txtNomCorto"
+        Me.txtNomCorto.Size = New System.Drawing.Size(132, 26)
+        Me.txtNomCorto.TabIndex = 6
+        '
         'frmCatTipoinmueble
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(634, 124)
+        Me.ClientSize = New System.Drawing.Size(881, 185)
+        Me.ControlBox = False
         Me.Controls.Add(Me.grpDatosCuenta)
-        Me.Controls.Add(Me.SystemMessages1)
         Me.Controls.Add(Me.BindingNavigator1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmCatTipoinmueble"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Tipo de Inmueble"
         Me.TopMost = True
         CType(Me.DsAgua, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BindingNavigator1.ResumeLayout(False)
         Me.BindingNavigator1.PerformLayout()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpDatosCuenta, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpDatosCuenta.ResumeLayout(False)
         Me.grpDatosCuenta.PerformLayout()
@@ -231,19 +263,22 @@ Partial Class frmCatTipoinmueble
 
     End Sub
     Friend WithEvents DsAgua As TCMAdmin.dsAgua
-    Friend WithEvents BindingNavigator1 As System.Windows.Forms.BindingNavigator
-    Friend WithEvents btnUndo As System.Windows.Forms.ToolStripButton
-    Friend WithEvents btnGuardar As System.Windows.Forms.ToolStripButton
-    Friend WithEvents btnElimina As System.Windows.Forms.ToolStripButton
     Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
-    Friend WithEvents txtClave As System.Windows.Forms.MaskedTextBox
     Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
     Friend WithEvents Tipo_inmuebleTableAdapter As TCMAdmin.dsAguaTableAdapters.tipo_inmuebleTableAdapter
-    Friend WithEvents txtNombre As System.Windows.Forms.TextBox
-    Friend WithEvents txtNomCorto As System.Windows.Forms.TextBox
-    Private WithEvents lblNomCorto As Infragistics.Win.Misc.UltraLabel
-    Private WithEvents lblClave As Infragistics.Win.Misc.UltraLabel
-    Private WithEvents lblNombre As Infragistics.Win.Misc.UltraLabel
-    Friend WithEvents SystemMessages1 As SystemMessages
     Friend WithEvents grpDatosCuenta As Infragistics.Win.Misc.UltraGroupBox
+    Private WithEvents lblClave As Infragistics.Win.Misc.UltraLabel
+    Friend WithEvents txtClave As MaskedTextBox
+    Private WithEvents lblNombre As Infragistics.Win.Misc.UltraLabel
+    Friend WithEvents txtNombre As TextBox
+    Private WithEvents lblNomCorto As Infragistics.Win.Misc.UltraLabel
+    Friend WithEvents txtNomCorto As TextBox
+    Friend WithEvents BindingNavigator1 As BindingNavigator
+    Friend WithEvents btnBack As ToolStripButton
+    Friend WithEvents btnGuardar As ToolStripButton
+    Friend WithEvents btnEditar As ToolStripButton
+    Friend WithEvents btnElimina As ToolStripButton
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents ToolStripLabel2 As ToolStripLabel
+    Friend WithEvents lblCurrentMenu As ToolStripLabel
 End Class

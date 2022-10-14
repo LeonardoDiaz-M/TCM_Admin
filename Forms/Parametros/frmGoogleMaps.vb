@@ -6,35 +6,38 @@ Imports GMap.NET.WindowsForms.Markers
 Public Class frmGoogleMaps
 
     Private Sub frmGoogleMaps_Load(sender As Object, e As EventArgs) Handles Me.Load
+        GMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance
+        GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly
+        'GMapControl1.SetPositionByKeywords("Lerma, México")
+
         Try
             GMapControl1.DragButton = MouseButtons.Left
             GMapControl1.CanDragMap = True
-            GMapControl1.MapProvider = MapProviders.GoogleSatelliteMapProvider.Instance
-
+            GMapControl1.MapProvider = MapProviders.GoogleMapProvider.Instance
             If Val(txtLatitud.Text) = 0 Or Val(txtLongitud.Text) = 0 Then
-                GMapControl1.Position = New PointLatLng(19.3618266, -99.4878324819)
+                cMensajes.DisplayMessage(Me, "No se han registrado las coordenadas geográficas del inmueble en el padrón, actualice el registro!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                GMapControl1.Position = New PointLatLng(19.3309698, -99.4762293)
             Else
-                GMapControl1.Position = New PointLatLng(txtLatitud.Text, txtLongitud.Text)
-                'agregamos marcador
+                GMapControl1.Position = New PointLatLng(Val(txtLatitud.Text), Val(txtLongitud.Text))
+                'agregamos marcador 
                 Dim MarkerOverlay As New GMapOverlay("Marcador")
-                Dim Marker As New GMarkerGoogle(New PointLatLng(txtLatitud.Text, txtLongitud.Text), GMarkerGoogleType.green)
-                MarkerOverlay.Markers.Add(Marker) 'agregamos al mapa
+                Dim Marker As New GMarkerGoogle(New PointLatLng(txtLatitud.Text, txtLongitud.Text), GMarkerGoogleType.blue_pushpin)
+                MarkerOverlay.Markers.Add(Marker) 'agregamos al marcador
                 Dim Tooltip As String
-                Tooltip = "Ubicación: " & lblUbicacion.Text & vbCrLf
+                Tooltip = "  Ubicación: " & lblUbicacion.Text & vbCrLf
                 Tooltip += "Reg. Mpal.: " & lblClavePadron.Text & vbCrLf
-                Tooltip += "   Nombre: " & lblNombreContribuyente.Text & vbCrLf
+                Tooltip += "    Nombre: " & lblNombreContribuyente.Text & vbCrLf
 
                 'agregamos tooltip
                 Marker.ToolTipMode = MarkerTooltipMode.Always
                 Marker.ToolTipText = Tooltip
                 'String.Format("Ubicación: \n Clave:{0} \n Nombre:{1}", lblClavePadron.Text, lblClavePadron.Text)
-
                 GMapControl1.Overlays.Add(MarkerOverlay)
             End If
 
-            GMapControl1.MinZoom = 0
-            GMapControl1.MaxZoom = 25
-            GMapControl1.Zoom = 18
+            GMapControl1.MinZoom = 2
+            GMapControl1.MaxZoom = 18
+            GMapControl1.Zoom = 13
             GMapControl1.Refresh()
             GMapControl1.AutoScroll = True
 
@@ -57,7 +60,7 @@ Public Class frmGoogleMaps
     End Sub
 
     Private Sub btnSatelite_Click(sender As Object, e As EventArgs) Handles btnSatelite.Click
-        GMapControl1.MapProvider = GMapProviders.ArcGIS_World_Physical_Map
+        GMapControl1.MapProvider = GMapProviders.GoogleSatelliteMap
     End Sub
 
     Private Sub btnNormal_Click(sender As Object, e As EventArgs) Handles btnNormal.Click
@@ -68,9 +71,9 @@ Public Class frmGoogleMaps
         GMapControl1.MapProvider = GMapProviders.GoogleTerrainMap
     End Sub
 
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        trackZoom.Value = Convert.ToInt32(GMapControl1.Zoom)
-    End Sub
+    'Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+    '    trackZoom.Value = Convert.ToInt32(GMapControl1.Zoom)
+    'End Sub
 
     Private Sub trackZoom_ValueChanged(sender As Object, e As EventArgs) Handles trackZoom.ValueChanged
         GMapControl1.Zoom = trackZoom.Value
@@ -90,10 +93,12 @@ Public Class frmGoogleMaps
                 cMensajes.DisplayMessage(Me, "Ingrese un valor para la longitud", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                 Exit Sub
             End If
-
-            DB.fExecuteScalarInt("UPDATE " & lblTipoPadron.Text & " SET Latitud= '" & txtLatitud.Text & "',Longitud='" & txtLongitud.Text & "' WHERE " & lblCampo.Text & "='" & lblClavePadron.Text & "'")
+            Dim cxn As New cxnData
+            If cxn.Select_SQL("UPDATE " & lblTipoPadron.Text & " SET Latitud= '" & txtLatitud.Text & "',Longitud='" & txtLongitud.Text & "' WHERE " & lblCampo.Text & "='" & lblClavePadron.Text & "'") AndAlso cxn.err = "" Then
                 cMensajes.DisplayMessage(Me, "Registro actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1)
-
+            Else
+                cMensajes.DisplayMessage(Me, "Error: " & cxn.err, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1)
+            End If
         Catch ex As Exception
             cMensajes.DisplayMessage(Me, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
         End Try

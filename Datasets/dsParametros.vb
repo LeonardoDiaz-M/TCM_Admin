@@ -1,4 +1,7 @@
 ﻿Partial Class dsParametros
+    Partial Public Class tbl_predialDataTable
+    End Class
+
     Partial Public Class tbl_derechosDataTable
         Private Sub tbl_derechosDataTable_tbl_derechosRowChanging(sender As Object, e As tbl_derechosRowChangeEvent) Handles Me.tbl_derechosRowChanging
 

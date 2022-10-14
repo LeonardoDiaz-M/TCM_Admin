@@ -26,24 +26,23 @@ Partial Class frmCatOficinas
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCatOficinas))
         Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
         Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance45 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance46 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance47 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance48 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance49 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance50 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance51 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance52 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance53 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.btnNCurrent = New System.Windows.Forms.ToolStripTextBox()
         Me.btnNTotal = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
@@ -53,7 +52,9 @@ Partial Class frmCatOficinas
         Me.btnUndo = New System.Windows.Forms.ToolStripButton()
         Me.btnGuardar = New System.Windows.Forms.ToolStripButton()
         Me.btnEditar = New System.Windows.Forms.ToolStripButton()
-        Me.btnEliminar = New System.Windows.Forms.ToolStripButton()
+        Me.btnElimina = New System.Windows.Forms.ToolStripButton()
+        Me.lblCurrentMenu = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.btnNPrimero = New System.Windows.Forms.ToolStripButton()
         Me.btnNPrevio = New System.Windows.Forms.ToolStripButton()
         Me.btnNSiguiente = New System.Windows.Forms.ToolStripButton()
@@ -80,6 +81,8 @@ Partial Class frmCatOficinas
         Me.txtNombre = New Infragistics.Win.UltraWinEditors.UltraTextEditor()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.OficinasTableAdapter = New TCMAdmin.dsCatalogosTableAdapters.oficinasTableAdapter()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
         CType(Me.OficinasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -99,19 +102,10 @@ Partial Class frmCatOficinas
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'ToolStripLabel1
-        '
-        Me.ToolStripLabel1.AutoSize = False
-        Me.ToolStripLabel1.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(500, 34)
-        Me.ToolStripLabel1.Text = "                       "
-        '
         'btnNCurrent
         '
         Me.btnNCurrent.AccessibleName = "Posición"
         Me.btnNCurrent.AutoSize = False
-        Me.btnNCurrent.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.btnNCurrent.Name = "btnNCurrent"
         Me.btnNCurrent.Size = New System.Drawing.Size(50, 23)
         Me.btnNCurrent.Text = "0"
@@ -120,18 +114,19 @@ Partial Class frmCatOficinas
         'btnNTotal
         '
         Me.btnNTotal.Name = "btnNTotal"
-        Me.btnNTotal.Size = New System.Drawing.Size(37, 34)
-        Me.btnNTotal.Text = "de {0}"
+        Me.btnNTotal.Size = New System.Drawing.Size(35, 34)
+        Me.btnNTotal.Text = "of {0}"
         Me.btnNTotal.ToolTipText = "Número total de elementos"
         '
         'BindingNavigator1
         '
         Me.BindingNavigator1.AddNewItem = Nothing
+        Me.BindingNavigator1.BackColor = System.Drawing.Color.White
         Me.BindingNavigator1.BindingSource = Me.OficinasBindingSource
         Me.BindingNavigator1.CountItem = Me.btnNTotal
         Me.BindingNavigator1.DeleteItem = Nothing
         Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(30, 30)
-        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnGuardar, Me.btnEditar, Me.btnEliminar, Me.ToolStripLabel1, Me.btnNPrimero, Me.btnNPrevio, Me.btnNCurrent, Me.btnNTotal, Me.btnNSiguiente, Me.btnNUltimo})
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnGuardar, Me.btnEditar, Me.btnElimina, Me.ToolStripSeparator1, Me.ToolStripLabel2, Me.lblCurrentMenu, Me.ToolStripLabel1, Me.btnNPrimero, Me.btnNPrevio, Me.btnNCurrent, Me.btnNTotal, Me.btnNSiguiente, Me.btnNUltimo})
         Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
         Me.BindingNavigator1.MoveFirstItem = Me.btnNPrimero
         Me.BindingNavigator1.MoveLastItem = Me.btnNUltimo
@@ -195,16 +190,30 @@ Partial Class frmCatOficinas
         Me.btnEditar.Text = "ToolStripButton1"
         Me.btnEditar.ToolTipText = "Editar registro"
         '
-        'btnEliminar
+        'btnElimina
         '
-        Me.btnEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnEliminar.Image = Global.TCMAdmin.My.Resources.Resources.IconDelete
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.RightToLeftAutoMirrorImage = True
-        Me.btnEliminar.Size = New System.Drawing.Size(34, 34)
-        Me.btnEliminar.Text = "Eliminar"
-        Me.btnEliminar.ToolTipText = "Eliminar registro"
-        Me.btnEliminar.Visible = False
+        Me.btnElimina.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnElimina.Image = Global.TCMAdmin.My.Resources.Resources.IconDelete
+        Me.btnElimina.Name = "btnElimina"
+        Me.btnElimina.RightToLeftAutoMirrorImage = True
+        Me.btnElimina.Size = New System.Drawing.Size(34, 34)
+        Me.btnElimina.Text = "Eliminar"
+        Me.btnElimina.ToolTipText = "Eliminar registro"
+        Me.btnElimina.Visible = False
+        '
+        'lblCurrentMenu
+        '
+        Me.lblCurrentMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentMenu.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblCurrentMenu.Name = "lblCurrentMenu"
+        Me.lblCurrentMenu.Size = New System.Drawing.Size(119, 34)
+        Me.lblCurrentMenu.Text = "ToolStripLabel2"
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(40, 34)
+        Me.ToolStripLabel1.Text = "           "
         '
         'btnNPrimero
         '
@@ -248,13 +257,14 @@ Partial Class frmCatOficinas
         Me.grpOficinas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grpOficinas.Enabled = False
         Me.grpOficinas.ExpandedSize = New System.Drawing.Size(1140, 337)
+        Me.grpOficinas.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpOficinas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpOficinas.Location = New System.Drawing.Point(0, 37)
         Me.grpOficinas.Name = "grpOficinas"
         Me.grpOficinas.Size = New System.Drawing.Size(1140, 337)
         Me.grpOficinas.TabIndex = 31
         Me.grpOficinas.Text = "Oficinas Detalle"
-        Me.grpOficinas.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpOficinas.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'grParImpPred
         '
@@ -277,9 +287,9 @@ Partial Class frmCatOficinas
         Me.grParImpPred.Controls.Add(Me.lblCuenta)
         Me.grParImpPred.Controls.Add(Me.txtNombre)
         Me.grParImpPred.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grParImpPred.Location = New System.Drawing.Point(3, 19)
+        Me.grParImpPred.Location = New System.Drawing.Point(2, 21)
         Me.grParImpPred.Name = "grParImpPred"
-        Me.grParImpPred.Size = New System.Drawing.Size(1134, 315)
+        Me.grParImpPred.Size = New System.Drawing.Size(1136, 314)
         Me.grParImpPred.TabIndex = 0
         '
         'optTipoSalario
@@ -298,8 +308,8 @@ Partial Class frmCatOficinas
         '
         'UltraLabel12
         '
-        Appearance1.TextHAlignAsString = "Right"
-        Me.UltraLabel12.Appearance = Appearance1
+        Appearance45.TextHAlignAsString = "Right"
+        Me.UltraLabel12.Appearance = Appearance45
         Me.UltraLabel12.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UltraLabel12.Location = New System.Drawing.Point(90, 264)
         Me.UltraLabel12.Name = "UltraLabel12"
@@ -310,8 +320,8 @@ Partial Class frmCatOficinas
         '
         'UltraLabel11
         '
-        Appearance2.TextHAlignAsString = "Right"
-        Me.UltraLabel11.Appearance = Appearance2
+        Appearance46.TextHAlignAsString = "Right"
+        Me.UltraLabel11.Appearance = Appearance46
         Me.UltraLabel11.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UltraLabel11.Location = New System.Drawing.Point(90, 232)
         Me.UltraLabel11.Name = "UltraLabel11"
@@ -341,8 +351,8 @@ Partial Class frmCatOficinas
         '
         'UltraLabel9
         '
-        Appearance4.TextHAlignAsString = "Right"
-        Me.UltraLabel9.Appearance = Appearance4
+        Appearance47.TextHAlignAsString = "Right"
+        Me.UltraLabel9.Appearance = Appearance47
         Me.UltraLabel9.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UltraLabel9.Location = New System.Drawing.Point(90, 204)
         Me.UltraLabel9.Name = "UltraLabel9"
@@ -391,8 +401,8 @@ Partial Class frmCatOficinas
         '
         'UltraLabel10
         '
-        Appearance7.TextHAlignAsString = "Right"
-        Me.UltraLabel10.Appearance = Appearance7
+        Appearance48.TextHAlignAsString = "Right"
+        Me.UltraLabel10.Appearance = Appearance48
         Me.UltraLabel10.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UltraLabel10.Location = New System.Drawing.Point(90, 176)
         Me.UltraLabel10.Name = "UltraLabel10"
@@ -403,8 +413,8 @@ Partial Class frmCatOficinas
         '
         'UltraLabel8
         '
-        Appearance8.TextHAlignAsString = "Right"
-        Me.UltraLabel8.Appearance = Appearance8
+        Appearance49.TextHAlignAsString = "Right"
+        Me.UltraLabel8.Appearance = Appearance49
         Me.UltraLabel8.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UltraLabel8.Location = New System.Drawing.Point(90, 148)
         Me.UltraLabel8.Name = "UltraLabel8"
@@ -490,8 +500,8 @@ Partial Class frmCatOficinas
         '
         'UltraLabel2
         '
-        Appearance13.TextHAlignAsString = "Right"
-        Me.UltraLabel2.Appearance = Appearance13
+        Appearance50.TextHAlignAsString = "Right"
+        Me.UltraLabel2.Appearance = Appearance50
         Me.UltraLabel2.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UltraLabel2.Location = New System.Drawing.Point(90, 120)
         Me.UltraLabel2.Name = "UltraLabel2"
@@ -502,8 +512,8 @@ Partial Class frmCatOficinas
         '
         'UltraLabel3
         '
-        Appearance14.TextHAlignAsString = "Right"
-        Me.UltraLabel3.Appearance = Appearance14
+        Appearance51.TextHAlignAsString = "Right"
+        Me.UltraLabel3.Appearance = Appearance51
         Me.UltraLabel3.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UltraLabel3.Location = New System.Drawing.Point(90, 92)
         Me.UltraLabel3.Name = "UltraLabel3"
@@ -514,8 +524,8 @@ Partial Class frmCatOficinas
         '
         'UltraLabel1
         '
-        Appearance15.TextHAlignAsString = "Right"
-        Me.UltraLabel1.Appearance = Appearance15
+        Appearance52.TextHAlignAsString = "Right"
+        Me.UltraLabel1.Appearance = Appearance52
         Me.UltraLabel1.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UltraLabel1.Location = New System.Drawing.Point(90, 64)
         Me.UltraLabel1.Name = "UltraLabel1"
@@ -526,8 +536,8 @@ Partial Class frmCatOficinas
         '
         'lblCuenta
         '
-        Appearance16.TextHAlignAsString = "Right"
-        Me.lblCuenta.Appearance = Appearance16
+        Appearance53.TextHAlignAsString = "Right"
+        Me.lblCuenta.Appearance = Appearance53
         Me.lblCuenta.AutoSize = True
         Me.lblCuenta.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCuenta.Location = New System.Drawing.Point(206, 34)
@@ -564,11 +574,24 @@ Partial Class frmCatOficinas
         '
         Me.OficinasTableAdapter.ClearBeforeFill = True
         '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 37)
+        '
+        'ToolStripLabel2
+        '
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(40, 34)
+        Me.ToolStripLabel2.Text = "           "
+        '
         'frmCatOficinas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1140, 374)
+        Me.ControlBox = False
         Me.Controls.Add(Me.grpOficinas)
         Me.Controls.Add(Me.BindingNavigator1)
         Me.KeyPreview = True
@@ -602,8 +625,7 @@ Partial Class frmCatOficinas
     Friend WithEvents btnUndo As ToolStripButton
     Friend WithEvents btnGuardar As ToolStripButton
     Friend WithEvents btnEditar As ToolStripButton
-    Friend WithEvents btnEliminar As ToolStripButton
-    Friend WithEvents ToolStripLabel1 As ToolStripLabel
+    Friend WithEvents btnElimina As ToolStripButton
     Friend WithEvents btnNPrimero As ToolStripButton
     Friend WithEvents btnNPrevio As ToolStripButton
     Friend WithEvents btnNCurrent As ToolStripTextBox
@@ -635,4 +657,8 @@ Partial Class frmCatOficinas
     Friend WithEvents OficinasTableAdapter As dsCatalogosTableAdapters.oficinasTableAdapter
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents optTipoSalario As Infragistics.Win.UltraWinEditors.UltraOptionSet
+    Friend WithEvents lblCurrentMenu As ToolStripLabel
+    Friend WithEvents ToolStripLabel1 As ToolStripLabel
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents ToolStripLabel2 As ToolStripLabel
 End Class

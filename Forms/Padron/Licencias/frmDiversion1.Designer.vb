@@ -23,48 +23,44 @@ Partial Class frmDiversion1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim Appearance30 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridBand1 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("Band 0", -1)
         Dim UltraGridColumn5 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("clave")
         Dim UltraGridColumn6 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("nombre")
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance33 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance31 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance34 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridBand2 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("Band 0", -1)
         Dim UltraGridColumn1 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("id_colonia")
         Dim UltraGridColumn2 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("nom_colonia")
+        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridBand3 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("Band 0", -1)
         Dim UltraGridColumn11 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("clave")
         Dim UltraGridColumn12 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("nombre")
+        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance18 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance19 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance20 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance32 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance21 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance22 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance23 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance24 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance25 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance26 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridBand4 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("Band 0", -1)
         Dim UltraGridColumn13 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("cve_tip_con")
         Dim UltraGridColumn14 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("descricion")
-        Dim Appearance27 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance24 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridBand5 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("Band 0", -1)
         Dim UltraGridColumn3 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("cve_status")
         Dim UltraGridColumn4 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("descripcion")
-        Dim Appearance29 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DsLicencias1 = New TCMAdmin.dsLicencias()
@@ -76,7 +72,7 @@ Partial Class frmDiversion1
         Me.btnElimina = New System.Windows.Forms.ToolStripButton()
         Me.btnImage = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.lblCurrentMenu = New System.Windows.Forms.ToolStripLabel()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Tbl_lic_municipalesTableAdapter = New TCMAdmin.dsLicenciasTableAdapters.tbl_lic_municipalesTableAdapter()
@@ -152,6 +148,7 @@ Partial Class frmDiversion1
         Me.uneUltAnio = New Infragistics.Win.UltraWinEditors.UltraNumericEditor()
         Me.lblUltimomes = New Infragistics.Win.Misc.UltraLabel()
         Me.lblUltimoaño = New Infragistics.Win.Misc.UltraLabel()
+        Me.btnMapa = New System.Windows.Forms.ToolStripButton()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DsLicencias1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -215,7 +212,7 @@ Partial Class frmDiversion1
         Me.BindingNavigator1.CountItem = Nothing
         Me.BindingNavigator1.DeleteItem = Nothing
         Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(36, 36)
-        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnGuardar, Me.btnEditar, Me.btnElimina, Me.btnImage, Me.ToolStripSeparator1, Me.ToolStripLabel1, Me.lblCurrentMenu})
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnGuardar, Me.btnEditar, Me.btnElimina, Me.btnImage, Me.btnMapa, Me.ToolStripSeparator1, Me.ToolStripLabel2, Me.lblCurrentMenu})
         Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
         Me.BindingNavigator1.MoveFirstItem = Nothing
         Me.BindingNavigator1.MoveLastItem = Nothing
@@ -294,13 +291,11 @@ Partial Class frmDiversion1
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 43)
         '
-        'ToolStripLabel1
+        'ToolStripLabel2
         '
-        Me.ToolStripLabel1.AutoSize = False
-        Me.ToolStripLabel1.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(200, 22)
-        Me.ToolStripLabel1.Text = "                       "
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(40, 40)
+        Me.ToolStripLabel2.Text = "           "
         '
         'lblCurrentMenu
         '
@@ -324,27 +319,24 @@ Partial Class frmDiversion1
         Me.grpPAE.Dock = System.Windows.Forms.DockStyle.Left
         Me.grpPAE.Enabled = False
         Me.grpPAE.ExpandedSize = New System.Drawing.Size(638, 162)
+        Me.grpPAE.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpPAE.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Appearance30.BackColor = System.Drawing.Color.AliceBlue
-        Appearance30.BackColor2 = System.Drawing.Color.White
-        Appearance30.BackGradientAlignment = Infragistics.Win.GradientAlignment.Client
-        Me.grpPAE.HeaderAppearance = Appearance30
         Me.grpPAE.Location = New System.Drawing.Point(0, 465)
         Me.grpPAE.Name = "grpPAE"
         Me.grpPAE.Size = New System.Drawing.Size(638, 162)
         Me.grpPAE.TabIndex = 3
         Me.grpPAE.TabStop = False
         Me.grpPAE.Text = "PAE"
-        Me.grpPAE.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpPAE.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'UltraExpandableGroupBoxPanel3
         '
         Me.UltraExpandableGroupBoxPanel3.Controls.Add(Me.chkNotificado)
         Me.UltraExpandableGroupBoxPanel3.Controls.Add(Me.panNotificado)
         Me.UltraExpandableGroupBoxPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraExpandableGroupBoxPanel3.Location = New System.Drawing.Point(3, 19)
+        Me.UltraExpandableGroupBoxPanel3.Location = New System.Drawing.Point(2, 21)
         Me.UltraExpandableGroupBoxPanel3.Name = "UltraExpandableGroupBoxPanel3"
-        Me.UltraExpandableGroupBoxPanel3.Size = New System.Drawing.Size(632, 140)
+        Me.UltraExpandableGroupBoxPanel3.Size = New System.Drawing.Size(634, 139)
         Me.UltraExpandableGroupBoxPanel3.TabIndex = 0
         '
         'chkNotificado
@@ -389,10 +381,10 @@ Partial Class frmDiversion1
         '
         'ucoPae
         '
-        Appearance3.FontData.BoldAsString = "True"
-        Appearance3.FontData.Name = "Tahoma"
-        Appearance3.FontData.SizeInPoints = 9.0!
-        Me.ucoPae.Appearance = Appearance3
+        Appearance2.FontData.BoldAsString = "True"
+        Appearance2.FontData.Name = "Tahoma"
+        Appearance2.FontData.SizeInPoints = 9.0!
+        Me.ucoPae.Appearance = Appearance2
         Me.ucoPae.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest
         Me.ucoPae.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoPae.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource1, "pae", True))
@@ -439,9 +431,9 @@ Partial Class frmDiversion1
         'txtNoOficioPae
         '
         Me.txtNoOficioPae.AlwaysInEditMode = True
-        Appearance4.BackColor = System.Drawing.Color.White
-        Appearance4.BackColor2 = System.Drawing.Color.White
-        Me.txtNoOficioPae.Appearance = Appearance4
+        Appearance3.BackColor = System.Drawing.Color.White
+        Appearance3.BackColor2 = System.Drawing.Color.White
+        Me.txtNoOficioPae.Appearance = Appearance3
         Me.txtNoOficioPae.BackColor = System.Drawing.Color.White
         Me.txtNoOficioPae.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNoOficioPae.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "num_noti", True))
@@ -467,8 +459,8 @@ Partial Class frmDiversion1
         '
         'lblNoPAe
         '
-        Appearance33.TextHAlignAsString = "Right"
-        Me.lblNoPAe.Appearance = Appearance33
+        Appearance4.TextHAlignAsString = "Right"
+        Me.lblNoPAe.Appearance = Appearance4
         Me.lblNoPAe.AutoSize = True
         Me.lblNoPAe.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNoPAe.Location = New System.Drawing.Point(3, 33)
@@ -495,18 +487,15 @@ Partial Class frmDiversion1
         Me.grpPropietario.Dock = System.Windows.Forms.DockStyle.Top
         Me.grpPropietario.Enabled = False
         Me.grpPropietario.ExpandedSize = New System.Drawing.Size(1084, 220)
+        Me.grpPropietario.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpPropietario.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Appearance31.BackColor = System.Drawing.Color.AliceBlue
-        Appearance31.BackColor2 = System.Drawing.Color.White
-        Appearance31.BackGradientAlignment = Infragistics.Win.GradientAlignment.Client
-        Me.grpPropietario.HeaderAppearance = Appearance31
         Me.grpPropietario.Location = New System.Drawing.Point(0, 245)
         Me.grpPropietario.Name = "grpPropietario"
         Me.grpPropietario.Size = New System.Drawing.Size(1084, 220)
         Me.grpPropietario.TabIndex = 2
         Me.grpPropietario.TabStop = False
         Me.grpPropietario.Text = "Datos del Propietario"
-        Me.grpPropietario.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpPropietario.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'UltraExpandableGroupBoxPanel2
         '
@@ -539,9 +528,9 @@ Partial Class frmDiversion1
         Me.UltraExpandableGroupBoxPanel2.Controls.Add(Me.lblColonia)
         Me.UltraExpandableGroupBoxPanel2.Controls.Add(Me.lblNoExt)
         Me.UltraExpandableGroupBoxPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraExpandableGroupBoxPanel2.Location = New System.Drawing.Point(3, 19)
+        Me.UltraExpandableGroupBoxPanel2.Location = New System.Drawing.Point(2, 21)
         Me.UltraExpandableGroupBoxPanel2.Name = "UltraExpandableGroupBoxPanel2"
-        Me.UltraExpandableGroupBoxPanel2.Size = New System.Drawing.Size(1078, 198)
+        Me.UltraExpandableGroupBoxPanel2.Size = New System.Drawing.Size(1080, 197)
         Me.UltraExpandableGroupBoxPanel2.TabIndex = 0
         '
         'lblCorreo
@@ -558,9 +547,9 @@ Partial Class frmDiversion1
         '
         'txtemail
         '
-        Appearance7.BackColor = System.Drawing.Color.White
-        Appearance7.BackColor2 = System.Drawing.Color.White
-        Me.txtemail.Appearance = Appearance7
+        Appearance5.BackColor = System.Drawing.Color.White
+        Appearance5.BackColor2 = System.Drawing.Color.White
+        Me.txtemail.Appearance = Appearance5
         Me.txtemail.BackColor = System.Drawing.Color.White
         Me.txtemail.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower
         Me.txtemail.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "correoe", True))
@@ -575,10 +564,10 @@ Partial Class frmDiversion1
         '
         'txtCurp
         '
-        Appearance34.FontData.BoldAsString = "True"
-        Appearance34.FontData.Name = "Tahoma"
-        Appearance34.FontData.SizeInPoints = 9.0!
-        Me.txtCurp.Appearance = Appearance34
+        Appearance6.FontData.BoldAsString = "True"
+        Appearance6.FontData.Name = "Tahoma"
+        Appearance6.FontData.SizeInPoints = 9.0!
+        Me.txtCurp.Appearance = Appearance6
         Me.txtCurp.EditAs = Infragistics.Win.UltraWinMaskedEdit.EditAsType.UseSpecifiedMask
         Me.txtCurp.InputMask = ">????######??????AA"
         Me.txtCurp.Location = New System.Drawing.Point(878, 33)
@@ -603,9 +592,9 @@ Partial Class frmDiversion1
         'txtRfc
         '
         Me.txtRfc.AlwaysInEditMode = True
-        Appearance8.BackColor = System.Drawing.Color.White
-        Appearance8.BackColor2 = System.Drawing.Color.White
-        Me.txtRfc.Appearance = Appearance8
+        Appearance7.BackColor = System.Drawing.Color.White
+        Appearance7.BackColor2 = System.Drawing.Color.White
+        Me.txtRfc.Appearance = Appearance7
         Me.txtRfc.BackColor = System.Drawing.Color.White
         Me.txtRfc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtRfc.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "rfc", True))
@@ -620,10 +609,10 @@ Partial Class frmDiversion1
         '
         'txtTel
         '
-        Appearance9.FontData.BoldAsString = "True"
-        Appearance9.FontData.Name = "Tahoma"
-        Appearance9.FontData.SizeInPoints = 9.0!
-        Me.txtTel.Appearance = Appearance9
+        Appearance8.FontData.BoldAsString = "True"
+        Appearance8.FontData.Name = "Tahoma"
+        Appearance8.FontData.SizeInPoints = 9.0!
+        Me.txtTel.Appearance = Appearance8
         Me.txtTel.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "telefono", True))
         Me.txtTel.EditAs = Infragistics.Win.UltraWinMaskedEdit.EditAsType.UseSpecifiedMask
         Me.txtTel.InputMask = ">########aa"
@@ -648,9 +637,9 @@ Partial Class frmDiversion1
         'txtCalle
         '
         Me.txtCalle.AlwaysInEditMode = True
-        Appearance10.BackColor = System.Drawing.Color.White
-        Appearance10.BackColor2 = System.Drawing.Color.White
-        Me.txtCalle.Appearance = Appearance10
+        Appearance9.BackColor = System.Drawing.Color.White
+        Appearance9.BackColor2 = System.Drawing.Color.White
+        Me.txtCalle.Appearance = Appearance9
         Me.txtCalle.BackColor = System.Drawing.Color.White
         Me.txtCalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtCalle.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "calle", True))
@@ -676,10 +665,10 @@ Partial Class frmDiversion1
         '
         'txtCP
         '
-        Appearance11.FontData.BoldAsString = "True"
-        Appearance11.FontData.Name = "Tahoma"
-        Appearance11.FontData.SizeInPoints = 9.0!
-        Me.txtCP.Appearance = Appearance11
+        Appearance10.FontData.BoldAsString = "True"
+        Appearance10.FontData.Name = "Tahoma"
+        Appearance10.FontData.SizeInPoints = 9.0!
+        Me.txtCP.Appearance = Appearance10
         Me.txtCP.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "cod_postal", True))
         Me.txtCP.EditAs = Infragistics.Win.UltraWinMaskedEdit.EditAsType.UseSpecifiedMask
         Me.txtCP.InputMask = "#####"
@@ -692,10 +681,10 @@ Partial Class frmDiversion1
         '
         'ucoColonia
         '
-        Appearance12.FontData.BoldAsString = "True"
-        Appearance12.FontData.Name = "Tahoma"
-        Appearance12.FontData.SizeInPoints = 9.0!
-        Me.ucoColonia.Appearance = Appearance12
+        Appearance11.FontData.BoldAsString = "True"
+        Appearance11.FontData.Name = "Tahoma"
+        Appearance11.FontData.SizeInPoints = 9.0!
+        Me.ucoColonia.Appearance = Appearance11
         Me.ucoColonia.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest
         Me.ucoColonia.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoColonia.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource1, "cve_col", True))
@@ -720,9 +709,9 @@ Partial Class frmDiversion1
         'txtNoInt
         '
         Me.txtNoInt.AlwaysInEditMode = True
-        Appearance13.BackColor = System.Drawing.Color.White
-        Appearance13.BackColor2 = System.Drawing.Color.White
-        Me.txtNoInt.Appearance = Appearance13
+        Appearance12.BackColor = System.Drawing.Color.White
+        Appearance12.BackColor2 = System.Drawing.Color.White
+        Me.txtNoInt.Appearance = Appearance12
         Me.txtNoInt.BackColor = System.Drawing.Color.White
         Me.txtNoInt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNoInt.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "no_int", True))
@@ -738,9 +727,9 @@ Partial Class frmDiversion1
         'txtNoExt
         '
         Me.txtNoExt.AlwaysInEditMode = True
-        Appearance14.BackColor = System.Drawing.Color.White
-        Appearance14.BackColor2 = System.Drawing.Color.White
-        Me.txtNoExt.Appearance = Appearance14
+        Appearance13.BackColor = System.Drawing.Color.White
+        Appearance13.BackColor2 = System.Drawing.Color.White
+        Me.txtNoExt.Appearance = Appearance13
         Me.txtNoExt.BackColor = System.Drawing.Color.White
         Me.txtNoExt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNoExt.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "no_ext", True))
@@ -799,10 +788,10 @@ Partial Class frmDiversion1
         '
         'ucoLocalidad
         '
-        Appearance15.FontData.BoldAsString = "True"
-        Appearance15.FontData.Name = "Tahoma"
-        Appearance15.FontData.SizeInPoints = 9.0!
-        Me.ucoLocalidad.Appearance = Appearance15
+        Appearance14.FontData.BoldAsString = "True"
+        Appearance14.FontData.Name = "Tahoma"
+        Appearance14.FontData.SizeInPoints = 9.0!
+        Me.ucoLocalidad.Appearance = Appearance14
         Me.ucoLocalidad.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest
         Me.ucoLocalidad.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoLocalidad.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource1, "cve_loc", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, Nothing, "N2"))
@@ -827,9 +816,9 @@ Partial Class frmDiversion1
         '
         'txtObservaciones
         '
-        Appearance16.BackColor = System.Drawing.Color.White
-        Appearance16.BackColor2 = System.Drawing.Color.White
-        Me.txtObservaciones.Appearance = Appearance16
+        Appearance15.BackColor = System.Drawing.Color.White
+        Appearance15.BackColor2 = System.Drawing.Color.White
+        Me.txtObservaciones.Appearance = Appearance15
         Me.txtObservaciones.BackColor = System.Drawing.Color.White
         Me.txtObservaciones.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtObservaciones.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "observacion", True))
@@ -845,9 +834,9 @@ Partial Class frmDiversion1
         'txtResponsable
         '
         Me.txtResponsable.AlwaysInEditMode = True
-        Appearance17.BackColor = System.Drawing.Color.White
-        Appearance17.BackColor2 = System.Drawing.Color.White
-        Me.txtResponsable.Appearance = Appearance17
+        Appearance16.BackColor = System.Drawing.Color.White
+        Appearance16.BackColor2 = System.Drawing.Color.White
+        Me.txtResponsable.Appearance = Appearance16
         Me.txtResponsable.BackColor = System.Drawing.Color.White
         Me.txtResponsable.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtResponsable.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "responsable", True))
@@ -863,9 +852,9 @@ Partial Class frmDiversion1
         '
         'txtDomicilio
         '
-        Appearance18.BackColor = System.Drawing.Color.White
-        Appearance18.BackColor2 = System.Drawing.Color.White
-        Me.txtDomicilio.Appearance = Appearance18
+        Appearance17.BackColor = System.Drawing.Color.White
+        Appearance17.BackColor2 = System.Drawing.Color.White
+        Me.txtDomicilio.Appearance = Appearance17
         Me.txtDomicilio.BackColor = System.Drawing.Color.White
         Me.txtDomicilio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtDomicilio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "domicilio_fiscal", True))
@@ -881,9 +870,9 @@ Partial Class frmDiversion1
         'txtNombre
         '
         Me.txtNombre.AlwaysInEditMode = True
-        Appearance19.BackColor = System.Drawing.Color.White
-        Appearance19.BackColor2 = System.Drawing.Color.White
-        Me.txtNombre.Appearance = Appearance19
+        Appearance18.BackColor = System.Drawing.Color.White
+        Appearance18.BackColor2 = System.Drawing.Color.White
+        Me.txtNombre.Appearance = Appearance18
         Me.txtNombre.BackColor = System.Drawing.Color.White
         Me.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNombre.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "nombre", True))
@@ -910,8 +899,8 @@ Partial Class frmDiversion1
         '
         'lblNombre
         '
-        Appearance20.TextHAlignAsString = "Center"
-        Me.lblNombre.Appearance = Appearance20
+        Appearance19.TextHAlignAsString = "Center"
+        Me.lblNombre.Appearance = Appearance19
         Me.lblNombre.AutoSize = True
         Me.lblNombre.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNombre.Location = New System.Drawing.Point(56, 9)
@@ -971,18 +960,15 @@ Partial Class frmDiversion1
         Me.grpDatosCuenta.Dock = System.Windows.Forms.DockStyle.Top
         Me.grpDatosCuenta.Enabled = False
         Me.grpDatosCuenta.ExpandedSize = New System.Drawing.Size(1084, 202)
+        Me.grpDatosCuenta.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpDatosCuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Appearance32.BackColor = System.Drawing.Color.AliceBlue
-        Appearance32.BackColor2 = System.Drawing.Color.White
-        Appearance32.BackGradientAlignment = Infragistics.Win.GradientAlignment.Client
-        Me.grpDatosCuenta.HeaderAppearance = Appearance32
         Me.grpDatosCuenta.Location = New System.Drawing.Point(0, 43)
         Me.grpDatosCuenta.Name = "grpDatosCuenta"
         Me.grpDatosCuenta.Size = New System.Drawing.Size(1084, 202)
         Me.grpDatosCuenta.TabIndex = 1
         Me.grpDatosCuenta.TabStop = False
         Me.grpDatosCuenta.Text = "Cuenta"
-        Me.grpDatosCuenta.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpDatosCuenta.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'UltraExpandableGroupBoxPanel1
         '
@@ -1005,17 +991,17 @@ Partial Class frmDiversion1
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.txtNoLic)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.cmbTipoLicencia)
         Me.UltraExpandableGroupBoxPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraExpandableGroupBoxPanel1.Location = New System.Drawing.Point(3, 19)
+        Me.UltraExpandableGroupBoxPanel1.Location = New System.Drawing.Point(2, 21)
         Me.UltraExpandableGroupBoxPanel1.Name = "UltraExpandableGroupBoxPanel1"
-        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(1078, 180)
+        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(1080, 179)
         Me.UltraExpandableGroupBoxPanel1.TabIndex = 0
         '
         'txtLongitud
         '
         Me.txtLongitud.AlwaysInEditMode = True
-        Appearance23.BackColor = System.Drawing.Color.White
-        Appearance23.BackColor2 = System.Drawing.Color.White
-        Me.txtLongitud.Appearance = Appearance23
+        Appearance20.BackColor = System.Drawing.Color.White
+        Appearance20.BackColor2 = System.Drawing.Color.White
+        Me.txtLongitud.Appearance = Appearance20
         Me.txtLongitud.BackColor = System.Drawing.Color.White
         Me.txtLongitud.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtLongitud.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "Longitud", True))
@@ -1042,9 +1028,9 @@ Partial Class frmDiversion1
         'txtLatitud
         '
         Me.txtLatitud.AlwaysInEditMode = True
-        Appearance24.BackColor = System.Drawing.Color.White
-        Appearance24.BackColor2 = System.Drawing.Color.White
-        Me.txtLatitud.Appearance = Appearance24
+        Appearance21.BackColor = System.Drawing.Color.White
+        Appearance21.BackColor2 = System.Drawing.Color.White
+        Me.txtLatitud.Appearance = Appearance21
         Me.txtLatitud.BackColor = System.Drawing.Color.White
         Me.txtLatitud.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtLatitud.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "Latitud", True))
@@ -1080,9 +1066,9 @@ Partial Class frmDiversion1
         '
         'txtClavecatastral
         '
-        Appearance25.BackColor = System.Drawing.Color.White
-        Appearance25.BackColor2 = System.Drawing.Color.White
-        Me.txtClavecatastral.Appearance = Appearance25
+        Appearance22.BackColor = System.Drawing.Color.White
+        Appearance22.BackColor2 = System.Drawing.Color.White
+        Me.txtClavecatastral.Appearance = Appearance22
         Me.txtClavecatastral.BackColor = System.Drawing.Color.White
         Me.txtClavecatastral.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtClavecatastral.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "cve_catastral", True))
@@ -1098,10 +1084,10 @@ Partial Class frmDiversion1
         '
         'ucoTipoContribuyente
         '
-        Appearance26.FontData.BoldAsString = "True"
-        Appearance26.FontData.Name = "Tahoma"
-        Appearance26.FontData.SizeInPoints = 9.0!
-        Me.ucoTipoContribuyente.Appearance = Appearance26
+        Appearance23.FontData.BoldAsString = "True"
+        Appearance23.FontData.Name = "Tahoma"
+        Appearance23.FontData.SizeInPoints = 9.0!
+        Me.ucoTipoContribuyente.Appearance = Appearance23
         Me.ucoTipoContribuyente.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest
         Me.ucoTipoContribuyente.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoTipoContribuyente.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource1, "cve_tip_con", True))
@@ -1125,10 +1111,10 @@ Partial Class frmDiversion1
         '
         'ucoStatus
         '
-        Appearance27.FontData.BoldAsString = "True"
-        Appearance27.FontData.Name = "Tahoma"
-        Appearance27.FontData.SizeInPoints = 9.0!
-        Me.ucoStatus.Appearance = Appearance27
+        Appearance24.FontData.BoldAsString = "True"
+        Appearance24.FontData.Name = "Tahoma"
+        Appearance24.FontData.SizeInPoints = 9.0!
+        Me.ucoStatus.Appearance = Appearance24
         Me.ucoStatus.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest
         Me.ucoStatus.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoStatus.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource1, "status", True))
@@ -1276,18 +1262,15 @@ Partial Class frmDiversion1
         Me.grpUltimoPago.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grpUltimoPago.Enabled = False
         Me.grpUltimoPago.ExpandedSize = New System.Drawing.Size(446, 162)
+        Me.grpUltimoPago.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpUltimoPago.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Appearance29.BackColor = System.Drawing.Color.AliceBlue
-        Appearance29.BackColor2 = System.Drawing.Color.White
-        Appearance29.BackGradientAlignment = Infragistics.Win.GradientAlignment.Client
-        Me.grpUltimoPago.HeaderAppearance = Appearance29
         Me.grpUltimoPago.Location = New System.Drawing.Point(638, 465)
         Me.grpUltimoPago.Name = "grpUltimoPago"
         Me.grpUltimoPago.Size = New System.Drawing.Size(446, 162)
         Me.grpUltimoPago.TabIndex = 4
         Me.grpUltimoPago.TabStop = False
         Me.grpUltimoPago.Text = "Último Pago"
-        Me.grpUltimoPago.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpUltimoPago.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'UltraExpandableGroupBoxPanel4
         '
@@ -1300,9 +1283,9 @@ Partial Class frmDiversion1
         Me.UltraExpandableGroupBoxPanel4.Controls.Add(Me.lblUltimoaño)
         Me.UltraExpandableGroupBoxPanel4.Controls.Add(Me.mskUltMes)
         Me.UltraExpandableGroupBoxPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraExpandableGroupBoxPanel4.Location = New System.Drawing.Point(3, 19)
+        Me.UltraExpandableGroupBoxPanel4.Location = New System.Drawing.Point(2, 21)
         Me.UltraExpandableGroupBoxPanel4.Name = "UltraExpandableGroupBoxPanel4"
-        Me.UltraExpandableGroupBoxPanel4.Size = New System.Drawing.Size(440, 140)
+        Me.UltraExpandableGroupBoxPanel4.Size = New System.Drawing.Size(442, 139)
         Me.UltraExpandableGroupBoxPanel4.TabIndex = 0
         '
         'dtpFechaPago
@@ -1391,6 +1374,15 @@ Partial Class frmDiversion1
         Me.lblUltimoaño.Text = "Últ. Año:"
         Me.lblUltimoaño.UseAppStyling = False
         '
+        'btnMapa
+        '
+        Me.btnMapa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnMapa.Image = Global.TCMAdmin.My.Resources.Resources.Icon_Search
+        Me.btnMapa.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnMapa.Name = "btnMapa"
+        Me.btnMapa.Size = New System.Drawing.Size(40, 40)
+        Me.btnMapa.Text = "Ver Mapa"
+        '
         'frmDiversion1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1467,7 +1459,6 @@ Partial Class frmDiversion1
     Friend WithEvents btnGuardar As ToolStripButton
     Friend WithEvents btnElimina As ToolStripButton
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents ToolStripLabel1 As ToolStripLabel
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents Tbl_lic_municipalesTableAdapter As dsLicenciasTableAdapters.tbl_lic_municipalesTableAdapter
     Private WithEvents lblDimension As Infragistics.Win.Misc.UltraLabel
@@ -1546,4 +1537,6 @@ Partial Class frmDiversion1
     Friend WithEvents txtFecPAE As Infragistics.Win.UltraWinEditors.UltraDateTimeEditor
     Friend WithEvents lblNoPAe As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents lblNoActosPAe As Infragistics.Win.Misc.UltraLabel
+    Friend WithEvents ToolStripLabel2 As ToolStripLabel
+    Friend WithEvents btnMapa As ToolStripButton
 End Class

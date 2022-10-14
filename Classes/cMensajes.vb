@@ -58,7 +58,9 @@ Public Class cMensajes
             messageBoxInfo.Style = MessageBoxStyle.Vista
             messageBoxInfo.HeaderFormatted = "<i>Mensaje: </i>"
             messageBoxInfo.ShowHelpButton = Infragistics.Win.DefaultableBoolean.False
-
+            If message = "Object variable or With block variable not set." Then
+                Exit Sub
+            End If
             ' Create a HelpInfo object to hold the help data 
             Using helpData As New HelpInfo("", "")
                 messageBoxInfo.HelpInfo = helpData

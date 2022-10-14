@@ -23,10 +23,14 @@ Partial Class Padron_Imagenes
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DockAreaPane1 As Infragistics.Win.UltraWinDock.DockAreaPane = New Infragistics.Win.UltraWinDock.DockAreaPane(Infragistics.Win.UltraWinDock.DockedLocation.DockedLeft, New System.Guid("b77e1739-72f6-442b-911d-77460f2ae5d3"))
         Dim DockableControlPane1 As Infragistics.Win.UltraWinDock.DockableControlPane = New Infragistics.Win.UltraWinDock.DockableControlPane(New System.Guid("1bbf8688-ee69-41c7-af7d-2efaf0f4abe6"), New System.Guid("00000000-0000-0000-0000-000000000000"), -1, New System.Guid("b77e1739-72f6-442b-911d-77460f2ae5d3"), -1)
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Me.griImagenes = New System.Windows.Forms.DataGridView()
-        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TipoPadron = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ClavePadron = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.imageFile = New System.Windows.Forms.DataGridViewImageColumn()
@@ -38,6 +42,8 @@ Partial Class Padron_Imagenes
         Me.txtexaminar = New System.Windows.Forms.ToolStripTextBox()
         Me.lblTipoPadron = New System.Windows.Forms.ToolStripLabel()
         Me.lblClavePadron = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
+        Me.lblCurrentMenu = New System.Windows.Forms.ToolStripLabel()
         Me.ofdArchivos = New System.Windows.Forms.OpenFileDialog()
         Me.dokImagenes = New Infragistics.Win.UltraWinDock.UltraDockManager(Me.components)
         Me._Padron_ImagenesUnpinnedTabAreaLeft = New Infragistics.Win.UltraWinDock.UnpinnedTabArea()
@@ -45,52 +51,91 @@ Partial Class Padron_Imagenes
         Me._Padron_ImagenesUnpinnedTabAreaTop = New Infragistics.Win.UltraWinDock.UnpinnedTabArea()
         Me._Padron_ImagenesUnpinnedTabAreaBottom = New Infragistics.Win.UltraWinDock.UnpinnedTabArea()
         Me._Padron_ImagenesAutoHideControl = New Infragistics.Win.UltraWinDock.AutoHideControl()
+        Me.picImagen = New System.Windows.Forms.PictureBox()
+        Me.UltraPanel1 = New Infragistics.Win.Misc.UltraPanel()
         Me.WindowDockingArea1 = New Infragistics.Win.UltraWinDock.WindowDockingArea()
         Me.DockableWindow1 = New Infragistics.Win.UltraWinDock.DockableWindow()
-        Me.picImagen = New System.Windows.Forms.PictureBox()
+        Me.UTEDescripcion = New Infragistics.Win.UltraWinEditors.UltraTextEditor()
+        Me.UltraLabel1 = New Infragistics.Win.Misc.UltraLabel()
         CType(Me.griImagenes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
         CType(Me.dokImagenes, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.UltraPanel1.ClientArea.SuspendLayout()
+        Me.UltraPanel1.SuspendLayout()
         Me.WindowDockingArea1.SuspendLayout()
         Me.DockableWindow1.SuspendLayout()
-        CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UTEDescripcion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'griImagenes
         '
         Me.griImagenes.AllowUserToAddRows = False
+        Me.griImagenes.BackgroundColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.griImagenes.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.griImagenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.griImagenes.ColumnHeadersVisible = False
-        Me.griImagenes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.TipoPadron, Me.ClavePadron, Me.imageFile})
+        Me.griImagenes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id1, Me.TipoPadron, Me.ClavePadron, Me.imageFile})
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.griImagenes.DefaultCellStyle = DataGridViewCellStyle2
         Me.griImagenes.Dock = System.Windows.Forms.DockStyle.Left
-        Me.griImagenes.Location = New System.Drawing.Point(0, 18)
+        Me.griImagenes.Location = New System.Drawing.Point(0, 19)
+        Me.griImagenes.Margin = New System.Windows.Forms.Padding(4)
         Me.griImagenes.Name = "griImagenes"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.griImagenes.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.griImagenes.RowHeadersVisible = False
+        Me.griImagenes.RowHeadersWidth = 51
         Me.griImagenes.RowTemplate.Height = 200
-        Me.griImagenes.Size = New System.Drawing.Size(206, 600)
+        Me.griImagenes.Size = New System.Drawing.Size(206, 752)
         Me.griImagenes.TabIndex = 9
         '
-        'id
+        'id1
         '
-        Me.id.DataPropertyName = "id"
-        Me.id.HeaderText = "id"
-        Me.id.Name = "id"
-        Me.id.Visible = False
+        Me.id1.DataPropertyName = "id1"
+        Me.id1.HeaderText = "id"
+        Me.id1.MinimumWidth = 6
+        Me.id1.Name = "id1"
+        Me.id1.Visible = False
+        Me.id1.Width = 125
         '
         'TipoPadron
         '
         Me.TipoPadron.DataPropertyName = "TipoPadron"
         Me.TipoPadron.HeaderText = "TipoPadron"
+        Me.TipoPadron.MinimumWidth = 6
         Me.TipoPadron.Name = "TipoPadron"
         Me.TipoPadron.Visible = False
+        Me.TipoPadron.Width = 125
         '
         'ClavePadron
         '
         Me.ClavePadron.DataPropertyName = "ClavePadron"
         Me.ClavePadron.HeaderText = "ClavePadron"
+        Me.ClavePadron.MinimumWidth = 6
         Me.ClavePadron.Name = "ClavePadron"
         Me.ClavePadron.Visible = False
+        Me.ClavePadron.Width = 125
         '
         'imageFile
         '
@@ -108,17 +153,17 @@ Partial Class Padron_Imagenes
         Me.BindingNavigator1.CountItem = Nothing
         Me.BindingNavigator1.DeleteItem = Nothing
         Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(36, 36)
-        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnNuevo, Me.btnGuardar, Me.btnElimina, Me.txtexaminar, Me.lblTipoPadron, Me.lblClavePadron})
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnNuevo, Me.btnGuardar, Me.btnElimina, Me.txtexaminar, Me.lblTipoPadron, Me.lblClavePadron, Me.ToolStripLabel2, Me.lblCurrentMenu})
         Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
         Me.BindingNavigator1.MoveFirstItem = Nothing
         Me.BindingNavigator1.MoveLastItem = Nothing
         Me.BindingNavigator1.MoveNextItem = Nothing
         Me.BindingNavigator1.MovePreviousItem = Nothing
         Me.BindingNavigator1.Name = "BindingNavigator1"
-        Me.BindingNavigator1.Padding = New System.Windows.Forms.Padding(0, 0, 2, 0)
+        Me.BindingNavigator1.Padding = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.BindingNavigator1.PositionItem = Nothing
         Me.BindingNavigator1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.BindingNavigator1.Size = New System.Drawing.Size(1021, 43)
+        Me.BindingNavigator1.Size = New System.Drawing.Size(1361, 43)
         Me.BindingNavigator1.TabIndex = 5
         Me.BindingNavigator1.Text = "BindingNavigator1"
         '
@@ -129,7 +174,7 @@ Partial Class Padron_Imagenes
         Me.btnBack.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.btnBack.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(28, 40)
+        Me.btnBack.Size = New System.Drawing.Size(29, 40)
         Me.btnBack.Text = "ToolStripButton1"
         Me.btnBack.ToolTipText = "Regresar"
         '
@@ -169,7 +214,7 @@ Partial Class Padron_Imagenes
         '
         Me.txtexaminar.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtexaminar.Name = "txtexaminar"
-        Me.txtexaminar.Size = New System.Drawing.Size(100, 43)
+        Me.txtexaminar.Size = New System.Drawing.Size(132, 43)
         Me.txtexaminar.Visible = False
         '
         'lblTipoPadron
@@ -184,6 +229,20 @@ Partial Class Padron_Imagenes
         Me.lblClavePadron.Name = "lblClavePadron"
         Me.lblClavePadron.Size = New System.Drawing.Size(0, 40)
         '
+        'ToolStripLabel2
+        '
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(53, 40)
+        Me.ToolStripLabel2.Text = "           "
+        '
+        'lblCurrentMenu
+        '
+        Me.lblCurrentMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentMenu.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblCurrentMenu.Name = "lblCurrentMenu"
+        Me.lblCurrentMenu.Size = New System.Drawing.Size(141, 40)
+        Me.lblCurrentMenu.Text = "ToolStripLabel2"
+        '
         'ofdArchivos
         '
         Me.ofdArchivos.FileName = "OpenFileDialog1"
@@ -196,68 +255,97 @@ Partial Class Padron_Imagenes
         DockableControlPane1.Size = New System.Drawing.Size(100, 100)
         DockableControlPane1.Text = "Imágenes "
         DockAreaPane1.Panes.AddRange(New Infragistics.Win.UltraWinDock.DockablePaneBase() {DockableControlPane1})
-        DockAreaPane1.Size = New System.Drawing.Size(206, 618)
+        DockAreaPane1.Size = New System.Drawing.Size(206, 771)
         Me.dokImagenes.DockAreas.AddRange(New Infragistics.Win.UltraWinDock.DockAreaPane() {DockAreaPane1})
         Me.dokImagenes.HostControl = Me
         '
         '_Padron_ImagenesUnpinnedTabAreaLeft
         '
         Me._Padron_ImagenesUnpinnedTabAreaLeft.Dock = System.Windows.Forms.DockStyle.Left
-        Me._Padron_ImagenesUnpinnedTabAreaLeft.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._Padron_ImagenesUnpinnedTabAreaLeft.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._Padron_ImagenesUnpinnedTabAreaLeft.Location = New System.Drawing.Point(0, 43)
+        Me._Padron_ImagenesUnpinnedTabAreaLeft.Margin = New System.Windows.Forms.Padding(4)
         Me._Padron_ImagenesUnpinnedTabAreaLeft.Name = "_Padron_ImagenesUnpinnedTabAreaLeft"
         Me._Padron_ImagenesUnpinnedTabAreaLeft.Owner = Me.dokImagenes
-        Me._Padron_ImagenesUnpinnedTabAreaLeft.Size = New System.Drawing.Size(0, 618)
+        Me._Padron_ImagenesUnpinnedTabAreaLeft.Size = New System.Drawing.Size(0, 771)
         Me._Padron_ImagenesUnpinnedTabAreaLeft.TabIndex = 11
         '
         '_Padron_ImagenesUnpinnedTabAreaRight
         '
         Me._Padron_ImagenesUnpinnedTabAreaRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me._Padron_ImagenesUnpinnedTabAreaRight.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me._Padron_ImagenesUnpinnedTabAreaRight.Location = New System.Drawing.Point(1021, 43)
+        Me._Padron_ImagenesUnpinnedTabAreaRight.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._Padron_ImagenesUnpinnedTabAreaRight.Location = New System.Drawing.Point(1361, 43)
+        Me._Padron_ImagenesUnpinnedTabAreaRight.Margin = New System.Windows.Forms.Padding(4)
         Me._Padron_ImagenesUnpinnedTabAreaRight.Name = "_Padron_ImagenesUnpinnedTabAreaRight"
         Me._Padron_ImagenesUnpinnedTabAreaRight.Owner = Me.dokImagenes
-        Me._Padron_ImagenesUnpinnedTabAreaRight.Size = New System.Drawing.Size(0, 618)
+        Me._Padron_ImagenesUnpinnedTabAreaRight.Size = New System.Drawing.Size(0, 771)
         Me._Padron_ImagenesUnpinnedTabAreaRight.TabIndex = 12
         '
         '_Padron_ImagenesUnpinnedTabAreaTop
         '
         Me._Padron_ImagenesUnpinnedTabAreaTop.Dock = System.Windows.Forms.DockStyle.Top
-        Me._Padron_ImagenesUnpinnedTabAreaTop.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._Padron_ImagenesUnpinnedTabAreaTop.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._Padron_ImagenesUnpinnedTabAreaTop.Location = New System.Drawing.Point(0, 43)
+        Me._Padron_ImagenesUnpinnedTabAreaTop.Margin = New System.Windows.Forms.Padding(4)
         Me._Padron_ImagenesUnpinnedTabAreaTop.Name = "_Padron_ImagenesUnpinnedTabAreaTop"
         Me._Padron_ImagenesUnpinnedTabAreaTop.Owner = Me.dokImagenes
-        Me._Padron_ImagenesUnpinnedTabAreaTop.Size = New System.Drawing.Size(1021, 0)
+        Me._Padron_ImagenesUnpinnedTabAreaTop.Size = New System.Drawing.Size(1361, 0)
         Me._Padron_ImagenesUnpinnedTabAreaTop.TabIndex = 13
         '
         '_Padron_ImagenesUnpinnedTabAreaBottom
         '
         Me._Padron_ImagenesUnpinnedTabAreaBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me._Padron_ImagenesUnpinnedTabAreaBottom.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me._Padron_ImagenesUnpinnedTabAreaBottom.Location = New System.Drawing.Point(0, 661)
+        Me._Padron_ImagenesUnpinnedTabAreaBottom.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._Padron_ImagenesUnpinnedTabAreaBottom.Location = New System.Drawing.Point(0, 814)
+        Me._Padron_ImagenesUnpinnedTabAreaBottom.Margin = New System.Windows.Forms.Padding(4)
         Me._Padron_ImagenesUnpinnedTabAreaBottom.Name = "_Padron_ImagenesUnpinnedTabAreaBottom"
         Me._Padron_ImagenesUnpinnedTabAreaBottom.Owner = Me.dokImagenes
-        Me._Padron_ImagenesUnpinnedTabAreaBottom.Size = New System.Drawing.Size(1021, 0)
+        Me._Padron_ImagenesUnpinnedTabAreaBottom.Size = New System.Drawing.Size(1361, 0)
         Me._Padron_ImagenesUnpinnedTabAreaBottom.TabIndex = 14
         '
         '_Padron_ImagenesAutoHideControl
         '
-        Me._Padron_ImagenesAutoHideControl.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me._Padron_ImagenesAutoHideControl.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me._Padron_ImagenesAutoHideControl.Location = New System.Drawing.Point(0, 0)
+        Me._Padron_ImagenesAutoHideControl.Margin = New System.Windows.Forms.Padding(4)
         Me._Padron_ImagenesAutoHideControl.Name = "_Padron_ImagenesAutoHideControl"
         Me._Padron_ImagenesAutoHideControl.Owner = Me.dokImagenes
         Me._Padron_ImagenesAutoHideControl.Size = New System.Drawing.Size(0, 0)
         Me._Padron_ImagenesAutoHideControl.TabIndex = 15
         '
+        'picImagen
+        '
+        Me.picImagen.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.picImagen.Location = New System.Drawing.Point(0, 0)
+        Me.picImagen.Margin = New System.Windows.Forms.Padding(4)
+        Me.picImagen.Name = "picImagen"
+        Me.picImagen.Size = New System.Drawing.Size(1033, 659)
+        Me.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picImagen.TabIndex = 17
+        Me.picImagen.TabStop = False
+        '
+        'UltraPanel1
+        '
+        '
+        'UltraPanel1.ClientArea
+        '
+        Me.UltraPanel1.ClientArea.Controls.Add(Me.picImagen)
+        Me.UltraPanel1.Location = New System.Drawing.Point(291, 62)
+        Me.UltraPanel1.Name = "UltraPanel1"
+        Me.UltraPanel1.Size = New System.Drawing.Size(1033, 659)
+        Me.UltraPanel1.TabIndex = 18
+        Me.UltraPanel1.UseOsThemes = Infragistics.Win.DefaultableBoolean.[True]
+        '
         'WindowDockingArea1
         '
         Me.WindowDockingArea1.Controls.Add(Me.DockableWindow1)
         Me.WindowDockingArea1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.WindowDockingArea1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.WindowDockingArea1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.WindowDockingArea1.Location = New System.Drawing.Point(0, 43)
+        Me.WindowDockingArea1.Margin = New System.Windows.Forms.Padding(4)
         Me.WindowDockingArea1.Name = "WindowDockingArea1"
         Me.WindowDockingArea1.Owner = Me.dokImagenes
-        Me.WindowDockingArea1.Size = New System.Drawing.Size(211, 618)
+        Me.WindowDockingArea1.Size = New System.Drawing.Size(211, 771)
         Me.WindowDockingArea1.TabIndex = 16
         '
         'DockableWindow1
@@ -266,32 +354,47 @@ Partial Class Padron_Imagenes
         Me.DockableWindow1.Location = New System.Drawing.Point(0, 0)
         Me.DockableWindow1.Name = "DockableWindow1"
         Me.DockableWindow1.Owner = Me.dokImagenes
-        Me.DockableWindow1.Size = New System.Drawing.Size(206, 618)
-        Me.DockableWindow1.TabIndex = 18
+        Me.DockableWindow1.Size = New System.Drawing.Size(206, 771)
+        Me.DockableWindow1.TabIndex = 22
         '
-        'picImagen
+        'UTEDescripcion
         '
-        Me.picImagen.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.picImagen.Location = New System.Drawing.Point(211, 43)
-        Me.picImagen.Name = "picImagen"
-        Me.picImagen.Size = New System.Drawing.Size(810, 618)
-        Me.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picImagen.TabIndex = 17
-        Me.picImagen.TabStop = False
+        Me.UTEDescripcion.Location = New System.Drawing.Point(435, 743)
+        Me.UTEDescripcion.Multiline = True
+        Me.UTEDescripcion.Name = "UTEDescripcion"
+        Me.UTEDescripcion.ReadOnly = True
+        Me.UTEDescripcion.Size = New System.Drawing.Size(886, 48)
+        Me.UTEDescripcion.TabIndex = 20
+        '
+        'UltraLabel1
+        '
+        Appearance1.TextHAlignAsString = "Right"
+        Me.UltraLabel1.Appearance = Appearance1
+        Me.UltraLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UltraLabel1.Location = New System.Drawing.Point(291, 740)
+        Me.UltraLabel1.Name = "UltraLabel1"
+        Me.UltraLabel1.Size = New System.Drawing.Size(137, 23)
+        Me.UltraLabel1.TabIndex = 21
+        Me.UltraLabel1.Text = "Descripción:"
         '
         'Padron_Imagenes
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1021, 661)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(1361, 814)
+        Me.ControlBox = False
         Me.Controls.Add(Me._Padron_ImagenesAutoHideControl)
-        Me.Controls.Add(Me.picImagen)
+        Me.Controls.Add(Me.UltraLabel1)
+        Me.Controls.Add(Me.UTEDescripcion)
+        Me.Controls.Add(Me.UltraPanel1)
         Me.Controls.Add(Me.WindowDockingArea1)
         Me.Controls.Add(Me._Padron_ImagenesUnpinnedTabAreaBottom)
         Me.Controls.Add(Me._Padron_ImagenesUnpinnedTabAreaTop)
         Me.Controls.Add(Me._Padron_ImagenesUnpinnedTabAreaRight)
         Me.Controls.Add(Me._Padron_ImagenesUnpinnedTabAreaLeft)
         Me.Controls.Add(Me.BindingNavigator1)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Padron_Imagenes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Imágenes asociadas "
@@ -300,9 +403,12 @@ Partial Class Padron_Imagenes
         Me.BindingNavigator1.ResumeLayout(False)
         Me.BindingNavigator1.PerformLayout()
         CType(Me.dokImagenes, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picImagen, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.UltraPanel1.ClientArea.ResumeLayout(False)
+        Me.UltraPanel1.ResumeLayout(False)
         Me.WindowDockingArea1.ResumeLayout(False)
         Me.DockableWindow1.ResumeLayout(False)
-        CType(Me.picImagen, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UTEDescripcion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -314,21 +420,26 @@ Partial Class Padron_Imagenes
     Friend WithEvents btnElimina As ToolStripButton
     Friend WithEvents ofdArchivos As OpenFileDialog
     Friend WithEvents btnNuevo As ToolStripButton
-    Friend WithEvents txtexaminar As ToolStripTextBox
     Friend WithEvents griImagenes As DataGridView
     Friend WithEvents dokImagenes As Infragistics.Win.UltraWinDock.UltraDockManager
     Friend WithEvents _Padron_ImagenesAutoHideControl As Infragistics.Win.UltraWinDock.AutoHideControl
-    Friend WithEvents WindowDockingArea1 As Infragistics.Win.UltraWinDock.WindowDockingArea
-    Friend WithEvents DockableWindow1 As Infragistics.Win.UltraWinDock.DockableWindow
     Friend WithEvents _Padron_ImagenesUnpinnedTabAreaBottom As Infragistics.Win.UltraWinDock.UnpinnedTabArea
     Friend WithEvents _Padron_ImagenesUnpinnedTabAreaTop As Infragistics.Win.UltraWinDock.UnpinnedTabArea
     Friend WithEvents _Padron_ImagenesUnpinnedTabAreaRight As Infragistics.Win.UltraWinDock.UnpinnedTabArea
     Friend WithEvents _Padron_ImagenesUnpinnedTabAreaLeft As Infragistics.Win.UltraWinDock.UnpinnedTabArea
-    Friend WithEvents id As DataGridViewTextBoxColumn
-    Friend WithEvents TipoPadron As DataGridViewTextBoxColumn
-    Friend WithEvents ClavePadron As DataGridViewTextBoxColumn
-    Friend WithEvents imageFile As DataGridViewImageColumn
     Friend WithEvents picImagen As PictureBox
     Friend WithEvents lblTipoPadron As ToolStripLabel
     Friend WithEvents lblClavePadron As ToolStripLabel
+    Friend WithEvents id1 As DataGridViewTextBoxColumn
+    Friend WithEvents TipoPadron As DataGridViewTextBoxColumn
+    Friend WithEvents ClavePadron As DataGridViewTextBoxColumn
+    Friend WithEvents imageFile As DataGridViewImageColumn
+    Friend WithEvents txtexaminar As ToolStripTextBox
+    Friend WithEvents ToolStripLabel2 As ToolStripLabel
+    Friend WithEvents lblCurrentMenu As ToolStripLabel
+    Friend WithEvents UltraPanel1 As Infragistics.Win.Misc.UltraPanel
+    Friend WithEvents WindowDockingArea1 As Infragistics.Win.UltraWinDock.WindowDockingArea
+    Friend WithEvents DockableWindow1 As Infragistics.Win.UltraWinDock.DockableWindow
+    Friend WithEvents UTEDescripcion As Infragistics.Win.UltraWinEditors.UltraTextEditor
+    Friend WithEvents UltraLabel1 As Infragistics.Win.Misc.UltraLabel
 End Class

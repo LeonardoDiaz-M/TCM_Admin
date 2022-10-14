@@ -1,20 +1,17 @@
 ﻿Imports System.ComponentModel
 
 Public Class PaeImpuestoPredial
-    Dim TotalRegistrosACalcular As Integer = 0
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-    Dim ClavePredio As String = ""
-    Public delete_record As Boolean = False
-    Public parent As Form = Nothing
-    Dim cxn As New cxnData
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
+    Private cxn As New cxnData
+    Dim TotalRegistrosACalcular As Integer = 0
     Dim valor As Integer
-    Private Sub PaeImpuestoPredial_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
+    Dim ClavePredio As String = ""
 
     Private Sub optSelDatos_ValueChanged(sender As Object, e As EventArgs) Handles optSelDatos.ValueChanged
         Dim Editor = TryCast(sender, Infragistics.Win.UltraWinEditors.UltraOptionSet)
@@ -63,7 +60,6 @@ Public Class PaeImpuestoPredial
         Me.lblMessage.Text = "Generando cálculo, espere ..."
         Try
             If valida_datos() Then
-                DB.fExecuteScalarInt("TRUNCATE TABLE Pae_Encabezado ")
                 BackgroundWorker1.RunWorkerAsync()
                 MuestraProgreso()
             End If
@@ -79,17 +75,19 @@ Public Class PaeImpuestoPredial
             System.Threading.Thread.Sleep(10)
             Dim iError As Integer
             Dim Squery As String
-            Dim ClaveIngreso As String
             Dim TipoDocumento As String
-            ClaveIngreso = "010101"
-            TipoDocumento = "M"  'manejamos la constante M /Mandamiento ejecucion ya que es el Unico que lleva MOTIVACION
+            If optDocumentospae.Value > 0 Then
+                TipoDocumento = IIf(optDocumentospae.Value = 1, "N", IIf(optDocumentospae.Value = 2, "M", "A")) 'Notificación, Mandamiento, Acta de embargo
+            Else
+                TipoDocumento = IIf(optDocAuxCobranza.Value = 1, "I", IIf(optDocumentospae.Value = 2, "R", "C")) 'Invitación, Requerimeinto, Citatorio
+            End If
 
-            'ejecuta proceso principal
-            Squery = "exec PAE_PROCESO_PREDIAL '" & optSelDatos.Value & "','" & Me.txtClavecatastral.Text & "','" & Me.txtZona.Text & "','" & txtManzanaDe.Text & "','" & Me.txtManzanaAl.Text & "','" & ClavePredio & "','" & ClaveIngreso & "','" & TipoDocumento & "','" & txtNombreNotificador.Text & "','" & uneFolioInicial.Value & "','" & txtNumeroCredencial.Text & "'"
+            'MsgBox(TipoDocumento)
+            Squery = "EXEC PAE_Proceso_Predial '" & optSelDatos.Value & "','" & Me.txtClavecatastral.Text & "','" & Me.txtZona.Text & "','" & txtManzanaDe.Text & "','" & Me.txtManzanaAl.Text & "','" & ClavePredio & "','" & TipoDocumento & "','" & txtNombreNotificador.Text & "','" & uneFolioInicial.Value & "','" & txtNumeroCredencial.Text & "'"
             iError = DB.fExecuteScalarIntTimeOut(Squery, 0)
+            MessageBox.Show(iError.ToString, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             MessageBox.Show("Proceso Generado Satisfactoriamente.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
-
     End Sub
     Private Sub MuestraProgreso()
         TotalRegistrosACalcular = ClavesACalcular()
@@ -107,7 +105,7 @@ Public Class PaeImpuestoPredial
             System.Threading.Thread.Sleep(10)
             'Mientras se ejecute el proceso principal, valido el avance calculado
             While BackgroundWorker1.IsBusy = True
-                valor = DB.fExecuteScalarInt("select count(clavecatastral) from Pae_Encabezado")
+                valor = DB.fExecuteScalarInt("select count(Cve_Catastral) from C_REQ_PRED")
                 worker.ReportProgress(valor)
             End While
         End If
@@ -126,7 +124,7 @@ Public Class PaeImpuestoPredial
             Me.Cursor = Cursors.WaitCursor
             Dim Rpt As New rptDiagnosticoPorContribuyente
             Me.Arc_predialTableAdapter.Fill(Me.DsPae.arc_predial)
-            Me.C_LIQ_PREDTableAdapter.Fill(Me.DsPae.C_LIQ_PRED)
+            'Me.C_LIQ_PREDTableAdapter.Fill(Me.DsPae.C_LIQ_PRED)
             Rpt.SetDataSource(DsPae)
             Formulario.CrystalReportViewer1.ReportSource = Rpt
             'Rpt.SetParameterValue("Logo1", My.Application.Info.DirectoryPath.ToString & "\Images\Logo1.jpg")
@@ -137,7 +135,7 @@ Public Class PaeImpuestoPredial
             Me.Cursor = Cursors.WaitCursor
             Dim Rpt As New rptDiagnosticoAdeudoImpuestoPredial
             Me.Arc_predialTableAdapter.Fill(Me.DsPae.arc_predial)
-            Me.C_LIQ_PREDTableAdapter.Fill(Me.DsPae.C_LIQ_PRED)
+            'Me.C_LIQ_PREDTableAdapter.Fill(Me.DsPae.C_LIQ_PRED)
             Rpt.SetDataSource(DsPae)
             Formulario.CrystalReportViewer1.ReportSource = Rpt
             'Rpt.SetParameterValue("Logo1", My.Application.Info.DirectoryPath.ToString & "\Images\Logo1.jpg")
@@ -148,7 +146,7 @@ Public Class PaeImpuestoPredial
             If optDocAuxCobranza.Value = 1 Then  'carta invitacion sin liquidacion de adeudo
                 Me.Cursor = Cursors.WaitCursor
                 Dim Rpt As New rptCartaInvitacionSinLiquidacionPredial
-                Me.Pae_EncabezadoTableAdapter.Fill(DsPae.Pae_Encabezado)
+                'Me.Pae_EncabezadoTableAdapter.Fill(DsPae.Pae_Encabezado)
                 Rpt.SetDataSource(DsPae)
                 Formulario.CrystalReportViewer1.ReportSource = Rpt
                 Rpt.SetParameterValue("Logo1", My.Application.Info.DirectoryPath.ToString & "\Images\Logo1.jpg")
@@ -157,7 +155,7 @@ Public Class PaeImpuestoPredial
             If optDocAuxCobranza.Value = 2 Then  'carta invitacion con liquidacion de adeudo
                 Me.Cursor = Cursors.WaitCursor
                 Dim Rpt As New rptCartaInvitacionConLiquidacionPredial
-                Me.Pae_EncabezadoTableAdapter.Fill(DsPae.Pae_Encabezado)
+                'Me.Pae_EncabezadoTableAdapter.Fill(DsPae.Pae_Encabezado)
                 Rpt.SetDataSource(DsPae)
                 Formulario.CrystalReportViewer1.ReportSource = Rpt
                 Rpt.SetParameterValue("Logo1", My.Application.Info.DirectoryPath.ToString & "\Images\Logo1.jpg")
@@ -166,7 +164,7 @@ Public Class PaeImpuestoPredial
             If optDocAuxCobranza.Value = 3 Then  'Citatorio
                 Me.Cursor = Cursors.WaitCursor
                 Dim Rpt As New rptCitatorioPredial
-                Me.Pae_EncabezadoTableAdapter.Fill(DsPae.Pae_Encabezado)
+                'Me.Pae_EncabezadoTableAdapter.Fill(DsPae.Pae_Encabezado)
                 Rpt.SetDataSource(DsPae)
                 Formulario.CrystalReportViewer1.ReportSource = Rpt
                 Rpt.SetParameterValue("Logo1", My.Application.Info.DirectoryPath.ToString & "\Images\Logo1.jpg")
@@ -175,8 +173,8 @@ Public Class PaeImpuestoPredial
             If optDocumentospae.Value = 1 Then 'Notificacion de adeudo
                 Me.Cursor = Cursors.WaitCursor
                 Dim Rpt As New rptNotificacionAdeudoImpuestoPredial
-                Me.Pae_EncabezadoTableAdapter.Fill(DsPae.Pae_Encabezado)
-                Me.C_LIQ_PREDTableAdapter.Fill(Me.DsPae.C_LIQ_PRED)
+                'Me.Pae_EncabezadoTableAdapter.Fill(DsPae.Pae_Encabezado)
+                'Me.C_LIQ_PREDTableAdapter.Fill(Me.DsPae.C_LIQ_PRED)
                 Rpt.SetDataSource(DsPae)
                 Formulario.CrystalReportViewer1.ReportSource = Rpt
                 Rpt.SetParameterValue("Logo1", My.Application.Info.DirectoryPath.ToString & "\Images\Logo1.jpg")
@@ -185,8 +183,8 @@ Public Class PaeImpuestoPredial
             If optDocumentospae.Value = 2 Then 'mandamiento ejecucion
                 Me.Cursor = Cursors.WaitCursor
                 Dim Rpt As New rptMandamientoEjecucionPredial
-                Me.Pae_EncabezadoTableAdapter.Fill(DsPae.Pae_Encabezado)
-                Me.C_LIQ_PREDTableAdapter.Fill(Me.DsPae.C_LIQ_PRED)
+                'Me.Pae_EncabezadoTableAdapter.Fill(DsPae.Pae_Encabezado)
+                'Me.C_LIQ_PREDTableAdapter.Fill(Me.DsPae.C_LIQ_PRED)
                 Rpt.SetDataSource(DsPae)
                 Formulario.CrystalReportViewer1.ReportSource = Rpt
                 Rpt.SetParameterValue("Logo1", My.Application.Info.DirectoryPath.ToString & "\Images\Logo1.jpg")
@@ -224,7 +222,6 @@ Public Class PaeImpuestoPredial
         End If
         btnProcesar.Enabled = True
     End Sub
-
     Private Function ClavesACalcular() As Integer
         Dim Zona As String
         Dim ManzanaDel As String
@@ -237,14 +234,14 @@ Public Class PaeImpuestoPredial
             Zona = txtZona.Text
             ManzanaDel = txtManzanaDe.Text
             ManzanaAl = txtManzanaAl.Text
-            TotalRegistrosACalcular = DB.fExecuteScalarInt("select COUNT(cve_catastral) from arc_predial where substring(cve_catastral,4,5) BETWEEN '" & Zona + ManzanaDel & "' AND '" & Zona + ManzanaAl & "'")
+            TotalRegistrosACalcular = DB.fExecuteScalarInt("select COUNT(cve_catastral) from arc_predial where substring(cve_catastral,4,5) BETWEEN '" & Zona + ManzanaDel & "' AND '" & Zona + ManzanaAl & "' AND ult_año_pag<YEAR(GETDATE())")
         End If
         If optSelDatos.Value = 3 Then
-            TotalRegistrosACalcular = DB.fExecuteScalarInt("select COUNT(cve_catastral) from arc_predial ")
+            TotalRegistrosACalcular = DB.fExecuteScalarInt("select COUNT(cve_catastral) from arc_predial where ult_año_pag<YEAR(GETDATE()) ")
         End If
         If optSelDatos.Value = 4 Then
             ClavePredio = txtzmcZona.Text + txtzmcManzana.Text + txtzmcPredio.Text
-            TotalRegistrosACalcular = DB.fExecuteScalarInt("select COUNT(cve_catastral) from arc_predial where substring(cve_catastral,4,7) = '" & ClavePredio & "'")
+            TotalRegistrosACalcular = DB.fExecuteScalarInt("select COUNT(cve_catastral) from arc_predial where substring(cve_catastral,4,7) = '" & ClavePredio & "' AND ult_año_pag<YEAR(GETDATE())'")
         End If
         Return TotalRegistrosACalcular
     End Function
@@ -382,7 +379,7 @@ Public Class PaeImpuestoPredial
             End If
 
 
-                If ocurriounError > 0 Then
+            If ocurriounError > 0 Then
                 ban = False
                 cMensajes.DisplayMessage(Me, mensaje, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
             Else
@@ -416,8 +413,7 @@ Public Class PaeImpuestoPredial
         End If
     End Sub
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Me.Close()
-        Me.Dispose()
+        GenericCloseChlildForm(Me)
     End Sub
 
     Private Sub PaeImpuestoPredial_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown

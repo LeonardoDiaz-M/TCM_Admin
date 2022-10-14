@@ -5,16 +5,12 @@ Imports Infragistics.Win.UltraWinTabControl
 
 Public Class frmaguaRegistroConsumo
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
     Private cxn As New cxnData
-    Private newrow As Object
-    Public parent As Form = Nothing
+    Public myparent As Form = Nothing
     Dim Renglonfinal As Boolean = False
     Private m_comboBox As ComboBox
     Dim Renglon As Integer
@@ -22,8 +18,10 @@ Public Class frmaguaRegistroConsumo
     Dim ModificoLectura As Boolean = False
     Dim NumeroErrores As Integer = 0
     Private Sub frmaguaRegistroConsumo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'DsAgua.Forma_Calculo_Consumo_Agua' Puede moverla o quitarla según sea necesario.
-        Me.Forma_Calculo_Consumo_AguaTableAdapter.Fill(Me.DsAgua.Forma_Calculo_Consumo_Agua)
+        'TODO: esta línea de código carga datos en la tabla 'DsAgua.Forma_Calculo_Consumo_Agua
+        ' Puede moverla o quitarla según sea necesario.
+        'Me.Forma_Calculo_Consumo_AguaTableAdapter.Fill(Me.DsAgua.Forma_Calculo_Consumo_Agua)
+        Me.lblCurrentMenu.Text = Me.Text
         load_Combos()
         optFormaPago.Value = 1
         cxn.Select_SQL("select year(getdate())")
@@ -97,7 +95,7 @@ Public Class frmaguaRegistroConsumo
                         Consumo = LecturaActual - LecturaAnterior
 
                         griLecturasPeriodo.ActiveRow.Cells("consumo_bim").Value = Consumo
-                        griLecturasPeriodo.ActiveRow.Cells("usuario").Value = NombreUsuario
+                        griLecturasPeriodo.ActiveRow.Cells("usuario").Value = CurrentUsrName
 
                         griLecturasPeriodo.Focus()
                         griLecturasPeriodo.PerformAction(Infragistics.Win.UltraWinGrid.UltraGridAction.EnterEditMode)
@@ -118,7 +116,7 @@ Public Class frmaguaRegistroConsumo
                     'asigno valores a celdas del grid
                     griLecturasPeriodo.ActiveRow.Cells("lect_act").Value = LecturaAnterior
                     griLecturasPeriodo.ActiveRow.Cells("consumo_bim").Value = Consumo
-                    griLecturasPeriodo.ActiveRow.Cells("usuario").Value = NombreUsuario
+                    griLecturasPeriodo.ActiveRow.Cells("usuario").Value = CurrentUsrName
                     'muevo el foco a la celda de lectura actual
                     griLecturasPeriodo.ActiveCell = aCell
                     griLecturasPeriodo.PerformAction(UltraGridAction.ExitEditMode, False, False)
@@ -133,7 +131,7 @@ Public Class frmaguaRegistroConsumo
                     Consumo = ConsumoMinimo
                     griLecturasPeriodo.ActiveRow.Cells("lect_act").Value = LecturaAnterior
                     griLecturasPeriodo.ActiveRow.Cells("consumo_bim").Value = Consumo
-                    griLecturasPeriodo.ActiveRow.Cells("usuario").Value = NombreUsuario
+                    griLecturasPeriodo.ActiveRow.Cells("usuario").Value = CurrentUsrName
                     'muevo el foco a la celda de lectura actual
                     griLecturasPeriodo.ActiveCell = aCell
                     griLecturasPeriodo.PerformAction(UltraGridAction.ExitEditMode, False, False)
@@ -228,7 +226,7 @@ Public Class frmaguaRegistroConsumo
                     Exit Sub
                 End If
 
-                If cxn.Select_SQL("exec sp_arcgua_CreaConsumo '" & ucoRuta.Value & "','" & Me.txtanio.Value & "','" & Me.mskUltMes.Text & "','" & My.User.Name & "'") Then
+                If cxn.Select_SQL("exec sp_arcgua_CreaConsumo '" & ucoRuta.Value & "','" & Me.txtanio.Value & "','" & Me.mskUltMes.Text & "','" & CurrentUsrName & "'") Then
                     Me.Tbl_consumo_aguaTableAdapter.FillByAñoBimRuta(Me.DsAgua.tbl_consumo_agua, ucoRuta.Value, mskUltMes.Text, txtanio.Value, FormaPago)
 
                     If griLecturasPeriodo.Rows.Count = 0 Then
@@ -253,10 +251,7 @@ Public Class frmaguaRegistroConsumo
         End If
 
         ModificoLectura = False
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Enabled = True
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
+        GenericCloseChlildForm(Me)
     End Sub
     Private Sub btnElimina_Click(sender As Object, e As EventArgs)
         Me.griLecturasPeriodo.DisplayLayout.Override.FilterOperandDropDownItems = FilterOperandDropDownItems.Errors
@@ -325,7 +320,7 @@ Public Class frmaguaRegistroConsumo
             If (MsgBox("¿Desea guardar los cambios antes de salir?", vbCritical + vbYesNo) = vbYes) Then
                 Guarda_Datos()
                 ModificoLectura = False
-                Me.Close()
+                GenericCloseChlildForm(Me)
             Else
                 ModificoLectura = False
                 e.Cancel = True

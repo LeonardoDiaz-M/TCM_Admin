@@ -6,7 +6,7 @@ Imports System.Data.OleDb
 Public Class DB
     Dim cnx As New SqlConnection
     Public Shared Function lobConnection() As SqlConnection
-        Dim lobConn As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("ConnStringSIA").ToString())
+        Dim lobConn As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("base_mpioConnectionString").ToString())
         lobConnection = lobConn
     End Function
     Public Shared Function lobDataSet(ByVal pstSql As String) As DataSet
@@ -313,6 +313,7 @@ Public Class DB
                 lobConn.Close()
             End If
         End Try
+        Return 0
     End Function
 
     Public Shared Function fExecuteScalarTransactionInt(ByVal sQuery As String, SqlTran As SqlTransaction) As Integer
@@ -338,6 +339,7 @@ Public Class DB
                 lobConn.Close()
             End If
         End Try
+        Return 0
     End Function
 
     Public Shared Function fExecuteScalarStr(ByVal sQuery As String) As String

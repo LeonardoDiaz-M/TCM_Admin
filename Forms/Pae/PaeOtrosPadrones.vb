@@ -1,19 +1,16 @@
 ﻿Imports System.ComponentModel
 Public Class PaeOtrosPadrones
-    Dim TotalRegistrosACalcular As Integer = 0
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-    Public delete_record As Boolean = False
-    Dim ClavePredio As String = ""
-    Public parent As Form = Nothing
-    Dim cxn As New cxnData
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
+    Private cxn As New cxnData
+    Dim TotalRegistrosACalcular As Integer = 0
     Dim valor As Integer
-    Private Sub PaeOtrosPadrones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
+    Dim ClavePredio As String = ""
     Private Sub optSelDatos_ValueChanged(sender As Object, e As EventArgs) Handles optSelDatos.ValueChanged
         Dim Editor = TryCast(sender, Infragistics.Win.UltraWinEditors.UltraOptionSet)
         If Editor IsNot Nothing Then
@@ -175,8 +172,8 @@ Public Class PaeOtrosPadrones
         btnProcesar.Enabled = True
     End Sub
     Private Function ClavesACalcular() As Integer
-         Dim ClaveIngreso As String
-         ClaveIngreso = optPadronLicencias.Value
+        Dim ClaveIngreso As String
+        ClaveIngreso = optPadronLicencias.Value
 
         If optSelDatos.Value = 1 Then
             TotalRegistrosACalcular = 1
@@ -197,7 +194,7 @@ Public Class PaeOtrosPadrones
             Dim Rpt As New rptDiagnosticoPorContribuyenteLicencias
             Me.Tbl_lic_municipalesTableAdapter.Fill(Me.DsPae.tbl_lic_municipales)
             Me.C_LIQ_LICENCIASTableAdapter.Fill(Me.DsPae.C_LIQ_LICENCIAS)
-            Rpt.SetDataSource(dsPae)
+            Rpt.SetDataSource(DsPae)
             Formulario.CrystalReportViewer1.ReportSource = Rpt
             'Rpt.SetParameterValue("Logo1", My.Application.Info.DirectoryPath.ToString & "\Images\Logo1.jpg")
             'Rpt.SetParameterValue("Logo2", My.Application.Info.DirectoryPath.ToString & "\Images\Logo2.jpg")
@@ -208,7 +205,7 @@ Public Class PaeOtrosPadrones
             Dim Rpt As New rptDiagnosticoAdeudoImpuestoPredial
             Me.Tbl_lic_municipalesTableAdapter.Fill(Me.DsPae.tbl_lic_municipales)
             Me.C_LIQ_LICENCIASTableAdapter.Fill(Me.DsPae.C_LIQ_LICENCIAS)
-            Rpt.SetDataSource(dsPae)
+            Rpt.SetDataSource(DsPae)
             Formulario.CrystalReportViewer1.ReportSource = Rpt
             'Rpt.SetParameterValue("Logo1", My.Application.Info.DirectoryPath.ToString & "\Images\Logo1.jpg")
             'Rpt.SetParameterValue("Logo2", My.Application.Info.DirectoryPath.ToString & "\Images\Logo2.jpg")
@@ -309,7 +306,6 @@ Public Class PaeOtrosPadrones
         btnProcesar.Enabled = True
     End Sub
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Me.Close()
-        Me.Dispose()
+        GenericCloseChlildForm(Me)
     End Sub
 End Class

@@ -23,38 +23,37 @@ Partial Class frmComercioServSinAlcohol
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridBand1 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("Band 0", -1)
         Dim UltraGridColumn3 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("clave")
         Dim UltraGridColumn4 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("nombre")
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance22 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridBand2 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("Band 0", -1)
         Dim UltraGridColumn7 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("id_colonia")
         Dim UltraGridColumn8 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("nom_colonia")
+        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridBand3 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("Band 0", -1)
         Dim UltraGridColumn9 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("clave")
         Dim UltraGridColumn10 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("nombre")
+        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance18 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance19 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance20 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance21 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance36 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance22 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance23 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance24 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance25 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
@@ -64,22 +63,26 @@ Partial Class frmComercioServSinAlcohol
         Dim Appearance29 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance30 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance31 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance32 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance33 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance34 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridBand4 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("Band 0", -1)
         Dim UltraGridColumn17 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("cve_status")
         Dim UltraGridColumn18 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("descripcion")
-        Dim Appearance35 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance32 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridBand5 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("Band 0", -1)
         Dim UltraGridColumn19 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("cve_tip_con")
         Dim UltraGridColumn20 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("descricion")
-        Me.BindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DsLicencias = New TCMAdmin.dsLicencias()
+        Me.btnBack = New System.Windows.Forms.ToolStripButton()
+        Me.btnUndo = New System.Windows.Forms.ToolStripButton()
+        Me.btnGuardar = New System.Windows.Forms.ToolStripButton()
+        Me.btnEditar = New System.Windows.Forms.ToolStripButton()
+        Me.btnElimina = New System.Windows.Forms.ToolStripButton()
+        Me.btnImage = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.lblCurrentMenu = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.grpUltimoPago = New Infragistics.Win.Misc.UltraExpandableGroupBox()
         Me.UltraExpandableGroupBoxPanel4 = New Infragistics.Win.Misc.UltraExpandableGroupBoxPanel()
@@ -168,14 +171,9 @@ Partial Class frmComercioServSinAlcohol
         Me.txtNoLic = New System.Windows.Forms.MaskedTextBox()
         Me.cmbGiro = New System.Windows.Forms.ComboBox()
         Me.Tbl_lic_municipalesTableAdapter = New TCMAdmin.dsLicenciasTableAdapters.tbl_lic_municipalesTableAdapter()
-        Me.btnBack = New System.Windows.Forms.ToolStripButton()
-        Me.btnUndo = New System.Windows.Forms.ToolStripButton()
-        Me.btnGuardar = New System.Windows.Forms.ToolStripButton()
-        Me.btnEditar = New System.Windows.Forms.ToolStripButton()
-        Me.btnElimina = New System.Windows.Forms.ToolStripButton()
-        Me.btnImage = New System.Windows.Forms.ToolStripButton()
-        CType(Me.BindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.BindingNavigator.SuspendLayout()
+        Me.btnMapa = New System.Windows.Forms.ToolStripButton()
+        CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.BindingNavigator1.SuspendLayout()
         CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DsLicencias, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -229,26 +227,26 @@ Partial Class frmComercioServSinAlcohol
         CType(Me.ucoTipoContribuyente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'BindingNavigator
+        'BindingNavigator1
         '
-        Me.BindingNavigator.AddNewItem = Nothing
-        Me.BindingNavigator.BackColor = System.Drawing.Color.Transparent
-        Me.BindingNavigator.BindingSource = Me.BindingSource
-        Me.BindingNavigator.CountItem = Nothing
-        Me.BindingNavigator.DeleteItem = Nothing
-        Me.BindingNavigator.ImageScalingSize = New System.Drawing.Size(36, 36)
-        Me.BindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnGuardar, Me.btnEditar, Me.btnElimina, Me.btnImage, Me.ToolStripSeparator1, Me.ToolStripLabel1, Me.lblCurrentMenu})
-        Me.BindingNavigator.Location = New System.Drawing.Point(0, 0)
-        Me.BindingNavigator.MoveFirstItem = Nothing
-        Me.BindingNavigator.MoveLastItem = Nothing
-        Me.BindingNavigator.MoveNextItem = Nothing
-        Me.BindingNavigator.MovePreviousItem = Nothing
-        Me.BindingNavigator.Name = "BindingNavigator"
-        Me.BindingNavigator.PositionItem = Nothing
-        Me.BindingNavigator.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.BindingNavigator.Size = New System.Drawing.Size(1084, 43)
-        Me.BindingNavigator.TabIndex = 0
-        Me.BindingNavigator.Text = "BindingNavigator1"
+        Me.BindingNavigator1.AddNewItem = Nothing
+        Me.BindingNavigator1.BackColor = System.Drawing.Color.Transparent
+        Me.BindingNavigator1.BindingSource = Me.BindingSource
+        Me.BindingNavigator1.CountItem = Nothing
+        Me.BindingNavigator1.DeleteItem = Nothing
+        Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(36, 36)
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnGuardar, Me.btnEditar, Me.btnElimina, Me.btnImage, Me.btnMapa, Me.ToolStripSeparator1, Me.ToolStripLabel2, Me.lblCurrentMenu, Me.ToolStripLabel1})
+        Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
+        Me.BindingNavigator1.MoveFirstItem = Nothing
+        Me.BindingNavigator1.MoveLastItem = Nothing
+        Me.BindingNavigator1.MoveNextItem = Nothing
+        Me.BindingNavigator1.MovePreviousItem = Nothing
+        Me.BindingNavigator1.Name = "BindingNavigator1"
+        Me.BindingNavigator1.PositionItem = Nothing
+        Me.BindingNavigator1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.BindingNavigator1.Size = New System.Drawing.Size(1084, 43)
+        Me.BindingNavigator1.TabIndex = 0
+        Me.BindingNavigator1.Text = "BindingNavigator1"
         '
         'BindingSource
         '
@@ -260,18 +258,77 @@ Partial Class frmComercioServSinAlcohol
         Me.DsLicencias.DataSetName = "dsLicencias"
         Me.DsLicencias.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'btnBack
+        '
+        Me.btnBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnBack.Image = Global.TCMAdmin.My.Resources.Resources.IconBack
+        Me.btnBack.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.btnBack.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(28, 40)
+        Me.btnBack.Text = "ToolStripButton1"
+        Me.btnBack.ToolTipText = "Regresar"
+        '
+        'btnUndo
+        '
+        Me.btnUndo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnUndo.Image = Global.TCMAdmin.My.Resources.Resources.IconoUndo
+        Me.btnUndo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.btnUndo.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnUndo.Name = "btnUndo"
+        Me.btnUndo.Size = New System.Drawing.Size(28, 40)
+        Me.btnUndo.Text = "ToolStripButton1"
+        Me.btnUndo.ToolTipText = "Deshacer cambios"
+        '
+        'btnGuardar
+        '
+        Me.btnGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnGuardar.Image = Global.TCMAdmin.My.Resources.Resources.IconSave
+        Me.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(40, 40)
+        Me.btnGuardar.Text = "ToolStripButton1"
+        Me.btnGuardar.ToolTipText = "Guardar Datos"
+        '
+        'btnEditar
+        '
+        Me.btnEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnEditar.Image = Global.TCMAdmin.My.Resources.Resources.IconEdit
+        Me.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnEditar.Name = "btnEditar"
+        Me.btnEditar.Size = New System.Drawing.Size(40, 40)
+        Me.btnEditar.Text = "ToolStripButton1"
+        Me.btnEditar.ToolTipText = "Editar"
+        '
+        'btnElimina
+        '
+        Me.btnElimina.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnElimina.Image = Global.TCMAdmin.My.Resources.Resources.IconDelete
+        Me.btnElimina.Name = "btnElimina"
+        Me.btnElimina.RightToLeftAutoMirrorImage = True
+        Me.btnElimina.Size = New System.Drawing.Size(40, 40)
+        Me.btnElimina.Text = "Eliminar"
+        '
+        'btnImage
+        '
+        Me.btnImage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnImage.Image = Global.TCMAdmin.My.Resources.Resources.IconImage
+        Me.btnImage.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnImage.Name = "btnImage"
+        Me.btnImage.Size = New System.Drawing.Size(40, 40)
+        Me.btnImage.Text = "ToolStripButton1"
+        Me.btnImage.ToolTipText = "Ver imágenes"
+        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 43)
         '
-        'ToolStripLabel1
+        'ToolStripLabel2
         '
-        Me.ToolStripLabel1.AutoSize = False
-        Me.ToolStripLabel1.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(200, 22)
-        Me.ToolStripLabel1.Text = "                       "
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(40, 40)
+        Me.ToolStripLabel2.Text = "           "
         '
         'lblCurrentMenu
         '
@@ -280,6 +337,12 @@ Partial Class frmComercioServSinAlcohol
         Me.lblCurrentMenu.Name = "lblCurrentMenu"
         Me.lblCurrentMenu.Size = New System.Drawing.Size(119, 40)
         Me.lblCurrentMenu.Text = "ToolStripLabel2"
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(40, 40)
+        Me.ToolStripLabel1.Text = "           "
         '
         'ErrorProvider1
         '
@@ -291,18 +354,15 @@ Partial Class frmComercioServSinAlcohol
         Me.grpUltimoPago.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grpUltimoPago.Enabled = False
         Me.grpUltimoPago.ExpandedSize = New System.Drawing.Size(446, 115)
+        Me.grpUltimoPago.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpUltimoPago.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Appearance2.BackColor = System.Drawing.Color.AliceBlue
-        Appearance2.BackColor2 = System.Drawing.Color.White
-        Appearance2.BackGradientAlignment = Infragistics.Win.GradientAlignment.Client
-        Me.grpUltimoPago.HeaderAppearance = Appearance2
         Me.grpUltimoPago.Location = New System.Drawing.Point(638, 500)
         Me.grpUltimoPago.Name = "grpUltimoPago"
         Me.grpUltimoPago.Size = New System.Drawing.Size(446, 115)
         Me.grpUltimoPago.TabIndex = 4
         Me.grpUltimoPago.TabStop = False
         Me.grpUltimoPago.Text = "Último Pago"
-        Me.grpUltimoPago.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpUltimoPago.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'UltraExpandableGroupBoxPanel4
         '
@@ -315,9 +375,9 @@ Partial Class frmComercioServSinAlcohol
         Me.UltraExpandableGroupBoxPanel4.Controls.Add(Me.lblUltAño)
         Me.UltraExpandableGroupBoxPanel4.Controls.Add(Me.lblUltMes)
         Me.UltraExpandableGroupBoxPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraExpandableGroupBoxPanel4.Location = New System.Drawing.Point(3, 19)
+        Me.UltraExpandableGroupBoxPanel4.Location = New System.Drawing.Point(2, 21)
         Me.UltraExpandableGroupBoxPanel4.Name = "UltraExpandableGroupBoxPanel4"
-        Me.UltraExpandableGroupBoxPanel4.Size = New System.Drawing.Size(440, 93)
+        Me.UltraExpandableGroupBoxPanel4.Size = New System.Drawing.Size(442, 92)
         Me.UltraExpandableGroupBoxPanel4.TabIndex = 0
         '
         'uneUltMes
@@ -426,27 +486,24 @@ Partial Class frmComercioServSinAlcohol
         Me.grpPAE.Dock = System.Windows.Forms.DockStyle.Left
         Me.grpPAE.Enabled = False
         Me.grpPAE.ExpandedSize = New System.Drawing.Size(638, 115)
+        Me.grpPAE.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpPAE.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Appearance6.BackColor = System.Drawing.Color.AliceBlue
-        Appearance6.BackColor2 = System.Drawing.Color.White
-        Appearance6.BackGradientAlignment = Infragistics.Win.GradientAlignment.Client
-        Me.grpPAE.HeaderAppearance = Appearance6
         Me.grpPAE.Location = New System.Drawing.Point(0, 500)
         Me.grpPAE.Name = "grpPAE"
         Me.grpPAE.Size = New System.Drawing.Size(638, 115)
         Me.grpPAE.TabIndex = 3
         Me.grpPAE.TabStop = False
         Me.grpPAE.Text = "PAE"
-        Me.grpPAE.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpPAE.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'UltraExpandableGroupBoxPanel3
         '
         Me.UltraExpandableGroupBoxPanel3.Controls.Add(Me.chkNotificado)
         Me.UltraExpandableGroupBoxPanel3.Controls.Add(Me.panNotificado)
         Me.UltraExpandableGroupBoxPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraExpandableGroupBoxPanel3.Location = New System.Drawing.Point(3, 19)
+        Me.UltraExpandableGroupBoxPanel3.Location = New System.Drawing.Point(2, 21)
         Me.UltraExpandableGroupBoxPanel3.Name = "UltraExpandableGroupBoxPanel3"
-        Me.UltraExpandableGroupBoxPanel3.Size = New System.Drawing.Size(632, 93)
+        Me.UltraExpandableGroupBoxPanel3.Size = New System.Drawing.Size(634, 92)
         Me.UltraExpandableGroupBoxPanel3.TabIndex = 0
         '
         'chkNotificado
@@ -491,10 +548,10 @@ Partial Class frmComercioServSinAlcohol
         '
         'ucoPae
         '
-        Appearance3.FontData.BoldAsString = "True"
-        Appearance3.FontData.Name = "Tahoma"
-        Appearance3.FontData.SizeInPoints = 9.0!
-        Me.ucoPae.Appearance = Appearance3
+        Appearance2.FontData.BoldAsString = "True"
+        Appearance2.FontData.Name = "Tahoma"
+        Appearance2.FontData.SizeInPoints = 9.0!
+        Me.ucoPae.Appearance = Appearance2
         Me.ucoPae.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest
         Me.ucoPae.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoPae.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource, "pae", True))
@@ -541,9 +598,9 @@ Partial Class frmComercioServSinAlcohol
         'txtNoOficioPae
         '
         Me.txtNoOficioPae.AlwaysInEditMode = True
-        Appearance4.BackColor = System.Drawing.Color.White
-        Appearance4.BackColor2 = System.Drawing.Color.White
-        Me.txtNoOficioPae.Appearance = Appearance4
+        Appearance3.BackColor = System.Drawing.Color.White
+        Appearance3.BackColor2 = System.Drawing.Color.White
+        Me.txtNoOficioPae.Appearance = Appearance3
         Me.txtNoOficioPae.BackColor = System.Drawing.Color.White
         Me.txtNoOficioPae.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNoOficioPae.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "num_noti", True))
@@ -569,8 +626,8 @@ Partial Class frmComercioServSinAlcohol
         '
         'lblNoPAe
         '
-        Appearance5.TextHAlignAsString = "Right"
-        Me.lblNoPAe.Appearance = Appearance5
+        Appearance4.TextHAlignAsString = "Right"
+        Me.lblNoPAe.Appearance = Appearance4
         Me.lblNoPAe.AutoSize = True
         Me.lblNoPAe.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNoPAe.Location = New System.Drawing.Point(3, 33)
@@ -597,18 +654,15 @@ Partial Class frmComercioServSinAlcohol
         Me.grpPropietario.Dock = System.Windows.Forms.DockStyle.Top
         Me.grpPropietario.Enabled = False
         Me.grpPropietario.ExpandedSize = New System.Drawing.Size(1084, 220)
+        Me.grpPropietario.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpPropietario.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Appearance22.BackColor = System.Drawing.Color.AliceBlue
-        Appearance22.BackColor2 = System.Drawing.Color.White
-        Appearance22.BackGradientAlignment = Infragistics.Win.GradientAlignment.Client
-        Me.grpPropietario.HeaderAppearance = Appearance22
         Me.grpPropietario.Location = New System.Drawing.Point(0, 280)
         Me.grpPropietario.Name = "grpPropietario"
         Me.grpPropietario.Size = New System.Drawing.Size(1084, 220)
         Me.grpPropietario.TabIndex = 2
         Me.grpPropietario.TabStop = False
         Me.grpPropietario.Text = "Datos del Propietario"
-        Me.grpPropietario.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpPropietario.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'UltraExpandableGroupBoxPanel2
         '
@@ -641,9 +695,9 @@ Partial Class frmComercioServSinAlcohol
         Me.UltraExpandableGroupBoxPanel2.Controls.Add(Me.lblColonia)
         Me.UltraExpandableGroupBoxPanel2.Controls.Add(Me.lblNoExt)
         Me.UltraExpandableGroupBoxPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraExpandableGroupBoxPanel2.Location = New System.Drawing.Point(3, 19)
+        Me.UltraExpandableGroupBoxPanel2.Location = New System.Drawing.Point(2, 21)
         Me.UltraExpandableGroupBoxPanel2.Name = "UltraExpandableGroupBoxPanel2"
-        Me.UltraExpandableGroupBoxPanel2.Size = New System.Drawing.Size(1078, 198)
+        Me.UltraExpandableGroupBoxPanel2.Size = New System.Drawing.Size(1080, 197)
         Me.UltraExpandableGroupBoxPanel2.TabIndex = 0
         '
         'lblCorreo
@@ -660,9 +714,9 @@ Partial Class frmComercioServSinAlcohol
         '
         'txtemail
         '
-        Appearance7.BackColor = System.Drawing.Color.White
-        Appearance7.BackColor2 = System.Drawing.Color.White
-        Me.txtemail.Appearance = Appearance7
+        Appearance5.BackColor = System.Drawing.Color.White
+        Appearance5.BackColor2 = System.Drawing.Color.White
+        Me.txtemail.Appearance = Appearance5
         Me.txtemail.BackColor = System.Drawing.Color.White
         Me.txtemail.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower
         Me.txtemail.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "correoe", True))
@@ -677,10 +731,10 @@ Partial Class frmComercioServSinAlcohol
         '
         'txtCurp
         '
-        Appearance8.FontData.BoldAsString = "True"
-        Appearance8.FontData.Name = "Tahoma"
-        Appearance8.FontData.SizeInPoints = 9.0!
-        Me.txtCurp.Appearance = Appearance8
+        Appearance6.FontData.BoldAsString = "True"
+        Appearance6.FontData.Name = "Tahoma"
+        Appearance6.FontData.SizeInPoints = 9.0!
+        Me.txtCurp.Appearance = Appearance6
         Me.txtCurp.EditAs = Infragistics.Win.UltraWinMaskedEdit.EditAsType.UseSpecifiedMask
         Me.txtCurp.InputMask = ">????######??????AA"
         Me.txtCurp.Location = New System.Drawing.Point(878, 33)
@@ -705,9 +759,9 @@ Partial Class frmComercioServSinAlcohol
         'txtRfc
         '
         Me.txtRfc.AlwaysInEditMode = True
-        Appearance9.BackColor = System.Drawing.Color.White
-        Appearance9.BackColor2 = System.Drawing.Color.White
-        Me.txtRfc.Appearance = Appearance9
+        Appearance7.BackColor = System.Drawing.Color.White
+        Appearance7.BackColor2 = System.Drawing.Color.White
+        Me.txtRfc.Appearance = Appearance7
         Me.txtRfc.BackColor = System.Drawing.Color.White
         Me.txtRfc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtRfc.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "rfc", True))
@@ -722,10 +776,10 @@ Partial Class frmComercioServSinAlcohol
         '
         'txtTel
         '
-        Appearance10.FontData.BoldAsString = "True"
-        Appearance10.FontData.Name = "Tahoma"
-        Appearance10.FontData.SizeInPoints = 9.0!
-        Me.txtTel.Appearance = Appearance10
+        Appearance8.FontData.BoldAsString = "True"
+        Appearance8.FontData.Name = "Tahoma"
+        Appearance8.FontData.SizeInPoints = 9.0!
+        Me.txtTel.Appearance = Appearance8
         Me.txtTel.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "telefono", True))
         Me.txtTel.EditAs = Infragistics.Win.UltraWinMaskedEdit.EditAsType.UseSpecifiedMask
         Me.txtTel.InputMask = ">########aa"
@@ -750,9 +804,9 @@ Partial Class frmComercioServSinAlcohol
         'txtCalle
         '
         Me.txtCalle.AlwaysInEditMode = True
-        Appearance11.BackColor = System.Drawing.Color.White
-        Appearance11.BackColor2 = System.Drawing.Color.White
-        Me.txtCalle.Appearance = Appearance11
+        Appearance9.BackColor = System.Drawing.Color.White
+        Appearance9.BackColor2 = System.Drawing.Color.White
+        Me.txtCalle.Appearance = Appearance9
         Me.txtCalle.BackColor = System.Drawing.Color.White
         Me.txtCalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtCalle.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "calle", True))
@@ -778,10 +832,10 @@ Partial Class frmComercioServSinAlcohol
         '
         'txtCP
         '
-        Appearance12.FontData.BoldAsString = "True"
-        Appearance12.FontData.Name = "Tahoma"
-        Appearance12.FontData.SizeInPoints = 9.0!
-        Me.txtCP.Appearance = Appearance12
+        Appearance10.FontData.BoldAsString = "True"
+        Appearance10.FontData.Name = "Tahoma"
+        Appearance10.FontData.SizeInPoints = 9.0!
+        Me.txtCP.Appearance = Appearance10
         Me.txtCP.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "cod_postal", True))
         Me.txtCP.EditAs = Infragistics.Win.UltraWinMaskedEdit.EditAsType.UseSpecifiedMask
         Me.txtCP.InputMask = "#####"
@@ -794,10 +848,10 @@ Partial Class frmComercioServSinAlcohol
         '
         'ucoColonia
         '
-        Appearance13.FontData.BoldAsString = "True"
-        Appearance13.FontData.Name = "Tahoma"
-        Appearance13.FontData.SizeInPoints = 9.0!
-        Me.ucoColonia.Appearance = Appearance13
+        Appearance11.FontData.BoldAsString = "True"
+        Appearance11.FontData.Name = "Tahoma"
+        Appearance11.FontData.SizeInPoints = 9.0!
+        Me.ucoColonia.Appearance = Appearance11
         Me.ucoColonia.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest
         Me.ucoColonia.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoColonia.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource, "cve_col", True))
@@ -822,9 +876,9 @@ Partial Class frmComercioServSinAlcohol
         'txtNoInt
         '
         Me.txtNoInt.AlwaysInEditMode = True
-        Appearance14.BackColor = System.Drawing.Color.White
-        Appearance14.BackColor2 = System.Drawing.Color.White
-        Me.txtNoInt.Appearance = Appearance14
+        Appearance12.BackColor = System.Drawing.Color.White
+        Appearance12.BackColor2 = System.Drawing.Color.White
+        Me.txtNoInt.Appearance = Appearance12
         Me.txtNoInt.BackColor = System.Drawing.Color.White
         Me.txtNoInt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNoInt.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "no_int", True))
@@ -840,9 +894,9 @@ Partial Class frmComercioServSinAlcohol
         'txtNoExt
         '
         Me.txtNoExt.AlwaysInEditMode = True
-        Appearance15.BackColor = System.Drawing.Color.White
-        Appearance15.BackColor2 = System.Drawing.Color.White
-        Me.txtNoExt.Appearance = Appearance15
+        Appearance13.BackColor = System.Drawing.Color.White
+        Appearance13.BackColor2 = System.Drawing.Color.White
+        Me.txtNoExt.Appearance = Appearance13
         Me.txtNoExt.BackColor = System.Drawing.Color.White
         Me.txtNoExt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNoExt.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "no_ext", True))
@@ -901,10 +955,10 @@ Partial Class frmComercioServSinAlcohol
         '
         'ucoLocalidad
         '
-        Appearance16.FontData.BoldAsString = "True"
-        Appearance16.FontData.Name = "Tahoma"
-        Appearance16.FontData.SizeInPoints = 9.0!
-        Me.ucoLocalidad.Appearance = Appearance16
+        Appearance14.FontData.BoldAsString = "True"
+        Appearance14.FontData.Name = "Tahoma"
+        Appearance14.FontData.SizeInPoints = 9.0!
+        Me.ucoLocalidad.Appearance = Appearance14
         Me.ucoLocalidad.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest
         Me.ucoLocalidad.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoLocalidad.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource, "cve_loc", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, Nothing, "N2"))
@@ -929,9 +983,9 @@ Partial Class frmComercioServSinAlcohol
         '
         'txtObservaciones
         '
-        Appearance17.BackColor = System.Drawing.Color.White
-        Appearance17.BackColor2 = System.Drawing.Color.White
-        Me.txtObservaciones.Appearance = Appearance17
+        Appearance15.BackColor = System.Drawing.Color.White
+        Appearance15.BackColor2 = System.Drawing.Color.White
+        Me.txtObservaciones.Appearance = Appearance15
         Me.txtObservaciones.BackColor = System.Drawing.Color.White
         Me.txtObservaciones.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtObservaciones.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "observacion", True))
@@ -947,9 +1001,9 @@ Partial Class frmComercioServSinAlcohol
         'txtResponsable
         '
         Me.txtResponsable.AlwaysInEditMode = True
-        Appearance18.BackColor = System.Drawing.Color.White
-        Appearance18.BackColor2 = System.Drawing.Color.White
-        Me.txtResponsable.Appearance = Appearance18
+        Appearance16.BackColor = System.Drawing.Color.White
+        Appearance16.BackColor2 = System.Drawing.Color.White
+        Me.txtResponsable.Appearance = Appearance16
         Me.txtResponsable.BackColor = System.Drawing.Color.White
         Me.txtResponsable.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtResponsable.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "responsable", True))
@@ -965,9 +1019,9 @@ Partial Class frmComercioServSinAlcohol
         '
         'txtDomicilio
         '
-        Appearance19.BackColor = System.Drawing.Color.White
-        Appearance19.BackColor2 = System.Drawing.Color.White
-        Me.txtDomicilio.Appearance = Appearance19
+        Appearance17.BackColor = System.Drawing.Color.White
+        Appearance17.BackColor2 = System.Drawing.Color.White
+        Me.txtDomicilio.Appearance = Appearance17
         Me.txtDomicilio.BackColor = System.Drawing.Color.White
         Me.txtDomicilio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtDomicilio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "domicilio_fiscal", True))
@@ -983,9 +1037,9 @@ Partial Class frmComercioServSinAlcohol
         'txtNombre
         '
         Me.txtNombre.AlwaysInEditMode = True
-        Appearance20.BackColor = System.Drawing.Color.White
-        Appearance20.BackColor2 = System.Drawing.Color.White
-        Me.txtNombre.Appearance = Appearance20
+        Appearance18.BackColor = System.Drawing.Color.White
+        Appearance18.BackColor2 = System.Drawing.Color.White
+        Me.txtNombre.Appearance = Appearance18
         Me.txtNombre.BackColor = System.Drawing.Color.White
         Me.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNombre.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "nombre", True))
@@ -1012,8 +1066,8 @@ Partial Class frmComercioServSinAlcohol
         '
         'lblNombre
         '
-        Appearance21.TextHAlignAsString = "Center"
-        Me.lblNombre.Appearance = Appearance21
+        Appearance19.TextHAlignAsString = "Center"
+        Me.lblNombre.Appearance = Appearance19
         Me.lblNombre.AutoSize = True
         Me.lblNombre.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNombre.Location = New System.Drawing.Point(56, 9)
@@ -1073,18 +1127,15 @@ Partial Class frmComercioServSinAlcohol
         Me.grpDatosCuenta.Dock = System.Windows.Forms.DockStyle.Top
         Me.grpDatosCuenta.Enabled = False
         Me.grpDatosCuenta.ExpandedSize = New System.Drawing.Size(1084, 237)
+        Me.grpDatosCuenta.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpDatosCuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Appearance36.BackColor = System.Drawing.Color.AliceBlue
-        Appearance36.BackColor2 = System.Drawing.Color.White
-        Appearance36.BackGradientAlignment = Infragistics.Win.GradientAlignment.Client
-        Me.grpDatosCuenta.HeaderAppearance = Appearance36
         Me.grpDatosCuenta.Location = New System.Drawing.Point(0, 43)
         Me.grpDatosCuenta.Name = "grpDatosCuenta"
         Me.grpDatosCuenta.Size = New System.Drawing.Size(1084, 237)
         Me.grpDatosCuenta.TabIndex = 1
         Me.grpDatosCuenta.TabStop = False
         Me.grpDatosCuenta.Text = "Cuenta"
-        Me.grpDatosCuenta.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpDatosCuenta.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'UltraExpandableGroupBoxPanel1
         '
@@ -1112,9 +1163,9 @@ Partial Class frmComercioServSinAlcohol
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.txtNoLic)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.cmbGiro)
         Me.UltraExpandableGroupBoxPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraExpandableGroupBoxPanel1.Location = New System.Drawing.Point(3, 19)
+        Me.UltraExpandableGroupBoxPanel1.Location = New System.Drawing.Point(2, 21)
         Me.UltraExpandableGroupBoxPanel1.Name = "UltraExpandableGroupBoxPanel1"
-        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(1078, 215)
+        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(1080, 214)
         Me.UltraExpandableGroupBoxPanel1.TabIndex = 0
         '
         'gruHorario
@@ -1136,8 +1187,8 @@ Partial Class frmComercioServSinAlcohol
         '
         'mskDomFin
         '
-        Appearance23.FontData.SizeInPoints = 8.0!
-        Me.mskDomFin.Appearance = Appearance23
+        Appearance20.FontData.SizeInPoints = 8.0!
+        Me.mskDomFin.Appearance = Appearance20
         Me.mskDomFin.AutoFillTime = Infragistics.Win.UltraWinMaskedEdit.AutoFillTime.CurrentTime
         Me.mskDomFin.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource, "hr_fin_domingo", True))
         Me.mskDomFin.DateTime = New Date(2016, 11, 27, 0, 0, 0, 0)
@@ -1154,8 +1205,8 @@ Partial Class frmComercioServSinAlcohol
         '
         'mskDomStart
         '
-        Appearance24.FontData.SizeInPoints = 8.0!
-        Me.mskDomStart.Appearance = Appearance24
+        Appearance21.FontData.SizeInPoints = 8.0!
+        Me.mskDomStart.Appearance = Appearance21
         Me.mskDomStart.AutoFillTime = Infragistics.Win.UltraWinMaskedEdit.AutoFillTime.CurrentTime
         Me.mskDomStart.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource, "hr_ini_domingo", True))
         Me.mskDomStart.DateTime = New Date(2016, 11, 27, 0, 0, 0, 0)
@@ -1172,8 +1223,8 @@ Partial Class frmComercioServSinAlcohol
         '
         'mskSabFin
         '
-        Appearance25.FontData.SizeInPoints = 8.0!
-        Me.mskSabFin.Appearance = Appearance25
+        Appearance22.FontData.SizeInPoints = 8.0!
+        Me.mskSabFin.Appearance = Appearance22
         Me.mskSabFin.AutoFillTime = Infragistics.Win.UltraWinMaskedEdit.AutoFillTime.CurrentTime
         Me.mskSabFin.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource, "hr_fin_sabado", True))
         Me.mskSabFin.DateTime = New Date(2016, 11, 27, 0, 0, 0, 0)
@@ -1190,8 +1241,8 @@ Partial Class frmComercioServSinAlcohol
         '
         'mskSabIni
         '
-        Appearance26.FontData.SizeInPoints = 8.0!
-        Me.mskSabIni.Appearance = Appearance26
+        Appearance23.FontData.SizeInPoints = 8.0!
+        Me.mskSabIni.Appearance = Appearance23
         Me.mskSabIni.AutoFillTime = Infragistics.Win.UltraWinMaskedEdit.AutoFillTime.CurrentTime
         Me.mskSabIni.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource, "hr_ini_sabado", True))
         Me.mskSabIni.DateTime = New Date(2016, 11, 27, 0, 0, 0, 0)
@@ -1208,8 +1259,8 @@ Partial Class frmComercioServSinAlcohol
         '
         'mskLVFin
         '
-        Appearance27.FontData.SizeInPoints = 8.0!
-        Me.mskLVFin.Appearance = Appearance27
+        Appearance24.FontData.SizeInPoints = 8.0!
+        Me.mskLVFin.Appearance = Appearance24
         Me.mskLVFin.AutoFillTime = Infragistics.Win.UltraWinMaskedEdit.AutoFillTime.CurrentTime
         Me.mskLVFin.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource, "hr_fin_semana", True))
         Me.mskLVFin.DateTime = New Date(2016, 11, 27, 0, 0, 0, 0)
@@ -1226,8 +1277,8 @@ Partial Class frmComercioServSinAlcohol
         '
         'mskLVIni
         '
-        Appearance28.FontData.SizeInPoints = 8.0!
-        Me.mskLVIni.Appearance = Appearance28
+        Appearance25.FontData.SizeInPoints = 8.0!
+        Me.mskLVIni.Appearance = Appearance25
         Me.mskLVIni.AutoFillTime = Infragistics.Win.UltraWinMaskedEdit.AutoFillTime.Midnight
         Me.mskLVIni.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource, "hr_ini_semana", True))
         Me.mskLVIni.DateTime = New Date(2019, 2, 22, 0, 0, 0, 0)
@@ -1279,9 +1330,9 @@ Partial Class frmComercioServSinAlcohol
         'txtLongitud
         '
         Me.txtLongitud.AlwaysInEditMode = True
-        Appearance29.BackColor = System.Drawing.Color.White
-        Appearance29.BackColor2 = System.Drawing.Color.White
-        Me.txtLongitud.Appearance = Appearance29
+        Appearance26.BackColor = System.Drawing.Color.White
+        Appearance26.BackColor2 = System.Drawing.Color.White
+        Me.txtLongitud.Appearance = Appearance26
         Me.txtLongitud.BackColor = System.Drawing.Color.White
         Me.txtLongitud.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtLongitud.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "Longitud", True))
@@ -1308,9 +1359,9 @@ Partial Class frmComercioServSinAlcohol
         'txtLatitud
         '
         Me.txtLatitud.AlwaysInEditMode = True
-        Appearance30.BackColor = System.Drawing.Color.White
-        Appearance30.BackColor2 = System.Drawing.Color.White
-        Me.txtLatitud.Appearance = Appearance30
+        Appearance27.BackColor = System.Drawing.Color.White
+        Appearance27.BackColor2 = System.Drawing.Color.White
+        Me.txtLatitud.Appearance = Appearance27
         Me.txtLatitud.BackColor = System.Drawing.Color.White
         Me.txtLatitud.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtLatitud.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "Latitud", True))
@@ -1347,8 +1398,8 @@ Partial Class frmComercioServSinAlcohol
         '
         'lblTipoAnuncio
         '
-        Appearance31.TextHAlignAsString = "Right"
-        Me.lblTipoAnuncio.Appearance = Appearance31
+        Appearance28.TextHAlignAsString = "Right"
+        Me.lblTipoAnuncio.Appearance = Appearance28
         Me.lblTipoAnuncio.AutoSize = True
         Me.lblTipoAnuncio.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTipoAnuncio.Location = New System.Drawing.Point(94, 163)
@@ -1373,9 +1424,9 @@ Partial Class frmComercioServSinAlcohol
         'txtActividad
         '
         Me.txtActividad.AlwaysInEditMode = True
-        Appearance32.BackColor = System.Drawing.Color.White
-        Appearance32.BackColor2 = System.Drawing.Color.White
-        Me.txtActividad.Appearance = Appearance32
+        Appearance29.BackColor = System.Drawing.Color.White
+        Appearance29.BackColor2 = System.Drawing.Color.White
+        Me.txtActividad.Appearance = Appearance29
         Me.txtActividad.BackColor = System.Drawing.Color.White
         Me.txtActividad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtActividad.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "giro", True))
@@ -1411,9 +1462,9 @@ Partial Class frmComercioServSinAlcohol
         '
         'txtClavecatastral
         '
-        Appearance33.BackColor = System.Drawing.Color.White
-        Appearance33.BackColor2 = System.Drawing.Color.White
-        Me.txtClavecatastral.Appearance = Appearance33
+        Appearance30.BackColor = System.Drawing.Color.White
+        Appearance30.BackColor2 = System.Drawing.Color.White
+        Me.txtClavecatastral.Appearance = Appearance30
         Me.txtClavecatastral.BackColor = System.Drawing.Color.White
         Me.txtClavecatastral.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtClavecatastral.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "cve_catastral", True))
@@ -1429,10 +1480,10 @@ Partial Class frmComercioServSinAlcohol
         '
         'ucoStatus
         '
-        Appearance34.FontData.BoldAsString = "True"
-        Appearance34.FontData.Name = "Tahoma"
-        Appearance34.FontData.SizeInPoints = 9.0!
-        Me.ucoStatus.Appearance = Appearance34
+        Appearance31.FontData.BoldAsString = "True"
+        Appearance31.FontData.Name = "Tahoma"
+        Appearance31.FontData.SizeInPoints = 9.0!
+        Me.ucoStatus.Appearance = Appearance31
         Me.ucoStatus.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest
         Me.ucoStatus.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoStatus.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource, "status", True))
@@ -1456,10 +1507,10 @@ Partial Class frmComercioServSinAlcohol
         '
         'ucoTipoContribuyente
         '
-        Appearance35.FontData.BoldAsString = "True"
-        Appearance35.FontData.Name = "Tahoma"
-        Appearance35.FontData.SizeInPoints = 9.0!
-        Me.ucoTipoContribuyente.Appearance = Appearance35
+        Appearance32.FontData.BoldAsString = "True"
+        Appearance32.FontData.Name = "Tahoma"
+        Appearance32.FontData.SizeInPoints = 9.0!
+        Me.ucoTipoContribuyente.Appearance = Appearance32
         Me.ucoTipoContribuyente.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest
         Me.ucoTipoContribuyente.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoTipoContribuyente.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource, "cve_tip_con", True))
@@ -1585,66 +1636,14 @@ Partial Class frmComercioServSinAlcohol
         '
         Me.Tbl_lic_municipalesTableAdapter.ClearBeforeFill = True
         '
-        'btnBack
+        'btnMapa
         '
-        Me.btnBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnBack.Image = Global.TCMAdmin.My.Resources.Resources.IconBack
-        Me.btnBack.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.btnBack.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(28, 40)
-        Me.btnBack.Text = "ToolStripButton1"
-        Me.btnBack.ToolTipText = "Regresar"
-        '
-        'btnUndo
-        '
-        Me.btnUndo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnUndo.Image = Global.TCMAdmin.My.Resources.Resources.IconoUndo
-        Me.btnUndo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.btnUndo.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnUndo.Name = "btnUndo"
-        Me.btnUndo.Size = New System.Drawing.Size(28, 40)
-        Me.btnUndo.Text = "ToolStripButton1"
-        Me.btnUndo.ToolTipText = "Deshacer cambios"
-        '
-        'btnGuardar
-        '
-        Me.btnGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnGuardar.Image = Global.TCMAdmin.My.Resources.Resources.IconSave
-        Me.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(40, 40)
-        Me.btnGuardar.Text = "ToolStripButton1"
-        Me.btnGuardar.ToolTipText = "Guardar Datos"
-        '
-        'btnEditar
-        '
-        Me.btnEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnEditar.Image = Global.TCMAdmin.My.Resources.Resources.IconEdit
-        Me.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnEditar.Name = "btnEditar"
-        Me.btnEditar.Size = New System.Drawing.Size(40, 40)
-        Me.btnEditar.Text = "ToolStripButton1"
-        Me.btnEditar.ToolTipText = "Editar"
-        '
-        'btnElimina
-        '
-        Me.btnElimina.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnElimina.Image = Global.TCMAdmin.My.Resources.Resources.IconDelete
-        Me.btnElimina.Name = "btnElimina"
-        Me.btnElimina.RightToLeftAutoMirrorImage = True
-        Me.btnElimina.Size = New System.Drawing.Size(40, 40)
-        Me.btnElimina.Text = "Eliminar"
-        '
-        'btnImage
-        '
-        Me.btnImage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnImage.Image = Global.TCMAdmin.My.Resources.Resources.IconImage
-        Me.btnImage.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnImage.Name = "btnImage"
-        Me.btnImage.Size = New System.Drawing.Size(40, 40)
-        Me.btnImage.Text = "ToolStripButton1"
-        Me.btnImage.ToolTipText = "Ver imágenes"
+        Me.btnMapa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnMapa.Image = Global.TCMAdmin.My.Resources.Resources.Icon_Search
+        Me.btnMapa.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnMapa.Name = "btnMapa"
+        Me.btnMapa.Size = New System.Drawing.Size(40, 40)
+        Me.btnMapa.Text = "Ver Mapa"
         '
         'frmComercioServSinAlcohol
         '
@@ -1653,17 +1652,18 @@ Partial Class frmComercioServSinAlcohol
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1084, 615)
+        Me.ControlBox = False
         Me.Controls.Add(Me.grpUltimoPago)
         Me.Controls.Add(Me.grpPAE)
         Me.Controls.Add(Me.grpPropietario)
         Me.Controls.Add(Me.grpDatosCuenta)
-        Me.Controls.Add(Me.BindingNavigator)
+        Me.Controls.Add(Me.BindingNavigator1)
         Me.KeyPreview = True
         Me.Name = "frmComercioServSinAlcohol"
         Me.Text = "Padrón de Comercio y Servicios sin Venta de bebidas alcohólicas"
-        CType(Me.BindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.BindingNavigator.ResumeLayout(False)
-        Me.BindingNavigator.PerformLayout()
+        CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.BindingNavigator1.ResumeLayout(False)
+        Me.BindingNavigator1.PerformLayout()
         CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DsLicencias, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1727,13 +1727,12 @@ Partial Class frmComercioServSinAlcohol
     End Sub
     Friend WithEvents BindingSource As BindingSource
     Friend WithEvents DsLicencias As dsLicencias
-    Friend WithEvents BindingNavigator As BindingNavigator
+    Friend WithEvents BindingNavigator1 As BindingNavigator
     Friend WithEvents btnBack As ToolStripButton
     Friend WithEvents btnUndo As ToolStripButton
     Friend WithEvents btnGuardar As ToolStripButton
     Friend WithEvents btnElimina As ToolStripButton
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents ToolStripLabel1 As ToolStripLabel
     Friend WithEvents lblCurrentMenu As ToolStripLabel
     Friend WithEvents Tbl_lic_municipalesTableAdapter As dsLicenciasTableAdapters.tbl_lic_municipalesTableAdapter
     Friend WithEvents ErrorProvider1 As ErrorProvider
@@ -1825,4 +1824,7 @@ Partial Class frmComercioServSinAlcohol
     Friend WithEvents txtLatitud As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Private WithEvents UltraLabel2 As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents gruHorario As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents ToolStripLabel2 As ToolStripLabel
+    Friend WithEvents ToolStripLabel1 As ToolStripLabel
+    Friend WithEvents btnMapa As ToolStripButton
 End Class

@@ -52,8 +52,12 @@ Partial Class frmParamBasic
         Me.btnUndo = New System.Windows.Forms.ToolStripButton()
         Me.btnGuardar = New System.Windows.Forms.ToolStripButton()
         Me.btnEditar = New System.Windows.Forms.ToolStripButton()
-        Me.btnEliminar = New System.Windows.Forms.ToolStripButton()
+        Me.btnElimina = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.lblCurrentMenu = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.btnNPrimero = New System.Windows.Forms.ToolStripButton()
         Me.btnNPrevio = New System.Windows.Forms.ToolStripButton()
         Me.btnNSiguiente = New System.Windows.Forms.ToolStripButton()
@@ -151,25 +155,26 @@ Partial Class frmParamBasic
         Me.btnNCurrent.AutoSize = False
         Me.btnNCurrent.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.btnNCurrent.Name = "btnNCurrent"
-        Me.btnNCurrent.Size = New System.Drawing.Size(50, 23)
+        Me.btnNCurrent.Size = New System.Drawing.Size(65, 27)
         Me.btnNCurrent.Text = "0"
         Me.btnNCurrent.ToolTipText = "Posición actual"
         '
         'btnNTotal
         '
         Me.btnNTotal.Name = "btnNTotal"
-        Me.btnNTotal.Size = New System.Drawing.Size(37, 34)
+        Me.btnNTotal.Size = New System.Drawing.Size(48, 34)
         Me.btnNTotal.Text = "de {0}"
         Me.btnNTotal.ToolTipText = "Número total de elementos"
         '
         'BindingNavigator1
         '
         Me.BindingNavigator1.AddNewItem = Nothing
+        Me.BindingNavigator1.BackColor = System.Drawing.Color.White
         Me.BindingNavigator1.BindingSource = Me.ParametrBindingSource
         Me.BindingNavigator1.CountItem = Me.btnNTotal
         Me.BindingNavigator1.DeleteItem = Nothing
         Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(30, 30)
-        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnGuardar, Me.btnEditar, Me.btnEliminar, Me.ToolStripLabel1, Me.btnNPrimero, Me.btnNPrevio, Me.btnNCurrent, Me.btnNTotal, Me.btnNSiguiente, Me.btnNUltimo})
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnGuardar, Me.btnEditar, Me.btnElimina, Me.ToolStripLabel2, Me.ToolStripSeparator2, Me.lblCurrentMenu, Me.ToolStripLabel1, Me.ToolStripSeparator1, Me.btnNPrimero, Me.btnNPrevio, Me.btnNCurrent, Me.btnNTotal, Me.btnNSiguiente, Me.btnNUltimo})
         Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
         Me.BindingNavigator1.MoveFirstItem = Me.btnNPrimero
         Me.BindingNavigator1.MoveLastItem = Me.btnNUltimo
@@ -178,7 +183,7 @@ Partial Class frmParamBasic
         Me.BindingNavigator1.Name = "BindingNavigator1"
         Me.BindingNavigator1.PositionItem = Me.btnNCurrent
         Me.BindingNavigator1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.BindingNavigator1.Size = New System.Drawing.Size(934, 37)
+        Me.BindingNavigator1.Size = New System.Drawing.Size(1245, 37)
         Me.BindingNavigator1.TabIndex = 21
         Me.BindingNavigator1.Text = "BindingNavigator1"
         '
@@ -234,24 +239,46 @@ Partial Class frmParamBasic
         Me.btnEditar.Text = "ToolStripButton1"
         Me.btnEditar.ToolTipText = "Editar registro"
         '
-        'btnEliminar
+        'btnElimina
         '
-        Me.btnEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnEliminar.Image = Global.TCMAdmin.My.Resources.Resources.IconDelete
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.RightToLeftAutoMirrorImage = True
-        Me.btnEliminar.Size = New System.Drawing.Size(34, 34)
-        Me.btnEliminar.Text = "Eliminar"
-        Me.btnEliminar.ToolTipText = "Eliminar registro"
-        Me.btnEliminar.Visible = False
+        Me.btnElimina.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnElimina.Image = Global.TCMAdmin.My.Resources.Resources.IconDelete
+        Me.btnElimina.Name = "btnElimina"
+        Me.btnElimina.RightToLeftAutoMirrorImage = True
+        Me.btnElimina.Size = New System.Drawing.Size(34, 34)
+        Me.btnElimina.Text = "Eliminar"
+        Me.btnElimina.ToolTipText = "Eliminar registro"
+        Me.btnElimina.Visible = False
+        '
+        'ToolStripLabel2
+        '
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(53, 34)
+        Me.ToolStripLabel2.Text = "           "
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 37)
+        '
+        'lblCurrentMenu
+        '
+        Me.lblCurrentMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentMenu.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblCurrentMenu.Name = "lblCurrentMenu"
+        Me.lblCurrentMenu.Size = New System.Drawing.Size(141, 34)
+        Me.lblCurrentMenu.Text = "ToolStripLabel2"
         '
         'ToolStripLabel1
         '
-        Me.ToolStripLabel1.AutoSize = False
-        Me.ToolStripLabel1.BackColor = System.Drawing.Color.Transparent
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(500, 34)
-        Me.ToolStripLabel1.Text = "                       "
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(53, 34)
+        Me.ToolStripLabel1.Text = "           "
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 37)
         '
         'btnNPrimero
         '
@@ -303,8 +330,9 @@ Partial Class frmParamBasic
         Me.panParametros.Dock = System.Windows.Forms.DockStyle.Fill
         Me.panParametros.Enabled = False
         Me.panParametros.Location = New System.Drawing.Point(0, 37)
+        Me.panParametros.Margin = New System.Windows.Forms.Padding(4)
         Me.panParametros.Name = "panParametros"
-        Me.panParametros.Size = New System.Drawing.Size(934, 524)
+        Me.panParametros.Size = New System.Drawing.Size(1245, 653)
         Me.panParametros.TabIndex = 22
         '
         'uneAnio
@@ -315,13 +343,14 @@ Partial Class frmParamBasic
         Me.uneAnio.BackColor = System.Drawing.Color.White
         Me.uneAnio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametrBindingSource, "ejerfis", True))
         Me.uneAnio.Font = New System.Drawing.Font("Tahoma", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneAnio.Location = New System.Drawing.Point(534, 6)
+        Me.uneAnio.Location = New System.Drawing.Point(712, 7)
+        Me.uneAnio.Margin = New System.Windows.Forms.Padding(4)
         Me.uneAnio.MaxValue = 999999
         Me.uneAnio.MinValue = 1
         Me.uneAnio.Name = "uneAnio"
         Me.uneAnio.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
         Me.uneAnio.ReadOnly = True
-        Me.uneAnio.Size = New System.Drawing.Size(94, 31)
+        Me.uneAnio.Size = New System.Drawing.Size(125, 36)
         Me.uneAnio.TabIndex = 32
         Me.uneAnio.UseAppStyling = False
         '
@@ -329,14 +358,16 @@ Partial Class frmParamBasic
         '
         Me.grpGral.Controls.Add(Me.gpogpos)
         Me.grpGral.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grpGral.ExpandedSize = New System.Drawing.Size(934, 125)
+        Me.grpGral.ExpandedSize = New System.Drawing.Size(1245, 161)
+        Me.grpGral.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpGral.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpGral.Location = New System.Drawing.Point(0, 399)
+        Me.grpGral.Location = New System.Drawing.Point(0, 492)
+        Me.grpGral.Margin = New System.Windows.Forms.Padding(4)
         Me.grpGral.Name = "grpGral"
-        Me.grpGral.Size = New System.Drawing.Size(934, 125)
+        Me.grpGral.Size = New System.Drawing.Size(1245, 161)
         Me.grpGral.TabIndex = 31
         Me.grpGral.Text = "Parámetros de Generales del Municipio"
-        Me.grpGral.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpGral.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'gpogpos
         '
@@ -353,21 +384,23 @@ Partial Class frmParamBasic
         Me.gpogpos.Controls.Add(Me.UltraLabel6)
         Me.gpogpos.Controls.Add(Me.UltraLabel5)
         Me.gpogpos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.gpogpos.Location = New System.Drawing.Point(3, 19)
+        Me.gpogpos.Location = New System.Drawing.Point(2, 25)
+        Me.gpogpos.Margin = New System.Windows.Forms.Padding(4)
         Me.gpogpos.Name = "gpogpos"
-        Me.gpogpos.Size = New System.Drawing.Size(928, 103)
+        Me.gpogpos.Size = New System.Drawing.Size(1241, 134)
         Me.gpogpos.TabIndex = 0
         '
         'uneGrupoMunSalarios
         '
         Me.uneGrupoMunSalarios.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametrBindingSource, "gpo_mun_des_urb", True))
         Me.uneGrupoMunSalarios.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneGrupoMunSalarios.Location = New System.Drawing.Point(334, 69)
+        Me.uneGrupoMunSalarios.Location = New System.Drawing.Point(445, 85)
+        Me.uneGrupoMunSalarios.Margin = New System.Windows.Forms.Padding(4)
         Me.uneGrupoMunSalarios.MaxValue = 31.0R
         Me.uneGrupoMunSalarios.MinValue = 1.0R
         Me.uneGrupoMunSalarios.Name = "uneGrupoMunSalarios"
         Me.uneGrupoMunSalarios.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneGrupoMunSalarios.Size = New System.Drawing.Size(76, 25)
+        Me.uneGrupoMunSalarios.Size = New System.Drawing.Size(101, 29)
         Me.uneGrupoMunSalarios.TabIndex = 20
         Me.uneGrupoMunSalarios.UseAppStyling = False
         '
@@ -376,9 +409,10 @@ Partial Class frmParamBasic
         Appearance2.TextHAlignAsString = "Right"
         Me.UltraLabel10.Appearance = Appearance2
         Me.UltraLabel10.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel10.Location = New System.Drawing.Point(17, 72)
+        Me.UltraLabel10.Location = New System.Drawing.Point(23, 89)
+        Me.UltraLabel10.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel10.Name = "UltraLabel10"
-        Me.UltraLabel10.Size = New System.Drawing.Size(310, 18)
+        Me.UltraLabel10.Size = New System.Drawing.Size(413, 22)
         Me.UltraLabel10.TabIndex = 21
         Me.UltraLabel10.Text = "Grupo Municipios Salarios:"
         '
@@ -386,12 +420,13 @@ Partial Class frmParamBasic
         '
         Me.uneConsumoMinimoAgua.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametrBindingSource, "gpo_mun_agua", True))
         Me.uneConsumoMinimoAgua.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneConsumoMinimoAgua.Location = New System.Drawing.Point(774, 69)
+        Me.uneConsumoMinimoAgua.Location = New System.Drawing.Point(1032, 85)
+        Me.uneConsumoMinimoAgua.Margin = New System.Windows.Forms.Padding(4)
         Me.uneConsumoMinimoAgua.MaxValue = 99999
         Me.uneConsumoMinimoAgua.MinValue = 0
         Me.uneConsumoMinimoAgua.Name = "uneConsumoMinimoAgua"
         Me.uneConsumoMinimoAgua.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneConsumoMinimoAgua.Size = New System.Drawing.Size(76, 25)
+        Me.uneConsumoMinimoAgua.Size = New System.Drawing.Size(101, 29)
         Me.uneConsumoMinimoAgua.TabIndex = 18
         Me.uneConsumoMinimoAgua.UseAppStyling = False
         '
@@ -400,9 +435,10 @@ Partial Class frmParamBasic
         Appearance3.TextHAlignAsString = "Right"
         Me.UltraLabel9.Appearance = Appearance3
         Me.UltraLabel9.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel9.Location = New System.Drawing.Point(455, 72)
+        Me.UltraLabel9.Location = New System.Drawing.Point(607, 89)
+        Me.UltraLabel9.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel9.Name = "UltraLabel9"
-        Me.UltraLabel9.Size = New System.Drawing.Size(310, 18)
+        Me.UltraLabel9.Size = New System.Drawing.Size(413, 22)
         Me.UltraLabel9.TabIndex = 19
         Me.UltraLabel9.Text = "Consumo mínimo de agua:"
         '
@@ -410,12 +446,13 @@ Partial Class frmParamBasic
         '
         Me.uneFactorDrenaje.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametrBindingSource, "fact_drenaje", True))
         Me.uneFactorDrenaje.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneFactorDrenaje.Location = New System.Drawing.Point(774, 40)
+        Me.uneFactorDrenaje.Location = New System.Drawing.Point(1032, 49)
+        Me.uneFactorDrenaje.Margin = New System.Windows.Forms.Padding(4)
         Me.uneFactorDrenaje.MinValue = 0
         Me.uneFactorDrenaje.Name = "uneFactorDrenaje"
         Me.uneFactorDrenaje.NumericType = Infragistics.Win.UltraWinEditors.NumericType.[Double]
         Me.uneFactorDrenaje.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneFactorDrenaje.Size = New System.Drawing.Size(76, 25)
+        Me.uneFactorDrenaje.Size = New System.Drawing.Size(101, 29)
         Me.uneFactorDrenaje.TabIndex = 3
         Me.uneFactorDrenaje.UseAppStyling = False
         '
@@ -423,12 +460,13 @@ Partial Class frmParamBasic
         '
         Me.uneGruDesUrbano.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametrBindingSource, "gpo_mun_des_urb", True))
         Me.uneGruDesUrbano.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneGruDesUrbano.Location = New System.Drawing.Point(334, 40)
+        Me.uneGruDesUrbano.Location = New System.Drawing.Point(445, 49)
+        Me.uneGruDesUrbano.Margin = New System.Windows.Forms.Padding(4)
         Me.uneGruDesUrbano.MaxValue = 31.0R
         Me.uneGruDesUrbano.MinValue = 1.0R
         Me.uneGruDesUrbano.Name = "uneGruDesUrbano"
         Me.uneGruDesUrbano.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneGruDesUrbano.Size = New System.Drawing.Size(76, 25)
+        Me.uneGruDesUrbano.Size = New System.Drawing.Size(101, 29)
         Me.uneGruDesUrbano.TabIndex = 1
         Me.uneGruDesUrbano.UseAppStyling = False
         '
@@ -436,12 +474,13 @@ Partial Class frmParamBasic
         '
         Me.uneGruCobroAgua.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametrBindingSource, "gpo_mun_agua", True))
         Me.uneGruCobroAgua.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneGruCobroAgua.Location = New System.Drawing.Point(334, 10)
+        Me.uneGruCobroAgua.Location = New System.Drawing.Point(445, 12)
+        Me.uneGruCobroAgua.Margin = New System.Windows.Forms.Padding(4)
         Me.uneGruCobroAgua.MaxValue = 31.0R
         Me.uneGruCobroAgua.MinValue = 1.0R
         Me.uneGruCobroAgua.Name = "uneGruCobroAgua"
         Me.uneGruCobroAgua.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneGruCobroAgua.Size = New System.Drawing.Size(76, 25)
+        Me.uneGruCobroAgua.Size = New System.Drawing.Size(101, 29)
         Me.uneGruCobroAgua.TabIndex = 0
         Me.uneGruCobroAgua.UseAppStyling = False
         '
@@ -449,12 +488,13 @@ Partial Class frmParamBasic
         '
         Me.uneGruLicVtaAlcohol.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametrBindingSource, "gpo_mun_lic_alc", True))
         Me.uneGruLicVtaAlcohol.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneGruLicVtaAlcohol.Location = New System.Drawing.Point(774, 10)
+        Me.uneGruLicVtaAlcohol.Location = New System.Drawing.Point(1032, 12)
+        Me.uneGruLicVtaAlcohol.Margin = New System.Windows.Forms.Padding(4)
         Me.uneGruLicVtaAlcohol.MaxValue = 31.0R
         Me.uneGruLicVtaAlcohol.MinValue = 1.0R
         Me.uneGruLicVtaAlcohol.Name = "uneGruLicVtaAlcohol"
         Me.uneGruLicVtaAlcohol.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneGruLicVtaAlcohol.Size = New System.Drawing.Size(76, 25)
+        Me.uneGruLicVtaAlcohol.Size = New System.Drawing.Size(101, 29)
         Me.uneGruLicVtaAlcohol.TabIndex = 2
         Me.uneGruLicVtaAlcohol.UseAppStyling = False
         '
@@ -463,9 +503,10 @@ Partial Class frmParamBasic
         Appearance4.TextHAlignAsString = "Right"
         Me.UltraLabel8.Appearance = Appearance4
         Me.UltraLabel8.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel8.Location = New System.Drawing.Point(455, 44)
+        Me.UltraLabel8.Location = New System.Drawing.Point(607, 54)
+        Me.UltraLabel8.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel8.Name = "UltraLabel8"
-        Me.UltraLabel8.Size = New System.Drawing.Size(310, 18)
+        Me.UltraLabel8.Size = New System.Drawing.Size(413, 22)
         Me.UltraLabel8.TabIndex = 17
         Me.UltraLabel8.Text = "Factor para drenaje:"
         '
@@ -474,9 +515,10 @@ Partial Class frmParamBasic
         Appearance5.TextHAlignAsString = "Right"
         Me.UltraLabel7.Appearance = Appearance5
         Me.UltraLabel7.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel7.Location = New System.Drawing.Point(455, 13)
+        Me.UltraLabel7.Location = New System.Drawing.Point(607, 16)
+        Me.UltraLabel7.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel7.Name = "UltraLabel7"
-        Me.UltraLabel7.Size = New System.Drawing.Size(310, 18)
+        Me.UltraLabel7.Size = New System.Drawing.Size(413, 22)
         Me.UltraLabel7.TabIndex = 16
         Me.UltraLabel7.Text = "Grupo para licencias para venta de alcoholes:"
         '
@@ -485,9 +527,10 @@ Partial Class frmParamBasic
         Appearance6.TextHAlignAsString = "Right"
         Me.UltraLabel6.Appearance = Appearance6
         Me.UltraLabel6.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel6.Location = New System.Drawing.Point(17, 42)
+        Me.UltraLabel6.Location = New System.Drawing.Point(23, 52)
+        Me.UltraLabel6.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel6.Name = "UltraLabel6"
-        Me.UltraLabel6.Size = New System.Drawing.Size(310, 18)
+        Me.UltraLabel6.Size = New System.Drawing.Size(413, 22)
         Me.UltraLabel6.TabIndex = 15
         Me.UltraLabel6.Text = "Grupo para desarrollo urbano:"
         '
@@ -496,9 +539,10 @@ Partial Class frmParamBasic
         Appearance7.TextHAlignAsString = "Right"
         Me.UltraLabel5.Appearance = Appearance7
         Me.UltraLabel5.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel5.Location = New System.Drawing.Point(17, 13)
+        Me.UltraLabel5.Location = New System.Drawing.Point(23, 16)
+        Me.UltraLabel5.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel5.Name = "UltraLabel5"
-        Me.UltraLabel5.Size = New System.Drawing.Size(310, 18)
+        Me.UltraLabel5.Size = New System.Drawing.Size(413, 22)
         Me.UltraLabel5.TabIndex = 14
         Me.UltraLabel5.Text = "Grupo para cobro de agua:"
         '
@@ -506,14 +550,16 @@ Partial Class frmParamBasic
         '
         Me.grpLicMun.Controls.Add(Me.UltraExpandableGroupBoxPanel2)
         Me.grpLicMun.Dock = System.Windows.Forms.DockStyle.Top
-        Me.grpLicMun.ExpandedSize = New System.Drawing.Size(934, 81)
+        Me.grpLicMun.ExpandedSize = New System.Drawing.Size(1245, 100)
+        Me.grpLicMun.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpLicMun.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpLicMun.Location = New System.Drawing.Point(0, 318)
+        Me.grpLicMun.Location = New System.Drawing.Point(0, 392)
+        Me.grpLicMun.Margin = New System.Windows.Forms.Padding(4)
         Me.grpLicMun.Name = "grpLicMun"
-        Me.grpLicMun.Size = New System.Drawing.Size(934, 81)
+        Me.grpLicMun.Size = New System.Drawing.Size(1245, 100)
         Me.grpLicMun.TabIndex = 30
         Me.grpLicMun.Text = "Parámetros de Licencias Municipales"
-        Me.grpLicMun.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpLicMun.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'UltraExpandableGroupBoxPanel2
         '
@@ -522,21 +568,23 @@ Partial Class frmParamBasic
         Me.UltraExpandableGroupBoxPanel2.Controls.Add(Me.UltraLabel4)
         Me.UltraExpandableGroupBoxPanel2.Controls.Add(Me.UltraLabel3)
         Me.UltraExpandableGroupBoxPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraExpandableGroupBoxPanel2.Location = New System.Drawing.Point(3, 19)
+        Me.UltraExpandableGroupBoxPanel2.Location = New System.Drawing.Point(2, 25)
+        Me.UltraExpandableGroupBoxPanel2.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraExpandableGroupBoxPanel2.Name = "UltraExpandableGroupBoxPanel2"
-        Me.UltraExpandableGroupBoxPanel2.Size = New System.Drawing.Size(928, 59)
+        Me.UltraExpandableGroupBoxPanel2.Size = New System.Drawing.Size(1241, 73)
         Me.UltraExpandableGroupBoxPanel2.TabIndex = 0
         '
         'uneDiaIniRecarg
         '
         Me.uneDiaIniRecarg.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametrBindingSource, "dia_venc_lic", True))
         Me.uneDiaIniRecarg.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneDiaIniRecarg.Location = New System.Drawing.Point(774, 15)
+        Me.uneDiaIniRecarg.Location = New System.Drawing.Point(1032, 18)
+        Me.uneDiaIniRecarg.Margin = New System.Windows.Forms.Padding(4)
         Me.uneDiaIniRecarg.MaxValue = 31
         Me.uneDiaIniRecarg.MinValue = 1
         Me.uneDiaIniRecarg.Name = "uneDiaIniRecarg"
         Me.uneDiaIniRecarg.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneDiaIniRecarg.Size = New System.Drawing.Size(76, 25)
+        Me.uneDiaIniRecarg.Size = New System.Drawing.Size(101, 29)
         Me.uneDiaIniRecarg.TabIndex = 1
         Me.uneDiaIniRecarg.UseAppStyling = False
         '
@@ -544,12 +592,13 @@ Partial Class frmParamBasic
         '
         Me.uneMesIniRecarg.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametrBindingSource, "mes_venc_lic", True))
         Me.uneMesIniRecarg.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneMesIniRecarg.Location = New System.Drawing.Point(334, 15)
+        Me.uneMesIniRecarg.Location = New System.Drawing.Point(445, 18)
+        Me.uneMesIniRecarg.Margin = New System.Windows.Forms.Padding(4)
         Me.uneMesIniRecarg.MaxValue = 12
         Me.uneMesIniRecarg.MinValue = 1
         Me.uneMesIniRecarg.Name = "uneMesIniRecarg"
         Me.uneMesIniRecarg.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneMesIniRecarg.Size = New System.Drawing.Size(76, 25)
+        Me.uneMesIniRecarg.Size = New System.Drawing.Size(101, 29)
         Me.uneMesIniRecarg.TabIndex = 0
         Me.uneMesIniRecarg.UseAppStyling = False
         '
@@ -558,9 +607,10 @@ Partial Class frmParamBasic
         Appearance8.TextHAlignAsString = "Right"
         Me.UltraLabel4.Appearance = Appearance8
         Me.UltraLabel4.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel4.Location = New System.Drawing.Point(455, 19)
+        Me.UltraLabel4.Location = New System.Drawing.Point(607, 23)
+        Me.UltraLabel4.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel4.Name = "UltraLabel4"
-        Me.UltraLabel4.Size = New System.Drawing.Size(310, 18)
+        Me.UltraLabel4.Size = New System.Drawing.Size(413, 22)
         Me.UltraLabel4.TabIndex = 14
         Me.UltraLabel4.Text = "Día de inicio de recargos:"
         '
@@ -569,9 +619,10 @@ Partial Class frmParamBasic
         Appearance9.TextHAlignAsString = "Right"
         Me.UltraLabel3.Appearance = Appearance9
         Me.UltraLabel3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel3.Location = New System.Drawing.Point(17, 19)
+        Me.UltraLabel3.Location = New System.Drawing.Point(23, 23)
+        Me.UltraLabel3.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel3.Name = "UltraLabel3"
-        Me.UltraLabel3.Size = New System.Drawing.Size(310, 18)
+        Me.UltraLabel3.Size = New System.Drawing.Size(413, 22)
         Me.UltraLabel3.TabIndex = 13
         Me.UltraLabel3.Text = "Mes de inicio de recargos:"
         '
@@ -579,14 +630,16 @@ Partial Class frmParamBasic
         '
         Me.grpimppred.Controls.Add(Me.UltraExpandableGroupBoxPanel1)
         Me.grpimppred.Dock = System.Windows.Forms.DockStyle.Top
-        Me.grpimppred.ExpandedSize = New System.Drawing.Size(934, 102)
+        Me.grpimppred.ExpandedSize = New System.Drawing.Size(1245, 126)
+        Me.grpimppred.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpimppred.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpimppred.Location = New System.Drawing.Point(0, 216)
+        Me.grpimppred.Location = New System.Drawing.Point(0, 266)
+        Me.grpimppred.Margin = New System.Windows.Forms.Padding(4)
         Me.grpimppred.Name = "grpimppred"
-        Me.grpimppred.Size = New System.Drawing.Size(934, 102)
+        Me.grpimppred.Size = New System.Drawing.Size(1245, 126)
         Me.grpimppred.TabIndex = 29
         Me.grpimppred.Text = "Parámetros Generales del Impuesto Predial"
-        Me.grpimppred.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpimppred.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'UltraExpandableGroupBoxPanel1
         '
@@ -595,21 +648,23 @@ Partial Class frmParamBasic
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.UltraLabel2)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.UltraLabel1)
         Me.UltraExpandableGroupBoxPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraExpandableGroupBoxPanel1.Location = New System.Drawing.Point(3, 19)
+        Me.UltraExpandableGroupBoxPanel1.Location = New System.Drawing.Point(2, 25)
+        Me.UltraExpandableGroupBoxPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraExpandableGroupBoxPanel1.Name = "UltraExpandableGroupBoxPanel1"
-        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(928, 80)
+        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(1241, 99)
         Me.UltraExpandableGroupBoxPanel1.TabIndex = 0
         '
         'uneFactorPredial
         '
         Me.uneFactorPredial.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametrBindingSource, "fact_predial", True))
         Me.uneFactorPredial.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneFactorPredial.Location = New System.Drawing.Point(334, 20)
+        Me.uneFactorPredial.Location = New System.Drawing.Point(445, 25)
+        Me.uneFactorPredial.Margin = New System.Windows.Forms.Padding(4)
         Me.uneFactorPredial.MinValue = 0
         Me.uneFactorPredial.Name = "uneFactorPredial"
         Me.uneFactorPredial.NumericType = Infragistics.Win.UltraWinEditors.NumericType.[Double]
         Me.uneFactorPredial.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneFactorPredial.Size = New System.Drawing.Size(76, 25)
+        Me.uneFactorPredial.Size = New System.Drawing.Size(101, 29)
         Me.uneFactorPredial.TabIndex = 0
         Me.uneFactorPredial.UseAppStyling = False
         '
@@ -617,12 +672,13 @@ Partial Class frmParamBasic
         '
         Me.uneMaxIncremAnual.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametrBindingSource, "max_inc_anual", True))
         Me.uneMaxIncremAnual.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneMaxIncremAnual.Location = New System.Drawing.Point(774, 20)
+        Me.uneMaxIncremAnual.Location = New System.Drawing.Point(1032, 25)
+        Me.uneMaxIncremAnual.Margin = New System.Windows.Forms.Padding(4)
         Me.uneMaxIncremAnual.MinValue = 0
         Me.uneMaxIncremAnual.Name = "uneMaxIncremAnual"
         Me.uneMaxIncremAnual.NumericType = Infragistics.Win.UltraWinEditors.NumericType.[Double]
         Me.uneMaxIncremAnual.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneMaxIncremAnual.Size = New System.Drawing.Size(76, 25)
+        Me.uneMaxIncremAnual.Size = New System.Drawing.Size(101, 29)
         Me.uneMaxIncremAnual.TabIndex = 1
         Me.uneMaxIncremAnual.UseAppStyling = False
         '
@@ -631,9 +687,10 @@ Partial Class frmParamBasic
         Appearance10.TextHAlignAsString = "Right"
         Me.UltraLabel2.Appearance = Appearance10
         Me.UltraLabel2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel2.Location = New System.Drawing.Point(455, 26)
+        Me.UltraLabel2.Location = New System.Drawing.Point(607, 32)
+        Me.UltraLabel2.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel2.Name = "UltraLabel2"
-        Me.UltraLabel2.Size = New System.Drawing.Size(310, 18)
+        Me.UltraLabel2.Size = New System.Drawing.Size(413, 22)
         Me.UltraLabel2.TabIndex = 13
         Me.UltraLabel2.Text = "Máximo incremento anual:"
         '
@@ -642,9 +699,10 @@ Partial Class frmParamBasic
         Appearance11.TextHAlignAsString = "Right"
         Me.UltraLabel1.Appearance = Appearance11
         Me.UltraLabel1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel1.Location = New System.Drawing.Point(17, 25)
+        Me.UltraLabel1.Location = New System.Drawing.Point(23, 31)
+        Me.UltraLabel1.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel1.Name = "UltraLabel1"
-        Me.UltraLabel1.Size = New System.Drawing.Size(310, 18)
+        Me.UltraLabel1.Size = New System.Drawing.Size(413, 22)
         Me.UltraLabel1.TabIndex = 12
         Me.UltraLabel1.Text = "Factor de cobro en predios rústicos:"
         '
@@ -652,14 +710,16 @@ Partial Class frmParamBasic
         '
         Me.grpParBasico.Controls.Add(Me.grParImpPred)
         Me.grpParBasico.Dock = System.Windows.Forms.DockStyle.Top
-        Me.grpParBasico.ExpandedSize = New System.Drawing.Size(934, 173)
+        Me.grpParBasico.ExpandedSize = New System.Drawing.Size(1245, 213)
+        Me.grpParBasico.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpParBasico.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpParBasico.Location = New System.Drawing.Point(0, 43)
+        Me.grpParBasico.Location = New System.Drawing.Point(0, 53)
+        Me.grpParBasico.Margin = New System.Windows.Forms.Padding(4)
         Me.grpParBasico.Name = "grpParBasico"
-        Me.grpParBasico.Size = New System.Drawing.Size(934, 173)
+        Me.grpParBasico.Size = New System.Drawing.Size(1245, 213)
         Me.grpParBasico.TabIndex = 28
         Me.grpParBasico.Text = "Parámetros Básicos"
-        Me.grpParBasico.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpParBasico.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'grParImpPred
         '
@@ -674,20 +734,22 @@ Partial Class frmParamBasic
         Me.grParImpPred.Controls.Add(Me.UltraLabel13)
         Me.grParImpPred.Controls.Add(Me.lblPae)
         Me.grParImpPred.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grParImpPred.Location = New System.Drawing.Point(3, 19)
+        Me.grParImpPred.Location = New System.Drawing.Point(2, 25)
+        Me.grParImpPred.Margin = New System.Windows.Forms.Padding(4)
         Me.grParImpPred.Name = "grParImpPred"
-        Me.grParImpPred.Size = New System.Drawing.Size(928, 151)
+        Me.grParImpPred.Size = New System.Drawing.Size(1241, 186)
         Me.grParImpPred.TabIndex = 0
         '
         'uneRecContMor
         '
         Me.uneRecContMor.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametrBindingSource, "rec_max_req", True))
-        Me.uneRecContMor.Location = New System.Drawing.Point(774, 90)
+        Me.uneRecContMor.Location = New System.Drawing.Point(1032, 111)
+        Me.uneRecContMor.Margin = New System.Windows.Forms.Padding(4)
         Me.uneRecContMor.MinValue = 0
         Me.uneRecContMor.Name = "uneRecContMor"
         Me.uneRecContMor.NumericType = Infragistics.Win.UltraWinEditors.NumericType.[Double]
         Me.uneRecContMor.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneRecContMor.Size = New System.Drawing.Size(76, 24)
+        Me.uneRecContMor.Size = New System.Drawing.Size(101, 28)
         Me.uneRecContMor.TabIndex = 4
         Me.uneRecContMor.UseAppStyling = False
         '
@@ -695,12 +757,13 @@ Partial Class frmParamBasic
         '
         Me.uneRecContEsp.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametrBindingSource, "rec_max_esp", True))
         Me.uneRecContEsp.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneRecContEsp.Location = New System.Drawing.Point(774, 63)
+        Me.uneRecContEsp.Location = New System.Drawing.Point(1032, 78)
+        Me.uneRecContEsp.Margin = New System.Windows.Forms.Padding(4)
         Me.uneRecContEsp.MinValue = 0
         Me.uneRecContEsp.Name = "uneRecContEsp"
         Me.uneRecContEsp.NumericType = Infragistics.Win.UltraWinEditors.NumericType.[Double]
         Me.uneRecContEsp.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneRecContEsp.Size = New System.Drawing.Size(76, 25)
+        Me.uneRecContEsp.Size = New System.Drawing.Size(101, 29)
         Me.uneRecContEsp.TabIndex = 3
         Me.uneRecContEsp.UseAppStyling = False
         '
@@ -710,12 +773,13 @@ Partial Class frmParamBasic
         Me.uneFactorMultas.Appearance = Appearance12
         Me.uneFactorMultas.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametrBindingSource, "factor_multas", True))
         Me.uneFactorMultas.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneFactorMultas.Location = New System.Drawing.Point(774, 36)
+        Me.uneFactorMultas.Location = New System.Drawing.Point(1032, 44)
+        Me.uneFactorMultas.Margin = New System.Windows.Forms.Padding(4)
         Me.uneFactorMultas.MinValue = 0
         Me.uneFactorMultas.Name = "uneFactorMultas"
         Me.uneFactorMultas.NumericType = Infragistics.Win.UltraWinEditors.NumericType.[Double]
         Me.uneFactorMultas.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneFactorMultas.Size = New System.Drawing.Size(76, 25)
+        Me.uneFactorMultas.Size = New System.Drawing.Size(101, 29)
         Me.uneFactorMultas.TabIndex = 2
         Me.uneFactorMultas.UseAppStyling = False
         '
@@ -723,12 +787,13 @@ Partial Class frmParamBasic
         '
         Me.uneSalarioMinimoA.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametrBindingSource, "sal_zona_a", True))
         Me.uneSalarioMinimoA.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneSalarioMinimoA.Location = New System.Drawing.Point(334, 70)
+        Me.uneSalarioMinimoA.Location = New System.Drawing.Point(445, 86)
+        Me.uneSalarioMinimoA.Margin = New System.Windows.Forms.Padding(4)
         Me.uneSalarioMinimoA.MinValue = 0
         Me.uneSalarioMinimoA.Name = "uneSalarioMinimoA"
         Me.uneSalarioMinimoA.NumericType = Infragistics.Win.UltraWinEditors.NumericType.[Decimal]
         Me.uneSalarioMinimoA.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneSalarioMinimoA.Size = New System.Drawing.Size(100, 25)
+        Me.uneSalarioMinimoA.Size = New System.Drawing.Size(133, 29)
         Me.uneSalarioMinimoA.TabIndex = 1
         Me.uneSalarioMinimoA.UseAppStyling = False
         Me.uneSalarioMinimoA.Visible = False
@@ -737,12 +802,13 @@ Partial Class frmParamBasic
         '
         Me.uneSalarioMinimoC.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametrBindingSource, "sal_zona_c", True))
         Me.uneSalarioMinimoC.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneSalarioMinimoC.Location = New System.Drawing.Point(334, 39)
+        Me.uneSalarioMinimoC.Location = New System.Drawing.Point(445, 48)
+        Me.uneSalarioMinimoC.Margin = New System.Windows.Forms.Padding(4)
         Me.uneSalarioMinimoC.MinValue = 0
         Me.uneSalarioMinimoC.Name = "uneSalarioMinimoC"
         Me.uneSalarioMinimoC.NumericType = Infragistics.Win.UltraWinEditors.NumericType.[Decimal]
         Me.uneSalarioMinimoC.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneSalarioMinimoC.Size = New System.Drawing.Size(100, 25)
+        Me.uneSalarioMinimoC.Size = New System.Drawing.Size(133, 29)
         Me.uneSalarioMinimoC.TabIndex = 0
         Me.uneSalarioMinimoC.UseAppStyling = False
         '
@@ -751,9 +817,10 @@ Partial Class frmParamBasic
         Appearance13.TextHAlignAsString = "Right"
         Me.UltraLabel16.Appearance = Appearance13
         Me.UltraLabel16.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel16.Location = New System.Drawing.Point(455, 90)
+        Me.UltraLabel16.Location = New System.Drawing.Point(607, 111)
+        Me.UltraLabel16.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel16.Name = "UltraLabel16"
-        Me.UltraLabel16.Size = New System.Drawing.Size(310, 18)
+        Me.UltraLabel16.Size = New System.Drawing.Size(413, 22)
         Me.UltraLabel16.TabIndex = 13
         Me.UltraLabel16.Text = "Recargos para contribuyentes morosos:"
         '
@@ -762,9 +829,10 @@ Partial Class frmParamBasic
         Appearance14.TextHAlignAsString = "Right"
         Me.UltraLabel15.Appearance = Appearance14
         Me.UltraLabel15.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel15.Location = New System.Drawing.Point(455, 65)
+        Me.UltraLabel15.Location = New System.Drawing.Point(607, 80)
+        Me.UltraLabel15.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel15.Name = "UltraLabel15"
-        Me.UltraLabel15.Size = New System.Drawing.Size(310, 18)
+        Me.UltraLabel15.Size = New System.Drawing.Size(413, 22)
         Me.UltraLabel15.TabIndex = 12
         Me.UltraLabel15.Text = "Recargos para contribuyetes espontáneos:"
         '
@@ -773,9 +841,10 @@ Partial Class frmParamBasic
         Appearance15.TextHAlignAsString = "Right"
         Me.UltraLabel14.Appearance = Appearance15
         Me.UltraLabel14.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel14.Location = New System.Drawing.Point(455, 40)
+        Me.UltraLabel14.Location = New System.Drawing.Point(607, 49)
+        Me.UltraLabel14.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel14.Name = "UltraLabel14"
-        Me.UltraLabel14.Size = New System.Drawing.Size(310, 18)
+        Me.UltraLabel14.Size = New System.Drawing.Size(413, 22)
         Me.UltraLabel14.TabIndex = 11
         Me.UltraLabel14.Text = "Multas para contribuyentes requeridos:"
         '
@@ -784,9 +853,10 @@ Partial Class frmParamBasic
         Appearance16.TextHAlignAsString = "Right"
         Me.UltraLabel13.Appearance = Appearance16
         Me.UltraLabel13.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel13.Location = New System.Drawing.Point(17, 73)
+        Me.UltraLabel13.Location = New System.Drawing.Point(23, 90)
+        Me.UltraLabel13.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel13.Name = "UltraLabel13"
-        Me.UltraLabel13.Size = New System.Drawing.Size(310, 18)
+        Me.UltraLabel13.Size = New System.Drawing.Size(413, 22)
         Me.UltraLabel13.TabIndex = 10
         Me.UltraLabel13.Text = "Salario mínimo zona ""A"""
         Me.UltraLabel13.Visible = False
@@ -796,21 +866,23 @@ Partial Class frmParamBasic
         Appearance17.TextHAlignAsString = "Right"
         Me.lblPae.Appearance = Appearance17
         Me.lblPae.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPae.Location = New System.Drawing.Point(17, 42)
+        Me.lblPae.Location = New System.Drawing.Point(23, 52)
+        Me.lblPae.Margin = New System.Windows.Forms.Padding(4)
         Me.lblPae.Name = "lblPae"
-        Me.lblPae.Size = New System.Drawing.Size(310, 18)
+        Me.lblPae.Size = New System.Drawing.Size(413, 22)
         Me.lblPae.TabIndex = 9
         Me.lblPae.Text = "Unidad de Medida y Actualización"
         '
         'lblEjFiscal
         '
-        Me.lblEjFiscal.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.lblEjFiscal.BackColor = System.Drawing.Color.White
         Me.lblEjFiscal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblEjFiscal.Dock = System.Windows.Forms.DockStyle.Top
         Me.lblEjFiscal.Font = New System.Drawing.Font("Tahoma", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEjFiscal.Location = New System.Drawing.Point(0, 0)
+        Me.lblEjFiscal.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEjFiscal.Name = "lblEjFiscal"
-        Me.lblEjFiscal.Size = New System.Drawing.Size(934, 43)
+        Me.lblEjFiscal.Size = New System.Drawing.Size(1245, 53)
         Me.lblEjFiscal.TabIndex = 27
         Me.lblEjFiscal.Text = "Ejercicio Fiscal:     "
         Me.lblEjFiscal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -821,15 +893,16 @@ Partial Class frmParamBasic
         '
         'frmParamBasic
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(934, 561)
+        Me.ClientSize = New System.Drawing.Size(1245, 690)
         Me.ControlBox = False
         Me.Controls.Add(Me.panParametros)
         Me.Controls.Add(Me.BindingNavigator1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmParamBasic"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Parámetros Básicos y Factores para Cálculos  de Accesorios Legales"
@@ -888,7 +961,7 @@ Partial Class frmParamBasic
     Friend WithEvents btnUndo As ToolStripButton
     Friend WithEvents btnGuardar As ToolStripButton
     Friend WithEvents btnEditar As ToolStripButton
-    Friend WithEvents btnEliminar As ToolStripButton
+    Friend WithEvents btnElimina As ToolStripButton
     Friend WithEvents btnNPrimero As ToolStripButton
     Friend WithEvents btnNPrevio As ToolStripButton
     Friend WithEvents btnNCurrent As ToolStripTextBox
@@ -931,10 +1004,14 @@ Partial Class frmParamBasic
     Friend WithEvents uneGruCobroAgua As Infragistics.Win.UltraWinEditors.UltraNumericEditor
     Friend WithEvents uneGruLicVtaAlcohol As Infragistics.Win.UltraWinEditors.UltraNumericEditor
     Friend WithEvents uneFactorPredial As Infragistics.Win.UltraWinEditors.UltraNumericEditor
-    Friend WithEvents ToolStripLabel1 As ToolStripLabel
     Friend WithEvents uneAnio As Infragistics.Win.UltraWinEditors.UltraNumericEditor
     Friend WithEvents uneConsumoMinimoAgua As Infragistics.Win.UltraWinEditors.UltraNumericEditor
     Friend WithEvents UltraLabel9 As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents uneGrupoMunSalarios As Infragistics.Win.UltraWinEditors.UltraNumericEditor
     Friend WithEvents UltraLabel10 As Infragistics.Win.Misc.UltraLabel
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents ToolStripLabel2 As ToolStripLabel
+    Friend WithEvents lblCurrentMenu As ToolStripLabel
+    Friend WithEvents ToolStripLabel1 As ToolStripLabel
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
 End Class

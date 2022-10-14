@@ -5,71 +5,43 @@ Imports Infragistics.Win.UltraWinExplorerBar
 Imports Infragistics.Win.UltraMessageBox
 Public Class frmTratFiscDifer
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
-    Public idUsuario As String = My.User.Name
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
     Private cxn As New cxnData
-    Private newrow As Object
-    Public parent As Form = Nothing
-    Private currentmenu As String = ""
 
     Private Sub frmTratFiscDifer_Load(sender As Object, e As EventArgs) Handles Me.Load
-        'TODO: esta línea de código carga datos en la tabla 'DsParametros1.arc_sub' Puede moverla o quitarla según sea necesario.
+        TabOrderSequence(Me, SMcMaster.TabOrderManager.TabScheme.AcrossFirst)
         load_combos()
-
+        Me.Arc_subTableAdapter.Fill(Me.DsParametros1.arc_sub)
         If id <> "0" Then
-            Me.Arc_subTableAdapter.Fill(Me.DsParametros1.arc_sub)
             Me.BindingSource1.Position = Me.BindingSource1.Find("Tratamiento_id", id)
-            btnEliminar.Visible = True
-            txtDescripcion.SelectAll()
-        Else
-            grpdata.Enabled = True
-            grpCuotas.Enabled = True
-            btnGuardar.Visible = True
-            btnEditar.Visible = False
-            txtDescripcion.Focus()
-            txtDescripcion.SelectAll()
         End If
     End Sub
-
     Private Sub load_Permiso()
-        Dim ban_enabled As Boolean = False
         Me.btnGuardar.Visible = False
-        btnEliminar.Visible = False
-        btnBack.Visible = False
-        If id <> "0" Then
-            cxn.Select_SQL("select ejfiscal from [tbl_derechos] where derecho_id=" & id.ToString)
-        Else
+        Me.btnEliminar.Visible = Borrar
+        Me.btnGuardar.Visible = IIf(id = "0", Insertar, False)
+        Me.btnEditar.Visible = IIf(id = "0", False, Editar)
+        Me.grpdata.Enabled = IIf(id = "0", True, False)
+        Me.grpCuotas.Enabled = IIf(id = "0", True, False)
+        Me.btnBack.Visible = True
+
+        If id = "0" Then
             cxn.Select_SQL("select year(getdate())")
+            Me.BindingNavigator1.BindingSource.AddNew()
+        Else
+            cxn.Select_SQL("select ejfiscal from [tbl_derechos] where derecho_id=" & id.ToString)
         End If
         Me.lblEjFiscal.Text = "Ejercicio Fiscal: " & cxn.arrayValores(0).ToString
-        If tipo_Permiso = 0 And Not delete_record Then 'Solo Lectura
-            ban_enabled = False
-        ElseIf tipo_Permiso = 1 And delete_record Then 'Eliminar Registro
-            ban_enabled = False
-            btnEliminar.Visible = True
-            btnBack.Visible = True
-        ElseIf tipo_Permiso = 1 And id <> "0" Then  'Actualizar Registro
-            ban_enabled = True
-            Me.btnGuardar.Visible = True
-            btnBack.Visible = True
-        ElseIf tipo_Permiso = 1 And id = "0" Then 'Agregar Registro            
-            ban_enabled = True
-            Me.btnGuardar.Visible = True
-            Me.BindingNavigator2.BindingSource.AddNew()
-        End If
-        Me.btnBack.Visible = True
-        Me.grpdata.Enabled = ban_enabled
-        Me.grpCuotas.Enabled = ban_enabled
+        txtDescripcion.Focus()
+        txtDescripcion.SelectAll()
     End Sub
     Private Sub frmTratFiscDifer_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
+        GenericCloseChlildForm(Me)
     End Sub
     Private Sub load_combos()
         cxn.fLlenaDropDownUltra(ucoCuenta, "select distinct cve_cuenta,cve_cuenta + ' ' + nombre as texto  from [dbo].cat_cuentas")
@@ -166,7 +138,7 @@ Public Class frmTratFiscDifer
                     Me.btnEditar.Visible = True
                     cMensajes.DisplayMessage(Me, "Datos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                 Else
-                    Arc_subTableAdapter.Insert(Me.ucoCuenta.Value, "", txtTipoServicio.Text, txtNumeroOficio.Text _
+                    id = Arc_subTableAdapter.Insert(Me.ucoCuenta.Value, "", txtTipoServicio.Text, txtNumeroOficio.Text _
                         , txtDescripcion.Text.Trim, dtpFechaVencimiento.Value, txtformula.Text, uneSubImpuesto.Value, uneSubActualizacion.Value _
                         , uneSubRecargos.Value, uneSubMultas.Value, uneSubGastosEjecucion.Value, optTipo.Value, txtMensajeRecibo.Text.Trim _
                         , txtMensajePantalla.Text.Trim, "")
@@ -175,6 +147,7 @@ Public Class frmTratFiscDifer
                     Me.btnEditar.Visible = True
                     cMensajes.DisplayMessage(Me, "Datos Registrados ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                 End If
+                frmTratFiscDifer_Load(Nothing, Nothing)
             End If
         Catch ex As Exception
             cMensajes.DisplayMessage(Me, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
@@ -182,10 +155,7 @@ Public Class frmTratFiscDifer
     End Sub
 
     Private Sub btnBack_Click_1(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Enabled = True
-        Me.Close()
-        Me.Dispose()
+        GenericCloseChlildForm(Me)
     End Sub
 
     Private Sub btnUndo_Click(sender As Object, e As EventArgs) Handles btnUndo.Click
@@ -197,8 +167,8 @@ Public Class frmTratFiscDifer
         grpCuotas.Enabled = True
         grpdata.Enabled = True
         btnEditar.Visible = False
-        btnGuardar.Visible = True
-
+        btnGuardar.Visible = Editar
+        Me.btnEliminar.Visible = Borrar
     End Sub
 
     Private Sub frmTratFiscDifer_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
@@ -219,7 +189,7 @@ Public Class frmTratFiscDifer
         Try
             If MsgBox("¿Seguro de Eliminar el Registro?", vbYesNo, "Confirmación") = vbYes Then
                 Me.Validate()
-                Me.BindingNavigator2.BindingSource.RemoveCurrent()
+                Me.BindingNavigator1.BindingSource.RemoveCurrent()
                 Me.Arc_subTableAdapter.Update(Me.DsParametros1.arc_sub)
                 cMensajes.DisplayMessage(Me, "Datos eliminados", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1)
                 Me.Close()

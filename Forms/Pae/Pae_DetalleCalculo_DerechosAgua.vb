@@ -1,6 +1,13 @@
 ﻿Public Class Pae_DetalleCalculo_DerechosAgua
+    Public id As String = "0"
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
+    Private cxn As New cxnData
     Private Sub Pae_DetalleCalculo_DerechosAgua_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'DsPae.viePaeDetalleCalculoDerechoAgua' Puede moverla o quitarla según sea necesario.
         Me.ViePaeDetalleCalculoDerechoAguaTableAdapter.Fill(Me.DsPae.viePaeDetalleCalculoDerechoAgua)
     End Sub
 
@@ -22,5 +29,9 @@
         Else
             MessageBox.Show("No existen registros a exportar", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
+    End Sub
+
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        GenericCloseChlildForm(Me)
     End Sub
 End Class

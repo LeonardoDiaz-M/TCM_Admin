@@ -4,54 +4,48 @@ Imports System.Text.RegularExpressions
 Imports System.Web.Security
 
 Public Class frmLicAlcohol
-
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
     Private cxn As New cxnData
-    Private newrow As Object
-    Public parent As Form = Nothing
     Private Sub frmLicAlcohol_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TabOrderSequence(Me, SMcMaster.TabOrderManager.TabScheme.AcrossFirst)
         Me.lblCurrentMenu.Text = Me.Text
         load_Combos()
         If id <> "0" Then
-            btnEditar.Visible = True
-            btnGuardar.Visible = False
-            btnElimina.Visible = True
-        Else
-            ActivaFormulario(True)
-            btnGuardar.Visible = True
-            btnEditar.Visible = False
-            btnElimina.Visible = False
-        End If
-
-        If id <> "0" Then
             Me.Tbl_lic_municipalesTableAdapter.FillByLA(Me.DsLicencias1.tbl_lic_municipales, id)
-            'Me.BindingSource1.Position = Me.BindingSource1.Find("cve_licencia", id)
+        Else
+
+        End If
+        load_Permiso()
+        Me.txtClavecatastral.Focus()
+        Me.mskLVIni.Focus()
+        Me.txtClavecatastral.Focus()
+    End Sub
+    Private Sub load_Permiso()
+        Me.lblCurrentMenu.Text = Me.Text
+        Me.btnElimina.Visible = False
+        Me.btnGuardar.Visible = IIf(id = "0", Insertar, False)
+        Me.btnEditar.Visible = IIf(id = "0", False, Editar)
+        Me.grpDatosCuenta.Enabled = IIf(id = "0", True, False)
+        Me.grpPAE.Enabled = IIf(id = "0", True, False)
+        Me.grpPropietario.Enabled = IIf(id = "0", True, False)
+        Me.grpUltimoPago.Enabled = IIf(id = "0", True, False)
+        If id = "0" Then
+            Me.BindingNavigator1.BindingSource.AddNew()
+            uneUltMes.Value = 12
+            uneUltAnio.Value = Nothing
+        Else
             Me.cxn.Select_SQL("SELECT cve_tip_con,status,latitud,longitud from tbl_lic_municipales where cve_licencia='" & id & "'")
             Me.ucoTipoContribuyente.SelectedValue = cxn.arrayValores(0)
             Me.ucoStatus.Value = cxn.arrayValores(1)
             Me.txtLatitud.Text = cxn.arrayValores(2)
             Me.txtLongitud.Text = cxn.arrayValores(3)
-        Else
-            uneUltMes.Value = 12
-            uneUltAnio.Value = Nothing
         End If
-        'load_Permiso()
-        Me.txtClavecatastral.Focus()
-        Me.mskLVIni.Focus()
-        Me.txtClavecatastral.Focus()
-        LoadRol()
-    End Sub
-    Private Sub LoadRol()
-        btnEditar.Enabled = Roles.IsUserInRole(Usuario, Editar)
-        btnElimina.Enabled = Roles.IsUserInRole(Usuario, Borrar)
-        btnGuardar.Enabled = Roles.IsUserInRole(Usuario, Insertar)
     End Sub
 
     Private Sub load_Combos()
@@ -119,12 +113,12 @@ Public Class frmLicAlcohol
                 Me.txtActividad.Focus()
             End If
 
-            If Me.uneDimension.Value = 0 Or uneDimension.Value = Nothing Then
-                ErrorProvider1.SetError(uneDimension, "Error")
-                ocurriounError += 1
-                mensaje += "- " & "El campo dimensión es requerido." & "<br />"
-                Me.uneDimension.Focus()
-            End If
+            'If Me.uneDimension.Value = 0 Or uneDimension.Value = Nothing Then
+            '    ErrorProvider1.SetError(uneDimension, "Error")
+            '    ocurriounError += 1
+            '    mensaje += "- " & "El campo dimensión es requerido." & "<br />"
+            '    Me.uneDimension.Focus()
+            'End If
 
             If Me.cmbGiro.SelectedValue <= -1 Or cmbGiro.SelectedValue = Nothing Then
                 ErrorProvider1.SetError(cmbGiro, "Error")
@@ -379,7 +373,6 @@ Public Class frmLicAlcohol
                     ActivaFormulario(False)
                     cMensajes.DisplayMessage(Me, "Registro modificado correctamente!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                     id = Me.txtNoLic.Text
-                    tipo_Permiso = 1
                     System.Threading.Thread.Sleep(1500)
                 Else
                     Dim fec_alta As DateTime
@@ -455,7 +448,6 @@ Public Class frmLicAlcohol
                     Me.Tbl_lic_municipalesTableAdapter.Update(Me.DsLicencias1.tbl_lic_municipales)
                     cMensajes.DisplayMessage(Me, "Datos Registrados correctamente! ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                     id = Me.txtNoLic.Text
-                    tipo_Permiso = 1
                     System.Threading.Thread.Sleep(1500)
                     Me.frmLicAlcohol_Load(Nothing, Nothing)
                 End If
@@ -468,7 +460,8 @@ Public Class frmLicAlcohol
         Try
             'valida permiso de edicion
             ActivaFormulario(True)
-            btnGuardar.Visible = True
+            btnGuardar.Visible = Editar
+            Me.btnElimina.Visible = Borrar
             btnEditar.Visible = False
             txtClavecatastral.Focus()
         Catch ex As Exception
@@ -486,15 +479,10 @@ Public Class frmLicAlcohol
         End Try
     End Sub
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Enabled = True
-        Me.Close()
+        GenericCloseChlildForm(Me)
     End Sub
     Private Sub frmAnuncios_Closing(sender As Object, e As CancelEventArgs) Handles MyBase.Closing
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Visible = True
+        GenericCloseChlildForm(Me)
     End Sub
     Private Sub txtClavecatastral_TextChanged(sender As Object, e As EventArgs) Handles txtClavecatastral.TextChanged
         If Me.txtClavecatastral.Text.Length = 16 Then
@@ -620,5 +608,17 @@ Public Class frmLicAlcohol
     Private Sub btnImage_Click(sender As Object, e As EventArgs) Handles btnImage.Click
         Dim frm As New Padron_Imagenes
         frm.Show(txtNoLic.Text.Trim, "ALCOHOL", Me)
+    End Sub
+
+    Private Sub btnMapa_Click(sender As Object, e As EventArgs) Handles btnMapa.Click
+        Dim frm As New frmGoogleMaps
+        frm.txtLatitud.Text = Me.txtLatitud.Text
+        frm.txtLongitud.Text = Me.txtLongitud.Text
+        frm.lblTipoPadron.Text = "tbl_lic_municipales"
+        frm.lblClavePadron.Text = Me.txtNoLic.Text
+        frm.lblCampo.Text = "cve_licencia"
+        frm.lblNombreContribuyente.Text = Me.txtNombre.Text
+        frm.ShowDialog(Me)
+        Me.frmLicAlcohol_Load(Nothing, Nothing)
     End Sub
 End Class

@@ -5,43 +5,41 @@ Imports Infragistics.Win.UltraWinTabControl
 Imports System.Web.Security
 Public Class frmCatCuentas
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
-    Public idUsuario As String = My.User.Name
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
     Private cxn As New cxnData
-    Private newrow As Object
-    Public parent As Form = Nothing
-    Private currentmenu As String = ""
+    Private currentmenu As String = currentmenu
 
     Private Sub frmCatCuentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'DsCatalogos.cat_cuentas' Puede moverla o quitarla según sea necesario.
+        TabOrderSequence(Me, SMcMaster.TabOrderManager.TabScheme.AcrossFirst)
         load_Combos()
-        If id <> "0" Then
-            Me.Cat_cuentasTableAdapter.Fill(Me.DsCatalogos.cat_cuentas)
-            Me.BindingSource.Position = Me.BindingSource.Find("cve_cuenta", id)
-            Me.gruSecundario.Visible = True
-            btnEliminar.Visible = True
-        Else
-            gruPrincipal.Enabled = True
-            gruSecundario.Enabled = True
-            txtClaveCuenta.ReadOnly = False
-            Me.gruSecundario.Visible = False
-            btnEditar.Visible = False
-            btnGuardar.Visible = True
-            txtClaveCuenta.SelectAll()
-        End If
+        Me.DsCatalogos.EnforceConstraints = False
+        Me.Cat_cuentasTableAdapter.Fill(Me.DsCatalogos.cat_cuentas)
         Modo_Simple_Combos()
-        LoadRol()
+        load_Permiso()
     End Sub
-    Private Sub LoadRol()
-        btnEditar.Enabled = Roles.IsUserInRole(Usuario, Editar)
-        btnEliminar.Enabled = Roles.IsUserInRole(Usuario, Borrar)
-        btnGuardar.Enabled = Roles.IsUserInRole(Usuario, Insertar)
+    Private Sub load_Permiso()
+        txtClaveCuenta.ReadOnly = True
+        Me.lblCurrentMenu.Text = Me.Text
+        Me.btnElimina.Visible = False
+        Me.btnGuardar.Visible = IIf(id = "0", Insertar, False)
+        Me.btnEditar.Visible = IIf(id = "0", False, Editar)
+        Me.gruPrincipal.Enabled = IIf(id = "0", True, False)
+        Me.gruSecundario.Enabled = IIf(id = "0", True, False)
+        If id = "0" Then
+            Me.BindingNavigator1.BindingSource.AddNew()
+            Me.gruPrincipal.Enabled = True
+            Me.gruSecundario.Enabled = True
+            txtClaveCuenta.ReadOnly = False
+        Else
+            Me.BindingSource.Position = Me.BindingSource.Find("cve_cuenta", id)
+        End If
     End Sub
+
     Private Sub load_Combos()
         cxn.fLlenaDropDownUltra(ucoDiarioRecaudacion, "SELECT nombre,cve_cuenta from cat_Cuentas")
         cxn.fLlenaDropDownUltra(ucoIngresoCorriente, "SELECT nombre,cve_cuenta from cat_Cuentas")
@@ -79,17 +77,11 @@ Public Class frmCatCuentas
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Enabled = True
-        Me.Close()
-        Me.Dispose()
+        GenericCloseChlildForm(Me)
     End Sub
 
     Private Sub frmCatCuentas_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Visible = True
+        GenericCloseChlildForm(Me)
     End Sub
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
@@ -98,6 +90,7 @@ Public Class frmCatCuentas
         gruSecundario.Enabled = True
         btnEditar.Visible = False
         btnGuardar.Visible = True
+        Me.btnElimina.Visible = Borrar
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
@@ -119,7 +112,7 @@ Public Class frmCatCuentas
                     gruSecundario.Enabled = False
                     Me.btnGuardar.Visible = False
                     Me.btnEditar.Visible = True
-
+                    id = Me.txtClaveCuenta.Text
                     cMensajes.DisplayMessage(Me, "Datos Registrados ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                     frmCatCuentas_Load(Nothing, Nothing)
                 End If
@@ -366,7 +359,7 @@ Public Class frmCatCuentas
             e.SuppressKeyPress = True
         End If
     End Sub
-    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnElimina.Click
         Try
             If MsgBox("¿Seguro de Eliminar el Registro?", vbYesNo, "Confirmación") = vbYes Then
                 Me.Validate()

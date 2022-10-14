@@ -100,8 +100,8 @@ Public Class cxnData
             dataSQL = Nothing
             'Me.arrayValores(0) = ex.Message
             Me.CloseCxn()
-            cMensajes.DisplayMessage(Me, "Existe un problema de comunicación central con el servidor, intente nuevamente!", vbYes, vbExclamation, vbYes)
-            'err = ex.Message
+            'cMensajes.DisplayMessage(Me, "Existe un problema de comunicación central con el servidor, intente nuevamente!", vbYes, vbExclamation, vbYes)
+            err = ex.Message
             ban = False
         End Try
         Return ban
@@ -248,7 +248,7 @@ Public Class cxnData
         End Try
         Return ban
     End Function
-    Public Function Get_SQL_ListView(ByVal query As String, lvw As ListView) As Boolean
+    Public Function Get_SQL_ListView(ByVal query As String, lvw As ListView, Optional Key As String = "") As Boolean
         Dim dataSQL As New DataSet
         Dim ban As Boolean = False
         Try
@@ -259,7 +259,12 @@ Public Class cxnData
             Dim reader As System.Data.IDataReader = Nothing
             reader = Select_SQL(query, reader)
             While reader.Read()
-                lvw.Items.Add(reader.Item(0).ToString.Trim)
+                If Key = "" Then
+                    lvw.Items.Add(reader.Item(0).ToString.Trim)
+                Else
+                    lvw.Items.Add(reader.Item(0).ToString.Trim).Name = reader.Item(Key).ToString.Trim
+                End If
+
             End While
 
             err = ""
@@ -285,13 +290,29 @@ Public Class cxnData
         End Try
         Return dataSQL  
     End Function
-
+    Public Function Get_SQL_BindingSource(ByVal query As String) As BindingSource
+        Dim DsBin As New BindingSource
+        Dim dtable As New DataTable
+        Try
+            Dim conNwnd As New SqlConnection(SqlPubsConnString)
+            Dim adaNwnd As New SqlDataAdapter(query, SqlPubsConnString)
+            adaNwnd.Fill(dtable)
+            DsBin.DataSource = dtable
+            DsBin.Position = 0
+        Catch ex As Exception
+            dtable = Nothing
+            Me.arrayValores(0) = ex.Message
+            Me.CloseCxn()
+        End Try
+        Return DsBin
+    End Function
     Public Function Get_SQL_Datatable(ByVal query As String) As DataTable
         Dim dtable As New DataTable
         Try
             Dim conNwnd As New SqlConnection(SqlPubsConnString)
             Dim adaNwnd As New SqlDataAdapter(query, SqlPubsConnString)
             adaNwnd.Fill(dtable)
+
         Catch ex As Exception
             dtable = Nothing
             Me.arrayValores(0) = ex.Message
@@ -299,6 +320,20 @@ Public Class cxnData
         End Try
         Return dtable
     End Function
+    'Public Function Get_SQL_ReportDatatable(ByVal query As String) As dsReportes.GenericDataTableDataTable
+    '    Dim dtable As New dsReportes.GenericDataTableDataTable
+    '    Try
+    '        Dim conNwnd As New SqlConnection(SqlPubsConnString)
+    '        Dim adaNwnd As New SqlDataAdapter(query, SqlPubsConnString)
+    '        adaNwnd.Fill(dtable)
+
+    '    Catch ex As Exception
+    '        dtable = Nothing
+    '        Me.arrayValores(0) = ex.Message
+    '        Me.CloseCxn()
+    '    End Try
+    '    Return dtable
+    'End Function
     Public Function Select_SQL(ByVal strSql As String, ByVal reader As System.Data.IDataReader) As System.Data.IDataReader
         Dim cmd As New SqlCommand(strSql, Cn)
         Dim adapter As New SqlDataAdapter()
@@ -455,10 +490,13 @@ Public Class cxnData
         Catch ex As System.Exception
             Me.arrayValores(0) = ex.Message
             Cn2.Close()
+            ban = False
         End Try
         Return ban
+#Disable Warning BC42353 ' Function doesn't return a value on all code paths
     End Function
-    Function Select_SQL(ByVal SQL As String, ByVal dataset As Data.DataSet) As Data.DataSet
+#Enable Warning BC42353 ' Function doesn't return a value on all code paths
+    Function Select_SQL(ByVal SQL As String, ByVal dataset As Data.DataSet, Optional tableName As String = "") As Data.DataSet
 
         Dim DBAdapter As SqlDataAdapter
         Dim ResultsDataSet As DataSet = New DataSet
@@ -468,7 +506,13 @@ Public Class cxnData
             ' Run the query and create a DataSet.
             Me.OpenCxn()
             DBAdapter = New SqlDataAdapter(SQL, Cn)
-            DBAdapter.Fill(ResultsDataSet)
+            If tableName = "" Then
+                DBAdapter.Fill(ResultsDataSet)
+            Else
+                adapter.TableMappings.Add("Table", tableName)
+                DBAdapter.Fill(dataset, tableName)
+            End If
+
             ' Close the database connection.
             Me.CloseCxn()
         Catch ex As Exception
@@ -476,7 +520,7 @@ Public Class cxnData
             Me.arrayValores(0) = ex.Message + vbCrLf + "Error al ejecutar sentencia: " & vbCrLf & SQL
             Me.CloseCxn()
         End Try
-        Return ResultsDataSet
+        Return IIf(tableName = "", ResultsDataSet, dataset)
 
     End Function
     Function Select_SQL(ByVal tree As TreeView, ByVal SelectedNode As String, ByVal sql As String, ByVal Filter As String, ByVal Field As String) As Boolean
@@ -610,13 +654,15 @@ Public Class cxnData
                 ResultSet = Select_SQL(sql.ToLower.Replace("<%parent%>", tree.SelectedNode.Name), ResultSet)
                 If ResultSet.Tables.Count > 0 Then
                     For Each row As Data.DataRow In ResultSet.Tables(0).Rows
+
                         Dim newNode As TreeNode = New TreeNode()
+                        newNode.Name = row(0).Trim.ToUpper
+                        newNode.Text = row(1).Trim.ToUpper
+                        tree.SelectedNode.Nodes.Add(newNode)
                         Dim newNodeVer As TreeNode = New TreeNode()
                         Dim newNodeNvo As TreeNode = New TreeNode()
                         Dim newNodeEdt As TreeNode = New TreeNode()
                         Dim newNodeElr As TreeNode = New TreeNode()
-                        newNode.Name = row(0).Trim.ToUpper
-                        newNode.Text = row(1).Trim.ToUpper
                         If row(2).ToString.Trim.ToLowerInvariant = "true" Then
                             newNodeVer.Name = row(0).Trim.ToUpper & "VER"
                             newNodeVer.Text = "VER"
@@ -645,7 +691,6 @@ Public Class cxnData
                             newNode.Nodes.Add(newNodeElr)
                         End If
                         newNode.ImageIndex = -1
-                        tree.SelectedNode.Nodes.Add(newNode)
                     Next
                 End If
             Next

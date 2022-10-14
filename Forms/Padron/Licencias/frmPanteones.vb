@@ -5,78 +5,41 @@ Imports Infragistics.Win
 Imports System.Web.Security
 Public Class frmPanteones
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
     Private cxn As New cxnData
-    Private newrow As Object
-    Public parent As Form = Nothing
     Private Sub frmLicAlcohol_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+            TabOrderSequence(Me, SMcMaster.TabOrderManager.TabScheme.AcrossFirst)
             Me.lblCurrentMenu.Text = Me.Text
             load_Combos()
             If id <> "0" Then
-                btnEditar.Visible = True
-                btnGuardar.Visible = False
-                btnElimina.Visible = True
-            Else
-                ActivaFormulario(True)
-                btnGuardar.Visible = True
-                btnEditar.Visible = False
-                btnElimina.Visible = False
-            End If
-            If id <> "0" Then
                 Me.Tbl_lic_municipalesTableAdapter.FillByLA(Me.DsLicencias1.tbl_lic_municipales, id)
             End If
-            LoadRol()
+            load_Permiso()
         Catch ex As Exception
             cMensajes.DisplayMessage(Me, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
         End Try
     End Sub
-    Private Sub frmPanteones_Activated(sender As Object, e As EventArgs) Handles Me.Activated
-        Me.txtUbicacionDeposito.Focus()
-    End Sub
-    Private Sub LoadRol()
-        btnEditar.Enabled = Roles.IsUserInRole(Usuario, Editar)
-        btnElimina.Enabled = Roles.IsUserInRole(Usuario, Borrar)
-        btnGuardar.Enabled = Roles.IsUserInRole(Usuario, Insertar)
-    End Sub
     Private Sub load_Permiso()
-        Me.btnGuardar.Visible = False
-        btnElimina.Visible = False
-        Me.txtNoLic.Enabled = False
         Dim cxn_load As New cxnData
-        Me.Text = "Detalle de la Licencia  " & id.ToString
-        If id <> "0" Then
-            cxn_load.Select_SQL("SELECT cve_col,cve_loc,cve_catastral from tbl_lic_municipales where cve_licencia='" & id.ToString & "'")
-            'Me.txtClavecatastral.Text = cxn_load.arrayValores(2)
-            Me.ucoLocalidad.Value = cxn_load.arrayValores(1)
-            If cxn_load.arrayValores(1) <> "-1" And cxn_load.arrayValores(1) IsNot Nothing And cxn_load.arrayValores(1) <> "" Then
-                'cmbLocalidad_SelectedValueChanged(Nothing, Nothing)
-                Me.ucoColonia.Value = cxn.arrayValores(0)
-            End If
-        End If
-        If tipo_Permiso = 0 And Not delete_record Then 'Solo Lectura
-            Me.grpDatosCuenta.Enabled = False
-            Me.grpPropietario.Enabled = False
-            Me.grpPAE.Enabled = False
-        ElseIf tipo_Permiso = 1 And delete_record Then 'Eliminar Registro
-            Me.grpDatosCuenta.Enabled = False
-            Me.grpPropietario.Enabled = False
-            Me.grpPAE.Enabled = False
-            btnElimina.Visible = True
-        ElseIf tipo_Permiso = 1 And id <> "0" Then  'Actualizar Registro
-            Me.grpDatosCuenta.Enabled = True
-            Me.btnGuardar.Visible = True
-        ElseIf tipo_Permiso = 1 And id = "0" Then 'Agregar Registro
-            Me.Text = "Nuevo Licencia"
-            Me.grpDatosCuenta.Enabled = True
-            Me.btnGuardar.Visible = True
+        Me.txtNoLic.Enabled = False
+        Me.lblCurrentMenu.Text = Me.Text
+        Me.btnElimina.Visible = False
+        Me.btnGuardar.Visible = IIf(id = "0", Insertar, False)
+        Me.btnEditar.Visible = IIf(id = "0", False, Editar)
+        Me.grpDatosCuenta.Enabled = IIf(id = "0", True, False)
+        Me.grpPAE.Enabled = IIf(id = "0", True, False)
+        Me.grpPropietario.Enabled = IIf(id = "0", True, False)
+        Me.grpUltimoPago.Enabled = IIf(id = "0", True, False)
+        If id = "0" Then
             Me.BindingNavigator1.BindingSource.AddNew()
+            uneUltMes.Value = 12
+            uneUltAnio.Value = Nothing
             cxn_load.Select_SQL("exec sp_DDL_Derechos 'LA',''")
             Me.BindingSource1.Current("cve_licencia") = cxn_load.arrayValores(0)
             cxn_load.Select_SQL("select getdate(), month(getdate()),year(getdate()) ")
@@ -88,11 +51,18 @@ Public Class frmPanteones
             ucoStatus.Value = -1
             ucoLocalidad.Value = -1
             ucoPae.Value = -1
-            'cmbGiro.SelectedValue = -1
-            'cmbTipoAnuncio.SelectedValue = -1
-
+        Else
+            cxn_load.Select_SQL("SELECT cve_col,cve_loc,cve_catastral from tbl_lic_municipales where cve_licencia='" & id.ToString & "'")
+            Me.ucoLocalidad.Value = cxn_load.arrayValores(1)
+            If cxn_load.arrayValores(1) <> "-1" And cxn_load.arrayValores(1) IsNot Nothing And cxn_load.arrayValores(1) <> "" Then
+                Me.ucoColonia.Value = cxn.arrayValores(0)
+            End If
         End If
     End Sub
+    Private Sub frmPanteones_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        Me.txtUbicacionDeposito.Focus()
+    End Sub
+
     Private Sub load_Combos()
         cxn.fLlenaDropDownUltra(ucoStatus, "SELECT cve_status,descripcion from tbl_Status_Contribuyente")
         cxn.fLlenaDropDownUltra(ucoTipoContribuyente, "SELECT cve_tip_con,descricion from tip_contribuyente")
@@ -343,8 +313,6 @@ Public Class frmPanteones
                     ActivaFormulario(False)
                     cMensajes.DisplayMessage(Me, "Datos modificados correctamente!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                     id = Me.txtNoLic.Text
-                    tipo_Permiso = 1
-                    'System.Threading.Thread.Sleep(1500)
                 Else
                     Me.Validate()
                     Dim fec_alta As DateTime
@@ -353,27 +321,8 @@ Public Class frmPanteones
                     cxn.Select_SQL("exec sp_DDL_Derechos 'PP',''")
                     Me.txtNoLic.Text = cxn.arrayValores(0)
                     Dim TipoDeposito As Integer = 0
-
                     TipoDeposito = optTipoDeposito.Value
-
-
-                    'If rabCripta.Checked = True Then
-                    '    TipoDeposito = 1
-                    'End If
-                    'If rabCapilla.Checked = True Then
-                    '    TipoDeposito = 2
-                    'End If
-                    'If rabUrna.Checked = True Then
-                    '    TipoDeposito = 3
-                    'End If
-                    'If rabFosa.Checked = True Then
-                    '    TipoDeposito = 4
-                    'End If
-                    'If rabMausoleo.Checked = True Then
-                    '    TipoDeposito = 5
-                    'End If
-
-                    MsgBox(TipoDeposito.ToString)
+                    'MsgBox(TipoDeposito.ToString)
 
                     Me.Tbl_lic_municipalesTableAdapter.Insert(Me.txtNoLic.Text,
                                                          "0", 'tip_der
@@ -422,7 +371,6 @@ Public Class frmPanteones
                     Me.Tbl_lic_municipalesTableAdapter.Update(Me.DsLicencias1.tbl_lic_municipales)
                     cMensajes.DisplayMessage(Me, "Datos registrados correctamente!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                     id = Me.txtNoLic.Text
-                    tipo_Permiso = 1
                     System.Threading.Thread.Sleep(1500)
                     Me.frmLicAlcohol_Load(Nothing, Nothing)
                 End If
@@ -435,7 +383,8 @@ Public Class frmPanteones
         Try
             'valida permiso de edicion
             ActivaFormulario(True)
-            btnGuardar.Visible = True
+            btnGuardar.Visible = Editar
+            Me.btnElimina.Visible = Borrar
             btnEditar.Visible = False
             txtUbicacionDeposito.Focus()
         Catch ex As Exception
@@ -454,15 +403,10 @@ Public Class frmPanteones
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Enabled = True
-        Me.Close()
+        GenericCloseChlildForm(Me)
     End Sub
     Private Sub frmAnuncios_Closing(sender As Object, e As CancelEventArgs) Handles MyBase.Closing
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Visible = True
+        GenericCloseChlildForm(Me)
     End Sub
     Private Sub frmPanteones_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         Dim nextControl As Control
@@ -580,7 +524,4 @@ Public Class frmPanteones
         frm.Show(txtNoLic.Text.Trim, "PANTEONES", Me)
     End Sub
 
-    Private Sub UltraOptionSet1_ValueChanged(sender As Object, e As EventArgs)
-
-    End Sub
 End Class

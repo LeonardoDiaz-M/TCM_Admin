@@ -1,96 +1,63 @@
-﻿Imports System.ComponentModel
+﻿Option Explicit Off
+Imports System.ComponentModel
 Imports Infragistics.Win.UltraWinTabControl
 Imports System.Text.RegularExpressions
 Public Class frmarcAguaDatos
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
-    Public idUsuario As String = My.User.Name
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
     Private cxn As New cxnData
     Private idColonia As Integer = -1
-    Private newrow As Object
-    Public parent As Form = Nothing
+
     Private Sub frmarcAguaDatos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             Me.lblCurrentMenu.Text = Me.Text
             load_Combos()
-            Me.Arc_aguaTableAdapter.Fill(Me.DsAgua.arc_agua, id)
             Valida_Usuario_Servicio()
             If id <> "0" Then
-                btnEditar.Visible = True
-                btnGuardar.Visible = False
-                btnElimina.Visible = True
-                txtCuenta.ReadOnly = True
+                Me.Arc_aguaTableAdapter.Fill(Me.DsAgua.arc_agua, id)
             Else
                 ActivaFormulario(True)
-                btnGuardar.Visible = True
-                btnEditar.Visible = False
-                btnElimina.Visible = False
-                txtCuenta.ReadOnly = False
             End If
+            load_Combos()
+            load_Permiso()
         Catch ex As Exception
             cMensajes.DisplayMessage(Me, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
         End Try
     End Sub
     Private Sub load_Combos()
         cxn.fLlenaDropDownUltra(ucoStatus, "Select cve_status, descripcion from tbl_Status_Contribuyente")
-        cxn.fLlenaDropDownUltra(ucoTipoContribuyente, "Select cve_tip_con, descricion from tip_contribuyente")
         cxn.fLlenaDropDownUltra(ucoRuta, "SELECT id_ruta,Nombre from rutas")
         cxn.fLlenaDropDownUltra(ucoLocalidad, "Select clave, nombre from localidades")
         cxn.fLlenaDropDownUltra(ucoPae, "Select clave, nombre from Pae")
+        cxn.fLlenaDropDownUltra(ucoTipoContribuyente, "Select  cve_tip_con, descricion from tip_contribuyente")
     End Sub
     Private Sub load_Permiso()
-        Me.btnGuardar.Visible = False
-        btnElimina.Visible = False
-        btnUndo.Visible = False
-        Me.Text = "Detalles de la cuenta : " & id.ToString
-        If tipo_Permiso = 0 And Not delete_record Then 'Solo Lectura
-            Me.grpDatosCuenta.Enabled = False
-            Me.grpPropietario.Enabled = False
-            Me.grpPAE.Enabled = False
-        ElseIf tipo_Permiso = 1 And delete_record Then 'Eliminar Registro
-            Me.grpDatosCuenta.Enabled = False
-            Me.grpPropietario.Enabled = False
-            Me.grpPAE.Enabled = False
-            btnElimina.Visible = True
-            btnUndo.Visible = True
-        ElseIf tipo_Permiso = 1 And id <> "0" Then  'Actualizar Registro
-            Me.grpDatosCuenta.Enabled = True
-            Me.grpPropietario.Enabled = True
-            Me.txtcveCatastral.ReadOnly = True
-            Me.txtCuenta.ReadOnly = True
-            Me.grpPAE.Enabled = True
-            Me.btnGuardar.Visible = True
-            btnUndo.Visible = True
-        ElseIf tipo_Permiso = 1 And id = "0" Then 'Agregar Registro
-            Me.Text = "Nuevo Registro al Padrón"
-            Me.grpDatosCuenta.Enabled = True
-            Me.grpPropietario.Enabled = True
-            Me.grpPAE.Enabled = True
-            Me.btnGuardar.Visible = True
-            ' newrow = DirectCast(ArcaguaBindingSource.AddNew(), DataRowView)
+        Me.btnElimina.Visible = False
+        btnUndo.Visible = True
+        Me.btnGuardar.Visible = IIf(id = "0", Insertar, False)
+        Me.btnEditar.Visible = IIf(id = "0", False, Editar)
+        'Me.grpServicio.Enabled = IIf(id = "0", True, False)
+        Me.grpDatosCuenta.Enabled = IIf(id = "0", True, False)
+        Me.grpPropietario.Enabled = IIf(id = "0", True, False)
+        Me.grpPAE.Enabled = IIf(id = "0", True, False)
+        If id = "0" Then
+            txtCuenta.ReadOnly = False
             Me.BindingNavigator1.BindingSource.AddNew()
-            'Me.BindingNavigator1.BindingSource.ResetBindings(True)
             Dim cxn2 As New cxnData
-            cxn2.Select_SQL("SELECT RIGHT('00000000'+ CONVERT(VARCHAR(20),MAX(NUM_CUENTA)+1),8),getdate(),month(getdate()),year(getdate()) FROM ARC_AGUA")
+            cxn2.Select_SQL("SELECT RIGHT('00000000'+ CONVERT(VARCHAR(20),MAX(NUM_CUENTA)+1),8),getdate(),12,year(getdate())-1 FROM ARC_AGUA")
             Me.ArcaguaBindingSource.Current("num_cuenta") = cxn2.arrayValores(0)
             Me.ArcaguaBindingSource.Current("ult_mes_pago") = cxn2.arrayValores(2)
             Me.ArcaguaBindingSource.Current("ult_año_pago") = cxn2.arrayValores(3)
             Me.ArcaguaBindingSource.Current("fec_contrato") = cxn2.arrayValores(1)
             Me.ArcaguaBindingSource.Current("num_servicios") = 1
             Me.txtCuenta.Focus()
-            ' Me.cmbContribuyente.DroppedDown = True
-        End If
-        If Not (tipo_Permiso = 1 And id = "0") Then
-            Dim tipo_inmueble As String = ""
-            Dim diametro_toma As String = ""
-            Dim ult_lect As String = "0"
-            Dim num_medidor As String = ""
+        Else
+            txtCuenta.ReadOnly = True
             Dim cxn1 As New cxnData
             cxn1.Select_SQL("select tipo_inmueble,diametro_toma,ult_lectura,num_medidor from arc_agua where num_cuenta='" & id & "'")
             Select Case Valida_Usuario_Servicio()
@@ -115,7 +82,6 @@ Public Class frmarcAguaDatos
         End Try
     End Sub
 
-
 #Region "Usuario_Servicio"
     Private Function Valida_Usuario_Servicio() As Integer
         Dim tipo_servicio As Integer = -1
@@ -138,7 +104,7 @@ Public Class frmarcAguaDatos
         ElseIf Me.optUsuario.Value = 2 And optTipoServicio.Value = 2 Then
             If Me.lblMedidor.Text <> "Diametro de la toma:" Then
                 Me.lblMedidor.Text = "Diametro de la toma:"
-                cxn.Get_SQL_Combobox("SELECT * from tbl_DiametroToma", Me.cmbMedidor, "Diametro", "idToma")
+                cxn.Get_SQL_Combobox("SELECT * from tbl_DiametroToma", Me.cmbMedidor, "Diametro", "Diametro")
             End If
             Me.cmbMedidor.DropDownStyle = ComboBoxStyle.DropDownList
             tipo_servicio = 1
@@ -152,7 +118,7 @@ Public Class frmarcAguaDatos
             Me.cmbMedidor.DropDownStyle = ComboBoxStyle.Simple
             tipo_servicio = 2
         End If
-        If tipo_Permiso <> 1 And id <> "0" Then
+        If Editar And id <> "0" Then
             Select Case tipo_servicio
                 Case 0
                     cxn.Select_SQL("SELECT tipo_inmueble from arc_agua where num_cuenta='" & id.ToString & "'")
@@ -195,8 +161,6 @@ Public Class frmarcAguaDatos
                             Me.ArcaguaBindingSource.Current("diametro_toma") = Me.cmbMedidor.SelectedValue
                         End If
                     End If
-
-
                     Me.ArcaguaBindingSource.Current("Usuario") = "Usuario"
                     Me.ArcaguaBindingSource.EndEdit()
                     Me.Arc_aguaTableAdapter.Update(Me.DsAgua.arc_agua)
@@ -210,15 +174,6 @@ Public Class frmarcAguaDatos
                     Dim diametro_toma As Integer = 0
                     Dim ult_lect As Integer = 0
                     Dim num_medidor As String = ""
-                    'Select Case Valida_Usuario_Servicio()
-                    '    Case 0
-                    '        tipo_inmueble = Me.cmbMedidor.SelectedValue
-                    '    Case 1
-                    '        diametro_toma = Me.cmbMedidor.SelectedValue
-                    '    Case 2
-                    '        ult_lect = Me.uneUltimaLectura.Value
-                    '        num_medidor = Me.cmbMedidor.Text
-                    'End Select
                     If optTipoServicio.Value = 1 Then
                         'Si tipo de servicio es medido
                         ult_lect = Me.uneUltimaLectura.Value
@@ -241,11 +196,11 @@ Public Class frmarcAguaDatos
                                             Me.txtCalle.Text.Trim,
                                             Me.txtNoInt.Text.Trim,
                                             Me.txtNoExt.Text.Trim,
+                                            Me.txtCP.Text.Trim,
                                             Me.txtDomicilio.Text,
                                             Me.ucoTipoContribuyente.Value,
                                             Me.ucoColonia.Value,
                                             Me.ucoLocalidad.Value,
-                                            Me.txtCP.Text,
                                             Me.txtCvecatastral.Text.Trim,
                                             Me.optUsuario.Value.ToString,
                                             tipo_inmueble,
@@ -271,16 +226,17 @@ Public Class frmarcAguaDatos
                                             1,
                                             IIf(Me.chkDrenaje.Checked, 1, 0).ToString,
                                             Me.optFormaPago.Value.ToString,
-                                             txtCurp.Text, txtemail.Text, "USUARIO", "", "")
-
+                                            txtCurp.Text,
+                                            txtemail.Text,
+                                            CurrentUsrName.ToString,
+                                            IIf(Me.txtLatitud.Text.Trim <> "", Me.txtLatitud.Text.Trim, ""),
+                                            IIf(Me.txtLongitud.Text.Trim <> "", Me.txtLongitud.Text.Trim, "")
+                                            )
 
                     Arc_aguaTableAdapter.Update(DsAgua.arc_agua)
-
-                    'Me.cxn.Select_SQL("exec sp_arcagua_registramovtos '" & Me.txtCuenta.Text.Trim & "','I','" & My.User.Name.ToString & "'")
-                    'If cxn.arrayValores(0).ToString = "1" Then
                     cMensajes.DisplayMessage(Me, "Datos Registrados correctamente!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
-
-                    Me.Close()
+                    id = Me.txtCuenta.Text.Trim.ToUpper
+                    frmarcAguaDatos_Load(Nothing, Nothing)
                 End If
             End If
         Catch ex As Exception
@@ -316,11 +272,11 @@ Public Class frmarcAguaDatos
                     Me.grpPropietario.Enabled = False
                     Me.btnGuardar.Enabled = False
                     Me.btnUndo.Enabled = False
-                    cMensajes.DisplayMessage(Me, "La cuenta ha sido eliminada!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                    '   cMensajes.DisplayMessage(Me, "La cuenta ha sido eliminada!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                 Else
                     Me.lblStatusCuenta.Text = "Cuenta Activa"
                     Me.lblStatusCuenta.ForeColor = Color.Green
-                    If tipo_Permiso = 1 And Not delete_record Then
+                    If Insertar Or Editar Then
                         Me.grpDatosCuenta.Enabled = True
                         Me.grpPAE.Enabled = True
                         Me.grpPropietario.Enabled = True
@@ -594,20 +550,13 @@ Public Class frmarcAguaDatos
             Else
                 ban = True
             End If
-
-
         Catch ex As Exception
             cMensajes.DisplayMessage(Me, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
         End Try
         Return ban
     End Function
 
-    Private Sub btnCerrar_Click(sender As Object, e As EventArgs)
-        Me.Close()
-    End Sub
-
     Private Sub btnElimina_Click(sender As Object, e As EventArgs) Handles btnElimina.Click
-
         If MsgBox("Se borrarán todos los datos." & vbCrLf & "¿Desea continuar con la operación?", vbYesNo, "Confirmación") = vbYes Then
 
             Me.cxn.Select_SQL("exec sp_agua_eliminapadron '" & Me.txtCuenta.Text.Trim & "'")
@@ -619,22 +568,6 @@ Public Class frmarcAguaDatos
             End If
 
         End If
-        'If MsgBox("¿Seguro de Eliminar el Registro?", vbYesNo, "Confirmación") = vbYes Then
-        '    Me.Validate()
-        '    Me.ArcaguaBindingSource.Current("status_cta") = "1"
-        '    Me.ArcaguaBindingSource.EndEdit()
-
-        '    Me.Arc_aguaTableAdapter.Update(Me.DsAgua.arc_agua)
-        '    Me.cxn.Select_SQL("exec sp_arcagua_registramovtos '" & Me.txtCuenta.Text.Trim & "','E','" & My.User.Name.ToString & "'")
-        '    If cxn.arrayValores(0).ToString = "1" Then
-        '        cMensajes.DisplayMessage(Me, "Datos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
-        '        Me.Close()
-        '    Else
-        '        cMensajes.DisplayMessage(Me, "Error al registrar los movimientos ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
-        '    End If
-
-        'End If
-
     End Sub
 
     Private Sub optTipoServicio_Click(sender As Object, e As EventArgs) Handles optTipoServicio.Click
@@ -669,35 +602,12 @@ Public Class frmarcAguaDatos
 
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Enabled = True
-        Me.Close()
+        GenericCloseChlildForm(Me)
     End Sub
 
     Private Sub frmarcAguaDatos_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Visible = True
+        GenericCloseChlildForm(Me)
     End Sub
-
-    Private Sub ToolStripButton1_Click_1(sender As Object, e As EventArgs)
-        Dim frmrc As New frmaguaRegistroConsumo
-        frmrc.id = Me.id
-        frmrc.tipo_Permiso = Me.tipo_Permiso
-        frmrc.ShowDialog(Me)
-    End Sub
-
-    'Private Sub txtCuenta_LostFocus(sender As Object, e As EventArgs) Handles txtCuenta.LostFocus
-    '    If Me.txtCvecatastral.Text.Trim.Length = 16 Then
-    '        cxn.Select_SQL("select propietario from arc_predial where cve_catastral='" & Me.txtCvecatastral.Text & "'")
-    '        If cxn.arrayValores(0) IsNot Nothing Then
-    '            cMensajes.DisplayMessage(Me, "Cve.Catastral: " & Me.txtCvecatastral.Text & " - Propieatrio: ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
-    '        Else
-    '            cMensajes.DisplayMessage(Me, "Error Cve. Catastral inválida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
-    '        End If
-    '    End If
-    'End Sub
 
     Private Sub frmarcAguaDatos_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         Dim nextControl As Control
@@ -725,7 +635,7 @@ Public Class frmarcAguaDatos
         End If
     End Sub
     Private Sub txtRfc_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtRfc.KeyPress
-#Region "validarfc"
+#Region "valida rfc"
         If Char.IsLetterOrDigit(e.KeyChar) Then
             Dim Posicion As Integer = txtRfc.SelectionStart + 1
             If Posicion >= 1 Or Posicion <= 3 Then
@@ -810,14 +720,17 @@ Public Class frmarcAguaDatos
         grpUltimoPago.Enabled = enable
         btnGuardar.Visible = enable
         btnEditar.Visible = True
+        'txtCuenta.ReadOnly = Enabled
     End Sub
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
         Try
             'valida permiso de edicion
             ActivaFormulario(True)
-            btnGuardar.Visible = True
+            btnGuardar.Visible = Insertar
+            btnGuardar.Enabled = True
             btnEditar.Visible = False
+            Me.btnElimina.Visible = Borrar
             txtCvecatastral.Focus()
         Catch ex As Exception
             cMensajes.DisplayMessage(Me, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
@@ -829,5 +742,22 @@ Public Class frmarcAguaDatos
         frm.Show(txtCuenta.Text.Trim, "AGUA", Me)
     End Sub
 
+    Private Sub btnMapa_Click(sender As Object, e As EventArgs) Handles btnMapa.Click
+        Dim frm As New frmGoogleMaps
+        frm.txtLatitud.Text = Me.txtLatitud.Text
+        frm.txtLongitud.Text = Me.txtLongitud.Text
+        frm.lblTipoPadron.Text = "arc_Agua"
+        frm.lblClavePadron.Text = Me.txtCuenta.Text
+        frm.lblCampo.Text = "num_cuenta"
+        frm.lblNombreContribuyente.Text = Me.txtNombre.Text
+        frm.ShowDialog(Me)
+        'Me.frmarcAguaDatos_Load(Nothing, Nothing)
+        Try
+            Me.Arc_aguaTableAdapter.Fill(Me.DsAgua.arc_agua, id)
+        Catch ex As Exception
 
+        End Try
+
+        Me.ArcaguaBindingSource.Position = Me.ArcaguaBindingSource.Find("num_cuenta", id)
+    End Sub
 End Class

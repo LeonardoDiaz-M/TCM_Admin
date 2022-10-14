@@ -3,13 +3,12 @@ Imports Infragistics.Win.UltraWinTabControl
 
 Public Class frmRegistraAguaPorCuenta
     Public id As String = "0"
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
-    Public idUsuario As String = My.User.Name
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
     Private cxn As New cxnData
-    Private idColonia As Integer = -1
-    Private newrow As Object
-    Public parent As Form = Nothing
+    Public myParent As Form = Nothing
 
     Private Sub frmRegistraAguaPorCuenta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -70,7 +69,7 @@ Public Class frmRegistraAguaPorCuenta
             Me.cmbMedidor.DropDownStyle = ComboBoxStyle.Simple
             tipo_servicio = 2
         End If
-        If tipo_Permiso <> 1 And id <> "0" Then
+        If Editar And id <> "0" Then
             Select Case tipo_servicio
                 Case 0
                     cxn.Select_SQL("SELECT tipo_inmueble from arc_agua where num_cuenta='" & id.ToString & "'")
@@ -87,11 +86,7 @@ Public Class frmRegistraAguaPorCuenta
     End Function
 #End Region
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Enabled = True
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
-        Me.Close()
+        GenericCloseChlildForm(Me)
     End Sub
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
         Ingresa_Lectura()
@@ -105,9 +100,9 @@ Public Class frmRegistraAguaPorCuenta
         If Me.txtCvecatastral.Text.Trim.Length = 16 Then
             cxn.Select_SQL("select propietario from arc_predial where cve_catastral='" & Me.txtCvecatastral.Text & "'")
             If cxn.arrayValores(0) IsNot Nothing Then
-                Me.SystemMessages1.SysMsg("Cve.Catastral: " & Me.txtCvecatastral.Text & " - Propieatrio: " & Me.cxn.arrayValores(0))
+                cMensajes.DisplayMessage(Me, "Cve.Catastral: " & Me.txtCvecatastral.Text & " - Propieatrio: " & Me.cxn.arrayValores(0), MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
             Else
-                Me.SystemMessages1.SysMsg("Error Cve. Catastral invalida", True)
+                cMensajes.DisplayMessage(Me, "Error Cve. Catastral invalida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
             End If
         End If
     End Sub
@@ -166,6 +161,5 @@ Public Class frmRegistraAguaPorCuenta
     Private Sub TblconsumoaguaBindingSource_PositionChanged(sender As Object, e As EventArgs) Handles TblconsumoaguaBindingSource.PositionChanged
         uneLecturaActual.SelectAll()
     End Sub
-
 
 End Class

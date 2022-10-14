@@ -23,7 +23,7 @@ Partial Class frmGoogleMaps
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Me.BindingNavigator2 = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.btnBack = New System.Windows.Forms.ToolStripButton()
         Me.btnGuardar = New System.Windows.Forms.ToolStripButton()
@@ -67,7 +67,7 @@ Partial Class frmGoogleMaps
         Me.BindingNavigator2.Name = "BindingNavigator2"
         Me.BindingNavigator2.PositionItem = Nothing
         Me.BindingNavigator2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.BindingNavigator2.Size = New System.Drawing.Size(1184, 37)
+        Me.BindingNavigator2.Size = New System.Drawing.Size(1579, 37)
         Me.BindingNavigator2.TabIndex = 8
         Me.BindingNavigator2.Text = "BindingNavigator2"
         '
@@ -94,49 +94,49 @@ Partial Class frmGoogleMaps
         'lblClavePadron
         '
         Me.lblClavePadron.Name = "lblClavePadron"
-        Me.lblClavePadron.Size = New System.Drawing.Size(13, 34)
+        Me.lblClavePadron.Size = New System.Drawing.Size(17, 34)
         Me.lblClavePadron.Text = "0"
         Me.lblClavePadron.Visible = False
         '
         'lblTipoPadron
         '
         Me.lblTipoPadron.Name = "lblTipoPadron"
-        Me.lblTipoPadron.Size = New System.Drawing.Size(13, 34)
+        Me.lblTipoPadron.Size = New System.Drawing.Size(17, 34)
         Me.lblTipoPadron.Text = "0"
         Me.lblTipoPadron.Visible = False
         '
         'lblCampo
         '
         Me.lblCampo.Name = "lblCampo"
-        Me.lblCampo.Size = New System.Drawing.Size(13, 34)
+        Me.lblCampo.Size = New System.Drawing.Size(17, 34)
         Me.lblCampo.Text = "0"
         Me.lblCampo.Visible = False
         '
         'lblNombreContribuyente
         '
         Me.lblNombreContribuyente.Name = "lblNombreContribuyente"
-        Me.lblNombreContribuyente.Size = New System.Drawing.Size(13, 34)
+        Me.lblNombreContribuyente.Size = New System.Drawing.Size(17, 34)
         Me.lblNombreContribuyente.Text = "0"
         Me.lblNombreContribuyente.Visible = False
         '
         'lblUbicacion
         '
         Me.lblUbicacion.Name = "lblUbicacion"
-        Me.lblUbicacion.Size = New System.Drawing.Size(13, 34)
+        Me.lblUbicacion.Size = New System.Drawing.Size(17, 34)
         Me.lblUbicacion.Text = "0"
         Me.lblUbicacion.Visible = False
         '
         'ToolStripLabel1
         '
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(268, 34)
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(357, 34)
         Me.ToolStripLabel1.Text = "                                                                                 " &
     "      "
         '
         'ToolStripLabel2
         '
         Me.ToolStripLabel2.Name = "ToolStripLabel2"
-        Me.ToolStripLabel2.Size = New System.Drawing.Size(44, 34)
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(55, 34)
         Me.ToolStripLabel2.Text = "Latitud"
         Me.ToolStripLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
@@ -146,12 +146,12 @@ Partial Class frmGoogleMaps
         Me.txtLatitud.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtLatitud.Name = "txtLatitud"
         Me.txtLatitud.ReadOnly = True
-        Me.txtLatitud.Size = New System.Drawing.Size(130, 37)
+        Me.txtLatitud.Size = New System.Drawing.Size(172, 37)
         '
         'ToolStripLabel3
         '
         Me.ToolStripLabel3.Name = "ToolStripLabel3"
-        Me.ToolStripLabel3.Size = New System.Drawing.Size(55, 34)
+        Me.ToolStripLabel3.Size = New System.Drawing.Size(68, 34)
         Me.ToolStripLabel3.Text = "Longitud"
         '
         'txtLongitud
@@ -160,7 +160,7 @@ Partial Class frmGoogleMaps
         Me.txtLongitud.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtLongitud.Name = "txtLongitud"
         Me.txtLongitud.ReadOnly = True
-        Me.txtLongitud.Size = New System.Drawing.Size(130, 37)
+        Me.txtLongitud.Size = New System.Drawing.Size(172, 37)
         '
         'GMapControl1
         '
@@ -173,8 +173,9 @@ Partial Class frmGoogleMaps
         Me.GMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow
         Me.GMapControl1.LevelsKeepInMemmory = 5
         Me.GMapControl1.Location = New System.Drawing.Point(0, 37)
+        Me.GMapControl1.Margin = New System.Windows.Forms.Padding(4)
         Me.GMapControl1.MarkersEnabled = True
-        Me.GMapControl1.MaxZoom = 2
+        Me.GMapControl1.MaxZoom = 18
         Me.GMapControl1.MinZoom = 2
         Me.GMapControl1.MouseWheelZoomEnabled = True
         Me.GMapControl1.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter
@@ -186,9 +187,9 @@ Partial Class frmGoogleMaps
         Me.GMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.[Integer]
         Me.GMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(225, Byte), Integer))
         Me.GMapControl1.ShowTileGridLines = False
-        Me.GMapControl1.Size = New System.Drawing.Size(1184, 524)
+        Me.GMapControl1.Size = New System.Drawing.Size(1579, 653)
         Me.GMapControl1.TabIndex = 9
-        Me.GMapControl1.Zoom = 0R
+        Me.GMapControl1.Zoom = 13.0R
         '
         'panControl
         '
@@ -201,50 +202,56 @@ Partial Class frmGoogleMaps
         Me.panControl.ClientArea.Controls.Add(Me.btnNormal)
         Me.panControl.ClientArea.Controls.Add(Me.btnSatelite)
         Me.panControl.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.panControl.Location = New System.Drawing.Point(0, 513)
+        Me.panControl.Location = New System.Drawing.Point(0, 631)
+        Me.panControl.Margin = New System.Windows.Forms.Padding(4)
         Me.panControl.Name = "panControl"
-        Me.panControl.Size = New System.Drawing.Size(1184, 48)
+        Me.panControl.Size = New System.Drawing.Size(1579, 59)
         Me.panControl.TabIndex = 10
         '
         'UltraLabel1
         '
-        Appearance2.TextHAlignAsString = "Right"
-        Me.UltraLabel1.Appearance = Appearance2
-        Me.UltraLabel1.Location = New System.Drawing.Point(373, 13)
+        Appearance1.TextHAlignAsString = "Right"
+        Me.UltraLabel1.Appearance = Appearance1
+        Me.UltraLabel1.Location = New System.Drawing.Point(497, 16)
+        Me.UltraLabel1.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel1.Name = "UltraLabel1"
-        Me.UltraLabel1.Size = New System.Drawing.Size(56, 23)
+        Me.UltraLabel1.Size = New System.Drawing.Size(75, 28)
         Me.UltraLabel1.TabIndex = 4
         Me.UltraLabel1.Text = "Zoom"
         '
         'trackZoom
         '
-        Me.trackZoom.Location = New System.Drawing.Point(435, 7)
+        Me.trackZoom.Location = New System.Drawing.Point(580, 9)
+        Me.trackZoom.Margin = New System.Windows.Forms.Padding(4)
         Me.trackZoom.MaxValue = 25
         Me.trackZoom.Name = "trackZoom"
-        Me.trackZoom.Size = New System.Drawing.Size(412, 29)
+        Me.trackZoom.Size = New System.Drawing.Size(549, 29)
         Me.trackZoom.TabIndex = 3
         '
         'btnRelieve
         '
-        Me.btnRelieve.Location = New System.Drawing.Point(237, 13)
+        Me.btnRelieve.Location = New System.Drawing.Point(316, 16)
+        Me.btnRelieve.Margin = New System.Windows.Forms.Padding(4)
         Me.btnRelieve.Name = "btnRelieve"
-        Me.btnRelieve.Size = New System.Drawing.Size(75, 23)
+        Me.btnRelieve.Size = New System.Drawing.Size(100, 28)
         Me.btnRelieve.TabIndex = 2
         Me.btnRelieve.Text = "Relieve"
         '
         'btnNormal
         '
-        Me.btnNormal.Location = New System.Drawing.Point(134, 13)
+        Me.btnNormal.Location = New System.Drawing.Point(179, 16)
+        Me.btnNormal.Margin = New System.Windows.Forms.Padding(4)
         Me.btnNormal.Name = "btnNormal"
-        Me.btnNormal.Size = New System.Drawing.Size(75, 23)
+        Me.btnNormal.Size = New System.Drawing.Size(100, 28)
         Me.btnNormal.TabIndex = 1
         Me.btnNormal.Text = "Normal"
         '
         'btnSatelite
         '
-        Me.btnSatelite.Location = New System.Drawing.Point(31, 13)
+        Me.btnSatelite.Location = New System.Drawing.Point(41, 16)
+        Me.btnSatelite.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSatelite.Name = "btnSatelite"
-        Me.btnSatelite.Size = New System.Drawing.Size(75, 23)
+        Me.btnSatelite.Size = New System.Drawing.Size(100, 28)
         Me.btnSatelite.TabIndex = 0
         Me.btnSatelite.Text = "Satélite"
         '
@@ -254,12 +261,13 @@ Partial Class frmGoogleMaps
         '
         'frmGoogleMaps
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1184, 561)
+        Me.ClientSize = New System.Drawing.Size(1579, 690)
         Me.Controls.Add(Me.panControl)
         Me.Controls.Add(Me.GMapControl1)
         Me.Controls.Add(Me.BindingNavigator2)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmGoogleMaps"
         Me.Text = "Ubicación Geográfica"
         CType(Me.BindingNavigator2, System.ComponentModel.ISupportInitialize).EndInit()

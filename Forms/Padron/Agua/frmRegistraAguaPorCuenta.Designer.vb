@@ -125,6 +125,7 @@ Partial Class frmRegistraAguaPorCuenta
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.lblCurrentMenu = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.Arc_aguaTableAdapter = New TCMAdmin.dsAguaTableAdapters.arc_aguaTableAdapter()
         Me.grpDatosCuenta = New Infragistics.Win.Misc.UltraExpandableGroupBox()
         Me.UltraExpandableGroupBoxPanel1 = New Infragistics.Win.Misc.UltraExpandableGroupBoxPanel()
@@ -181,7 +182,6 @@ Partial Class frmRegistraAguaPorCuenta
         Me.UltraExpandableGroupBoxPanel3 = New Infragistics.Win.Misc.UltraExpandableGroupBoxPanel()
         Me.grdDataMain = New Infragistics.Win.UltraWinGrid.UltraGrid()
         Me.Tbl_consumo_aguaTableAdapter1 = New TCMAdmin.dsAguaTableAdapters.tbl_consumo_aguaTableAdapter()
-        Me.SystemMessages1 = New TCMAdmin.SystemMessages()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
         CType(Me.ArcaguaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -234,7 +234,7 @@ Partial Class frmRegistraAguaPorCuenta
         Me.BindingNavigator1.CountItem = Nothing
         Me.BindingNavigator1.DeleteItem = Nothing
         Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(32, 32)
-        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.btnBack, Me.btnEditar, Me.ToolStripSeparator2, Me.ToolStripLabel1, Me.lblCurrentMenu})
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.btnBack, Me.btnEditar, Me.ToolStripSeparator2, Me.ToolStripLabel1, Me.lblCurrentMenu, Me.ToolStripLabel2})
         Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
         Me.BindingNavigator1.MoveFirstItem = Nothing
         Me.BindingNavigator1.MoveLastItem = Nothing
@@ -243,7 +243,7 @@ Partial Class frmRegistraAguaPorCuenta
         Me.BindingNavigator1.Name = "BindingNavigator1"
         Me.BindingNavigator1.PositionItem = Nothing
         Me.BindingNavigator1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.BindingNavigator1.Size = New System.Drawing.Size(1182, 39)
+        Me.BindingNavigator1.Size = New System.Drawing.Size(1576, 39)
         Me.BindingNavigator1.TabIndex = 5
         Me.BindingNavigator1.Text = "BindingNavigator1"
         '
@@ -289,18 +289,23 @@ Partial Class frmRegistraAguaPorCuenta
         '
         'ToolStripLabel1
         '
-        Me.ToolStripLabel1.AutoSize = False
-        Me.ToolStripLabel1.BackColor = System.Drawing.Color.Transparent
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(200, 22)
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(53, 36)
+        Me.ToolStripLabel1.Text = "           "
         '
         'lblCurrentMenu
         '
         Me.lblCurrentMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCurrentMenu.ForeColor = System.Drawing.Color.Blue
+        Me.lblCurrentMenu.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.lblCurrentMenu.Name = "lblCurrentMenu"
-        Me.lblCurrentMenu.Size = New System.Drawing.Size(119, 36)
+        Me.lblCurrentMenu.Size = New System.Drawing.Size(141, 36)
         Me.lblCurrentMenu.Text = "ToolStripLabel2"
+        '
+        'ToolStripLabel2
+        '
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(53, 36)
+        Me.ToolStripLabel2.Text = "           "
         '
         'Arc_aguaTableAdapter
         '
@@ -310,16 +315,18 @@ Partial Class frmRegistraAguaPorCuenta
         '
         Me.grpDatosCuenta.Controls.Add(Me.UltraExpandableGroupBoxPanel1)
         Me.grpDatosCuenta.Dock = System.Windows.Forms.DockStyle.Top
-        Me.grpDatosCuenta.ExpandedSize = New System.Drawing.Size(1182, 221)
+        Me.grpDatosCuenta.ExpandedSize = New System.Drawing.Size(1576, 272)
+        Me.grpDatosCuenta.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpDatosCuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Appearance24.BackColor = System.Drawing.Color.AliceBlue
         Me.grpDatosCuenta.HeaderAppearance = Appearance24
         Me.grpDatosCuenta.Location = New System.Drawing.Point(0, 39)
+        Me.grpDatosCuenta.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grpDatosCuenta.Name = "grpDatosCuenta"
-        Me.grpDatosCuenta.Size = New System.Drawing.Size(1182, 221)
+        Me.grpDatosCuenta.Size = New System.Drawing.Size(1576, 272)
         Me.grpDatosCuenta.TabIndex = 9
         Me.grpDatosCuenta.Text = "Cuenta"
-        Me.grpDatosCuenta.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpDatosCuenta.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'UltraExpandableGroupBoxPanel1
         '
@@ -350,9 +357,10 @@ Partial Class frmRegistraAguaPorCuenta
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.chkDrenaje)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.txtCuenta)
         Me.UltraExpandableGroupBoxPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraExpandableGroupBoxPanel1.Location = New System.Drawing.Point(3, 19)
+        Me.UltraExpandableGroupBoxPanel1.Location = New System.Drawing.Point(2, 25)
+        Me.UltraExpandableGroupBoxPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UltraExpandableGroupBoxPanel1.Name = "UltraExpandableGroupBoxPanel1"
-        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(1176, 199)
+        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(1572, 245)
         Me.UltraExpandableGroupBoxPanel1.TabIndex = 0
         '
         'UltraGroupBox1
@@ -360,9 +368,10 @@ Partial Class frmRegistraAguaPorCuenta
         Me.UltraGroupBox1.CaptionAlignment = Infragistics.Win.Misc.GroupBoxCaptionAlignment.Center
         Me.UltraGroupBox1.Controls.Add(Me.optFormaPago)
         Me.UltraGroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(559, 138)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(745, 170)
+        Me.UltraGroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
-        Me.UltraGroupBox1.Size = New System.Drawing.Size(209, 52)
+        Me.UltraGroupBox1.Size = New System.Drawing.Size(279, 64)
         Me.UltraGroupBox1.TabIndex = 113
         Me.UltraGroupBox1.Text = "Forma Pago"
         Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
@@ -389,10 +398,11 @@ Partial Class frmRegistraAguaPorCuenta
         Me.optFormaPago.Items.AddRange(New Infragistics.Win.ValueListItem() {ValueListItem7, ValueListItem8})
         Me.optFormaPago.ItemSpacingHorizontal = 10
         Me.optFormaPago.ItemSpacingVertical = 5
-        Me.optFormaPago.Location = New System.Drawing.Point(3, 19)
+        Me.optFormaPago.Location = New System.Drawing.Point(3, 23)
+        Me.optFormaPago.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.optFormaPago.MinColumnWidth = 80
         Me.optFormaPago.Name = "optFormaPago"
-        Me.optFormaPago.Size = New System.Drawing.Size(203, 30)
+        Me.optFormaPago.Size = New System.Drawing.Size(273, 38)
         Me.optFormaPago.TabIndex = 0
         Me.optFormaPago.UseFlatMode = Infragistics.Win.DefaultableBoolean.[True]
         Me.optFormaPago.UseOsThemes = Infragistics.Win.DefaultableBoolean.[True]
@@ -402,9 +412,10 @@ Partial Class frmRegistraAguaPorCuenta
         Me.grpServicio.CaptionAlignment = Infragistics.Win.Misc.GroupBoxCaptionAlignment.Center
         Me.grpServicio.Controls.Add(Me.optTipoServicio)
         Me.grpServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpServicio.Location = New System.Drawing.Point(559, 75)
+        Me.grpServicio.Location = New System.Drawing.Point(745, 92)
+        Me.grpServicio.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grpServicio.Name = "grpServicio"
-        Me.grpServicio.Size = New System.Drawing.Size(209, 52)
+        Me.grpServicio.Size = New System.Drawing.Size(279, 64)
         Me.grpServicio.TabIndex = 112
         Me.grpServicio.Text = "Tipo Servicio"
         Me.grpServicio.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
@@ -432,10 +443,11 @@ Partial Class frmRegistraAguaPorCuenta
         Me.optTipoServicio.Items.AddRange(New Infragistics.Win.ValueListItem() {ValueListItem1, ValueListItem2})
         Me.optTipoServicio.ItemSpacingHorizontal = 10
         Me.optTipoServicio.ItemSpacingVertical = 5
-        Me.optTipoServicio.Location = New System.Drawing.Point(3, 19)
+        Me.optTipoServicio.Location = New System.Drawing.Point(3, 23)
+        Me.optTipoServicio.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.optTipoServicio.MinColumnWidth = 80
         Me.optTipoServicio.Name = "optTipoServicio"
-        Me.optTipoServicio.Size = New System.Drawing.Size(203, 30)
+        Me.optTipoServicio.Size = New System.Drawing.Size(273, 38)
         Me.optTipoServicio.TabIndex = 0
         Me.optTipoServicio.UseFlatMode = Infragistics.Win.DefaultableBoolean.[True]
         Me.optTipoServicio.UseOsThemes = Infragistics.Win.DefaultableBoolean.[True]
@@ -450,9 +462,10 @@ Partial Class frmRegistraAguaPorCuenta
         Me.grpTipoUsuario.CaptionAlignment = Infragistics.Win.Misc.GroupBoxCaptionAlignment.Center
         Me.grpTipoUsuario.Controls.Add(Me.optUsuario)
         Me.grpTipoUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpTipoUsuario.Location = New System.Drawing.Point(559, 12)
+        Me.grpTipoUsuario.Location = New System.Drawing.Point(745, 15)
+        Me.grpTipoUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grpTipoUsuario.Name = "grpTipoUsuario"
-        Me.grpTipoUsuario.Size = New System.Drawing.Size(209, 52)
+        Me.grpTipoUsuario.Size = New System.Drawing.Size(279, 64)
         Me.grpTipoUsuario.TabIndex = 111
         Me.grpTipoUsuario.Text = "Tipo Usuario"
         Me.grpTipoUsuario.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
@@ -483,10 +496,11 @@ Partial Class frmRegistraAguaPorCuenta
         Me.optUsuario.Items.AddRange(New Infragistics.Win.ValueListItem() {ValueListItem5, ValueListItem6})
         Me.optUsuario.ItemSpacingHorizontal = 10
         Me.optUsuario.ItemSpacingVertical = 5
-        Me.optUsuario.Location = New System.Drawing.Point(3, 19)
+        Me.optUsuario.Location = New System.Drawing.Point(3, 23)
+        Me.optUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.optUsuario.MinColumnWidth = 80
         Me.optUsuario.Name = "optUsuario"
-        Me.optUsuario.Size = New System.Drawing.Size(203, 30)
+        Me.optUsuario.Size = New System.Drawing.Size(273, 38)
         Me.optUsuario.TabIndex = 0
         '
         'uneUltAnio
@@ -494,12 +508,13 @@ Partial Class frmRegistraAguaPorCuenta
         Appearance10.TextHAlignAsString = "Left"
         Me.uneUltAnio.Appearance = Appearance10
         Me.uneUltAnio.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ArcaguaBindingSource, "ult_año_pago", True))
-        Me.uneUltAnio.Location = New System.Drawing.Point(925, 132)
+        Me.uneUltAnio.Location = New System.Drawing.Point(1233, 162)
+        Me.uneUltAnio.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.uneUltAnio.MaxValue = 2050
         Me.uneUltAnio.MinValue = 0
         Me.uneUltAnio.Name = "uneUltAnio"
         Me.uneUltAnio.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneUltAnio.Size = New System.Drawing.Size(82, 24)
+        Me.uneUltAnio.Size = New System.Drawing.Size(109, 28)
         Me.uneUltAnio.TabIndex = 108
         '
         'ucoUltMes
@@ -509,18 +524,20 @@ Partial Class frmRegistraAguaPorCuenta
         Me.ucoUltMes.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ucoUltMes.FormattingEnabled = True
         Me.ucoUltMes.Items.AddRange(New Object() {"2", "4", "6", "8", "10", "12"})
-        Me.ucoUltMes.Location = New System.Drawing.Point(925, 105)
+        Me.ucoUltMes.Location = New System.Drawing.Point(1233, 129)
+        Me.ucoUltMes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ucoUltMes.Name = "ucoUltMes"
-        Me.ucoUltMes.Size = New System.Drawing.Size(82, 22)
+        Me.ucoUltMes.Size = New System.Drawing.Size(108, 26)
         Me.ucoUltMes.TabIndex = 107
         '
         'lblUltAño
         '
         Me.lblUltAño.AutoSize = True
         Me.lblUltAño.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUltAño.Location = New System.Drawing.Point(846, 137)
+        Me.lblUltAño.Location = New System.Drawing.Point(1128, 169)
+        Me.lblUltAño.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblUltAño.Name = "lblUltAño"
-        Me.lblUltAño.Size = New System.Drawing.Size(69, 16)
+        Me.lblUltAño.Size = New System.Drawing.Size(115, 25)
         Me.lblUltAño.TabIndex = 110
         Me.lblUltAño.Text = "Último Año:"
         Me.lblUltAño.UseAppStyling = False
@@ -529,9 +546,10 @@ Partial Class frmRegistraAguaPorCuenta
         '
         Me.lblUltMes.AutoSize = True
         Me.lblUltMes.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUltMes.Location = New System.Drawing.Point(846, 110)
+        Me.lblUltMes.Location = New System.Drawing.Point(1128, 135)
+        Me.lblUltMes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblUltMes.Name = "lblUltMes"
-        Me.lblUltMes.Size = New System.Drawing.Size(69, 16)
+        Me.lblUltMes.Size = New System.Drawing.Size(115, 25)
         Me.lblUltMes.TabIndex = 109
         Me.lblUltMes.Text = "Último Mes:"
         Me.lblUltMes.UseAppStyling = False
@@ -540,12 +558,13 @@ Partial Class frmRegistraAguaPorCuenta
         '
         Me.uneUltimaLectura.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ArcaguaBindingSource, "ult_lectura", True))
         Me.uneUltimaLectura.Font = New System.Drawing.Font("Tahoma", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneUltimaLectura.Location = New System.Drawing.Point(925, 75)
+        Me.uneUltimaLectura.Location = New System.Drawing.Point(1233, 92)
+        Me.uneUltimaLectura.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.uneUltimaLectura.MinValue = 0R
         Me.uneUltimaLectura.Name = "uneUltimaLectura"
         Me.uneUltimaLectura.NumericType = Infragistics.Win.UltraWinEditors.NumericType.[Double]
         Me.uneUltimaLectura.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneUltimaLectura.Size = New System.Drawing.Size(106, 24)
+        Me.uneUltimaLectura.Size = New System.Drawing.Size(141, 29)
         Me.uneUltimaLectura.TabIndex = 95
         '
         'txtNoServs
@@ -554,11 +573,12 @@ Partial Class frmRegistraAguaPorCuenta
         Me.txtNoServs.Appearance = Appearance11
         Me.txtNoServs.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ArcaguaBindingSource, "num_servicios", True))
         Me.txtNoServs.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNoServs.Location = New System.Drawing.Point(192, 164)
+        Me.txtNoServs.Location = New System.Drawing.Point(256, 202)
+        Me.txtNoServs.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtNoServs.MinValue = 0
         Me.txtNoServs.Name = "txtNoServs"
         Me.txtNoServs.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.txtNoServs.Size = New System.Drawing.Size(57, 23)
+        Me.txtNoServs.Size = New System.Drawing.Size(76, 27)
         Me.txtNoServs.TabIndex = 97
         Me.txtNoServs.UseAppStyling = False
         Me.txtNoServs.Value = 1
@@ -582,11 +602,12 @@ Partial Class frmRegistraAguaPorCuenta
         Me.ucoRuta.DisplayMember = "Nombre"
         Me.ucoRuta.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.VerticalResize
         Me.ucoRuta.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ucoRuta.Location = New System.Drawing.Point(192, 136)
+        Me.ucoRuta.Location = New System.Drawing.Point(256, 167)
+        Me.ucoRuta.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ucoRuta.MaxDropDownItems = 30
         Me.ucoRuta.Name = "ucoRuta"
         Me.ucoRuta.NullText = "Seleccione..."
-        Me.ucoRuta.Size = New System.Drawing.Size(330, 24)
+        Me.ucoRuta.Size = New System.Drawing.Size(440, 28)
         Me.ucoRuta.TabIndex = 90
         Me.ucoRuta.ValueMember = "id_ruta"
         '
@@ -594,9 +615,10 @@ Partial Class frmRegistraAguaPorCuenta
         '
         Me.lblUltLectura.AutoSize = True
         Me.lblUltLectura.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUltLectura.Location = New System.Drawing.Point(828, 80)
+        Me.lblUltLectura.Location = New System.Drawing.Point(1104, 98)
+        Me.lblUltLectura.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblUltLectura.Name = "lblUltLectura"
-        Me.lblUltLectura.Size = New System.Drawing.Size(88, 16)
+        Me.lblUltLectura.Size = New System.Drawing.Size(147, 25)
         Me.lblUltLectura.TabIndex = 101
         Me.lblUltLectura.Text = "Última Lectura:"
         Me.lblUltLectura.UseAppStyling = False
@@ -607,9 +629,10 @@ Partial Class frmRegistraAguaPorCuenta
         Appearance13.TextHAlignAsString = "Right"
         Me.lblNumServs.Appearance = Appearance13
         Me.lblNumServs.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNumServs.Location = New System.Drawing.Point(37, 166)
+        Me.lblNumServs.Location = New System.Drawing.Point(49, 204)
+        Me.lblNumServs.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblNumServs.Name = "lblNumServs"
-        Me.lblNumServs.Size = New System.Drawing.Size(150, 16)
+        Me.lblNumServs.Size = New System.Drawing.Size(200, 20)
         Me.lblNumServs.TabIndex = 106
         Me.lblNumServs.Text = "No.  Servicios:"
         Me.lblNumServs.UseAppStyling = False
@@ -619,9 +642,10 @@ Partial Class frmRegistraAguaPorCuenta
         Appearance14.TextHAlignAsString = "Right"
         Me.lblCveCat.Appearance = Appearance14
         Me.lblCveCat.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCveCat.Location = New System.Drawing.Point(37, 54)
+        Me.lblCveCat.Location = New System.Drawing.Point(49, 66)
+        Me.lblCveCat.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblCveCat.Name = "lblCveCat"
-        Me.lblCveCat.Size = New System.Drawing.Size(150, 16)
+        Me.lblCveCat.Size = New System.Drawing.Size(200, 20)
         Me.lblCveCat.TabIndex = 102
         Me.lblCveCat.Text = "Clave Catastral:"
         Me.lblCveCat.UseAppStyling = False
@@ -631,9 +655,10 @@ Partial Class frmRegistraAguaPorCuenta
         Appearance15.TextHAlignAsString = "Right"
         Me.lblContribuyente.Appearance = Appearance15
         Me.lblContribuyente.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblContribuyente.Location = New System.Drawing.Point(37, 82)
+        Me.lblContribuyente.Location = New System.Drawing.Point(49, 101)
+        Me.lblContribuyente.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblContribuyente.Name = "lblContribuyente"
-        Me.lblContribuyente.Size = New System.Drawing.Size(150, 16)
+        Me.lblContribuyente.Size = New System.Drawing.Size(200, 20)
         Me.lblContribuyente.TabIndex = 103
         Me.lblContribuyente.Text = "Contribuyente:"
         Me.lblContribuyente.UseAppStyling = False
@@ -643,9 +668,10 @@ Partial Class frmRegistraAguaPorCuenta
         Appearance16.TextHAlignAsString = "Right"
         Me.lblStatus.Appearance = Appearance16
         Me.lblStatus.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStatus.Location = New System.Drawing.Point(37, 110)
+        Me.lblStatus.Location = New System.Drawing.Point(49, 135)
+        Me.lblStatus.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(150, 16)
+        Me.lblStatus.Size = New System.Drawing.Size(200, 20)
         Me.lblStatus.TabIndex = 104
         Me.lblStatus.Text = "Status:"
         Me.lblStatus.UseAppStyling = False
@@ -655,9 +681,10 @@ Partial Class frmRegistraAguaPorCuenta
         Appearance17.TextHAlignAsString = "Right"
         Me.lblCuenta.Appearance = Appearance17
         Me.lblCuenta.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCuenta.Location = New System.Drawing.Point(37, 21)
+        Me.lblCuenta.Location = New System.Drawing.Point(49, 26)
+        Me.lblCuenta.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblCuenta.Name = "lblCuenta"
-        Me.lblCuenta.Size = New System.Drawing.Size(150, 16)
+        Me.lblCuenta.Size = New System.Drawing.Size(200, 20)
         Me.lblCuenta.TabIndex = 105
         Me.lblCuenta.Text = "Número de Cuenta:"
         Me.lblCuenta.UseAppStyling = False
@@ -672,11 +699,12 @@ Partial Class frmRegistraAguaPorCuenta
         Me.txtCvecatastral.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ArcaguaBindingSource, "cve_catastral", True))
         Me.txtCvecatastral.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2010
         Me.txtCvecatastral.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCvecatastral.Location = New System.Drawing.Point(192, 46)
+        Me.txtCvecatastral.Location = New System.Drawing.Point(256, 57)
+        Me.txtCvecatastral.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtCvecatastral.MaxLength = 16
         Me.txtCvecatastral.Name = "txtCvecatastral"
         Me.txtCvecatastral.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtCvecatastral.Size = New System.Drawing.Size(200, 29)
+        Me.txtCvecatastral.Size = New System.Drawing.Size(267, 34)
         Me.txtCvecatastral.TabIndex = 87
         '
         'ucoStatus
@@ -698,11 +726,12 @@ Partial Class frmRegistraAguaPorCuenta
         Me.ucoStatus.DisplayMember = "descripcion"
         Me.ucoStatus.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.VerticalResize
         Me.ucoStatus.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ucoStatus.Location = New System.Drawing.Point(192, 108)
+        Me.ucoStatus.Location = New System.Drawing.Point(256, 133)
+        Me.ucoStatus.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ucoStatus.MaxDropDownItems = 30
         Me.ucoStatus.Name = "ucoStatus"
         Me.ucoStatus.NullText = "Seleccione..."
-        Me.ucoStatus.Size = New System.Drawing.Size(330, 24)
+        Me.ucoStatus.Size = New System.Drawing.Size(440, 28)
         Me.ucoStatus.TabIndex = 89
         Me.ucoStatus.ValueMember = "cve_status"
         '
@@ -725,11 +754,12 @@ Partial Class frmRegistraAguaPorCuenta
         Me.ucoTipoContribuyente.DisplayMember = "Descricion"
         Me.ucoTipoContribuyente.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.VerticalResize
         Me.ucoTipoContribuyente.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ucoTipoContribuyente.Location = New System.Drawing.Point(192, 80)
+        Me.ucoTipoContribuyente.Location = New System.Drawing.Point(256, 98)
+        Me.ucoTipoContribuyente.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ucoTipoContribuyente.MaxDropDownItems = 30
         Me.ucoTipoContribuyente.Name = "ucoTipoContribuyente"
         Me.ucoTipoContribuyente.NullText = "Seleccione..."
-        Me.ucoTipoContribuyente.Size = New System.Drawing.Size(330, 24)
+        Me.ucoTipoContribuyente.Size = New System.Drawing.Size(440, 28)
         Me.ucoTipoContribuyente.TabIndex = 88
         Me.ucoTipoContribuyente.ValueMember = "cve_tip_con"
         '
@@ -739,9 +769,10 @@ Partial Class frmRegistraAguaPorCuenta
         Appearance21.TextHAlignAsString = "Right"
         Me.lblRuta.Appearance = Appearance21
         Me.lblRuta.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRuta.Location = New System.Drawing.Point(37, 138)
+        Me.lblRuta.Location = New System.Drawing.Point(49, 170)
+        Me.lblRuta.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblRuta.Name = "lblRuta"
-        Me.lblRuta.Size = New System.Drawing.Size(150, 16)
+        Me.lblRuta.Size = New System.Drawing.Size(200, 20)
         Me.lblRuta.TabIndex = 100
         Me.lblRuta.Text = "Ruta:"
         Me.lblRuta.UseAppStyling = False
@@ -751,9 +782,10 @@ Partial Class frmRegistraAguaPorCuenta
         Me.txtFechaContrato.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ArcaguaBindingSource, "fec_contrato", True))
         Me.txtFechaContrato.DateTime = New Date(2016, 10, 7, 0, 0, 0, 0)
         Me.txtFechaContrato.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFechaContrato.Location = New System.Drawing.Point(925, 21)
+        Me.txtFechaContrato.Location = New System.Drawing.Point(1233, 26)
+        Me.txtFechaContrato.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtFechaContrato.Name = "txtFechaContrato"
-        Me.txtFechaContrato.Size = New System.Drawing.Size(106, 23)
+        Me.txtFechaContrato.Size = New System.Drawing.Size(141, 27)
         Me.txtFechaContrato.TabIndex = 93
         Me.txtFechaContrato.Value = New Date(2016, 10, 7, 0, 0, 0, 0)
         '
@@ -764,9 +796,10 @@ Partial Class frmRegistraAguaPorCuenta
         Me.lblContrato.Appearance = Appearance22
         Me.lblContrato.AutoSize = True
         Me.lblContrato.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblContrato.Location = New System.Drawing.Point(824, 25)
+        Me.lblContrato.Location = New System.Drawing.Point(1099, 31)
+        Me.lblContrato.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblContrato.Name = "lblContrato"
-        Me.lblContrato.Size = New System.Drawing.Size(92, 16)
+        Me.lblContrato.Size = New System.Drawing.Size(153, 25)
         Me.lblContrato.TabIndex = 98
         Me.lblContrato.Text = "Fecha Contrato:"
         Me.lblContrato.UseAppStyling = False
@@ -777,9 +810,10 @@ Partial Class frmRegistraAguaPorCuenta
         Appearance23.TextHAlignAsString = "Right"
         Me.lblMedidor.Appearance = Appearance23
         Me.lblMedidor.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMedidor.Location = New System.Drawing.Point(796, 52)
+        Me.lblMedidor.Location = New System.Drawing.Point(1061, 64)
+        Me.lblMedidor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblMedidor.Name = "lblMedidor"
-        Me.lblMedidor.Size = New System.Drawing.Size(120, 16)
+        Me.lblMedidor.Size = New System.Drawing.Size(160, 20)
         Me.lblMedidor.TabIndex = 99
         Me.lblMedidor.Text = "No. Medidor:"
         Me.lblMedidor.UseAppStyling = False
@@ -788,10 +822,11 @@ Partial Class frmRegistraAguaPorCuenta
         '
         Me.cmbMedidor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbMedidor.FormattingEnabled = True
-        Me.cmbMedidor.Location = New System.Drawing.Point(925, 49)
+        Me.cmbMedidor.Location = New System.Drawing.Point(1233, 60)
+        Me.cmbMedidor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmbMedidor.MaxLength = 10
         Me.cmbMedidor.Name = "cmbMedidor"
-        Me.cmbMedidor.Size = New System.Drawing.Size(106, 21)
+        Me.cmbMedidor.Size = New System.Drawing.Size(140, 25)
         Me.cmbMedidor.TabIndex = 94
         '
         'chkDrenaje
@@ -800,9 +835,10 @@ Partial Class frmRegistraAguaPorCuenta
         Me.chkDrenaje.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkDrenaje.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.ArcaguaBindingSource, "paga_drenaje", True))
         Me.chkDrenaje.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkDrenaje.Location = New System.Drawing.Point(831, 162)
+        Me.chkDrenaje.Location = New System.Drawing.Point(1108, 199)
+        Me.chkDrenaje.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.chkDrenaje.Name = "chkDrenaje"
-        Me.chkDrenaje.Size = New System.Drawing.Size(106, 18)
+        Me.chkDrenaje.Size = New System.Drawing.Size(128, 22)
         Me.chkDrenaje.TabIndex = 96
         Me.chkDrenaje.Text = "Paga Drenaje: "
         Me.chkDrenaje.UseVisualStyleBackColor = True
@@ -812,27 +848,30 @@ Partial Class frmRegistraAguaPorCuenta
         Me.txtCuenta.BackColor = System.Drawing.Color.White
         Me.txtCuenta.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ArcaguaBindingSource, "num_cuenta", True))
         Me.txtCuenta.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCuenta.Location = New System.Drawing.Point(192, 15)
+        Me.txtCuenta.Location = New System.Drawing.Point(256, 18)
+        Me.txtCuenta.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtCuenta.Mask = "########"
         Me.txtCuenta.Name = "txtCuenta"
         Me.txtCuenta.ReadOnly = True
-        Me.txtCuenta.Size = New System.Drawing.Size(173, 26)
+        Me.txtCuenta.Size = New System.Drawing.Size(229, 30)
         Me.txtCuenta.TabIndex = 86
         '
         'grpRegistro
         '
         Me.grpRegistro.Controls.Add(Me.UltraExpandableGroupBoxPanel2)
         Me.grpRegistro.Dock = System.Windows.Forms.DockStyle.Top
-        Me.grpRegistro.ExpandedSize = New System.Drawing.Size(1182, 115)
+        Me.grpRegistro.ExpandedSize = New System.Drawing.Size(1576, 142)
+        Me.grpRegistro.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpRegistro.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Appearance31.BackColor = System.Drawing.Color.AliceBlue
         Me.grpRegistro.HeaderAppearance = Appearance31
-        Me.grpRegistro.Location = New System.Drawing.Point(0, 260)
+        Me.grpRegistro.Location = New System.Drawing.Point(0, 311)
+        Me.grpRegistro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grpRegistro.Name = "grpRegistro"
-        Me.grpRegistro.Size = New System.Drawing.Size(1182, 115)
+        Me.grpRegistro.Size = New System.Drawing.Size(1576, 142)
         Me.grpRegistro.TabIndex = 10
         Me.grpRegistro.Text = "Registro de lectura actual"
-        Me.grpRegistro.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpRegistro.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'UltraExpandableGroupBoxPanel2
         '
@@ -850,9 +889,10 @@ Partial Class frmRegistraAguaPorCuenta
         Me.UltraExpandableGroupBoxPanel2.Controls.Add(Me.UltraLabel5)
         Me.UltraExpandableGroupBoxPanel2.Controls.Add(Me.optLectura)
         Me.UltraExpandableGroupBoxPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraExpandableGroupBoxPanel2.Location = New System.Drawing.Point(3, 19)
+        Me.UltraExpandableGroupBoxPanel2.Location = New System.Drawing.Point(2, 25)
+        Me.UltraExpandableGroupBoxPanel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UltraExpandableGroupBoxPanel2.Name = "UltraExpandableGroupBoxPanel2"
-        Me.UltraExpandableGroupBoxPanel2.Size = New System.Drawing.Size(1176, 93)
+        Me.UltraExpandableGroupBoxPanel2.Size = New System.Drawing.Size(1572, 115)
         Me.UltraExpandableGroupBoxPanel2.TabIndex = 0
         '
         'txtFechaCaptura
@@ -863,10 +903,11 @@ Partial Class frmRegistraAguaPorCuenta
         Me.txtFechaCaptura.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TblconsumoaguaBindingSource, "fec_captura", True))
         Me.txtFechaCaptura.DateTime = New Date(2016, 10, 7, 0, 0, 0, 0)
         Me.txtFechaCaptura.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFechaCaptura.Location = New System.Drawing.Point(777, 33)
+        Me.txtFechaCaptura.Location = New System.Drawing.Point(1036, 41)
+        Me.txtFechaCaptura.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtFechaCaptura.Name = "txtFechaCaptura"
         Me.txtFechaCaptura.ReadOnly = True
-        Me.txtFechaCaptura.Size = New System.Drawing.Size(106, 23)
+        Me.txtFechaCaptura.Size = New System.Drawing.Size(141, 27)
         Me.txtFechaCaptura.TabIndex = 107
         Me.txtFechaCaptura.Value = New Date(2016, 10, 7, 0, 0, 0, 0)
         '
@@ -884,9 +925,10 @@ Partial Class frmRegistraAguaPorCuenta
         '
         Me.UltraLabel3.AutoSize = True
         Me.UltraLabel3.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel3.Location = New System.Drawing.Point(712, 9)
+        Me.UltraLabel3.Location = New System.Drawing.Point(949, 11)
+        Me.UltraLabel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UltraLabel3.Name = "UltraLabel3"
-        Me.UltraLabel3.Size = New System.Drawing.Size(56, 16)
+        Me.UltraLabel3.Size = New System.Drawing.Size(93, 25)
         Me.UltraLabel3.TabIndex = 106
         Me.UltraLabel3.Text = "Bimestre:"
         Me.UltraLabel3.UseAppStyling = False
@@ -898,19 +940,21 @@ Partial Class frmRegistraAguaPorCuenta
         Me.txtBimestre.Appearance = Appearance26
         Me.txtBimestre.BackColor = System.Drawing.Color.White
         Me.txtBimestre.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblconsumoaguaBindingSource, "bimestre", True))
-        Me.txtBimestre.Location = New System.Drawing.Point(777, 4)
+        Me.txtBimestre.Location = New System.Drawing.Point(1036, 5)
+        Me.txtBimestre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtBimestre.Name = "txtBimestre"
         Me.txtBimestre.ReadOnly = True
-        Me.txtBimestre.Size = New System.Drawing.Size(57, 24)
+        Me.txtBimestre.Size = New System.Drawing.Size(76, 28)
         Me.txtBimestre.TabIndex = 105
         '
         'UltraLabel2
         '
         Me.UltraLabel2.AutoSize = True
         Me.UltraLabel2.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel2.Location = New System.Drawing.Point(501, 9)
+        Me.UltraLabel2.Location = New System.Drawing.Point(668, 11)
+        Me.UltraLabel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UltraLabel2.Name = "UltraLabel2"
-        Me.UltraLabel2.Size = New System.Drawing.Size(30, 16)
+        Me.UltraLabel2.Size = New System.Drawing.Size(49, 25)
         Me.UltraLabel2.TabIndex = 104
         Me.UltraLabel2.Text = "Año:"
         Me.UltraLabel2.UseAppStyling = False
@@ -922,10 +966,11 @@ Partial Class frmRegistraAguaPorCuenta
         Me.txtAño.Appearance = Appearance27
         Me.txtAño.BackColor = System.Drawing.Color.White
         Me.txtAño.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblconsumoaguaBindingSource, "año", True))
-        Me.txtAño.Location = New System.Drawing.Point(539, 4)
+        Me.txtAño.Location = New System.Drawing.Point(719, 5)
+        Me.txtAño.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtAño.Name = "txtAño"
         Me.txtAño.ReadOnly = True
-        Me.txtAño.Size = New System.Drawing.Size(100, 24)
+        Me.txtAño.Size = New System.Drawing.Size(133, 28)
         Me.txtAño.TabIndex = 103
         '
         'txtConsumo
@@ -936,10 +981,11 @@ Partial Class frmRegistraAguaPorCuenta
         Me.txtConsumo.BackColor = System.Drawing.Color.WhiteSmoke
         Me.txtConsumo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblconsumoaguaBindingSource, "consumo_bim", True))
         Me.txtConsumo.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtConsumo.Location = New System.Drawing.Point(777, 61)
+        Me.txtConsumo.Location = New System.Drawing.Point(1036, 75)
+        Me.txtConsumo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtConsumo.Name = "txtConsumo"
         Me.txtConsumo.ReadOnly = True
-        Me.txtConsumo.Size = New System.Drawing.Size(106, 25)
+        Me.txtConsumo.Size = New System.Drawing.Size(141, 29)
         Me.txtConsumo.TabIndex = 99
         Me.txtConsumo.TabStop = False
         '
@@ -947,9 +993,10 @@ Partial Class frmRegistraAguaPorCuenta
         '
         Me.UltraLabel7.AutoSize = True
         Me.UltraLabel7.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel7.Location = New System.Drawing.Point(708, 65)
+        Me.UltraLabel7.Location = New System.Drawing.Point(944, 80)
+        Me.UltraLabel7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UltraLabel7.Name = "UltraLabel7"
-        Me.UltraLabel7.Size = New System.Drawing.Size(59, 16)
+        Me.UltraLabel7.Size = New System.Drawing.Size(99, 25)
         Me.UltraLabel7.TabIndex = 102
         Me.UltraLabel7.Text = "Consumo:"
         Me.UltraLabel7.UseAppStyling = False
@@ -958,9 +1005,10 @@ Partial Class frmRegistraAguaPorCuenta
         '
         Me.UltraLabel6.AutoSize = True
         Me.UltraLabel6.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel6.Location = New System.Drawing.Point(445, 65)
+        Me.UltraLabel6.Location = New System.Drawing.Point(593, 80)
+        Me.UltraLabel6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UltraLabel6.Name = "UltraLabel6"
-        Me.UltraLabel6.Size = New System.Drawing.Size(86, 16)
+        Me.UltraLabel6.Size = New System.Drawing.Size(143, 25)
         Me.UltraLabel6.TabIndex = 101
         Me.UltraLabel6.Text = "Lectura actual:"
         Me.UltraLabel6.UseAppStyling = False
@@ -969,11 +1017,12 @@ Partial Class frmRegistraAguaPorCuenta
         '
         Me.uneLecturaActual.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblconsumoaguaBindingSource, "lect_act", True))
         Me.uneLecturaActual.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneLecturaActual.Location = New System.Drawing.Point(539, 61)
+        Me.uneLecturaActual.Location = New System.Drawing.Point(719, 75)
+        Me.uneLecturaActual.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.uneLecturaActual.MinValue = 0
         Me.uneLecturaActual.Name = "uneLecturaActual"
         Me.uneLecturaActual.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.uneLecturaActual.Size = New System.Drawing.Size(100, 25)
+        Me.uneLecturaActual.Size = New System.Drawing.Size(133, 29)
         Me.uneLecturaActual.TabIndex = 98
         Me.uneLecturaActual.UseAppStyling = False
         '
@@ -981,9 +1030,10 @@ Partial Class frmRegistraAguaPorCuenta
         '
         Me.UltraLabel1.AutoSize = True
         Me.UltraLabel1.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel1.Location = New System.Drawing.Point(435, 36)
+        Me.UltraLabel1.Location = New System.Drawing.Point(580, 44)
+        Me.UltraLabel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UltraLabel1.Name = "UltraLabel1"
-        Me.UltraLabel1.Size = New System.Drawing.Size(96, 16)
+        Me.UltraLabel1.Size = New System.Drawing.Size(159, 25)
         Me.UltraLabel1.TabIndex = 100
         Me.UltraLabel1.Text = "Lectura anterior:"
         Me.UltraLabel1.UseAppStyling = False
@@ -992,12 +1042,13 @@ Partial Class frmRegistraAguaPorCuenta
         '
         Me.uneLecturaAnterior.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblconsumoaguaBindingSource, "lect_ant", True))
         Me.uneLecturaAnterior.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uneLecturaAnterior.Location = New System.Drawing.Point(539, 32)
+        Me.uneLecturaAnterior.Location = New System.Drawing.Point(719, 39)
+        Me.uneLecturaAnterior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.uneLecturaAnterior.MinValue = 0
         Me.uneLecturaAnterior.Name = "uneLecturaAnterior"
         Me.uneLecturaAnterior.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
         Me.uneLecturaAnterior.ReadOnly = True
-        Me.uneLecturaAnterior.Size = New System.Drawing.Size(100, 25)
+        Me.uneLecturaAnterior.Size = New System.Drawing.Size(133, 29)
         Me.uneLecturaAnterior.TabIndex = 97
         Me.uneLecturaAnterior.UseAppStyling = False
         '
@@ -1010,15 +1061,17 @@ Partial Class frmRegistraAguaPorCuenta
         Me.UltraLabel5.Appearance = Appearance29
         Me.UltraLabel5.AutoSize = True
         Me.UltraLabel5.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel5.Location = New System.Drawing.Point(663, 36)
+        Me.UltraLabel5.Location = New System.Drawing.Point(884, 44)
+        Me.UltraLabel5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UltraLabel5.Name = "UltraLabel5"
-        Me.UltraLabel5.Size = New System.Drawing.Size(105, 16)
+        Me.UltraLabel5.Size = New System.Drawing.Size(175, 25)
         Me.UltraLabel5.TabIndex = 78
         Me.UltraLabel5.Text = "Fecha de Captura:"
         '
         'optLectura
         '
         Me.optLectura.BorderStyle = Infragistics.Win.UIElementBorderStyle.None
+        Me.optLectura.CheckedIndex = 0
         Me.optLectura.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TblconsumoaguaBindingSource, "Id_Incidencia", True))
         Appearance30.FontData.SizeInPoints = 10.0!
         Me.optLectura.ItemAppearance = Appearance30
@@ -1031,10 +1084,12 @@ Partial Class frmRegistraAguaPorCuenta
         ValueListItem9.DisplayText = "Por Consumo minimo"
         Me.optLectura.Items.AddRange(New Infragistics.Win.ValueListItem() {ValueListItem3, ValueListItem4, ValueListItem9})
         Me.optLectura.ItemSpacingVertical = 5
-        Me.optLectura.Location = New System.Drawing.Point(131, 10)
+        Me.optLectura.Location = New System.Drawing.Point(175, 12)
+        Me.optLectura.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.optLectura.Name = "optLectura"
-        Me.optLectura.Size = New System.Drawing.Size(305, 76)
+        Me.optLectura.Size = New System.Drawing.Size(407, 94)
         Me.optLectura.TabIndex = 0
+        Me.optLectura.Text = "Por Lectura"
         '
         'ColoniasBindingSource
         '
@@ -1054,24 +1109,27 @@ Partial Class frmRegistraAguaPorCuenta
         Me.grpConsumo.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.Rounded
         Me.grpConsumo.Controls.Add(Me.UltraExpandableGroupBoxPanel3)
         Me.grpConsumo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grpConsumo.ExpandedSize = New System.Drawing.Size(1182, 261)
+        Me.grpConsumo.ExpandedSize = New System.Drawing.Size(1576, 330)
+        Me.grpConsumo.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpConsumo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Appearance60.BackColor = System.Drawing.Color.AliceBlue
         Me.grpConsumo.HeaderAppearance = Appearance60
-        Me.grpConsumo.Location = New System.Drawing.Point(0, 375)
+        Me.grpConsumo.Location = New System.Drawing.Point(0, 453)
+        Me.grpConsumo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grpConsumo.Name = "grpConsumo"
-        Me.grpConsumo.Size = New System.Drawing.Size(1182, 261)
+        Me.grpConsumo.Size = New System.Drawing.Size(1576, 330)
         Me.grpConsumo.TabIndex = 11
         Me.grpConsumo.Text = "Consumo Medido"
-        Me.grpConsumo.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpConsumo.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'UltraExpandableGroupBoxPanel3
         '
         Me.UltraExpandableGroupBoxPanel3.Controls.Add(Me.grdDataMain)
         Me.UltraExpandableGroupBoxPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraExpandableGroupBoxPanel3.Location = New System.Drawing.Point(3, 19)
+        Me.UltraExpandableGroupBoxPanel3.Location = New System.Drawing.Point(3, 25)
+        Me.UltraExpandableGroupBoxPanel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UltraExpandableGroupBoxPanel3.Name = "UltraExpandableGroupBoxPanel3"
-        Me.UltraExpandableGroupBoxPanel3.Size = New System.Drawing.Size(1176, 239)
+        Me.UltraExpandableGroupBoxPanel3.Size = New System.Drawing.Size(1570, 302)
         Me.UltraExpandableGroupBoxPanel3.TabIndex = 0
         '
         'grdDataMain
@@ -1107,21 +1165,21 @@ Partial Class frmRegistraAguaPorCuenta
         UltraGridColumn23.CellMultiLine = Infragistics.Win.DefaultableBoolean.[False]
         UltraGridColumn23.Header.Caption = "No. Cuenta"
         UltraGridColumn23.Header.VisiblePosition = 1
-        UltraGridColumn23.Width = 149
+        UltraGridColumn23.Width = 204
         UltraGridColumn24.CellActivation = Infragistics.Win.UltraWinGrid.Activation.NoEdit
         Appearance36.TextHAlignAsString = "Center"
         UltraGridColumn24.CellAppearance = Appearance36
         UltraGridColumn24.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.RowSelect
         UltraGridColumn24.Header.Caption = "Año"
         UltraGridColumn24.Header.VisiblePosition = 2
-        UltraGridColumn24.Width = 86
+        UltraGridColumn24.Width = 115
         UltraGridColumn25.CellActivation = Infragistics.Win.UltraWinGrid.Activation.NoEdit
         Appearance37.TextHAlignAsString = "Center"
         UltraGridColumn25.CellAppearance = Appearance37
         UltraGridColumn25.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.RowSelect
         UltraGridColumn25.Header.Caption = "Bimestre"
         UltraGridColumn25.Header.VisiblePosition = 3
-        UltraGridColumn25.Width = 103
+        UltraGridColumn25.Width = 138
         UltraGridColumn26.CellActivation = Infragistics.Win.UltraWinGrid.Activation.NoEdit
         Appearance38.TextHAlignAsString = "Right"
         UltraGridColumn26.CellAppearance = Appearance38
@@ -1129,28 +1187,28 @@ Partial Class frmRegistraAguaPorCuenta
         UltraGridColumn26.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         UltraGridColumn26.Header.Caption = "Consumo"
         UltraGridColumn26.Header.VisiblePosition = 6
-        UltraGridColumn26.Width = 124
+        UltraGridColumn26.Width = 166
         UltraGridColumn27.CellActivation = Infragistics.Win.UltraWinGrid.Activation.NoEdit
         Appearance39.TextHAlignAsString = "Right"
         UltraGridColumn27.CellAppearance = Appearance39
         UltraGridColumn27.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.RowSelect
         UltraGridColumn27.Header.Caption = "Actual"
         UltraGridColumn27.Header.VisiblePosition = 5
-        UltraGridColumn27.Width = 121
+        UltraGridColumn27.Width = 162
         UltraGridColumn28.CellActivation = Infragistics.Win.UltraWinGrid.Activation.NoEdit
         Appearance40.TextHAlignAsString = "Right"
         UltraGridColumn28.CellAppearance = Appearance40
         UltraGridColumn28.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.RowSelect
         UltraGridColumn28.Header.Caption = "Anterior"
         UltraGridColumn28.Header.VisiblePosition = 4
-        UltraGridColumn28.Width = 122
+        UltraGridColumn28.Width = 163
         UltraGridColumn29.CellActivation = Infragistics.Win.UltraWinGrid.Activation.NoEdit
         Appearance41.TextHAlignAsString = "Center"
         UltraGridColumn29.CellAppearance = Appearance41
         UltraGridColumn29.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.RowSelect
         UltraGridColumn29.Header.Caption = "Fecha Captura"
         UltraGridColumn29.Header.VisiblePosition = 7
-        UltraGridColumn29.Width = 161
+        UltraGridColumn29.Width = 215
         UltraGridColumn38.Header.VisiblePosition = 9
         UltraGridColumn38.Hidden = True
         UltraGridColumn38.Width = 87
@@ -1160,11 +1218,11 @@ Partial Class frmRegistraAguaPorCuenta
         UltraGridColumn30.Hidden = True
         UltraGridColumn30.Width = 70
         UltraGridColumn1.Header.VisiblePosition = 10
-        UltraGridColumn1.Width = 79
+        UltraGridColumn1.Width = 105
         UltraGridColumn40.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.RowSelect
         UltraGridColumn40.Header.Caption = "Forma cálculo consumo"
         UltraGridColumn40.Header.VisiblePosition = 11
-        UltraGridColumn40.Width = 210
+        UltraGridColumn40.Width = 281
         UltraGridBand4.Columns.AddRange(New Object() {UltraGridColumn22, UltraGridColumn23, UltraGridColumn24, UltraGridColumn25, UltraGridColumn26, UltraGridColumn27, UltraGridColumn28, UltraGridColumn29, UltraGridColumn38, UltraGridColumn30, UltraGridColumn1, UltraGridColumn40})
         Me.grdDataMain.DisplayLayout.BandsSerializer.Add(UltraGridBand4)
         Appearance42.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(85, Byte), Integer))
@@ -1277,8 +1335,9 @@ Partial Class frmRegistraAguaPorCuenta
         Me.grdDataMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdDataMain.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.grdDataMain.Location = New System.Drawing.Point(0, 0)
+        Me.grdDataMain.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grdDataMain.Name = "grdDataMain"
-        Me.grdDataMain.Size = New System.Drawing.Size(1176, 239)
+        Me.grdDataMain.Size = New System.Drawing.Size(1570, 302)
         Me.grdDataMain.TabIndex = 17
         Me.grdDataMain.Text = "Detalle Lecturas por Bimestre"
         Me.grdDataMain.UpdateMode = Infragistics.Win.UltraWinGrid.UpdateMode.OnCellChange
@@ -1288,30 +1347,19 @@ Partial Class frmRegistraAguaPorCuenta
         '
         Me.Tbl_consumo_aguaTableAdapter1.ClearBeforeFill = True
         '
-        'SystemMessages1
-        '
-        Me.SystemMessages1.AutoScroll = True
-        Me.SystemMessages1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.SystemMessages1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.SystemMessages1.Location = New System.Drawing.Point(0, 29)
-        Me.SystemMessages1.Margin = New System.Windows.Forms.Padding(4)
-        Me.SystemMessages1.Name = "SystemMessages1"
-        Me.SystemMessages1.Size = New System.Drawing.Size(1198, 26)
-        Me.SystemMessages1.TabIndex = 6
-        '
         'frmRegistraAguaPorCuenta
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1182, 636)
+        Me.ClientSize = New System.Drawing.Size(1576, 783)
         Me.ControlBox = False
         Me.Controls.Add(Me.grpConsumo)
         Me.Controls.Add(Me.grpRegistro)
         Me.Controls.Add(Me.grpDatosCuenta)
-        Me.Controls.Add(Me.SystemMessages1)
         Me.Controls.Add(Me.BindingNavigator1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmRegistraAguaPorCuenta"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Registro de Usuario de Agua"
@@ -1369,7 +1417,6 @@ Partial Class frmRegistraAguaPorCuenta
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents btnEditar As ToolStripButton
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
-    Friend WithEvents SystemMessages1 As SystemMessages
     Friend WithEvents btnBack As ToolStripButton
     Friend WithEvents grpDatosCuenta As Infragistics.Win.Misc.UltraExpandableGroupBox
     Friend WithEvents UltraExpandableGroupBoxPanel1 As Infragistics.Win.Misc.UltraExpandableGroupBoxPanel
@@ -1381,7 +1428,6 @@ Partial Class frmRegistraAguaPorCuenta
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents Arc_aguaTableAdapter As dsAguaTableAdapters.arc_aguaTableAdapter
     Friend WithEvents ColoniasTableAdapter As dsAguaTableAdapters.coloniasTableAdapter
-    Friend WithEvents ToolStripLabel1 As ToolStripLabel
     Friend WithEvents lblCurrentMenu As ToolStripLabel
     Friend WithEvents UltraLabel5 As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents optLectura As Infragistics.Win.UltraWinEditors.UltraOptionSet
@@ -1431,4 +1477,6 @@ Partial Class frmRegistraAguaPorCuenta
     Friend WithEvents optTipoServicio As Infragistics.Win.UltraWinEditors.UltraOptionSet
     Friend WithEvents grpTipoUsuario As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents optUsuario As Infragistics.Win.UltraWinEditors.UltraOptionSet
+    Friend WithEvents ToolStripLabel1 As ToolStripLabel
+    Friend WithEvents ToolStripLabel2 As ToolStripLabel
 End Class

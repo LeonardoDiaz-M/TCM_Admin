@@ -23,35 +23,34 @@ Partial Class frmAguaLecturasPorCuenta
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim Appearance55 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance56 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance57 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance58 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance74 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance75 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance76 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim ValueListItem7 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
         Dim ValueListItem8 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
-        Dim Appearance59 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance60 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance77 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance78 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
         Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
-        Dim Appearance61 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance62 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance63 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance79 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance80 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance81 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim ValueListItem5 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
-        Dim Appearance64 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance82 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim ValueListItem6 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
-        Dim Appearance65 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance66 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance67 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance83 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance84 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance85 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridBand1 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("Band 0", -1)
         Dim UltraGridColumn12 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("id_ruta")
         Dim UltraGridColumn13 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("Nombre")
-        Dim Appearance68 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance69 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance70 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance71 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance72 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance86 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance87 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance88 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance89 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance90 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance20 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance21 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridBand2 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("Band 0", -1)
@@ -61,28 +60,29 @@ Partial Class frmAguaLecturasPorCuenta
         Dim UltraGridBand3 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("Band 0", -1)
         Dim UltraGridColumn16 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("cve_tip_con")
         Dim UltraGridColumn42 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("descricion")
-        Dim Appearance73 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance74 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance75 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance39 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance91 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance92 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance93 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance38 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridBand6 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("tbl_consumo_agua", -1)
         Dim UltraGridColumn29 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("idConsumo")
         Dim UltraGridColumn30 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("num_cuenta")
         Dim UltraGridColumn31 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("año")
-        Dim Appearance40 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance39 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridColumn32 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("bimestre")
-        Dim Appearance41 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance40 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridColumn33 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("consumo_bim")
-        Dim Appearance42 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance41 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridColumn34 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("lect_act", -1, Nothing, 0, Infragistics.Win.UltraWinGrid.SortIndicator.Ascending, False)
-        Dim Appearance43 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance42 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridColumn35 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("lect_ant")
-        Dim Appearance44 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance43 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridColumn36 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("fec_captura")
-        Dim Appearance45 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance44 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridColumn37 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("Id_Incidencia", -1, "ucoFormaCalculoLectura")
         Dim UltraGridColumn38 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("usuario")
         Dim UltraGridColumn28 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("IdRuta")
+        Dim Appearance45 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance46 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance47 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance48 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
@@ -91,8 +91,7 @@ Partial Class frmAguaLecturasPorCuenta
         Dim Appearance51 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance52 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance53 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance54 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance27 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance26 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim UltraGridBand4 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("Forma_Calculo_Consumo_Agua", -1)
         Dim UltraGridColumn17 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("id")
         Dim UltraGridColumn18 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("Descripcion", -1, Nothing, 0, Infragistics.Win.UltraWinGrid.SortIndicator.Descending, False)
@@ -109,6 +108,7 @@ Partial Class frmAguaLecturasPorCuenta
         Dim UltraGridColumn39 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("Id_Incidencia")
         Dim UltraGridColumn40 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("usuario")
         Dim UltraGridColumn41 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("IdRuta")
+        Dim Appearance27 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance28 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance29 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance30 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
@@ -119,7 +119,6 @@ Partial Class frmAguaLecturasPorCuenta
         Dim Appearance35 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance36 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance37 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance38 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Me.grpDatosCuenta = New Infragistics.Win.Misc.UltraExpandableGroupBox()
         Me.UltraExpandableGroupBoxPanel1 = New Infragistics.Win.Misc.UltraExpandableGroupBoxPanel()
         Me.txtNombre = New Infragistics.Win.UltraWinEditors.UltraTextEditor()
@@ -215,16 +214,15 @@ Partial Class frmAguaLecturasPorCuenta
         Me.grpDatosCuenta.Controls.Add(Me.UltraExpandableGroupBoxPanel1)
         Me.grpDatosCuenta.Dock = System.Windows.Forms.DockStyle.Top
         Me.grpDatosCuenta.Enabled = False
-        Me.grpDatosCuenta.ExpandedSize = New System.Drawing.Size(1052, 231)
+        Me.grpDatosCuenta.ExpandedSize = New System.Drawing.Size(1080, 231)
+        Me.grpDatosCuenta.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpDatosCuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Appearance55.BackColor = System.Drawing.Color.AliceBlue
-        Me.grpDatosCuenta.HeaderAppearance = Appearance55
         Me.grpDatosCuenta.Location = New System.Drawing.Point(0, 43)
         Me.grpDatosCuenta.Name = "grpDatosCuenta"
-        Me.grpDatosCuenta.Size = New System.Drawing.Size(1052, 231)
+        Me.grpDatosCuenta.Size = New System.Drawing.Size(1080, 231)
         Me.grpDatosCuenta.TabIndex = 10
         Me.grpDatosCuenta.Text = "Cuenta"
-        Me.grpDatosCuenta.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpDatosCuenta.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'UltraExpandableGroupBoxPanel1
         '
@@ -257,9 +255,9 @@ Partial Class frmAguaLecturasPorCuenta
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.chkDrenaje)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.txtCuenta)
         Me.UltraExpandableGroupBoxPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraExpandableGroupBoxPanel1.Location = New System.Drawing.Point(3, 19)
+        Me.UltraExpandableGroupBoxPanel1.Location = New System.Drawing.Point(2, 22)
         Me.UltraExpandableGroupBoxPanel1.Name = "UltraExpandableGroupBoxPanel1"
-        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(1046, 209)
+        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(1076, 207)
         Me.UltraExpandableGroupBoxPanel1.TabIndex = 0
         '
         'txtNombre
@@ -292,8 +290,8 @@ Partial Class frmAguaLecturasPorCuenta
         '
         'UltraLabel1
         '
-        Appearance56.TextHAlignAsString = "Right"
-        Me.UltraLabel1.Appearance = Appearance56
+        Appearance74.TextHAlignAsString = "Right"
+        Me.UltraLabel1.Appearance = Appearance74
         Me.UltraLabel1.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UltraLabel1.Location = New System.Drawing.Point(33, 83)
         Me.UltraLabel1.Name = "UltraLabel1"
@@ -316,19 +314,19 @@ Partial Class frmAguaLecturasPorCuenta
         '
         'optFormaPago
         '
-        Appearance57.FontData.Name = "Tahoma"
-        Appearance57.FontData.SizeInPoints = 9.0!
-        Me.optFormaPago.Appearance = Appearance57
+        Appearance75.FontData.Name = "Tahoma"
+        Appearance75.FontData.SizeInPoints = 9.0!
+        Me.optFormaPago.Appearance = Appearance75
         Me.optFormaPago.BackColor = System.Drawing.Color.White
         Me.optFormaPago.BackColorInternal = System.Drawing.Color.White
         Me.optFormaPago.BorderStyle = Infragistics.Win.UIElementBorderStyle.None
         Me.optFormaPago.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ArcaguaBindingSource, "forma_pago", True))
         Me.optFormaPago.Dock = System.Windows.Forms.DockStyle.Fill
-        Appearance58.FontData.BoldAsString = "False"
-        Appearance58.FontData.SizeInPoints = 8.0!
-        Appearance58.TextHAlignAsString = "Center"
-        Appearance58.TextVAlignAsString = "Bottom"
-        Me.optFormaPago.ItemAppearance = Appearance58
+        Appearance76.FontData.BoldAsString = "False"
+        Appearance76.FontData.SizeInPoints = 8.0!
+        Appearance76.TextHAlignAsString = "Center"
+        Appearance76.TextVAlignAsString = "Bottom"
+        Me.optFormaPago.ItemAppearance = Appearance76
         ValueListItem7.DataValue = "1"
         ValueListItem7.DisplayText = "Bimestral"
         ValueListItem8.DataValue = "2"
@@ -358,20 +356,20 @@ Partial Class frmAguaLecturasPorCuenta
         '
         'optTipoServicio
         '
-        Appearance59.FontData.Name = "Tahoma"
-        Appearance59.FontData.SizeInPoints = 9.0!
-        Appearance59.TextHAlignAsString = "Center"
-        Me.optTipoServicio.Appearance = Appearance59
+        Appearance77.FontData.Name = "Tahoma"
+        Appearance77.FontData.SizeInPoints = 9.0!
+        Appearance77.TextHAlignAsString = "Center"
+        Me.optTipoServicio.Appearance = Appearance77
         Me.optTipoServicio.BackColor = System.Drawing.Color.White
         Me.optTipoServicio.BackColorInternal = System.Drawing.Color.White
         Me.optTipoServicio.BorderStyle = Infragistics.Win.UIElementBorderStyle.None
         Me.optTipoServicio.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ArcaguaBindingSource, "tipo_servicio", True))
         Me.optTipoServicio.Dock = System.Windows.Forms.DockStyle.Fill
-        Appearance60.FontData.BoldAsString = "False"
-        Appearance60.FontData.SizeInPoints = 8.0!
-        Appearance60.TextHAlignAsString = "Center"
-        Appearance60.TextVAlignAsString = "Bottom"
-        Me.optTipoServicio.ItemAppearance = Appearance60
+        Appearance78.FontData.BoldAsString = "False"
+        Appearance78.FontData.SizeInPoints = 8.0!
+        Appearance78.TextHAlignAsString = "Center"
+        Appearance78.TextVAlignAsString = "Bottom"
+        Me.optTipoServicio.ItemAppearance = Appearance78
         ValueListItem1.DataValue = "1"
         ValueListItem1.DisplayText = "Medido"
         ValueListItem2.DataValue = "2"
@@ -389,10 +387,10 @@ Partial Class frmAguaLecturasPorCuenta
         '
         'grpTipoUsuario
         '
-        Appearance61.BorderColor = System.Drawing.Color.Silver
-        Appearance61.BorderColor2 = System.Drawing.Color.Silver
-        Appearance61.BorderColor3DBase = System.Drawing.Color.Silver
-        Me.grpTipoUsuario.Appearance = Appearance61
+        Appearance79.BorderColor = System.Drawing.Color.Silver
+        Appearance79.BorderColor2 = System.Drawing.Color.Silver
+        Appearance79.BorderColor3DBase = System.Drawing.Color.Silver
+        Me.grpTipoUsuario.Appearance = Appearance79
         Me.grpTipoUsuario.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.Rounded
         Me.grpTipoUsuario.CaptionAlignment = Infragistics.Win.Misc.GroupBoxCaptionAlignment.Center
         Me.grpTipoUsuario.Controls.Add(Me.optUsuario)
@@ -406,25 +404,25 @@ Partial Class frmAguaLecturasPorCuenta
         '
         'optUsuario
         '
-        Appearance62.FontData.Name = "Tahoma"
-        Appearance62.FontData.SizeInPoints = 9.0!
-        Me.optUsuario.Appearance = Appearance62
+        Appearance80.FontData.Name = "Tahoma"
+        Appearance80.FontData.SizeInPoints = 9.0!
+        Me.optUsuario.Appearance = Appearance80
         Me.optUsuario.BackColor = System.Drawing.Color.White
         Me.optUsuario.BackColorInternal = System.Drawing.Color.White
         Me.optUsuario.BorderStyle = Infragistics.Win.UIElementBorderStyle.None
         Me.optUsuario.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ArcaguaBindingSource, "tip_usuario", True))
         Me.optUsuario.Dock = System.Windows.Forms.DockStyle.Fill
-        Appearance63.FontData.BoldAsString = "False"
-        Appearance63.FontData.SizeInPoints = 8.0!
-        Appearance63.TextHAlignAsString = "Center"
-        Appearance63.TextVAlignAsString = "Bottom"
-        Me.optUsuario.ItemAppearance = Appearance63
-        Appearance64.FontData.BoldAsString = "False"
-        ValueListItem5.Appearance = Appearance64
+        Appearance81.FontData.BoldAsString = "False"
+        Appearance81.FontData.SizeInPoints = 8.0!
+        Appearance81.TextHAlignAsString = "Center"
+        Appearance81.TextVAlignAsString = "Bottom"
+        Me.optUsuario.ItemAppearance = Appearance81
+        Appearance82.FontData.BoldAsString = "False"
+        ValueListItem5.Appearance = Appearance82
         ValueListItem5.DataValue = "1"
         ValueListItem5.DisplayText = "Doméstico"
-        Appearance65.FontData.BoldAsString = "False"
-        ValueListItem6.Appearance = Appearance65
+        Appearance83.FontData.BoldAsString = "False"
+        ValueListItem6.Appearance = Appearance83
         ValueListItem6.DataValue = "2"
         ValueListItem6.DisplayText = "Comercial"
         Me.optUsuario.Items.AddRange(New Infragistics.Win.ValueListItem() {ValueListItem5, ValueListItem6})
@@ -438,8 +436,8 @@ Partial Class frmAguaLecturasPorCuenta
         '
         'uneUltAnio
         '
-        Appearance66.TextHAlignAsString = "Left"
-        Me.uneUltAnio.Appearance = Appearance66
+        Appearance84.TextHAlignAsString = "Left"
+        Me.uneUltAnio.Appearance = Appearance84
         Me.uneUltAnio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ArcaguaBindingSource, "ult_año_pago", True))
         Me.uneUltAnio.Location = New System.Drawing.Point(925, 132)
         Me.uneUltAnio.MaxValue = 2050
@@ -497,8 +495,8 @@ Partial Class frmAguaLecturasPorCuenta
         '
         'txtNoServs
         '
-        Appearance67.TextHAlignAsString = "Right"
-        Me.txtNoServs.Appearance = Appearance67
+        Appearance85.TextHAlignAsString = "Right"
+        Me.txtNoServs.Appearance = Appearance85
         Me.txtNoServs.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ArcaguaBindingSource, "num_servicios", True))
         Me.txtNoServs.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNoServs.Location = New System.Drawing.Point(465, 164)
@@ -550,8 +548,8 @@ Partial Class frmAguaLecturasPorCuenta
         '
         'lblNumServs
         '
-        Appearance68.TextHAlignAsString = "Right"
-        Me.lblNumServs.Appearance = Appearance68
+        Appearance86.TextHAlignAsString = "Right"
+        Me.lblNumServs.Appearance = Appearance86
         Me.lblNumServs.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNumServs.Location = New System.Drawing.Point(375, 168)
         Me.lblNumServs.Name = "lblNumServs"
@@ -562,8 +560,8 @@ Partial Class frmAguaLecturasPorCuenta
         '
         'lblCveCat
         '
-        Appearance69.TextHAlignAsString = "Right"
-        Me.lblCveCat.Appearance = Appearance69
+        Appearance87.TextHAlignAsString = "Right"
+        Me.lblCveCat.Appearance = Appearance87
         Me.lblCveCat.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCveCat.Location = New System.Drawing.Point(33, 54)
         Me.lblCveCat.Name = "lblCveCat"
@@ -574,8 +572,8 @@ Partial Class frmAguaLecturasPorCuenta
         '
         'lblContribuyente
         '
-        Appearance70.TextHAlignAsString = "Right"
-        Me.lblContribuyente.Appearance = Appearance70
+        Appearance88.TextHAlignAsString = "Right"
+        Me.lblContribuyente.Appearance = Appearance88
         Me.lblContribuyente.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblContribuyente.Location = New System.Drawing.Point(33, 113)
         Me.lblContribuyente.Name = "lblContribuyente"
@@ -586,8 +584,8 @@ Partial Class frmAguaLecturasPorCuenta
         '
         'lblStatus
         '
-        Appearance71.TextHAlignAsString = "Right"
-        Me.lblStatus.Appearance = Appearance71
+        Appearance89.TextHAlignAsString = "Right"
+        Me.lblStatus.Appearance = Appearance89
         Me.lblStatus.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblStatus.Location = New System.Drawing.Point(33, 141)
         Me.lblStatus.Name = "lblStatus"
@@ -598,8 +596,8 @@ Partial Class frmAguaLecturasPorCuenta
         '
         'lblCuenta
         '
-        Appearance72.TextHAlignAsString = "Right"
-        Me.lblCuenta.Appearance = Appearance72
+        Appearance90.TextHAlignAsString = "Right"
+        Me.lblCuenta.Appearance = Appearance90
         Me.lblCuenta.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCuenta.Location = New System.Drawing.Point(33, 21)
         Me.lblCuenta.Name = "lblCuenta"
@@ -681,8 +679,8 @@ Partial Class frmAguaLecturasPorCuenta
         '
         'lblRuta
         '
-        Appearance73.TextHAlignAsString = "Right"
-        Me.lblRuta.Appearance = Appearance73
+        Appearance91.TextHAlignAsString = "Right"
+        Me.lblRuta.Appearance = Appearance91
         Me.lblRuta.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRuta.Location = New System.Drawing.Point(33, 169)
         Me.lblRuta.Name = "lblRuta"
@@ -703,8 +701,8 @@ Partial Class frmAguaLecturasPorCuenta
         '
         'lblContrato
         '
-        Appearance74.TextHAlignAsString = "Right"
-        Me.lblContrato.Appearance = Appearance74
+        Appearance92.TextHAlignAsString = "Right"
+        Me.lblContrato.Appearance = Appearance92
         Me.lblContrato.AutoSize = True
         Me.lblContrato.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblContrato.Location = New System.Drawing.Point(824, 25)
@@ -716,8 +714,8 @@ Partial Class frmAguaLecturasPorCuenta
         '
         'lblMedidor
         '
-        Appearance75.TextHAlignAsString = "Right"
-        Me.lblMedidor.Appearance = Appearance75
+        Appearance93.TextHAlignAsString = "Right"
+        Me.lblMedidor.Appearance = Appearance93
         Me.lblMedidor.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMedidor.Location = New System.Drawing.Point(796, 52)
         Me.lblMedidor.Name = "lblMedidor"
@@ -827,7 +825,7 @@ Partial Class frmAguaLecturasPorCuenta
         'lblCurrentMenu
         '
         Me.lblCurrentMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCurrentMenu.ForeColor = System.Drawing.Color.Blue
+        Me.lblCurrentMenu.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.lblCurrentMenu.Name = "lblCurrentMenu"
         Me.lblCurrentMenu.Size = New System.Drawing.Size(119, 40)
         Me.lblCurrentMenu.Text = "ToolStripLabel2"
@@ -856,7 +854,7 @@ Partial Class frmAguaLecturasPorCuenta
         Me.BindingNavigator1.Name = "BindingNavigator1"
         Me.BindingNavigator1.PositionItem = Nothing
         Me.BindingNavigator1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.BindingNavigator1.Size = New System.Drawing.Size(1052, 43)
+        Me.BindingNavigator1.Size = New System.Drawing.Size(1080, 43)
         Me.BindingNavigator1.TabIndex = 1
         Me.BindingNavigator1.Text = "BindingNavigator1"
         '
@@ -905,9 +903,9 @@ Partial Class frmAguaLecturasPorCuenta
         'griLecturasPeriodo
         '
         Me.griLecturasPeriodo.DataSource = Me.TblconsumoaguaBindingSource
-        Appearance39.BackColor = System.Drawing.SystemColors.Window
-        Appearance39.BorderColor = System.Drawing.SystemColors.InactiveCaption
-        Me.griLecturasPeriodo.DisplayLayout.Appearance = Appearance39
+        Appearance38.BackColor = System.Drawing.SystemColors.Window
+        Appearance38.BorderColor = System.Drawing.SystemColors.InactiveCaption
+        Me.griLecturasPeriodo.DisplayLayout.Appearance = Appearance38
         UltraGridColumn29.Header.VisiblePosition = 0
         UltraGridColumn29.Hidden = True
         UltraGridColumn30.CellActivation = Infragistics.Win.UltraWinGrid.Activation.NoEdit
@@ -915,24 +913,24 @@ Partial Class frmAguaLecturasPorCuenta
         UltraGridColumn30.Header.VisiblePosition = 1
         UltraGridColumn30.Width = 70
         UltraGridColumn31.CellActivation = Infragistics.Win.UltraWinGrid.Activation.NoEdit
-        Appearance40.TextHAlignAsString = "Center"
-        UltraGridColumn31.CellAppearance = Appearance40
+        Appearance39.TextHAlignAsString = "Center"
+        UltraGridColumn31.CellAppearance = Appearance39
         UltraGridColumn31.Header.Caption = "Año"
         UltraGridColumn31.Header.VisiblePosition = 2
         UltraGridColumn32.CellActivation = Infragistics.Win.UltraWinGrid.Activation.NoEdit
-        Appearance41.TextHAlignAsString = "Center"
-        UltraGridColumn32.CellAppearance = Appearance41
+        Appearance40.TextHAlignAsString = "Center"
+        UltraGridColumn32.CellAppearance = Appearance40
         UltraGridColumn32.Header.Caption = "Bimestre"
         UltraGridColumn32.Header.VisiblePosition = 3
         UltraGridColumn33.CellActivation = Infragistics.Win.UltraWinGrid.Activation.NoEdit
-        Appearance42.TextHAlignAsString = "Right"
-        UltraGridColumn33.CellAppearance = Appearance42
+        Appearance41.TextHAlignAsString = "Right"
+        UltraGridColumn33.CellAppearance = Appearance41
         UltraGridColumn33.Format = "#,##0"
         UltraGridColumn33.Header.Caption = "Consumo"
         UltraGridColumn33.Header.VisiblePosition = 7
         UltraGridColumn33.Style = Infragistics.Win.UltraWinGrid.ColumnStyle.[Integer]
-        Appearance43.TextHAlignAsString = "Right"
-        UltraGridColumn34.CellAppearance = Appearance43
+        Appearance42.TextHAlignAsString = "Right"
+        UltraGridColumn34.CellAppearance = Appearance42
         UltraGridColumn34.DefaultCellValue = "0"
         UltraGridColumn34.Format = "#,##0"
         UltraGridColumn34.Header.Caption = "Lectura Actual"
@@ -943,15 +941,15 @@ Partial Class frmAguaLecturasPorCuenta
         UltraGridColumn34.Style = Infragistics.Win.UltraWinGrid.ColumnStyle.[Integer]
         UltraGridColumn34.Width = 105
         UltraGridColumn35.CellActivation = Infragistics.Win.UltraWinGrid.Activation.NoEdit
-        Appearance44.TextHAlignAsString = "Right"
-        UltraGridColumn35.CellAppearance = Appearance44
+        Appearance43.TextHAlignAsString = "Right"
+        UltraGridColumn35.CellAppearance = Appearance43
         UltraGridColumn35.Format = "#,##0"
         UltraGridColumn35.Header.Caption = "Lectura Anterior"
         UltraGridColumn35.Header.VisiblePosition = 5
         UltraGridColumn35.Style = Infragistics.Win.UltraWinGrid.ColumnStyle.[Integer]
         UltraGridColumn36.CellActivation = Infragistics.Win.UltraWinGrid.Activation.NoEdit
-        Appearance45.TextHAlignAsString = "Center"
-        UltraGridColumn36.CellAppearance = Appearance45
+        Appearance44.TextHAlignAsString = "Center"
+        UltraGridColumn36.CellAppearance = Appearance44
         UltraGridColumn36.Header.Caption = "Fecha Captura"
         UltraGridColumn36.Header.VisiblePosition = 8
         UltraGridColumn36.Style = Infragistics.Win.UltraWinGrid.ColumnStyle.DateTime
@@ -971,19 +969,19 @@ Partial Class frmAguaLecturasPorCuenta
         UltraGridBand6.Override.AllowAddNew = Infragistics.Win.UltraWinGrid.AllowAddNew.Yes
         Me.griLecturasPeriodo.DisplayLayout.BandsSerializer.Add(UltraGridBand6)
         Me.griLecturasPeriodo.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
-        Appearance46.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Appearance46.BackColor2 = System.Drawing.SystemColors.ControlDark
-        Appearance46.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
-        Appearance46.BorderColor = System.Drawing.SystemColors.Window
-        Me.griLecturasPeriodo.DisplayLayout.GroupByBox.Appearance = Appearance46
-        Appearance47.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.griLecturasPeriodo.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance47
+        Appearance45.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Appearance45.BackColor2 = System.Drawing.SystemColors.ControlDark
+        Appearance45.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
+        Appearance45.BorderColor = System.Drawing.SystemColors.Window
+        Me.griLecturasPeriodo.DisplayLayout.GroupByBox.Appearance = Appearance45
+        Appearance46.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.griLecturasPeriodo.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance46
         Me.griLecturasPeriodo.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
-        Appearance48.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Appearance48.BackColor2 = System.Drawing.SystemColors.Control
-        Appearance48.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
-        Appearance48.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.griLecturasPeriodo.DisplayLayout.GroupByBox.PromptAppearance = Appearance48
+        Appearance47.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Appearance47.BackColor2 = System.Drawing.SystemColors.Control
+        Appearance47.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
+        Appearance47.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.griLecturasPeriodo.DisplayLayout.GroupByBox.PromptAppearance = Appearance47
         Me.griLecturasPeriodo.DisplayLayout.MaxColScrollRegions = 1
         Me.griLecturasPeriodo.DisplayLayout.MaxRowScrollRegions = 1
         Me.griLecturasPeriodo.DisplayLayout.Override.AllowAddNew = Infragistics.Win.UltraWinGrid.AllowAddNew.Yes
@@ -991,41 +989,41 @@ Partial Class frmAguaLecturasPorCuenta
         Me.griLecturasPeriodo.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.[False]
         Me.griLecturasPeriodo.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
         Me.griLecturasPeriodo.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
-        Appearance49.BackColor = System.Drawing.SystemColors.Window
-        Me.griLecturasPeriodo.DisplayLayout.Override.CardAreaAppearance = Appearance49
-        Appearance50.BorderColor = System.Drawing.Color.Silver
-        Appearance50.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter
-        Me.griLecturasPeriodo.DisplayLayout.Override.CellAppearance = Appearance50
+        Appearance48.BackColor = System.Drawing.SystemColors.Window
+        Me.griLecturasPeriodo.DisplayLayout.Override.CardAreaAppearance = Appearance48
+        Appearance49.BorderColor = System.Drawing.Color.Silver
+        Appearance49.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter
+        Me.griLecturasPeriodo.DisplayLayout.Override.CellAppearance = Appearance49
         Me.griLecturasPeriodo.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.RowSelect
         Me.griLecturasPeriodo.DisplayLayout.Override.CellMultiLine = Infragistics.Win.DefaultableBoolean.[False]
         Me.griLecturasPeriodo.DisplayLayout.Override.CellPadding = 0
-        Appearance51.BackColor = System.Drawing.SystemColors.Control
-        Appearance51.BackColor2 = System.Drawing.SystemColors.ControlDark
-        Appearance51.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element
-        Appearance51.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
-        Appearance51.BorderColor = System.Drawing.SystemColors.Window
-        Me.griLecturasPeriodo.DisplayLayout.Override.GroupByRowAppearance = Appearance51
-        Appearance52.TextHAlignAsString = "Center"
-        Me.griLecturasPeriodo.DisplayLayout.Override.HeaderAppearance = Appearance52
+        Appearance50.BackColor = System.Drawing.SystemColors.Control
+        Appearance50.BackColor2 = System.Drawing.SystemColors.ControlDark
+        Appearance50.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element
+        Appearance50.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
+        Appearance50.BorderColor = System.Drawing.SystemColors.Window
+        Me.griLecturasPeriodo.DisplayLayout.Override.GroupByRowAppearance = Appearance50
+        Appearance51.TextHAlignAsString = "Center"
+        Me.griLecturasPeriodo.DisplayLayout.Override.HeaderAppearance = Appearance51
         Me.griLecturasPeriodo.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
         Me.griLecturasPeriodo.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
-        Appearance53.BackColor = System.Drawing.SystemColors.Window
-        Appearance53.BorderColor = System.Drawing.Color.Silver
-        Me.griLecturasPeriodo.DisplayLayout.Override.RowAppearance = Appearance53
+        Appearance52.BackColor = System.Drawing.SystemColors.Window
+        Appearance52.BorderColor = System.Drawing.Color.Silver
+        Me.griLecturasPeriodo.DisplayLayout.Override.RowAppearance = Appearance52
         Me.griLecturasPeriodo.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[True]
         Me.griLecturasPeriodo.DisplayLayout.Override.SelectTypeCell = Infragistics.Win.UltraWinGrid.SelectType.[Single]
         Me.griLecturasPeriodo.DisplayLayout.Override.SelectTypeCol = Infragistics.Win.UltraWinGrid.SelectType.None
         Me.griLecturasPeriodo.DisplayLayout.Override.SelectTypeRow = Infragistics.Win.UltraWinGrid.SelectType.None
         Me.griLecturasPeriodo.DisplayLayout.Override.SupportDataErrorInfo = Infragistics.Win.UltraWinGrid.SupportDataErrorInfo.RowsAndCells
-        Appearance54.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.griLecturasPeriodo.DisplayLayout.Override.TemplateAddRowAppearance = Appearance54
+        Appearance53.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.griLecturasPeriodo.DisplayLayout.Override.TemplateAddRowAppearance = Appearance53
         Me.griLecturasPeriodo.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
         Me.griLecturasPeriodo.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
         Me.griLecturasPeriodo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.griLecturasPeriodo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.griLecturasPeriodo.Location = New System.Drawing.Point(0, 274)
         Me.griLecturasPeriodo.Name = "griLecturasPeriodo"
-        Me.griLecturasPeriodo.Size = New System.Drawing.Size(1052, 228)
+        Me.griLecturasPeriodo.Size = New System.Drawing.Size(1080, 228)
         Me.griLecturasPeriodo.TabIndex = 87
         Me.griLecturasPeriodo.Text = "Listado de lecturas por número de cuenta"
         Me.griLecturasPeriodo.UseAppStyling = False
@@ -1033,9 +1031,9 @@ Partial Class frmAguaLecturasPorCuenta
         'ucoFormaCalculoLectura
         '
         Me.ucoFormaCalculoLectura.DataSource = Me.FormaCalculoConsumoAguaBindingSource
-        Appearance27.BackColor = System.Drawing.SystemColors.Window
-        Appearance27.BorderColor = System.Drawing.SystemColors.InactiveCaption
-        Me.ucoFormaCalculoLectura.DisplayLayout.Appearance = Appearance27
+        Appearance26.BackColor = System.Drawing.SystemColors.Window
+        Appearance26.BorderColor = System.Drawing.SystemColors.InactiveCaption
+        Me.ucoFormaCalculoLectura.DisplayLayout.Appearance = Appearance26
         UltraGridBand4.ColHeadersVisible = False
         UltraGridColumn17.Header.VisiblePosition = 0
         UltraGridColumn17.Hidden = True
@@ -1060,52 +1058,52 @@ Partial Class frmAguaLecturasPorCuenta
         Me.ucoFormaCalculoLectura.DisplayLayout.BandsSerializer.Add(UltraGridBand5)
         Me.ucoFormaCalculoLectura.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
         Me.ucoFormaCalculoLectura.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
-        Appearance28.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Appearance28.BackColor2 = System.Drawing.SystemColors.ControlDark
-        Appearance28.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
-        Appearance28.BorderColor = System.Drawing.SystemColors.Window
-        Me.ucoFormaCalculoLectura.DisplayLayout.GroupByBox.Appearance = Appearance28
-        Appearance29.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.ucoFormaCalculoLectura.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance29
+        Appearance27.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Appearance27.BackColor2 = System.Drawing.SystemColors.ControlDark
+        Appearance27.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
+        Appearance27.BorderColor = System.Drawing.SystemColors.Window
+        Me.ucoFormaCalculoLectura.DisplayLayout.GroupByBox.Appearance = Appearance27
+        Appearance28.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.ucoFormaCalculoLectura.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance28
         Me.ucoFormaCalculoLectura.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
-        Appearance30.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Appearance30.BackColor2 = System.Drawing.SystemColors.Control
-        Appearance30.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
-        Appearance30.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.ucoFormaCalculoLectura.DisplayLayout.GroupByBox.PromptAppearance = Appearance30
+        Appearance29.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Appearance29.BackColor2 = System.Drawing.SystemColors.Control
+        Appearance29.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
+        Appearance29.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.ucoFormaCalculoLectura.DisplayLayout.GroupByBox.PromptAppearance = Appearance29
         Me.ucoFormaCalculoLectura.DisplayLayout.MaxColScrollRegions = 1
         Me.ucoFormaCalculoLectura.DisplayLayout.MaxRowScrollRegions = 1
-        Appearance31.BackColor = System.Drawing.SystemColors.Window
-        Appearance31.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ucoFormaCalculoLectura.DisplayLayout.Override.ActiveCellAppearance = Appearance31
-        Appearance32.BackColor = System.Drawing.SystemColors.Highlight
-        Appearance32.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.ucoFormaCalculoLectura.DisplayLayout.Override.ActiveRowAppearance = Appearance32
+        Appearance30.BackColor = System.Drawing.SystemColors.Window
+        Appearance30.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ucoFormaCalculoLectura.DisplayLayout.Override.ActiveCellAppearance = Appearance30
+        Appearance31.BackColor = System.Drawing.SystemColors.Highlight
+        Appearance31.ForeColor = System.Drawing.SystemColors.HighlightText
+        Me.ucoFormaCalculoLectura.DisplayLayout.Override.ActiveRowAppearance = Appearance31
         Me.ucoFormaCalculoLectura.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
         Me.ucoFormaCalculoLectura.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
-        Appearance33.BackColor = System.Drawing.SystemColors.Window
-        Me.ucoFormaCalculoLectura.DisplayLayout.Override.CardAreaAppearance = Appearance33
-        Appearance34.BorderColor = System.Drawing.Color.Silver
-        Appearance34.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter
-        Me.ucoFormaCalculoLectura.DisplayLayout.Override.CellAppearance = Appearance34
+        Appearance32.BackColor = System.Drawing.SystemColors.Window
+        Me.ucoFormaCalculoLectura.DisplayLayout.Override.CardAreaAppearance = Appearance32
+        Appearance33.BorderColor = System.Drawing.Color.Silver
+        Appearance33.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter
+        Me.ucoFormaCalculoLectura.DisplayLayout.Override.CellAppearance = Appearance33
         Me.ucoFormaCalculoLectura.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
         Me.ucoFormaCalculoLectura.DisplayLayout.Override.CellPadding = 0
-        Appearance35.BackColor = System.Drawing.SystemColors.Control
-        Appearance35.BackColor2 = System.Drawing.SystemColors.ControlDark
-        Appearance35.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element
-        Appearance35.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
-        Appearance35.BorderColor = System.Drawing.SystemColors.Window
-        Me.ucoFormaCalculoLectura.DisplayLayout.Override.GroupByRowAppearance = Appearance35
-        Appearance36.TextHAlignAsString = "Left"
-        Me.ucoFormaCalculoLectura.DisplayLayout.Override.HeaderAppearance = Appearance36
+        Appearance34.BackColor = System.Drawing.SystemColors.Control
+        Appearance34.BackColor2 = System.Drawing.SystemColors.ControlDark
+        Appearance34.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element
+        Appearance34.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
+        Appearance34.BorderColor = System.Drawing.SystemColors.Window
+        Me.ucoFormaCalculoLectura.DisplayLayout.Override.GroupByRowAppearance = Appearance34
+        Appearance35.TextHAlignAsString = "Left"
+        Me.ucoFormaCalculoLectura.DisplayLayout.Override.HeaderAppearance = Appearance35
         Me.ucoFormaCalculoLectura.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
         Me.ucoFormaCalculoLectura.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
-        Appearance37.BackColor = System.Drawing.SystemColors.Window
-        Appearance37.BorderColor = System.Drawing.Color.Silver
-        Me.ucoFormaCalculoLectura.DisplayLayout.Override.RowAppearance = Appearance37
+        Appearance36.BackColor = System.Drawing.SystemColors.Window
+        Appearance36.BorderColor = System.Drawing.Color.Silver
+        Me.ucoFormaCalculoLectura.DisplayLayout.Override.RowAppearance = Appearance36
         Me.ucoFormaCalculoLectura.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
-        Appearance38.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.ucoFormaCalculoLectura.DisplayLayout.Override.TemplateAddRowAppearance = Appearance38
+        Appearance37.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.ucoFormaCalculoLectura.DisplayLayout.Override.TemplateAddRowAppearance = Appearance37
         Me.ucoFormaCalculoLectura.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
         Me.ucoFormaCalculoLectura.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
         Me.ucoFormaCalculoLectura.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
@@ -1122,7 +1120,9 @@ Partial Class frmAguaLecturasPorCuenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1052, 502)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(1080, 502)
+        Me.ControlBox = False
         Me.Controls.Add(Me.ucoFormaCalculoLectura)
         Me.Controls.Add(Me.griLecturasPeriodo)
         Me.Controls.Add(Me.grpDatosCuenta)

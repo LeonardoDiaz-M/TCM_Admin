@@ -38,11 +38,6 @@ Partial Class frmCatStatusContribuyente
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.uexDatos = New Infragistics.Win.Misc.UltraGroupBox()
         Me.Tbl_status_contribuyenteTableAdapter = New TCMAdmin.dsCatalogosTableAdapters.tbl_status_contribuyenteTableAdapter()
-        Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
-        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
-        Me.lblBusca = New System.Windows.Forms.ToolStripLabel()
-        Me.txtBusca = New System.Windows.Forms.ToolStripTextBox()
-        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.btnNCurrent = New System.Windows.Forms.ToolStripTextBox()
         Me.btnNTotal = New System.Windows.Forms.ToolStripLabel()
@@ -52,7 +47,9 @@ Partial Class frmCatStatusContribuyente
         Me.btnGuardar = New System.Windows.Forms.ToolStripButton()
         Me.btnEditar = New System.Windows.Forms.ToolStripButton()
         Me.btnElimina = New System.Windows.Forms.ToolStripButton()
-        Me.btnBuscar = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.lblCurrentMenu = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.btnNPrimero = New System.Windows.Forms.ToolStripButton()
         Me.btnNPrevio = New System.Windows.Forms.ToolStripButton()
         Me.btnNSiguiente = New System.Windows.Forms.ToolStripButton()
@@ -146,7 +143,7 @@ Partial Class frmCatStatusContribuyente
         Me.chkDetenerCobro.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkDetenerCobro.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.TblstatuscontribuyenteBindingSource, "detener_cobro", True))
         Me.chkDetenerCobro.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkDetenerCobro.Location = New System.Drawing.Point(142, 110)
+        Me.chkDetenerCobro.Location = New System.Drawing.Point(141, 112)
         Me.chkDetenerCobro.Name = "chkDetenerCobro"
         Me.chkDetenerCobro.Size = New System.Drawing.Size(115, 18)
         Me.chkDetenerCobro.TabIndex = 146
@@ -166,49 +163,17 @@ Partial Class frmCatStatusContribuyente
         Me.uexDatos.Controls.Add(Me.UltraLabel1)
         Me.uexDatos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.uexDatos.Enabled = False
+        Me.uexDatos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.uexDatos.Location = New System.Drawing.Point(0, 37)
         Me.uexDatos.Name = "uexDatos"
         Me.uexDatos.Size = New System.Drawing.Size(884, 178)
         Me.uexDatos.TabIndex = 147
         Me.uexDatos.Text = "Datos Cuenta"
+        Me.uexDatos.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'Tbl_status_contribuyenteTableAdapter
         '
         Me.Tbl_status_contribuyenteTableAdapter.ClearBeforeFill = True
-        '
-        'ToolStripLabel3
-        '
-        Me.ToolStripLabel3.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStripLabel3.Name = "ToolStripLabel3"
-        Me.ToolStripLabel3.Size = New System.Drawing.Size(76, 34)
-        Me.ToolStripLabel3.Text = "                       "
-        '
-        'ToolStripLabel2
-        '
-        Me.ToolStripLabel2.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStripLabel2.Name = "ToolStripLabel2"
-        Me.ToolStripLabel2.Size = New System.Drawing.Size(76, 34)
-        Me.ToolStripLabel2.Text = "                       "
-        '
-        'lblBusca
-        '
-        Me.lblBusca.BackColor = System.Drawing.Color.Transparent
-        Me.lblBusca.Name = "lblBusca"
-        Me.lblBusca.Size = New System.Drawing.Size(42, 34)
-        Me.lblBusca.Text = "Buscar"
-        '
-        'txtBusca
-        '
-        Me.txtBusca.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtBusca.Name = "txtBusca"
-        Me.txtBusca.Size = New System.Drawing.Size(100, 37)
-        '
-        'ToolStripLabel1
-        '
-        Me.ToolStripLabel1.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(76, 34)
-        Me.ToolStripLabel1.Text = "                       "
         '
         'ToolStripSeparator1
         '
@@ -228,18 +193,19 @@ Partial Class frmCatStatusContribuyente
         'btnNTotal
         '
         Me.btnNTotal.Name = "btnNTotal"
-        Me.btnNTotal.Size = New System.Drawing.Size(37, 34)
-        Me.btnNTotal.Text = "de {0}"
+        Me.btnNTotal.Size = New System.Drawing.Size(35, 34)
+        Me.btnNTotal.Text = "of {0}"
         Me.btnNTotal.ToolTipText = "Número total de elementos"
         '
         'BindingNavigator1
         '
         Me.BindingNavigator1.AddNewItem = Nothing
+        Me.BindingNavigator1.BackColor = System.Drawing.Color.White
         Me.BindingNavigator1.BindingSource = Me.TblstatuscontribuyenteBindingSource
         Me.BindingNavigator1.CountItem = Me.btnNTotal
         Me.BindingNavigator1.DeleteItem = Nothing
         Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(30, 30)
-        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnGuardar, Me.btnEditar, Me.btnElimina, Me.ToolStripLabel3, Me.ToolStripLabel2, Me.lblBusca, Me.txtBusca, Me.btnBuscar, Me.ToolStripLabel1, Me.ToolStripSeparator1, Me.btnNPrimero, Me.btnNPrevio, Me.btnNCurrent, Me.btnNTotal, Me.btnNSiguiente, Me.btnNUltimo})
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnGuardar, Me.btnEditar, Me.btnElimina, Me.ToolStripSeparator1, Me.ToolStripLabel1, Me.lblCurrentMenu, Me.ToolStripLabel2, Me.btnNPrimero, Me.btnNPrevio, Me.btnNCurrent, Me.btnNTotal, Me.btnNSiguiente, Me.btnNUltimo})
         Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
         Me.BindingNavigator1.MoveFirstItem = Me.btnNPrimero
         Me.BindingNavigator1.MoveLastItem = Me.btnNUltimo
@@ -301,14 +267,25 @@ Partial Class frmCatStatusContribuyente
         Me.btnElimina.Size = New System.Drawing.Size(34, 34)
         Me.btnElimina.Text = "Eliminar"
         '
-        'btnBuscar
+        'ToolStripLabel1
         '
-        Me.btnBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnBuscar.Image = Global.TCMAdmin.My.Resources.Resources.search
-        Me.btnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(34, 34)
-        Me.btnBuscar.Text = "Buscar Cuenta"
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(40, 34)
+        Me.ToolStripLabel1.Text = "           "
+        '
+        'lblCurrentMenu
+        '
+        Me.lblCurrentMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentMenu.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblCurrentMenu.Name = "lblCurrentMenu"
+        Me.lblCurrentMenu.Size = New System.Drawing.Size(119, 34)
+        Me.lblCurrentMenu.Text = "ToolStripLabel2"
+        '
+        'ToolStripLabel2
+        '
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(40, 34)
+        Me.ToolStripLabel2.Text = "           "
         '
         'btnNPrimero
         '
@@ -350,7 +327,9 @@ Partial Class frmCatStatusContribuyente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(884, 215)
+        Me.ControlBox = False
         Me.Controls.Add(Me.uexDatos)
         Me.Controls.Add(Me.BindingNavigator1)
         Me.Name = "frmCatStatusContribuyente"
@@ -387,16 +366,13 @@ Partial Class frmCatStatusContribuyente
     Friend WithEvents btnGuardar As ToolStripButton
     Friend WithEvents btnEditar As ToolStripButton
     Friend WithEvents btnElimina As ToolStripButton
-    Friend WithEvents ToolStripLabel3 As ToolStripLabel
-    Friend WithEvents ToolStripLabel2 As ToolStripLabel
-    Friend WithEvents lblBusca As ToolStripLabel
-    Friend WithEvents txtBusca As ToolStripTextBox
-    Friend WithEvents btnBuscar As ToolStripButton
-    Friend WithEvents ToolStripLabel1 As ToolStripLabel
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents btnNPrimero As ToolStripButton
     Friend WithEvents btnNPrevio As ToolStripButton
     Friend WithEvents btnNCurrent As ToolStripTextBox
     Friend WithEvents btnNSiguiente As ToolStripButton
     Friend WithEvents btnNUltimo As ToolStripButton
+    Friend WithEvents ToolStripLabel1 As ToolStripLabel
+    Friend WithEvents lblCurrentMenu As ToolStripLabel
+    Friend WithEvents ToolStripLabel2 As ToolStripLabel
 End Class

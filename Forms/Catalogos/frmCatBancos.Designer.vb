@@ -42,7 +42,10 @@ Partial Class frmCatBancos
         Me.btnUndo = New System.Windows.Forms.ToolStripButton()
         Me.btnGuardar = New System.Windows.Forms.ToolStripButton()
         Me.btnEditar = New System.Windows.Forms.ToolStripButton()
-        Me.btnEliminar = New System.Windows.Forms.ToolStripButton()
+        Me.btnElimina = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
+        Me.lblCurrentMenu = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.btnNPrimero = New System.Windows.Forms.ToolStripButton()
         Me.btnNPrevio = New System.Windows.Forms.ToolStripButton()
@@ -82,11 +85,12 @@ Partial Class frmCatBancos
         'BindingNavigator1
         '
         Me.BindingNavigator1.AddNewItem = Nothing
+        Me.BindingNavigator1.BackColor = System.Drawing.Color.White
         Me.BindingNavigator1.BindingSource = Me.BancosBindingSource
         Me.BindingNavigator1.CountItem = Me.btnNTotal
         Me.BindingNavigator1.DeleteItem = Nothing
         Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(30, 30)
-        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnGuardar, Me.btnEditar, Me.btnEliminar, Me.ToolStripLabel1, Me.btnNPrimero, Me.btnNPrevio, Me.btnNCurrent, Me.btnNTotal, Me.btnNSiguiente, Me.btnNUltimo})
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnGuardar, Me.btnEditar, Me.btnElimina, Me.ToolStripSeparator1, Me.ToolStripLabel2, Me.lblCurrentMenu, Me.ToolStripLabel1, Me.btnNPrimero, Me.btnNPrevio, Me.btnNCurrent, Me.btnNTotal, Me.btnNSiguiente, Me.btnNUltimo})
         Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
         Me.BindingNavigator1.MoveFirstItem = Me.btnNPrimero
         Me.BindingNavigator1.MoveLastItem = Me.btnNUltimo
@@ -112,8 +116,8 @@ Partial Class frmCatBancos
         'btnNTotal
         '
         Me.btnNTotal.Name = "btnNTotal"
-        Me.btnNTotal.Size = New System.Drawing.Size(37, 34)
-        Me.btnNTotal.Text = "de {0}"
+        Me.btnNTotal.Size = New System.Drawing.Size(35, 34)
+        Me.btnNTotal.Text = "of {0}"
         Me.btnNTotal.ToolTipText = "Número total de elementos"
         '
         'btnBack
@@ -157,24 +161,41 @@ Partial Class frmCatBancos
         Me.btnEditar.Text = "ToolStripButton1"
         Me.btnEditar.ToolTipText = "Editar registro"
         '
-        'btnEliminar
+        'btnElimina
         '
-        Me.btnEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnEliminar.Image = Global.TCMAdmin.My.Resources.Resources.IconDelete
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.RightToLeftAutoMirrorImage = True
-        Me.btnEliminar.Size = New System.Drawing.Size(34, 34)
-        Me.btnEliminar.Text = "Eliminar"
-        Me.btnEliminar.ToolTipText = "Eliminar registro"
-        Me.btnEliminar.Visible = False
+        Me.btnElimina.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnElimina.Image = Global.TCMAdmin.My.Resources.Resources.IconDelete
+        Me.btnElimina.Name = "btnElimina"
+        Me.btnElimina.RightToLeftAutoMirrorImage = True
+        Me.btnElimina.Size = New System.Drawing.Size(34, 34)
+        Me.btnElimina.Text = "Eliminar"
+        Me.btnElimina.ToolTipText = "Eliminar registro"
+        Me.btnElimina.Visible = False
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 37)
+        '
+        'ToolStripLabel2
+        '
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(40, 34)
+        Me.ToolStripLabel2.Text = "           "
+        '
+        'lblCurrentMenu
+        '
+        Me.lblCurrentMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentMenu.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblCurrentMenu.Name = "lblCurrentMenu"
+        Me.lblCurrentMenu.Size = New System.Drawing.Size(119, 34)
+        Me.lblCurrentMenu.Text = "ToolStripLabel2"
         '
         'ToolStripLabel1
         '
-        Me.ToolStripLabel1.AutoSize = False
-        Me.ToolStripLabel1.BackColor = System.Drawing.Color.Transparent
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(500, 34)
-        Me.ToolStripLabel1.Text = "                       "
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(40, 34)
+        Me.ToolStripLabel1.Text = "           "
         '
         'btnNPrimero
         '
@@ -228,13 +249,15 @@ Partial Class frmCatBancos
         Me.grpOficinas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grpOficinas.Enabled = False
         Me.grpOficinas.ExpandedSize = New System.Drawing.Size(904, 257)
+        Me.grpOficinas.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpOficinas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpOficinas.HeaderBorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
         Me.grpOficinas.Location = New System.Drawing.Point(0, 37)
         Me.grpOficinas.Name = "grpOficinas"
         Me.grpOficinas.Size = New System.Drawing.Size(904, 257)
         Me.grpOficinas.TabIndex = 33
         Me.grpOficinas.Text = "Bancos Detalle"
-        Me.grpOficinas.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpOficinas.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'grParImpPred
         '
@@ -250,9 +273,9 @@ Partial Class frmCatBancos
         Me.grParImpPred.Controls.Add(Me.lblCuenta)
         Me.grParImpPred.Controls.Add(Me.txtNombre)
         Me.grParImpPred.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grParImpPred.Location = New System.Drawing.Point(3, 19)
+        Me.grParImpPred.Location = New System.Drawing.Point(2, 21)
         Me.grParImpPred.Name = "grParImpPred"
-        Me.grParImpPred.Size = New System.Drawing.Size(898, 235)
+        Me.grParImpPred.Size = New System.Drawing.Size(900, 234)
         Me.grParImpPred.TabIndex = 0
         '
         'txtTelefono
@@ -437,7 +460,9 @@ Partial Class frmCatBancos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(904, 294)
+        Me.ControlBox = False
         Me.Controls.Add(Me.grpOficinas)
         Me.Controls.Add(Me.BindingNavigator1)
         Me.KeyPreview = True
@@ -469,8 +494,7 @@ Partial Class frmCatBancos
     Friend WithEvents btnUndo As ToolStripButton
     Friend WithEvents btnGuardar As ToolStripButton
     Friend WithEvents btnEditar As ToolStripButton
-    Friend WithEvents btnEliminar As ToolStripButton
-    Friend WithEvents ToolStripLabel1 As ToolStripLabel
+    Friend WithEvents btnElimina As ToolStripButton
     Friend WithEvents btnNPrimero As ToolStripButton
     Friend WithEvents btnNPrevio As ToolStripButton
     Friend WithEvents btnNCurrent As ToolStripTextBox
@@ -493,4 +517,8 @@ Partial Class frmCatBancos
     Friend WithEvents DsCatalogos As dsCatalogos
     Friend WithEvents BancosBindingSource As BindingSource
     Friend WithEvents BancosTableAdapter As dsCatalogosTableAdapters.bancosTableAdapter
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents ToolStripLabel2 As ToolStripLabel
+    Friend WithEvents lblCurrentMenu As ToolStripLabel
+    Friend WithEvents ToolStripLabel1 As ToolStripLabel
 End Class

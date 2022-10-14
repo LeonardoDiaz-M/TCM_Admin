@@ -23,74 +23,39 @@ Partial Class frmSubMenu
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.btnGuardar = New System.Windows.Forms.ToolStripButton()
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim UltraGridBand1 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("Band 0", -1)
+        Dim UltraGridColumn17 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("cve_status")
+        Dim UltraGridColumn18 As Infragistics.Win.UltraWinGrid.UltraGridColumn = New Infragistics.Win.UltraWinGrid.UltraGridColumn("descripcion")
         Me.chkStatus = New System.Windows.Forms.CheckBox()
         Me.txtDesc = New System.Windows.Forms.TextBox()
         Me.lblDesc = New System.Windows.Forms.Label()
         Me.lblCve = New System.Windows.Forms.Label()
-        Me.SystemMessages1 = New TCMAdmin.SystemMessages()
         Me.lblRoot = New System.Windows.Forms.Label()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.chkRead = New System.Windows.Forms.CheckBox()
-        Me.chkAdd = New System.Windows.Forms.CheckBox()
-        Me.chkEdit = New System.Windows.Forms.CheckBox()
-        Me.chkDelete = New System.Windows.Forms.CheckBox()
-        Me.chkModal = New System.Windows.Forms.CheckBox()
         Me.UltraGridFilterUIProvider1 = New Infragistics.Win.SupportDialogs.FilterUIProvider.UltraGridFilterUIProvider(Me.components)
+        Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.btnBack = New System.Windows.Forms.ToolStripButton()
+        Me.btnGuardar = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
+        Me.lblCurrentMenu = New System.Windows.Forms.ToolStripLabel()
+        Me.txtClave = New System.Windows.Forms.TextBox()
+        Me.cmbMenuParent = New Infragistics.Win.UltraWinGrid.UltraCombo()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.numPos = New System.Windows.Forms.NumericUpDown()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtIcono = New System.Windows.Forms.TextBox()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cmbMenuParent, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.numPos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'BindingNavigator1
-        '
-        Me.BindingNavigator1.AddNewItem = Nothing
-        Me.BindingNavigator1.BackColor = System.Drawing.Color.Transparent
-        Me.BindingNavigator1.CountItem = Nothing
-        Me.BindingNavigator1.DeleteItem = Nothing
-        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.btnGuardar})
-        Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
-        Me.BindingNavigator1.MoveFirstItem = Nothing
-        Me.BindingNavigator1.MoveLastItem = Nothing
-        Me.BindingNavigator1.MoveNextItem = Nothing
-        Me.BindingNavigator1.MovePreviousItem = Nothing
-        Me.BindingNavigator1.Name = "BindingNavigator1"
-        Me.BindingNavigator1.PositionItem = Nothing
-        Me.BindingNavigator1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.BindingNavigator1.Size = New System.Drawing.Size(753, 25)
-        Me.BindingNavigator1.TabIndex = 11
-        Me.BindingNavigator1.Text = "BindingNavigator1"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
-        '
-        'btnGuardar
-        '
-        Me.btnGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnGuardar.Image = Global.TCMAdmin.My.Resources.Resources.save
-        Me.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(23, 22)
-        Me.btnGuardar.Text = "ToolStripButton1"
-        Me.btnGuardar.ToolTipText = "Guardar Datos"
         '
         'chkStatus
         '
         Me.chkStatus.AutoSize = True
         Me.chkStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.chkStatus.Location = New System.Drawing.Point(659, 79)
+        Me.chkStatus.Location = New System.Drawing.Point(573, 49)
         Me.chkStatus.Name = "chkStatus"
         Me.chkStatus.Size = New System.Drawing.Size(70, 20)
         Me.chkStatus.TabIndex = 15
@@ -99,10 +64,10 @@ Partial Class frmSubMenu
         '
         'txtDesc
         '
-        Me.txtDesc.Location = New System.Drawing.Point(168, 112)
+        Me.txtDesc.Location = New System.Drawing.Point(167, 78)
         Me.txtDesc.MaxLength = 100
         Me.txtDesc.Name = "txtDesc"
-        Me.txtDesc.Size = New System.Drawing.Size(561, 20)
+        Me.txtDesc.Size = New System.Drawing.Size(380, 20)
         Me.txtDesc.TabIndex = 14
         Me.txtDesc.WordWrap = False
         '
@@ -110,7 +75,7 @@ Partial Class frmSubMenu
         '
         Me.lblDesc.AutoSize = True
         Me.lblDesc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDesc.Location = New System.Drawing.Point(13, 116)
+        Me.lblDesc.Location = New System.Drawing.Point(12, 82)
         Me.lblDesc.Name = "lblDesc"
         Me.lblDesc.Size = New System.Drawing.Size(149, 16)
         Me.lblDesc.TabIndex = 13
@@ -120,156 +85,166 @@ Partial Class frmSubMenu
         '
         Me.lblCve.AutoSize = True
         Me.lblCve.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCve.Location = New System.Drawing.Point(12, 83)
+        Me.lblCve.Location = New System.Drawing.Point(11, 49)
         Me.lblCve.Name = "lblCve"
         Me.lblCve.Size = New System.Drawing.Size(150, 16)
         Me.lblCve.TabIndex = 12
         Me.lblCve.Text = "Clave del Sub menú:"
         '
-        'SystemMessages1
-        '
-        Me.SystemMessages1.AutoScroll = True
-        Me.SystemMessages1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.SystemMessages1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.SystemMessages1.Location = New System.Drawing.Point(0, 29)
-        Me.SystemMessages1.Name = "SystemMessages1"
-        Me.SystemMessages1.Size = New System.Drawing.Size(769, 48)
-        Me.SystemMessages1.TabIndex = 16
-        '
         'lblRoot
         '
         Me.lblRoot.AutoSize = True
         Me.lblRoot.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRoot.Location = New System.Drawing.Point(13, 153)
+        Me.lblRoot.Location = New System.Drawing.Point(66, 111)
         Me.lblRoot.Name = "lblRoot"
         Me.lblRoot.Size = New System.Drawing.Size(95, 16)
         Me.lblRoot.TabIndex = 17
         Me.lblRoot.Text = "Menú Padre:"
         '
-        'PictureBox5
+        'BindingNavigator1
         '
-        Me.PictureBox5.Image = Global.TCMAdmin.My.Resources.Resources.modalwin
-        Me.PictureBox5.Location = New System.Drawing.Point(617, 184)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(58, 50)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox5.TabIndex = 22
-        Me.PictureBox5.TabStop = False
+        Me.BindingNavigator1.AddNewItem = Nothing
+        Me.BindingNavigator1.BackColor = System.Drawing.Color.White
+        Me.BindingNavigator1.CountItem = Nothing
+        Me.BindingNavigator1.DeleteItem = Nothing
+        Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(36, 36)
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnGuardar, Me.ToolStripSeparator1, Me.ToolStripLabel2, Me.lblCurrentMenu})
+        Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
+        Me.BindingNavigator1.MoveFirstItem = Nothing
+        Me.BindingNavigator1.MoveLastItem = Nothing
+        Me.BindingNavigator1.MoveNextItem = Nothing
+        Me.BindingNavigator1.MovePreviousItem = Nothing
+        Me.BindingNavigator1.Name = "BindingNavigator1"
+        Me.BindingNavigator1.PositionItem = Nothing
+        Me.BindingNavigator1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.BindingNavigator1.Size = New System.Drawing.Size(680, 43)
+        Me.BindingNavigator1.TabIndex = 29
+        Me.BindingNavigator1.Text = "BindingNavigator1"
         '
-        'PictureBox4
+        'btnBack
         '
-        Me.PictureBox4.Image = Global.TCMAdmin.My.Resources.Resources.delete1
-        Me.PictureBox4.Location = New System.Drawing.Point(481, 184)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(58, 50)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 21
-        Me.PictureBox4.TabStop = False
+        Me.btnBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnBack.Image = Global.TCMAdmin.My.Resources.Resources.IconBack
+        Me.btnBack.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.btnBack.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(28, 40)
+        Me.btnBack.Text = "ToolStripButton1"
+        Me.btnBack.ToolTipText = "Regresar"
         '
-        'PictureBox3
+        'btnGuardar
         '
-        Me.PictureBox3.Image = Global.TCMAdmin.My.Resources.Resources.open_folder
-        Me.PictureBox3.Location = New System.Drawing.Point(352, 184)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(58, 50)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 20
-        Me.PictureBox3.TabStop = False
+        Me.btnGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnGuardar.Image = Global.TCMAdmin.My.Resources.Resources.IconSave
+        Me.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(40, 40)
+        Me.btnGuardar.Text = "ToolStripButton2"
         '
-        'PictureBox2
+        'ToolStripSeparator1
         '
-        Me.PictureBox2.Image = Global.TCMAdmin.My.Resources.Resources._new
-        Me.PictureBox2.Location = New System.Drawing.Point(236, 184)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(58, 50)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 19
-        Me.PictureBox2.TabStop = False
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 43)
         '
-        'PictureBox1
+        'ToolStripLabel2
         '
-        Me.PictureBox1.Image = Global.TCMAdmin.My.Resources.Resources.find
-        Me.PictureBox1.Location = New System.Drawing.Point(127, 184)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(58, 50)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 18
-        Me.PictureBox1.TabStop = False
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(40, 40)
+        Me.ToolStripLabel2.Text = "           "
         '
-        'chkRead
+        'lblCurrentMenu
         '
-        Me.chkRead.AutoSize = True
-        Me.chkRead.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkRead.Location = New System.Drawing.Point(114, 240)
-        Me.chkRead.Name = "chkRead"
-        Me.chkRead.Size = New System.Drawing.Size(78, 20)
-        Me.chkRead.TabIndex = 23
-        Me.chkRead.Text = "Lectura"
-        Me.chkRead.UseVisualStyleBackColor = True
+        Me.lblCurrentMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentMenu.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblCurrentMenu.Name = "lblCurrentMenu"
+        Me.lblCurrentMenu.Size = New System.Drawing.Size(119, 40)
+        Me.lblCurrentMenu.Text = "ToolStripLabel2"
         '
-        'chkAdd
+        'txtClave
         '
-        Me.chkAdd.AutoSize = True
-        Me.chkAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkAdd.Location = New System.Drawing.Point(226, 240)
-        Me.chkAdd.Name = "chkAdd"
-        Me.chkAdd.Size = New System.Drawing.Size(83, 20)
-        Me.chkAdd.TabIndex = 24
-        Me.chkAdd.Text = "Agregar"
-        Me.chkAdd.UseVisualStyleBackColor = True
+        Me.txtClave.Location = New System.Drawing.Point(167, 49)
+        Me.txtClave.MaxLength = 100
+        Me.txtClave.Name = "txtClave"
+        Me.txtClave.Size = New System.Drawing.Size(380, 20)
+        Me.txtClave.TabIndex = 30
+        Me.txtClave.WordWrap = False
         '
-        'chkEdit
+        'cmbMenuParent
         '
-        Me.chkEdit.AutoSize = True
-        Me.chkEdit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkEdit.Location = New System.Drawing.Point(352, 240)
-        Me.chkEdit.Name = "chkEdit"
-        Me.chkEdit.Size = New System.Drawing.Size(68, 20)
-        Me.chkEdit.TabIndex = 25
-        Me.chkEdit.Text = "Editar"
-        Me.chkEdit.UseVisualStyleBackColor = True
+        Appearance1.FontData.BoldAsString = "True"
+        Appearance1.FontData.Name = "Tahoma"
+        Appearance1.FontData.SizeInPoints = 9.0!
+        Me.cmbMenuParent.Appearance = Appearance1
+        Me.cmbMenuParent.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest
+        Me.cmbMenuParent.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
+        UltraGridBand1.ColHeadersVisible = False
+        UltraGridColumn17.Header.VisiblePosition = 0
+        UltraGridColumn17.Hidden = True
+        UltraGridColumn18.Header.VisiblePosition = 1
+        UltraGridColumn18.Width = 330
+        UltraGridBand1.Columns.AddRange(New Object() {UltraGridColumn17, UltraGridColumn18})
+        Me.cmbMenuParent.DisplayLayout.BandsSerializer.Add(UltraGridBand1)
+        Me.cmbMenuParent.DisplayMember = "descripcion"
+        Me.cmbMenuParent.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.VerticalResize
+        Me.cmbMenuParent.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbMenuParent.Location = New System.Drawing.Point(167, 111)
+        Me.cmbMenuParent.MaxDropDownItems = 30
+        Me.cmbMenuParent.Name = "cmbMenuParent"
+        Me.cmbMenuParent.NullText = "Seleccione..."
+        Me.cmbMenuParent.Size = New System.Drawing.Size(380, 24)
+        Me.cmbMenuParent.TabIndex = 31
+        Me.cmbMenuParent.ValueMember = "cve_status"
         '
-        'chkDelete
+        'Label1
         '
-        Me.chkDelete.AutoSize = True
-        Me.chkDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkDelete.Location = New System.Drawing.Point(471, 240)
-        Me.chkDelete.Name = "chkDelete"
-        Me.chkDelete.Size = New System.Drawing.Size(83, 20)
-        Me.chkDelete.TabIndex = 26
-        Me.chkDelete.Text = "Eliminar"
-        Me.chkDelete.UseVisualStyleBackColor = True
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(570, 82)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(39, 16)
+        Me.Label1.TabIndex = 32
+        Me.Label1.Text = "Pos:"
         '
-        'chkModal
+        'numPos
         '
-        Me.chkModal.AutoSize = True
-        Me.chkModal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkModal.Location = New System.Drawing.Point(608, 240)
-        Me.chkModal.Name = "chkModal"
-        Me.chkModal.Size = New System.Drawing.Size(70, 20)
-        Me.chkModal.TabIndex = 27
-        Me.chkModal.Text = "Modal"
-        Me.chkModal.UseVisualStyleBackColor = True
+        Me.numPos.Location = New System.Drawing.Point(615, 82)
+        Me.numPos.Name = "numPos"
+        Me.numPos.Size = New System.Drawing.Size(40, 20)
+        Me.numPos.TabIndex = 33
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(111, 152)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(50, 16)
+        Me.Label2.TabIndex = 34
+        Me.Label2.Text = "Icono:"
+        '
+        'txtIcono
+        '
+        Me.txtIcono.Location = New System.Drawing.Point(167, 152)
+        Me.txtIcono.MaxLength = 100
+        Me.txtIcono.Name = "txtIcono"
+        Me.txtIcono.Size = New System.Drawing.Size(380, 20)
+        Me.txtIcono.TabIndex = 35
+        Me.txtIcono.WordWrap = False
         '
         'frmSubMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(753, 268)
-        Me.Controls.Add(Me.chkModal)
-        Me.Controls.Add(Me.chkDelete)
-        Me.Controls.Add(Me.chkEdit)
-        Me.Controls.Add(Me.chkAdd)
-        Me.Controls.Add(Me.chkRead)
-        Me.Controls.Add(Me.PictureBox5)
-        Me.Controls.Add(Me.PictureBox4)
-        Me.Controls.Add(Me.PictureBox3)
-        Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.lblRoot)
-        Me.Controls.Add(Me.SystemMessages1)
+        Me.ClientSize = New System.Drawing.Size(680, 190)
+        Me.Controls.Add(Me.txtIcono)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.numPos)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.cmbMenuParent)
+        Me.Controls.Add(Me.txtClave)
         Me.Controls.Add(Me.BindingNavigator1)
+        Me.Controls.Add(Me.lblRoot)
         Me.Controls.Add(Me.chkStatus)
         Me.Controls.Add(Me.txtDesc)
         Me.Controls.Add(Me.lblDesc)
@@ -284,34 +259,28 @@ Partial Class frmSubMenu
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BindingNavigator1.ResumeLayout(False)
         Me.BindingNavigator1.PerformLayout()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cmbMenuParent, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.numPos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents BindingNavigator1 As BindingNavigator
-    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents btnGuardar As ToolStripButton
     Friend WithEvents chkStatus As CheckBox
     Friend WithEvents txtDesc As TextBox
     Friend WithEvents lblDesc As Label
     Friend WithEvents lblCve As Label
-    Friend WithEvents SystemMessages1 As SystemMessages
     Friend WithEvents lblRoot As Label
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents PictureBox3 As PictureBox
-    Friend WithEvents PictureBox4 As PictureBox
-    Friend WithEvents PictureBox5 As PictureBox
-    Friend WithEvents chkRead As CheckBox
-    Friend WithEvents chkAdd As CheckBox
-    Friend WithEvents chkEdit As CheckBox
-    Friend WithEvents chkDelete As CheckBox
-    Friend WithEvents chkModal As CheckBox
     Friend WithEvents UltraGridFilterUIProvider1 As Infragistics.Win.SupportDialogs.FilterUIProvider.UltraGridFilterUIProvider
+    Friend WithEvents BindingNavigator1 As BindingNavigator
+    Friend WithEvents btnBack As ToolStripButton
+    Friend WithEvents btnGuardar As ToolStripButton
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents ToolStripLabel2 As ToolStripLabel
+    Friend WithEvents lblCurrentMenu As ToolStripLabel
+    Friend WithEvents txtClave As TextBox
+    Friend WithEvents cmbMenuParent As Infragistics.Win.UltraWinGrid.UltraCombo
+    Friend WithEvents Label1 As Label
+    Friend WithEvents numPos As NumericUpDown
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtIcono As TextBox
 End Class

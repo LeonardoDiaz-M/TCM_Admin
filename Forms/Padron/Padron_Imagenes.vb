@@ -4,9 +4,33 @@ Imports System.Configuration
 Imports System.Data.SqlClient
 
 Public Class Padron_Imagenes
+    Public id As String = "0"
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
+    Private cxn As New cxnData
     Dim IdFoto As String = ""
+
+    Private Sub Padron_Imagenes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'load_Permiso()
+    End Sub
+    Private Sub load_Permiso()
+        Me.lblCurrentMenu.Text = Me.Text
+        Me.btnElimina.Visible = Borrar
+        Me.btnGuardar.Visible = IIf(id = "0", Insertar, False)
+        Me.btnNuevo.Visible = Insertar
+
+        If id = "0" Then
+            Me.BindingNavigator1.BindingSource.AddNew()
+        Else
+        End If
+    End Sub
     Public Overloads Sub Show(ByVal ClavePadron As String, ByVal TipoPadron As String, ByVal parent As IWin32Window)
         Try
+
             lblClavePadron.Text = ClavePadron.Trim
             lblTipoPadron.Text = TipoPadron.Trim
             Carga_Imagenes(ClavePadron, TipoPadron)
@@ -22,10 +46,9 @@ Public Class Padron_Imagenes
         griImagenes.DataSource = dt
     End Sub
 
-
-
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        Using connection As New SqlConnection(ConfigurationManager.ConnectionStrings("ConnStringSIA").ToString())
+        Dim cxn As New cxnData
+        Using connection As New SqlConnection(cxn.SqlPubsConnString)
             connection.Open()
             Try
                 Dim stream As FileStream = New FileStream(txtexaminar.Text, FileMode.Open, FileAccess.Read)
@@ -46,16 +69,18 @@ Public Class Padron_Imagenes
                 cmd.ExecuteNonQuery()
                 Valnewid = cmd.ExecuteScalar.ToString
                 'inserto imagen y datos tabla
-                sql = "INSERT INTO IMAGES (Id,TipoPadron,ClavePadron,IMAGEFILE) VALUES(@Id,@TipoPadron,@ClavePadron,@ImageFile)"
+                sql = "INSERT INTO IMAGES (Id,TipoPadron,ClavePadron,IMAGEFILE,Descripcion) VALUES(@Id,@TipoPadron,@ClavePadron,@ImageFile,@Descripcion)"
                 Dim command As SqlCommand = New SqlCommand(sql, connection)
                 command.Parameters.AddWithValue("ID", Valnewid)
                 command.Parameters.AddWithValue("TipoPadron", lblTipoPadron.Text)
                 command.Parameters.AddWithValue("ClavePadron", lblClavePadron.Text)
                 command.Parameters.AddWithValue("ImageFile", binData)
+                command.Parameters.AddWithValue("Descripcion", UTEDescripcion.Text)
                 command.ExecuteNonQuery()
                 Carga_Imagenes(lblClavePadron.Text, lblTipoPadron.Text)
                 btnGuardar.Visible = False
                 btnElimina.Visible = False
+                UTEDescripcion.ReadOnly = True
                 cMensajes.DisplayMessage(Me, "Imagen agregada correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1)
             Catch ex As Exception
                 cMensajes.DisplayMessage(Me, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1)
@@ -79,6 +104,7 @@ Public Class Padron_Imagenes
         txtexaminar.Text = ofdArchivos.FileName
         btnGuardar.Visible = True
         btnElimina.Visible = False
+        UTEDescripcion.ReadOnly = False
         picImagen.Image = Image.FromFile(ofdArchivos.FileName)
     End Sub
 
@@ -88,6 +114,7 @@ Public Class Padron_Imagenes
         IdFoto = griImagenes.Rows(e.RowIndex).Cells("id").Value.ToString
         binario = griImagenes.Rows(e.RowIndex).Cells("ImageFile").Value
         picImagen.Image = Image.FromStream(New MemoryStream(binario))
+        UTEDescripcion.Text = griImagenes.Rows(e.RowIndex).Cells("Descripcion").Value.ToString
         btnGuardar.Visible = False
         btnElimina.Visible = True
         Me.Cursor = Cursors.Default
@@ -99,7 +126,7 @@ Public Class Padron_Imagenes
     Private Sub btnElimina_Click(sender As Object, e As EventArgs) Handles btnElimina.Click
         Try
             Dim Sql As String = ""
-            Using connection As New SqlConnection(ConfigurationManager.ConnectionStrings("ConnStringSIA").ToString())
+            Using connection As New SqlConnection(cxn.SqlPubsConnString)
                 connection.Open()
                 Try
                     If MsgBox("¿Está seguro de borrar la imagen seleccionada?", vbYesNo, "Confirmación") = vbYes Then
@@ -122,6 +149,5 @@ Public Class Padron_Imagenes
             cMensajes.DisplayMessage(Me, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
         End Try
     End Sub
-
 
 End Class

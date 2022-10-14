@@ -3,38 +3,36 @@ Imports Infragistics.Win.UltraWinTabControl
 Imports System.Web.Security
 Public Class frmCatDependencias
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
 
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
-    Public idUsuario As String = My.User.Name
-    Private cxn As New cxnData
-    Private newrow As Object
-    Public parent As Form = Nothing
-    Private currentmenu As String = ""
 
     Private Sub frmCatDependencias_Load(sender As Object, e As EventArgs) Handles Me.Load
+        TabOrderSequence(Me, SMcMaster.TabOrderManager.TabScheme.AcrossFirst)
+        Me.lblCurrentMenu.Text = Me.Text
+        load_Permiso()
         If id <> "0" Then
             'TODO: esta línea de código carga datos en la tabla 'DsCatalogos.oficinas' Puede moverla o quitarla según sea necesario.
             Me.DependenciasTableAdapter.Fill(Me.DsCatalogos.dependencias)
             Me.DependenciasBindingSource.Position = Me.DependenciasBindingSource.Find("id_dep", id)
-            btnEliminar.Visible = True
-        Else
-            grpOficinas.Enabled = True
-            btnEditar.Visible = False
-            btnGuardar.Visible = True
-            txtNombre.SelectAll()
         End If
-        'LoadRol()
+        txtNombre.SelectAll()
     End Sub
-    Private Sub LoadRol()
-        btnEditar.Enabled = Roles.IsUserInRole(Usuario, Editar)
-        btnEliminar.Enabled = Roles.IsUserInRole(Usuario, Borrar)
-        btnGuardar.Enabled = Roles.IsUserInRole(Usuario, Insertar)
+
+    Private Sub load_Permiso()
+        Me.btnElimina.Visible = False
+        Me.btnGuardar.Visible = IIf(id = "0", Insertar, False)
+        Me.btnEditar.Visible = IIf(id = "0", False, Editar)
+        Me.grpOficinas.Enabled = IIf(id = "0", True, False)
+        If id = "0" Then
+            Me.BindingNavigator1.BindingSource.AddNew()
+        End If
     End Sub
+
     Private Function valida_datos() As Boolean
         Dim ban As Boolean = False
         Dim ocurriounError As Integer = 0
@@ -90,11 +88,14 @@ Public Class frmCatDependencias
         End Try
     End Sub
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
-        grpOficinas.Enabled = True
-        btnEditar.Visible = False
-        btnGuardar.Visible = True
+        Me.btnEditar.Visible = False
+        Me.btnGuardar.Visible = Editar
+        Me.btnElimina.Visible = Borrar
+        If Me.btnGuardar.Visible Then
+            Me.grpOficinas.Enabled = True
+        End If
     End Sub
-    Private Sub btnElimina_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+    Private Sub btnElimina_Click(sender As Object, e As EventArgs) Handles btnElimina.Click
         Try
             If MsgBox("¿Seguro de Eliminar el Registro?", vbYesNo, "Confirmación") = vbYes Then
                 Me.Validate()
@@ -109,10 +110,7 @@ Public Class frmCatDependencias
         End Try
     End Sub
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Enabled = True
-        Me.Close()
-        Me.Dispose()
+        GenericCloseChlildForm(Me)
     End Sub
     Private Sub btnUndo_Click_1(sender As Object, e As EventArgs) Handles btnUndo.Click
         ErrorProvider1.Clear()
@@ -134,10 +132,7 @@ Public Class frmCatDependencias
     End Sub
 
     Private Sub frmCatDependencias_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Visible = True
+        GenericCloseChlildForm(Me)
     End Sub
 
 

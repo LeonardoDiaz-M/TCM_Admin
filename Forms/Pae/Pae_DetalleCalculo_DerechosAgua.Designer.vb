@@ -65,15 +65,15 @@ Partial Class Pae_DetalleCalculo_DerechosAgua
         Me.btnBack = New System.Windows.Forms.ToolStripButton()
         Me.btnExportaExcel = New System.Windows.Forms.ToolStripButton()
         Me.griDetalle = New Infragistics.Win.UltraWinGrid.UltraGrid()
-        Me.DsPae = New TCMAdmin.dsPae()
         Me.ViePaeDetalleCalculoDerechoAguaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DsPae = New TCMAdmin.dsPae()
         Me.ViePaeDetalleCalculoDerechoAguaTableAdapter = New TCMAdmin.dsPaeTableAdapters.viePaeDetalleCalculoDerechoAguaTableAdapter()
         Me.ugeExporter = New Infragistics.Win.UltraWinGrid.ExcelExport.UltraGridExcelExporter(Me.components)
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
         CType(Me.griDetalle, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DsPae, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ViePaeDetalleCalculoDerechoAguaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DsPae, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BindingNavigator1
@@ -228,15 +228,15 @@ Partial Class Pae_DetalleCalculo_DerechosAgua
         Me.griDetalle.TabIndex = 11
         Me.griDetalle.Text = "UltraGrid1"
         '
-        'DsPae
-        '
-        Me.DsPae.DataSetName = "dsPae"
-        Me.DsPae.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'ViePaeDetalleCalculoDerechoAguaBindingSource
         '
         Me.ViePaeDetalleCalculoDerechoAguaBindingSource.DataMember = "viePaeDetalleCalculoDerechoAgua"
         Me.ViePaeDetalleCalculoDerechoAguaBindingSource.DataSource = Me.DsPae
+        '
+        'DsPae
+        '
+        Me.DsPae.DataSetName = "dsPae"
+        Me.DsPae.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ViePaeDetalleCalculoDerechoAguaTableAdapter
         '
@@ -246,7 +246,9 @@ Partial Class Pae_DetalleCalculo_DerechosAgua
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(962, 509)
+        Me.ControlBox = False
         Me.Controls.Add(Me.griDetalle)
         Me.Controls.Add(Me.BindingNavigator1)
         Me.Name = "Pae_DetalleCalculo_DerechosAgua"
@@ -256,8 +258,8 @@ Partial Class Pae_DetalleCalculo_DerechosAgua
         Me.BindingNavigator1.ResumeLayout(False)
         Me.BindingNavigator1.PerformLayout()
         CType(Me.griDetalle, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DsPae, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ViePaeDetalleCalculoDerechoAguaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DsPae, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

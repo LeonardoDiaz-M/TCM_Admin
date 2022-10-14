@@ -90,9 +90,6 @@ Partial Class PaeImpuestoPredial
         Me.barCalculo = New System.Windows.Forms.ProgressBar()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.CLIQPREDBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.C_LIQ_PREDTableAdapter = New TCMAdmin.dsPaeTableAdapters.C_LIQ_PREDTableAdapter()
-        Me.PaeEncabezadoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Pae_EncabezadoTableAdapter = New TCMAdmin.dsPaeTableAdapters.Pae_EncabezadoTableAdapter()
         Me.ArcpredialBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Arc_predialTableAdapter = New TCMAdmin.dsPaeTableAdapters.arc_predialTableAdapter()
         Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
@@ -139,7 +136,6 @@ Partial Class PaeImpuestoPredial
         CType(Me.optReporte, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CLIQPREDBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PaeEncabezadoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ArcpredialBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
@@ -148,7 +144,6 @@ Partial Class PaeImpuestoPredial
         'gruDocAuxCobranza
         '
         Me.gruDocAuxCobranza.Controls.Add(Me.optDocAuxCobranza)
-        Me.gruDocAuxCobranza.Enabled = False
         Me.gruDocAuxCobranza.Location = New System.Drawing.Point(470, 310)
         Me.gruDocAuxCobranza.Name = "gruDocAuxCobranza"
         Me.gruDocAuxCobranza.Size = New System.Drawing.Size(318, 98)
@@ -159,9 +154,9 @@ Partial Class PaeImpuestoPredial
         'optDocAuxCobranza
         '
         ValueListItem7.DataValue = "1"
-        ValueListItem7.DisplayText = "Carta invitación sin liquidación de adeudo."
+        ValueListItem7.DisplayText = "Invitación al pago del impuesto Predial"
         ValueListItem8.DataValue = "2"
-        ValueListItem8.DisplayText = "Carta invitación con liquidación de adeudo."
+        ValueListItem8.DisplayText = "Requerimiento de Documentación CFEM Art. 20 Bis"
         ValueListItem13.DataValue = "3"
         ValueListItem13.DisplayText = "Citatorio."
         Me.optDocAuxCobranza.Items.AddRange(New Infragistics.Win.ValueListItem() {ValueListItem7, ValueListItem8, ValueListItem13})
@@ -174,7 +169,6 @@ Partial Class PaeImpuestoPredial
         'gruDocumentospae
         '
         Me.gruDocumentospae.Controls.Add(Me.optDocumentospae)
-        Me.gruDocumentospae.Enabled = False
         Me.gruDocumentospae.Location = New System.Drawing.Point(470, 412)
         Me.gruDocumentospae.Name = "gruDocumentospae"
         Me.gruDocumentospae.Size = New System.Drawing.Size(318, 100)
@@ -221,7 +215,7 @@ Partial Class PaeImpuestoPredial
         '
         Me.uneFolioFinal.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.uneFolioFinal.Location = New System.Drawing.Point(319, 47)
-        Me.uneFolioFinal.MaskInput = "999"
+        Me.uneFolioFinal.MaskInput = "99999"
         Me.uneFolioFinal.Name = "uneFolioFinal"
         Me.uneFolioFinal.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
         Me.uneFolioFinal.Size = New System.Drawing.Size(51, 23)
@@ -240,7 +234,7 @@ Partial Class PaeImpuestoPredial
         '
         Me.uneFolioInicial.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.uneFolioInicial.Location = New System.Drawing.Point(137, 47)
-        Me.uneFolioInicial.MaskInput = "999"
+        Me.uneFolioInicial.MaskInput = "99999"
         Me.uneFolioInicial.Name = "uneFolioInicial"
         Me.uneFolioInicial.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
         Me.uneFolioInicial.Size = New System.Drawing.Size(51, 23)
@@ -522,7 +516,7 @@ Partial Class PaeImpuestoPredial
         Me.gruReporte.Controls.Add(Me.optReporte)
         Me.gruReporte.Location = New System.Drawing.Point(13, 310)
         Me.gruReporte.Name = "gruReporte"
-        Me.gruReporte.Size = New System.Drawing.Size(436, 202)
+        Me.gruReporte.Size = New System.Drawing.Size(451, 194)
         Me.gruReporte.TabIndex = 4
         Me.gruReporte.Text = "Reporte"
         Me.gruReporte.UseAppStyling = False
@@ -653,24 +647,6 @@ Partial Class PaeImpuestoPredial
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
-        'CLIQPREDBindingSource
-        '
-        Me.CLIQPREDBindingSource.DataMember = "C_LIQ_PRED"
-        Me.CLIQPREDBindingSource.DataSource = Me.DsPae
-        '
-        'C_LIQ_PREDTableAdapter
-        '
-        Me.C_LIQ_PREDTableAdapter.ClearBeforeFill = True
-        '
-        'PaeEncabezadoBindingSource
-        '
-        Me.PaeEncabezadoBindingSource.DataMember = "Pae_Encabezado"
-        Me.PaeEncabezadoBindingSource.DataSource = Me.DsPae
-        '
-        'Pae_EncabezadoTableAdapter
-        '
-        Me.Pae_EncabezadoTableAdapter.ClearBeforeFill = True
-        '
         'ArcpredialBindingSource
         '
         Me.ArcpredialBindingSource.DataMember = "arc_predial"
@@ -761,11 +737,11 @@ Partial Class PaeImpuestoPredial
         Me.Controls.Add(Me.barCalculo)
         Me.Controls.Add(Me.lblMessage)
         Me.Controls.Add(Me.UltraLabel2)
-        Me.Controls.Add(Me.gruReporte)
         Me.Controls.Add(Me.gruSeldatos)
         Me.Controls.Add(Me.gruDatospae)
         Me.Controls.Add(Me.gruDocumentospae)
         Me.Controls.Add(Me.gruDocAuxCobranza)
+        Me.Controls.Add(Me.gruReporte)
         Me.KeyPreview = True
         Me.Name = "PaeImpuestoPredial"
         CType(Me.gruDocAuxCobranza, System.ComponentModel.ISupportInitialize).EndInit()
@@ -811,7 +787,6 @@ Partial Class PaeImpuestoPredial
         CType(Me.optReporte, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CLIQPREDBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PaeEncabezadoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ArcpredialBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BindingNavigator1.ResumeLayout(False)
@@ -860,9 +835,6 @@ Partial Class PaeImpuestoPredial
     Friend WithEvents BackgroundWorker2 As System.ComponentModel.BackgroundWorker
     Friend WithEvents DsPae As dsPae
     Friend WithEvents CLIQPREDBindingSource As BindingSource
-    Friend WithEvents C_LIQ_PREDTableAdapter As dsPaeTableAdapters.C_LIQ_PREDTableAdapter
-    Friend WithEvents PaeEncabezadoBindingSource As BindingSource
-    Friend WithEvents Pae_EncabezadoTableAdapter As dsPaeTableAdapters.Pae_EncabezadoTableAdapter
     Friend WithEvents barCalculo As ProgressBar
     Friend WithEvents ArcpredialBindingSource As BindingSource
     Friend WithEvents Arc_predialTableAdapter As dsPaeTableAdapters.arc_predialTableAdapter

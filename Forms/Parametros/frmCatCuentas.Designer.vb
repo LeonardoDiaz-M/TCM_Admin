@@ -87,7 +87,10 @@ Partial Class frmCatCuentas
         Me.btnUndo = New System.Windows.Forms.ToolStripButton()
         Me.btnGuardar = New System.Windows.Forms.ToolStripButton()
         Me.btnEditar = New System.Windows.Forms.ToolStripButton()
-        Me.btnEliminar = New System.Windows.Forms.ToolStripButton()
+        Me.btnElimina = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
+        Me.lblCurrentMenu = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.btnNPrimero = New System.Windows.Forms.ToolStripButton()
         Me.btnNPrevio = New System.Windows.Forms.ToolStripButton()
@@ -160,11 +163,12 @@ Partial Class frmCatCuentas
         'BindingNavigator1
         '
         Me.BindingNavigator1.AddNewItem = Nothing
+        Me.BindingNavigator1.BackColor = System.Drawing.Color.White
         Me.BindingNavigator1.BindingSource = Me.BindingSource
         Me.BindingNavigator1.CountItem = Me.btnNTotal
         Me.BindingNavigator1.DeleteItem = Nothing
         Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(30, 30)
-        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnGuardar, Me.btnEditar, Me.btnEliminar, Me.ToolStripLabel1, Me.btnNPrimero, Me.btnNPrevio, Me.btnNCurrent, Me.btnNTotal, Me.btnNSiguiente, Me.btnNUltimo})
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnGuardar, Me.btnEditar, Me.btnElimina, Me.ToolStripSeparator1, Me.ToolStripLabel2, Me.lblCurrentMenu, Me.ToolStripLabel1, Me.btnNPrimero, Me.btnNPrevio, Me.btnNCurrent, Me.btnNTotal, Me.btnNSiguiente, Me.btnNUltimo})
         Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
         Me.BindingNavigator1.MoveFirstItem = Me.btnNPrimero
         Me.BindingNavigator1.MoveLastItem = Me.btnNUltimo
@@ -173,7 +177,7 @@ Partial Class frmCatCuentas
         Me.BindingNavigator1.Name = "BindingNavigator1"
         Me.BindingNavigator1.PositionItem = Me.btnNCurrent
         Me.BindingNavigator1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.BindingNavigator1.Size = New System.Drawing.Size(993, 37)
+        Me.BindingNavigator1.Size = New System.Drawing.Size(1324, 37)
         Me.BindingNavigator1.TabIndex = 22
         Me.BindingNavigator1.Text = "BindingNavigator1"
         '
@@ -190,7 +194,7 @@ Partial Class frmCatCuentas
         'btnNTotal
         '
         Me.btnNTotal.Name = "btnNTotal"
-        Me.btnNTotal.Size = New System.Drawing.Size(37, 34)
+        Me.btnNTotal.Size = New System.Drawing.Size(48, 34)
         Me.btnNTotal.Text = "de {0}"
         Me.btnNTotal.ToolTipText = "Número total de elementos"
         '
@@ -235,24 +239,41 @@ Partial Class frmCatCuentas
         Me.btnEditar.Text = "ToolStripButton1"
         Me.btnEditar.ToolTipText = "Editar registro"
         '
-        'btnEliminar
+        'btnElimina
         '
-        Me.btnEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnEliminar.Image = Global.TCMAdmin.My.Resources.Resources.IconDelete
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.RightToLeftAutoMirrorImage = True
-        Me.btnEliminar.Size = New System.Drawing.Size(34, 34)
-        Me.btnEliminar.Text = "Eliminar"
-        Me.btnEliminar.ToolTipText = "Eliminar registro"
-        Me.btnEliminar.Visible = False
+        Me.btnElimina.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnElimina.Image = Global.TCMAdmin.My.Resources.Resources.IconDelete
+        Me.btnElimina.Name = "btnElimina"
+        Me.btnElimina.RightToLeftAutoMirrorImage = True
+        Me.btnElimina.Size = New System.Drawing.Size(34, 34)
+        Me.btnElimina.Text = "Eliminar"
+        Me.btnElimina.ToolTipText = "Eliminar registro"
+        Me.btnElimina.Visible = False
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 37)
+        '
+        'ToolStripLabel2
+        '
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(53, 34)
+        Me.ToolStripLabel2.Text = "           "
+        '
+        'lblCurrentMenu
+        '
+        Me.lblCurrentMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentMenu.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblCurrentMenu.Name = "lblCurrentMenu"
+        Me.lblCurrentMenu.Size = New System.Drawing.Size(141, 34)
+        Me.lblCurrentMenu.Text = "ToolStripLabel2"
         '
         'ToolStripLabel1
         '
-        Me.ToolStripLabel1.AutoSize = False
-        Me.ToolStripLabel1.BackColor = System.Drawing.Color.Transparent
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(500, 34)
-        Me.ToolStripLabel1.Text = "                       "
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(53, 34)
+        Me.ToolStripLabel1.Text = "           "
         '
         'btnNPrimero
         '
@@ -278,7 +299,7 @@ Partial Class frmCatCuentas
         Me.btnNCurrent.AutoSize = False
         Me.btnNCurrent.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.btnNCurrent.Name = "btnNCurrent"
-        Me.btnNCurrent.Size = New System.Drawing.Size(50, 23)
+        Me.btnNCurrent.Size = New System.Drawing.Size(65, 27)
         Me.btnNCurrent.Text = "0"
         Me.btnNCurrent.ToolTipText = "Posición actual"
         '
@@ -305,9 +326,10 @@ Partial Class frmCatCuentas
         Appearance1.TextHAlignAsString = "Right"
         Me.UltraLabel13.Appearance = Appearance1
         Me.UltraLabel13.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel13.Location = New System.Drawing.Point(113, 66)
+        Me.UltraLabel13.Location = New System.Drawing.Point(151, 81)
+        Me.UltraLabel13.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel13.Name = "UltraLabel13"
-        Me.UltraLabel13.Size = New System.Drawing.Size(238, 20)
+        Me.UltraLabel13.Size = New System.Drawing.Size(317, 25)
         Me.UltraLabel13.TabIndex = 10
         Me.UltraLabel13.Text = "Clave de la cuenta contabilidad"
         '
@@ -316,9 +338,10 @@ Partial Class frmCatCuentas
         Appearance2.TextHAlignAsString = "Right"
         Me.lblPae.Appearance = Appearance2
         Me.lblPae.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPae.Location = New System.Drawing.Point(113, 37)
+        Me.lblPae.Location = New System.Drawing.Point(151, 46)
+        Me.lblPae.Margin = New System.Windows.Forms.Padding(4)
         Me.lblPae.Name = "lblPae"
-        Me.lblPae.Size = New System.Drawing.Size(238, 20)
+        Me.lblPae.Size = New System.Drawing.Size(317, 25)
         Me.lblPae.TabIndex = 9
         Me.lblPae.Text = "Clave de la cuenta"
         '
@@ -333,8 +356,9 @@ Partial Class frmCatCuentas
         Me.gruPrincipal.Dock = System.Windows.Forms.DockStyle.Top
         Me.gruPrincipal.Enabled = False
         Me.gruPrincipal.Location = New System.Drawing.Point(0, 37)
+        Me.gruPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.gruPrincipal.Name = "gruPrincipal"
-        Me.gruPrincipal.Size = New System.Drawing.Size(993, 120)
+        Me.gruPrincipal.Size = New System.Drawing.Size(1324, 148)
         Me.gruPrincipal.TabIndex = 30
         '
         'txtClaveCuenta
@@ -346,11 +370,12 @@ Partial Class frmCatCuentas
         Me.txtClaveCuenta.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "cve_cuenta", True))
         Me.txtClaveCuenta.EditAs = Infragistics.Win.UltraWinMaskedEdit.EditAsType.UseSpecifiedMask
         Me.txtClaveCuenta.InputMask = "######"
-        Me.txtClaveCuenta.Location = New System.Drawing.Point(366, 36)
+        Me.txtClaveCuenta.Location = New System.Drawing.Point(488, 44)
+        Me.txtClaveCuenta.Margin = New System.Windows.Forms.Padding(4)
         Me.txtClaveCuenta.Name = "txtClaveCuenta"
         Me.txtClaveCuenta.NonAutoSizeHeight = 20
         Me.txtClaveCuenta.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.txtClaveCuenta.Size = New System.Drawing.Size(110, 23)
+        Me.txtClaveCuenta.Size = New System.Drawing.Size(147, 26)
         Me.txtClaveCuenta.TabIndex = 0
         '
         'txtCuentaContable
@@ -362,20 +387,22 @@ Partial Class frmCatCuentas
         Me.txtCuentaContable.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "cve_conta", True))
         Me.txtCuentaContable.EditAs = Infragistics.Win.UltraWinMaskedEdit.EditAsType.UseSpecifiedMask
         Me.txtCuentaContable.InputMask = "####-##-##-##"
-        Me.txtCuentaContable.Location = New System.Drawing.Point(366, 64)
+        Me.txtCuentaContable.Location = New System.Drawing.Point(488, 79)
+        Me.txtCuentaContable.Margin = New System.Windows.Forms.Padding(4)
         Me.txtCuentaContable.Name = "txtCuentaContable"
         Me.txtCuentaContable.NonAutoSizeHeight = 20
         Me.txtCuentaContable.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.txtCuentaContable.Size = New System.Drawing.Size(110, 23)
+        Me.txtCuentaContable.Size = New System.Drawing.Size(147, 26)
         Me.txtCuentaContable.TabIndex = 2
         Me.txtCuentaContable.Text = "---"
         '
         'unePolizaImporte
         '
         Me.unePolizaImporte.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource, "pol_importe", True))
-        Me.unePolizaImporte.Location = New System.Drawing.Point(686, 65)
+        Me.unePolizaImporte.Location = New System.Drawing.Point(915, 80)
+        Me.unePolizaImporte.Margin = New System.Windows.Forms.Padding(4)
         Me.unePolizaImporte.Name = "unePolizaImporte"
-        Me.unePolizaImporte.Size = New System.Drawing.Size(100, 21)
+        Me.unePolizaImporte.Size = New System.Drawing.Size(133, 24)
         Me.unePolizaImporte.TabIndex = 11
         Me.unePolizaImporte.Visible = False
         '
@@ -390,11 +417,12 @@ Partial Class frmCatCuentas
         Me.txtDescClaveCuenta.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "nombre", True))
         Me.txtDescClaveCuenta.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2010
         Me.txtDescClaveCuenta.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDescClaveCuenta.Location = New System.Drawing.Point(480, 36)
+        Me.txtDescClaveCuenta.Location = New System.Drawing.Point(640, 44)
+        Me.txtDescClaveCuenta.Margin = New System.Windows.Forms.Padding(4)
         Me.txtDescClaveCuenta.MaxLength = 38
         Me.txtDescClaveCuenta.Name = "txtDescClaveCuenta"
         Me.txtDescClaveCuenta.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtDescClaveCuenta.Size = New System.Drawing.Size(314, 23)
+        Me.txtDescClaveCuenta.Size = New System.Drawing.Size(419, 27)
         Me.txtDescClaveCuenta.TabIndex = 1
         '
         'gruSecundario
@@ -431,11 +459,11 @@ Partial Class frmCatCuentas
         Me.gruSecundario.Controls.Add(Me.UltraLabel2)
         Me.gruSecundario.Dock = System.Windows.Forms.DockStyle.Fill
         Me.gruSecundario.Enabled = False
-        Me.gruSecundario.Location = New System.Drawing.Point(0, 157)
+        Me.gruSecundario.Location = New System.Drawing.Point(0, 185)
+        Me.gruSecundario.Margin = New System.Windows.Forms.Padding(4)
         Me.gruSecundario.Name = "gruSecundario"
-        Me.gruSecundario.Size = New System.Drawing.Size(993, 397)
+        Me.gruSecundario.Size = New System.Drawing.Size(1324, 497)
         Me.gruSecundario.TabIndex = 31
-        Me.gruSecundario.Visible = False
         '
         'cboDescSubsidioGastosEjecucion
         '
@@ -444,10 +472,11 @@ Partial Class frmCatCuentas
         Me.cboDescSubsidioGastosEjecucion.Enabled = False
         Me.cboDescSubsidioGastosEjecucion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDescSubsidioGastosEjecucion.FormattingEnabled = True
-        Me.cboDescSubsidioGastosEjecucion.Location = New System.Drawing.Point(480, 302)
+        Me.cboDescSubsidioGastosEjecucion.Location = New System.Drawing.Point(640, 372)
+        Me.cboDescSubsidioGastosEjecucion.Margin = New System.Windows.Forms.Padding(4)
         Me.cboDescSubsidioGastosEjecucion.MaxLength = 10
         Me.cboDescSubsidioGastosEjecucion.Name = "cboDescSubsidioGastosEjecucion"
-        Me.cboDescSubsidioGastosEjecucion.Size = New System.Drawing.Size(314, 21)
+        Me.cboDescSubsidioGastosEjecucion.Size = New System.Drawing.Size(417, 25)
         Me.cboDescSubsidioGastosEjecucion.TabIndex = 104
         '
         'cboDescSubsidioMultas
@@ -457,10 +486,11 @@ Partial Class frmCatCuentas
         Me.cboDescSubsidioMultas.Enabled = False
         Me.cboDescSubsidioMultas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDescSubsidioMultas.FormattingEnabled = True
-        Me.cboDescSubsidioMultas.Location = New System.Drawing.Point(480, 275)
+        Me.cboDescSubsidioMultas.Location = New System.Drawing.Point(640, 338)
+        Me.cboDescSubsidioMultas.Margin = New System.Windows.Forms.Padding(4)
         Me.cboDescSubsidioMultas.MaxLength = 10
         Me.cboDescSubsidioMultas.Name = "cboDescSubsidioMultas"
-        Me.cboDescSubsidioMultas.Size = New System.Drawing.Size(314, 21)
+        Me.cboDescSubsidioMultas.Size = New System.Drawing.Size(417, 25)
         Me.cboDescSubsidioMultas.TabIndex = 103
         '
         'cboDescSubsidioRecargos
@@ -470,10 +500,11 @@ Partial Class frmCatCuentas
         Me.cboDescSubsidioRecargos.Enabled = False
         Me.cboDescSubsidioRecargos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDescSubsidioRecargos.FormattingEnabled = True
-        Me.cboDescSubsidioRecargos.Location = New System.Drawing.Point(480, 247)
+        Me.cboDescSubsidioRecargos.Location = New System.Drawing.Point(640, 304)
+        Me.cboDescSubsidioRecargos.Margin = New System.Windows.Forms.Padding(4)
         Me.cboDescSubsidioRecargos.MaxLength = 10
         Me.cboDescSubsidioRecargos.Name = "cboDescSubsidioRecargos"
-        Me.cboDescSubsidioRecargos.Size = New System.Drawing.Size(314, 21)
+        Me.cboDescSubsidioRecargos.Size = New System.Drawing.Size(417, 25)
         Me.cboDescSubsidioRecargos.TabIndex = 102
         '
         'cboDescSubsidioIngresoCorriente
@@ -483,10 +514,11 @@ Partial Class frmCatCuentas
         Me.cboDescSubsidioIngresoCorriente.Enabled = False
         Me.cboDescSubsidioIngresoCorriente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDescSubsidioIngresoCorriente.FormattingEnabled = True
-        Me.cboDescSubsidioIngresoCorriente.Location = New System.Drawing.Point(480, 219)
+        Me.cboDescSubsidioIngresoCorriente.Location = New System.Drawing.Point(640, 270)
+        Me.cboDescSubsidioIngresoCorriente.Margin = New System.Windows.Forms.Padding(4)
         Me.cboDescSubsidioIngresoCorriente.MaxLength = 10
         Me.cboDescSubsidioIngresoCorriente.Name = "cboDescSubsidioIngresoCorriente"
-        Me.cboDescSubsidioIngresoCorriente.Size = New System.Drawing.Size(314, 21)
+        Me.cboDescSubsidioIngresoCorriente.Size = New System.Drawing.Size(417, 25)
         Me.cboDescSubsidioIngresoCorriente.TabIndex = 101
         '
         'cboDescGastosEjecucion
@@ -496,10 +528,11 @@ Partial Class frmCatCuentas
         Me.cboDescGastosEjecucion.Enabled = False
         Me.cboDescGastosEjecucion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDescGastosEjecucion.FormattingEnabled = True
-        Me.cboDescGastosEjecucion.Location = New System.Drawing.Point(480, 174)
+        Me.cboDescGastosEjecucion.Location = New System.Drawing.Point(640, 214)
+        Me.cboDescGastosEjecucion.Margin = New System.Windows.Forms.Padding(4)
         Me.cboDescGastosEjecucion.MaxLength = 10
         Me.cboDescGastosEjecucion.Name = "cboDescGastosEjecucion"
-        Me.cboDescGastosEjecucion.Size = New System.Drawing.Size(314, 21)
+        Me.cboDescGastosEjecucion.Size = New System.Drawing.Size(417, 25)
         Me.cboDescGastosEjecucion.TabIndex = 100
         '
         'cboDescMultas
@@ -509,10 +542,11 @@ Partial Class frmCatCuentas
         Me.cboDescMultas.Enabled = False
         Me.cboDescMultas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDescMultas.FormattingEnabled = True
-        Me.cboDescMultas.Location = New System.Drawing.Point(480, 147)
+        Me.cboDescMultas.Location = New System.Drawing.Point(640, 181)
+        Me.cboDescMultas.Margin = New System.Windows.Forms.Padding(4)
         Me.cboDescMultas.MaxLength = 10
         Me.cboDescMultas.Name = "cboDescMultas"
-        Me.cboDescMultas.Size = New System.Drawing.Size(314, 21)
+        Me.cboDescMultas.Size = New System.Drawing.Size(417, 25)
         Me.cboDescMultas.TabIndex = 99
         '
         'cboDescIngresoRezago
@@ -522,10 +556,11 @@ Partial Class frmCatCuentas
         Me.cboDescIngresoRezago.Enabled = False
         Me.cboDescIngresoRezago.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDescIngresoRezago.FormattingEnabled = True
-        Me.cboDescIngresoRezago.Location = New System.Drawing.Point(480, 93)
+        Me.cboDescIngresoRezago.Location = New System.Drawing.Point(640, 114)
+        Me.cboDescIngresoRezago.Margin = New System.Windows.Forms.Padding(4)
         Me.cboDescIngresoRezago.MaxLength = 10
         Me.cboDescIngresoRezago.Name = "cboDescIngresoRezago"
-        Me.cboDescIngresoRezago.Size = New System.Drawing.Size(314, 21)
+        Me.cboDescIngresoRezago.Size = New System.Drawing.Size(417, 25)
         Me.cboDescIngresoRezago.TabIndex = 98
         '
         'cboDescIngresoCorriente
@@ -535,10 +570,11 @@ Partial Class frmCatCuentas
         Me.cboDescIngresoCorriente.Enabled = False
         Me.cboDescIngresoCorriente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDescIngresoCorriente.FormattingEnabled = True
-        Me.cboDescIngresoCorriente.Location = New System.Drawing.Point(480, 66)
+        Me.cboDescIngresoCorriente.Location = New System.Drawing.Point(640, 81)
+        Me.cboDescIngresoCorriente.Margin = New System.Windows.Forms.Padding(4)
         Me.cboDescIngresoCorriente.MaxLength = 10
         Me.cboDescIngresoCorriente.Name = "cboDescIngresoCorriente"
-        Me.cboDescIngresoCorriente.Size = New System.Drawing.Size(314, 21)
+        Me.cboDescIngresoCorriente.Size = New System.Drawing.Size(417, 25)
         Me.cboDescIngresoCorriente.TabIndex = 97
         '
         'cboDescRecargos
@@ -548,10 +584,11 @@ Partial Class frmCatCuentas
         Me.cboDescRecargos.Enabled = False
         Me.cboDescRecargos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDescRecargos.FormattingEnabled = True
-        Me.cboDescRecargos.Location = New System.Drawing.Point(480, 120)
+        Me.cboDescRecargos.Location = New System.Drawing.Point(640, 148)
+        Me.cboDescRecargos.Margin = New System.Windows.Forms.Padding(4)
         Me.cboDescRecargos.MaxLength = 10
         Me.cboDescRecargos.Name = "cboDescRecargos"
-        Me.cboDescRecargos.Size = New System.Drawing.Size(314, 21)
+        Me.cboDescRecargos.Size = New System.Drawing.Size(417, 25)
         Me.cboDescRecargos.TabIndex = 96
         '
         'cboDescDiarioRecaudacion
@@ -561,10 +598,11 @@ Partial Class frmCatCuentas
         Me.cboDescDiarioRecaudacion.Enabled = False
         Me.cboDescDiarioRecaudacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDescDiarioRecaudacion.FormattingEnabled = True
-        Me.cboDescDiarioRecaudacion.Location = New System.Drawing.Point(480, 39)
+        Me.cboDescDiarioRecaudacion.Location = New System.Drawing.Point(640, 48)
+        Me.cboDescDiarioRecaudacion.Margin = New System.Windows.Forms.Padding(4)
         Me.cboDescDiarioRecaudacion.MaxLength = 10
         Me.cboDescDiarioRecaudacion.Name = "cboDescDiarioRecaudacion"
-        Me.cboDescDiarioRecaudacion.Size = New System.Drawing.Size(314, 21)
+        Me.cboDescDiarioRecaudacion.Size = New System.Drawing.Size(417, 25)
         Me.cboDescDiarioRecaudacion.TabIndex = 95
         '
         'ucoSubsidioGastosEjecucion
@@ -577,7 +615,9 @@ Partial Class frmCatCuentas
         Me.ucoSubsidioGastosEjecucion.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoSubsidioGastosEjecucion.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "cve_subg", True))
         UltraGridBand1.ColHeadersVisible = False
+        UltraGridColumn1.Header.Editor = Nothing
         UltraGridColumn1.Header.VisiblePosition = 0
+        UltraGridColumn2.Header.Editor = Nothing
         UltraGridColumn2.Header.VisiblePosition = 1
         UltraGridColumn2.Width = 320
         UltraGridBand1.Columns.AddRange(New Object() {UltraGridColumn1, UltraGridColumn2})
@@ -585,11 +625,12 @@ Partial Class frmCatCuentas
         Me.ucoSubsidioGastosEjecucion.DisplayMember = "nombre"
         Me.ucoSubsidioGastosEjecucion.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.VerticalResize
         Me.ucoSubsidioGastosEjecucion.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ucoSubsidioGastosEjecucion.Location = New System.Drawing.Point(366, 300)
+        Me.ucoSubsidioGastosEjecucion.Location = New System.Drawing.Point(488, 369)
+        Me.ucoSubsidioGastosEjecucion.Margin = New System.Windows.Forms.Padding(4)
         Me.ucoSubsidioGastosEjecucion.MaxDropDownItems = 30
         Me.ucoSubsidioGastosEjecucion.Name = "ucoSubsidioGastosEjecucion"
         Me.ucoSubsidioGastosEjecucion.NullText = "Seleccione..."
-        Me.ucoSubsidioGastosEjecucion.Size = New System.Drawing.Size(110, 24)
+        Me.ucoSubsidioGastosEjecucion.Size = New System.Drawing.Size(147, 28)
         Me.ucoSubsidioGastosEjecucion.TabIndex = 9
         Me.ucoSubsidioGastosEjecucion.ValueMember = "cve_cuenta"
         '
@@ -603,7 +644,9 @@ Partial Class frmCatCuentas
         Me.ucoSubsidioMultas.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoSubsidioMultas.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "cve_subm", True))
         UltraGridBand2.ColHeadersVisible = False
+        UltraGridColumn3.Header.Editor = Nothing
         UltraGridColumn3.Header.VisiblePosition = 0
+        UltraGridColumn4.Header.Editor = Nothing
         UltraGridColumn4.Header.VisiblePosition = 1
         UltraGridColumn4.Width = 320
         UltraGridBand2.Columns.AddRange(New Object() {UltraGridColumn3, UltraGridColumn4})
@@ -611,11 +654,12 @@ Partial Class frmCatCuentas
         Me.ucoSubsidioMultas.DisplayMember = "nombre"
         Me.ucoSubsidioMultas.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.VerticalResize
         Me.ucoSubsidioMultas.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ucoSubsidioMultas.Location = New System.Drawing.Point(366, 272)
+        Me.ucoSubsidioMultas.Location = New System.Drawing.Point(488, 335)
+        Me.ucoSubsidioMultas.Margin = New System.Windows.Forms.Padding(4)
         Me.ucoSubsidioMultas.MaxDropDownItems = 30
         Me.ucoSubsidioMultas.Name = "ucoSubsidioMultas"
         Me.ucoSubsidioMultas.NullText = "Seleccione..."
-        Me.ucoSubsidioMultas.Size = New System.Drawing.Size(110, 24)
+        Me.ucoSubsidioMultas.Size = New System.Drawing.Size(147, 28)
         Me.ucoSubsidioMultas.TabIndex = 8
         Me.ucoSubsidioMultas.ValueMember = "cve_cuenta"
         '
@@ -629,7 +673,9 @@ Partial Class frmCatCuentas
         Me.ucoSubsidioRecargos.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoSubsidioRecargos.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "cve_subr", True))
         UltraGridBand3.ColHeadersVisible = False
+        UltraGridColumn5.Header.Editor = Nothing
         UltraGridColumn5.Header.VisiblePosition = 0
+        UltraGridColumn6.Header.Editor = Nothing
         UltraGridColumn6.Header.VisiblePosition = 1
         UltraGridColumn6.Width = 320
         UltraGridBand3.Columns.AddRange(New Object() {UltraGridColumn5, UltraGridColumn6})
@@ -637,11 +683,12 @@ Partial Class frmCatCuentas
         Me.ucoSubsidioRecargos.DisplayMember = "nombre"
         Me.ucoSubsidioRecargos.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.VerticalResize
         Me.ucoSubsidioRecargos.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ucoSubsidioRecargos.Location = New System.Drawing.Point(366, 245)
+        Me.ucoSubsidioRecargos.Location = New System.Drawing.Point(488, 302)
+        Me.ucoSubsidioRecargos.Margin = New System.Windows.Forms.Padding(4)
         Me.ucoSubsidioRecargos.MaxDropDownItems = 30
         Me.ucoSubsidioRecargos.Name = "ucoSubsidioRecargos"
         Me.ucoSubsidioRecargos.NullText = "Seleccione..."
-        Me.ucoSubsidioRecargos.Size = New System.Drawing.Size(110, 24)
+        Me.ucoSubsidioRecargos.Size = New System.Drawing.Size(147, 28)
         Me.ucoSubsidioRecargos.TabIndex = 7
         Me.ucoSubsidioRecargos.ValueMember = "cve_cuenta"
         '
@@ -655,7 +702,9 @@ Partial Class frmCatCuentas
         Me.ucoSubsidioIngresoCorriente.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoSubsidioIngresoCorriente.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "cve_subc", True))
         UltraGridBand4.ColHeadersVisible = False
+        UltraGridColumn7.Header.Editor = Nothing
         UltraGridColumn7.Header.VisiblePosition = 0
+        UltraGridColumn8.Header.Editor = Nothing
         UltraGridColumn8.Header.VisiblePosition = 1
         UltraGridColumn8.Width = 320
         UltraGridBand4.Columns.AddRange(New Object() {UltraGridColumn7, UltraGridColumn8})
@@ -663,11 +712,12 @@ Partial Class frmCatCuentas
         Me.ucoSubsidioIngresoCorriente.DisplayMember = "nombre"
         Me.ucoSubsidioIngresoCorriente.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.VerticalResize
         Me.ucoSubsidioIngresoCorriente.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ucoSubsidioIngresoCorriente.Location = New System.Drawing.Point(366, 218)
+        Me.ucoSubsidioIngresoCorriente.Location = New System.Drawing.Point(488, 268)
+        Me.ucoSubsidioIngresoCorriente.Margin = New System.Windows.Forms.Padding(4)
         Me.ucoSubsidioIngresoCorriente.MaxDropDownItems = 30
         Me.ucoSubsidioIngresoCorriente.Name = "ucoSubsidioIngresoCorriente"
         Me.ucoSubsidioIngresoCorriente.NullText = "Seleccione..."
-        Me.ucoSubsidioIngresoCorriente.Size = New System.Drawing.Size(110, 24)
+        Me.ucoSubsidioIngresoCorriente.Size = New System.Drawing.Size(147, 28)
         Me.ucoSubsidioIngresoCorriente.TabIndex = 6
         Me.ucoSubsidioIngresoCorriente.ValueMember = "cve_cuenta"
         '
@@ -681,7 +731,9 @@ Partial Class frmCatCuentas
         Me.UcoGastosEjecucion.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.UcoGastosEjecucion.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "cve_gastos", True))
         UltraGridBand5.ColHeadersVisible = False
+        UltraGridColumn9.Header.Editor = Nothing
         UltraGridColumn9.Header.VisiblePosition = 0
+        UltraGridColumn10.Header.Editor = Nothing
         UltraGridColumn10.Header.VisiblePosition = 1
         UltraGridColumn10.Width = 320
         UltraGridBand5.Columns.AddRange(New Object() {UltraGridColumn9, UltraGridColumn10})
@@ -689,11 +741,12 @@ Partial Class frmCatCuentas
         Me.UcoGastosEjecucion.DisplayMember = "nombre"
         Me.UcoGastosEjecucion.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.VerticalResize
         Me.UcoGastosEjecucion.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UcoGastosEjecucion.Location = New System.Drawing.Point(366, 173)
+        Me.UcoGastosEjecucion.Location = New System.Drawing.Point(488, 213)
+        Me.UcoGastosEjecucion.Margin = New System.Windows.Forms.Padding(4)
         Me.UcoGastosEjecucion.MaxDropDownItems = 30
         Me.UcoGastosEjecucion.Name = "UcoGastosEjecucion"
         Me.UcoGastosEjecucion.NullText = "Seleccione..."
-        Me.UcoGastosEjecucion.Size = New System.Drawing.Size(110, 24)
+        Me.UcoGastosEjecucion.Size = New System.Drawing.Size(147, 28)
         Me.UcoGastosEjecucion.TabIndex = 5
         Me.UcoGastosEjecucion.ValueMember = "cve_cuenta"
         '
@@ -707,7 +760,9 @@ Partial Class frmCatCuentas
         Me.ucoMultas.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoMultas.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "cve_multas", True))
         UltraGridBand6.ColHeadersVisible = False
+        UltraGridColumn11.Header.Editor = Nothing
         UltraGridColumn11.Header.VisiblePosition = 0
+        UltraGridColumn12.Header.Editor = Nothing
         UltraGridColumn12.Header.VisiblePosition = 1
         UltraGridColumn12.Width = 320
         UltraGridBand6.Columns.AddRange(New Object() {UltraGridColumn11, UltraGridColumn12})
@@ -715,11 +770,12 @@ Partial Class frmCatCuentas
         Me.ucoMultas.DisplayMember = "nombre"
         Me.ucoMultas.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.VerticalResize
         Me.ucoMultas.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ucoMultas.Location = New System.Drawing.Point(366, 145)
+        Me.ucoMultas.Location = New System.Drawing.Point(488, 178)
+        Me.ucoMultas.Margin = New System.Windows.Forms.Padding(4)
         Me.ucoMultas.MaxDropDownItems = 30
         Me.ucoMultas.Name = "ucoMultas"
         Me.ucoMultas.NullText = "Seleccione..."
-        Me.ucoMultas.Size = New System.Drawing.Size(110, 24)
+        Me.ucoMultas.Size = New System.Drawing.Size(147, 28)
         Me.ucoMultas.TabIndex = 4
         Me.ucoMultas.ValueMember = "cve_cuenta"
         '
@@ -733,7 +789,9 @@ Partial Class frmCatCuentas
         Me.ucoRecargos.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoRecargos.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "cve_rec", True))
         UltraGridBand7.ColHeadersVisible = False
+        UltraGridColumn13.Header.Editor = Nothing
         UltraGridColumn13.Header.VisiblePosition = 0
+        UltraGridColumn14.Header.Editor = Nothing
         UltraGridColumn14.Header.VisiblePosition = 1
         UltraGridColumn14.Width = 320
         UltraGridBand7.Columns.AddRange(New Object() {UltraGridColumn13, UltraGridColumn14})
@@ -741,11 +799,12 @@ Partial Class frmCatCuentas
         Me.ucoRecargos.DisplayMember = "nombre"
         Me.ucoRecargos.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.VerticalResize
         Me.ucoRecargos.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ucoRecargos.Location = New System.Drawing.Point(366, 118)
+        Me.ucoRecargos.Location = New System.Drawing.Point(488, 145)
+        Me.ucoRecargos.Margin = New System.Windows.Forms.Padding(4)
         Me.ucoRecargos.MaxDropDownItems = 30
         Me.ucoRecargos.Name = "ucoRecargos"
         Me.ucoRecargos.NullText = "Seleccione..."
-        Me.ucoRecargos.Size = New System.Drawing.Size(110, 24)
+        Me.ucoRecargos.Size = New System.Drawing.Size(147, 28)
         Me.ucoRecargos.TabIndex = 3
         Me.ucoRecargos.ValueMember = "cve_cuenta"
         '
@@ -759,7 +818,9 @@ Partial Class frmCatCuentas
         Me.ucoIngresoRezago.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoIngresoRezago.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "cve_rez", True))
         UltraGridBand8.ColHeadersVisible = False
+        UltraGridColumn15.Header.Editor = Nothing
         UltraGridColumn15.Header.VisiblePosition = 0
+        UltraGridColumn16.Header.Editor = Nothing
         UltraGridColumn16.Header.VisiblePosition = 1
         UltraGridColumn16.Width = 320
         UltraGridBand8.Columns.AddRange(New Object() {UltraGridColumn15, UltraGridColumn16})
@@ -767,11 +828,12 @@ Partial Class frmCatCuentas
         Me.ucoIngresoRezago.DisplayMember = "nombre"
         Me.ucoIngresoRezago.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.VerticalResize
         Me.ucoIngresoRezago.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ucoIngresoRezago.Location = New System.Drawing.Point(366, 91)
+        Me.ucoIngresoRezago.Location = New System.Drawing.Point(488, 112)
+        Me.ucoIngresoRezago.Margin = New System.Windows.Forms.Padding(4)
         Me.ucoIngresoRezago.MaxDropDownItems = 30
         Me.ucoIngresoRezago.Name = "ucoIngresoRezago"
         Me.ucoIngresoRezago.NullText = "Seleccione..."
-        Me.ucoIngresoRezago.Size = New System.Drawing.Size(110, 24)
+        Me.ucoIngresoRezago.Size = New System.Drawing.Size(147, 28)
         Me.ucoIngresoRezago.TabIndex = 2
         Me.ucoIngresoRezago.ValueMember = "cve_cuenta"
         '
@@ -785,7 +847,9 @@ Partial Class frmCatCuentas
         Me.ucoIngresoCorriente.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoIngresoCorriente.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "cve_corrie", True))
         UltraGridBand9.ColHeadersVisible = False
+        UltraGridColumn17.Header.Editor = Nothing
         UltraGridColumn17.Header.VisiblePosition = 0
+        UltraGridColumn18.Header.Editor = Nothing
         UltraGridColumn18.Header.VisiblePosition = 1
         UltraGridColumn18.Width = 320
         UltraGridBand9.Columns.AddRange(New Object() {UltraGridColumn17, UltraGridColumn18})
@@ -793,11 +857,12 @@ Partial Class frmCatCuentas
         Me.ucoIngresoCorriente.DisplayMember = "nombre"
         Me.ucoIngresoCorriente.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.VerticalResize
         Me.ucoIngresoCorriente.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ucoIngresoCorriente.Location = New System.Drawing.Point(366, 64)
+        Me.ucoIngresoCorriente.Location = New System.Drawing.Point(488, 79)
+        Me.ucoIngresoCorriente.Margin = New System.Windows.Forms.Padding(4)
         Me.ucoIngresoCorriente.MaxDropDownItems = 30
         Me.ucoIngresoCorriente.Name = "ucoIngresoCorriente"
         Me.ucoIngresoCorriente.NullText = "Seleccione..."
-        Me.ucoIngresoCorriente.Size = New System.Drawing.Size(110, 24)
+        Me.ucoIngresoCorriente.Size = New System.Drawing.Size(147, 28)
         Me.ucoIngresoCorriente.TabIndex = 1
         Me.ucoIngresoCorriente.ValueMember = "cve_cuenta"
         '
@@ -811,8 +876,10 @@ Partial Class frmCatCuentas
         Me.ucoDiarioRecaudacion.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.ucoDiarioRecaudacion.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource, "cve_diario", True))
         UltraGridBand10.ColHeadersVisible = False
+        UltraGridColumn39.Header.Editor = Nothing
         UltraGridColumn39.Header.VisiblePosition = 0
         UltraGridColumn39.Width = 100
+        UltraGridColumn40.Header.Editor = Nothing
         UltraGridColumn40.Header.VisiblePosition = 1
         UltraGridColumn40.Width = 320
         UltraGridBand10.Columns.AddRange(New Object() {UltraGridColumn39, UltraGridColumn40})
@@ -820,11 +887,12 @@ Partial Class frmCatCuentas
         Me.ucoDiarioRecaudacion.DisplayMember = "nombre"
         Me.ucoDiarioRecaudacion.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.VerticalResize
         Me.ucoDiarioRecaudacion.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ucoDiarioRecaudacion.Location = New System.Drawing.Point(366, 37)
+        Me.ucoDiarioRecaudacion.Location = New System.Drawing.Point(488, 46)
+        Me.ucoDiarioRecaudacion.Margin = New System.Windows.Forms.Padding(4)
         Me.ucoDiarioRecaudacion.MaxDropDownItems = 30
         Me.ucoDiarioRecaudacion.Name = "ucoDiarioRecaudacion"
         Me.ucoDiarioRecaudacion.NullText = "Seleccione..."
-        Me.ucoDiarioRecaudacion.Size = New System.Drawing.Size(110, 24)
+        Me.ucoDiarioRecaudacion.Size = New System.Drawing.Size(147, 28)
         Me.ucoDiarioRecaudacion.TabIndex = 0
         Me.ucoDiarioRecaudacion.ValueMember = "cve_cuenta"
         '
@@ -833,9 +901,10 @@ Partial Class frmCatCuentas
         Appearance16.TextHAlignAsString = "Right"
         Me.UltraLabel9.Appearance = Appearance16
         Me.UltraLabel9.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel9.Location = New System.Drawing.Point(138, 274)
+        Me.UltraLabel9.Location = New System.Drawing.Point(184, 337)
+        Me.UltraLabel9.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel9.Name = "UltraLabel9"
-        Me.UltraLabel9.Size = New System.Drawing.Size(213, 20)
+        Me.UltraLabel9.Size = New System.Drawing.Size(284, 25)
         Me.UltraLabel9.TabIndex = 32
         Me.UltraLabel9.Text = "Subsidio Multas"
         '
@@ -844,9 +913,10 @@ Partial Class frmCatCuentas
         Appearance17.TextHAlignAsString = "Right"
         Me.UltraLabel10.Appearance = Appearance17
         Me.UltraLabel10.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel10.Location = New System.Drawing.Point(138, 301)
+        Me.UltraLabel10.Location = New System.Drawing.Point(184, 370)
+        Me.UltraLabel10.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel10.Name = "UltraLabel10"
-        Me.UltraLabel10.Size = New System.Drawing.Size(213, 20)
+        Me.UltraLabel10.Size = New System.Drawing.Size(284, 25)
         Me.UltraLabel10.TabIndex = 33
         Me.UltraLabel10.Text = "Subsidio Gastos Ejecución"
         '
@@ -855,9 +925,10 @@ Partial Class frmCatCuentas
         Appearance18.TextHAlignAsString = "Right"
         Me.UltraLabel7.Appearance = Appearance18
         Me.UltraLabel7.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel7.Location = New System.Drawing.Point(138, 219)
+        Me.UltraLabel7.Location = New System.Drawing.Point(184, 270)
+        Me.UltraLabel7.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel7.Name = "UltraLabel7"
-        Me.UltraLabel7.Size = New System.Drawing.Size(213, 20)
+        Me.UltraLabel7.Size = New System.Drawing.Size(284, 25)
         Me.UltraLabel7.TabIndex = 20
         Me.UltraLabel7.Text = "Subsidio Corriente"
         '
@@ -866,9 +937,10 @@ Partial Class frmCatCuentas
         Appearance19.TextHAlignAsString = "Right"
         Me.UltraLabel8.Appearance = Appearance19
         Me.UltraLabel8.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel8.Location = New System.Drawing.Point(138, 245)
+        Me.UltraLabel8.Location = New System.Drawing.Point(184, 302)
+        Me.UltraLabel8.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel8.Name = "UltraLabel8"
-        Me.UltraLabel8.Size = New System.Drawing.Size(213, 20)
+        Me.UltraLabel8.Size = New System.Drawing.Size(284, 25)
         Me.UltraLabel8.TabIndex = 21
         Me.UltraLabel8.Text = "Subsidio Recargos"
         '
@@ -877,9 +949,10 @@ Partial Class frmCatCuentas
         Appearance20.TextHAlignAsString = "Right"
         Me.UltraLabel5.Appearance = Appearance20
         Me.UltraLabel5.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel5.Location = New System.Drawing.Point(138, 146)
+        Me.UltraLabel5.Location = New System.Drawing.Point(184, 180)
+        Me.UltraLabel5.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel5.Name = "UltraLabel5"
-        Me.UltraLabel5.Size = New System.Drawing.Size(213, 20)
+        Me.UltraLabel5.Size = New System.Drawing.Size(284, 25)
         Me.UltraLabel5.TabIndex = 18
         Me.UltraLabel5.Text = "Multas"
         '
@@ -888,9 +961,10 @@ Partial Class frmCatCuentas
         Appearance21.TextHAlignAsString = "Right"
         Me.UltraLabel6.Appearance = Appearance21
         Me.UltraLabel6.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel6.Location = New System.Drawing.Point(138, 173)
+        Me.UltraLabel6.Location = New System.Drawing.Point(184, 213)
+        Me.UltraLabel6.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel6.Name = "UltraLabel6"
-        Me.UltraLabel6.Size = New System.Drawing.Size(213, 20)
+        Me.UltraLabel6.Size = New System.Drawing.Size(284, 25)
         Me.UltraLabel6.TabIndex = 19
         Me.UltraLabel6.Text = "Gastos de Ejecución"
         '
@@ -899,9 +973,10 @@ Partial Class frmCatCuentas
         Appearance22.TextHAlignAsString = "Right"
         Me.UltraLabel3.Appearance = Appearance22
         Me.UltraLabel3.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel3.Location = New System.Drawing.Point(138, 92)
+        Me.UltraLabel3.Location = New System.Drawing.Point(184, 113)
+        Me.UltraLabel3.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel3.Name = "UltraLabel3"
-        Me.UltraLabel3.Size = New System.Drawing.Size(213, 20)
+        Me.UltraLabel3.Size = New System.Drawing.Size(284, 25)
         Me.UltraLabel3.TabIndex = 16
         Me.UltraLabel3.Text = "Ingreso en Rezago"
         '
@@ -910,9 +985,10 @@ Partial Class frmCatCuentas
         Appearance23.TextHAlignAsString = "Right"
         Me.UltraLabel4.Appearance = Appearance23
         Me.UltraLabel4.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel4.Location = New System.Drawing.Point(138, 119)
+        Me.UltraLabel4.Location = New System.Drawing.Point(184, 146)
+        Me.UltraLabel4.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel4.Name = "UltraLabel4"
-        Me.UltraLabel4.Size = New System.Drawing.Size(213, 20)
+        Me.UltraLabel4.Size = New System.Drawing.Size(284, 25)
         Me.UltraLabel4.TabIndex = 17
         Me.UltraLabel4.Text = "Recargos"
         '
@@ -921,9 +997,10 @@ Partial Class frmCatCuentas
         Appearance24.TextHAlignAsString = "Right"
         Me.UltraLabel1.Appearance = Appearance24
         Me.UltraLabel1.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel1.Location = New System.Drawing.Point(138, 38)
+        Me.UltraLabel1.Location = New System.Drawing.Point(184, 47)
+        Me.UltraLabel1.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel1.Name = "UltraLabel1"
-        Me.UltraLabel1.Size = New System.Drawing.Size(213, 20)
+        Me.UltraLabel1.Size = New System.Drawing.Size(284, 25)
         Me.UltraLabel1.TabIndex = 14
         Me.UltraLabel1.Text = "Diario de Recaudación"
         '
@@ -932,9 +1009,10 @@ Partial Class frmCatCuentas
         Appearance25.TextHAlignAsString = "Right"
         Me.UltraLabel2.Appearance = Appearance25
         Me.UltraLabel2.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel2.Location = New System.Drawing.Point(138, 65)
+        Me.UltraLabel2.Location = New System.Drawing.Point(184, 80)
+        Me.UltraLabel2.Margin = New System.Windows.Forms.Padding(4)
         Me.UltraLabel2.Name = "UltraLabel2"
-        Me.UltraLabel2.Size = New System.Drawing.Size(213, 20)
+        Me.UltraLabel2.Size = New System.Drawing.Size(284, 25)
         Me.UltraLabel2.TabIndex = 15
         Me.UltraLabel2.Text = "Ingreso Corriente"
         '
@@ -948,13 +1026,16 @@ Partial Class frmCatCuentas
         '
         'frmCatCuentas
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(993, 554)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(1324, 682)
+        Me.ControlBox = False
         Me.Controls.Add(Me.gruSecundario)
         Me.Controls.Add(Me.gruPrincipal)
         Me.Controls.Add(Me.BindingNavigator1)
         Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmCatCuentas"
         Me.Text = "Catálogo de Cuentas de Ingreso"
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -992,8 +1073,7 @@ Partial Class frmCatCuentas
     Friend WithEvents btnUndo As ToolStripButton
     Friend WithEvents btnGuardar As ToolStripButton
     Friend WithEvents btnEditar As ToolStripButton
-    Friend WithEvents btnEliminar As ToolStripButton
-    Friend WithEvents ToolStripLabel1 As ToolStripLabel
+    Friend WithEvents btnElimina As ToolStripButton
     Friend WithEvents btnNPrimero As ToolStripButton
     Friend WithEvents btnNPrevio As ToolStripButton
     Friend WithEvents btnNCurrent As ToolStripTextBox
@@ -1041,4 +1121,8 @@ Partial Class frmCatCuentas
     Friend WithEvents unePolizaImporte As Infragistics.Win.UltraWinEditors.UltraNumericEditor
     Friend WithEvents txtCuentaContable As Infragistics.Win.UltraWinMaskedEdit.UltraMaskedEdit
     Friend WithEvents txtClaveCuenta As Infragistics.Win.UltraWinMaskedEdit.UltraMaskedEdit
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents ToolStripLabel2 As ToolStripLabel
+    Friend WithEvents lblCurrentMenu As ToolStripLabel
+    Friend WithEvents ToolStripLabel1 As ToolStripLabel
 End Class

@@ -24,10 +24,10 @@ Partial Class frmFactLegal
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFactLegal))
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Me.UltraMessageBoxManager1 = New Infragistics.Win.UltraMessageBox.UltraMessageBoxManager(Me.components)
-        Me.BindingNavigator2 = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.ParametrBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DsParametros = New TCMAdmin.dsParametros()
         Me.btnNTotal = New System.Windows.Forms.ToolStripLabel()
@@ -35,8 +35,12 @@ Partial Class frmFactLegal
         Me.btnUndo = New System.Windows.Forms.ToolStripButton()
         Me.btnGuardar = New System.Windows.Forms.ToolStripButton()
         Me.btnEditar = New System.Windows.Forms.ToolStripButton()
-        Me.btnEliminar = New System.Windows.Forms.ToolStripButton()
+        Me.btnElimina = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
+        Me.lblCurrentMenu = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.btnNPrimero = New System.Windows.Forms.ToolStripButton()
         Me.btnNPrevio = New System.Windows.Forms.ToolStripButton()
         Me.btnNCurrent = New System.Windows.Forms.ToolStripTextBox()
@@ -65,8 +69,8 @@ Partial Class frmFactLegal
         Me.UltraLabel14 = New Infragistics.Win.Misc.UltraLabel()
         Me.RecargosTableAdapter = New TCMAdmin.dsParametrosTableAdapters.recargosTableAdapter()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        CType(Me.BindingNavigator2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.BindingNavigator2.SuspendLayout()
+        CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.BindingNavigator1.SuspendLayout()
         CType(Me.ParametrBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DsParametros, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpParBasico, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -92,25 +96,26 @@ Partial Class frmFactLegal
         '
         Me.UltraMessageBoxManager1.ContainingControl = Me
         '
-        'BindingNavigator2
+        'BindingNavigator1
         '
-        Me.BindingNavigator2.AddNewItem = Nothing
-        Me.BindingNavigator2.BindingSource = Me.ParametrBindingSource
-        Me.BindingNavigator2.CountItem = Me.btnNTotal
-        Me.BindingNavigator2.DeleteItem = Nothing
-        Me.BindingNavigator2.ImageScalingSize = New System.Drawing.Size(30, 30)
-        Me.BindingNavigator2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnGuardar, Me.btnEditar, Me.btnEliminar, Me.ToolStripLabel2, Me.btnNPrimero, Me.btnNPrevio, Me.btnNCurrent, Me.btnNTotal, Me.btnNSiguiente, Me.btnNUltimo})
-        Me.BindingNavigator2.Location = New System.Drawing.Point(0, 0)
-        Me.BindingNavigator2.MoveFirstItem = Me.btnNPrimero
-        Me.BindingNavigator2.MoveLastItem = Me.btnNUltimo
-        Me.BindingNavigator2.MoveNextItem = Me.btnNSiguiente
-        Me.BindingNavigator2.MovePreviousItem = Me.btnNPrevio
-        Me.BindingNavigator2.Name = "BindingNavigator2"
-        Me.BindingNavigator2.PositionItem = Me.btnNCurrent
-        Me.BindingNavigator2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.BindingNavigator2.Size = New System.Drawing.Size(934, 37)
-        Me.BindingNavigator2.TabIndex = 22
-        Me.BindingNavigator2.Text = "BindingNavigator2"
+        Me.BindingNavigator1.AddNewItem = Nothing
+        Me.BindingNavigator1.BackColor = System.Drawing.Color.White
+        Me.BindingNavigator1.BindingSource = Me.ParametrBindingSource
+        Me.BindingNavigator1.CountItem = Me.btnNTotal
+        Me.BindingNavigator1.DeleteItem = Nothing
+        Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(30, 30)
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnGuardar, Me.btnEditar, Me.btnElimina, Me.ToolStripSeparator1, Me.ToolStripLabel2, Me.lblCurrentMenu, Me.ToolStripLabel1, Me.ToolStripSeparator2, Me.btnNPrimero, Me.btnNPrevio, Me.btnNCurrent, Me.btnNTotal, Me.btnNSiguiente, Me.btnNUltimo})
+        Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
+        Me.BindingNavigator1.MoveFirstItem = Me.btnNPrimero
+        Me.BindingNavigator1.MoveLastItem = Me.btnNUltimo
+        Me.BindingNavigator1.MoveNextItem = Me.btnNSiguiente
+        Me.BindingNavigator1.MovePreviousItem = Me.btnNPrevio
+        Me.BindingNavigator1.Name = "BindingNavigator1"
+        Me.BindingNavigator1.PositionItem = Me.btnNCurrent
+        Me.BindingNavigator1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.BindingNavigator1.Size = New System.Drawing.Size(934, 37)
+        Me.BindingNavigator1.TabIndex = 22
+        Me.BindingNavigator1.Text = "BindingNavigator2"
         '
         'ParametrBindingSource
         '
@@ -126,8 +131,8 @@ Partial Class frmFactLegal
         'btnNTotal
         '
         Me.btnNTotal.Name = "btnNTotal"
-        Me.btnNTotal.Size = New System.Drawing.Size(37, 34)
-        Me.btnNTotal.Text = "de {0}"
+        Me.btnNTotal.Size = New System.Drawing.Size(35, 34)
+        Me.btnNTotal.Text = "of {0}"
         Me.btnNTotal.ToolTipText = "Número total de elementos"
         '
         'btnBack
@@ -171,23 +176,45 @@ Partial Class frmFactLegal
         Me.btnEditar.Text = "ToolStripButton1"
         Me.btnEditar.ToolTipText = "Editar registro"
         '
-        'btnEliminar
+        'btnElimina
         '
-        Me.btnEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnEliminar.Image = Global.TCMAdmin.My.Resources.Resources.IconDelete
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.RightToLeftAutoMirrorImage = True
-        Me.btnEliminar.Size = New System.Drawing.Size(34, 34)
-        Me.btnEliminar.Text = "Eliminar"
-        Me.btnEliminar.ToolTipText = "Eliminar registro"
+        Me.btnElimina.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnElimina.Image = Global.TCMAdmin.My.Resources.Resources.IconDelete
+        Me.btnElimina.Name = "btnElimina"
+        Me.btnElimina.RightToLeftAutoMirrorImage = True
+        Me.btnElimina.Size = New System.Drawing.Size(34, 34)
+        Me.btnElimina.Text = "Eliminar"
+        Me.btnElimina.ToolTipText = "Eliminar registro"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 37)
         '
         'ToolStripLabel2
         '
-        Me.ToolStripLabel2.AutoSize = False
-        Me.ToolStripLabel2.BackColor = System.Drawing.Color.Transparent
         Me.ToolStripLabel2.Name = "ToolStripLabel2"
-        Me.ToolStripLabel2.Size = New System.Drawing.Size(500, 34)
-        Me.ToolStripLabel2.Text = "                       "
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(40, 34)
+        Me.ToolStripLabel2.Text = "           "
+        '
+        'lblCurrentMenu
+        '
+        Me.lblCurrentMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentMenu.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblCurrentMenu.Name = "lblCurrentMenu"
+        Me.lblCurrentMenu.Size = New System.Drawing.Size(119, 34)
+        Me.lblCurrentMenu.Text = "ToolStripLabel2"
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(40, 34)
+        Me.ToolStripLabel1.Text = "           "
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 37)
         '
         'btnNPrimero
         '
@@ -241,13 +268,14 @@ Partial Class frmFactLegal
         Me.grpParBasico.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grpParBasico.Enabled = False
         Me.grpParBasico.ExpandedSize = New System.Drawing.Size(934, 279)
+        Me.grpParBasico.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpParBasico.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpParBasico.Location = New System.Drawing.Point(0, 37)
         Me.grpParBasico.Name = "grpParBasico"
         Me.grpParBasico.Size = New System.Drawing.Size(934, 279)
         Me.grpParBasico.TabIndex = 29
         Me.grpParBasico.Text = "Factores"
-        Me.grpParBasico.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpParBasico.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'grParImpPred
         '
@@ -259,9 +287,9 @@ Partial Class frmFactLegal
         Me.grParImpPred.Controls.Add(Me.UltraGroupBox3)
         Me.grParImpPred.Controls.Add(Me.UltraGroupBox1)
         Me.grParImpPred.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grParImpPred.Location = New System.Drawing.Point(3, 19)
+        Me.grParImpPred.Location = New System.Drawing.Point(2, 21)
         Me.grParImpPred.Name = "grParImpPred"
-        Me.grParImpPred.Size = New System.Drawing.Size(928, 257)
+        Me.grParImpPred.Size = New System.Drawing.Size(930, 256)
         Me.grParImpPred.TabIndex = 0
         '
         'uneId
@@ -278,8 +306,8 @@ Partial Class frmFactLegal
         '
         'uneMes
         '
-        Appearance1.BackColor = System.Drawing.Color.White
-        Me.uneMes.Appearance = Appearance1
+        Appearance7.BackColor = System.Drawing.Color.White
+        Me.uneMes.Appearance = Appearance7
         Me.uneMes.BackColor = System.Drawing.Color.White
         Me.uneMes.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametrBindingSource, "num_mes", True))
         Me.uneMes.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -295,8 +323,8 @@ Partial Class frmFactLegal
         '
         'uneAnio
         '
-        Appearance2.BackColor = System.Drawing.Color.White
-        Me.uneAnio.Appearance = Appearance2
+        Appearance8.BackColor = System.Drawing.Color.White
+        Me.uneAnio.Appearance = Appearance8
         Me.uneAnio.BackColor = System.Drawing.Color.White
         Me.uneAnio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ParametrBindingSource, "ej_fiscal", True))
         Me.uneAnio.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -514,15 +542,15 @@ Partial Class frmFactLegal
         Me.ClientSize = New System.Drawing.Size(934, 316)
         Me.ControlBox = False
         Me.Controls.Add(Me.grpParBasico)
-        Me.Controls.Add(Me.BindingNavigator2)
+        Me.Controls.Add(Me.BindingNavigator1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.KeyPreview = True
         Me.Name = "frmFactLegal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Factores para cálculo de accesorios legales"
-        CType(Me.BindingNavigator2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.BindingNavigator2.ResumeLayout(False)
-        Me.BindingNavigator2.PerformLayout()
+        CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.BindingNavigator1.ResumeLayout(False)
+        Me.BindingNavigator1.PerformLayout()
         CType(Me.ParametrBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DsParametros, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpParBasico, System.ComponentModel.ISupportInitialize).EndInit()
@@ -550,14 +578,13 @@ Partial Class frmFactLegal
 
     End Sub
     Friend WithEvents UltraMessageBoxManager1 As Infragistics.Win.UltraMessageBox.UltraMessageBoxManager
-    Friend WithEvents BindingNavigator2 As BindingNavigator
+    Friend WithEvents BindingNavigator1 As BindingNavigator
     Friend WithEvents btnNTotal As ToolStripLabel
     Friend WithEvents btnBack As ToolStripButton
     Friend WithEvents btnUndo As ToolStripButton
     Friend WithEvents btnGuardar As ToolStripButton
     Friend WithEvents btnEditar As ToolStripButton
-    Friend WithEvents btnEliminar As ToolStripButton
-    Friend WithEvents ToolStripLabel2 As ToolStripLabel
+    Friend WithEvents btnElimina As ToolStripButton
     Friend WithEvents btnNPrimero As ToolStripButton
     Friend WithEvents btnNPrevio As ToolStripButton
     Friend WithEvents btnNCurrent As ToolStripTextBox
@@ -588,4 +615,9 @@ Partial Class frmFactLegal
     Friend WithEvents ParametrBindingSource As BindingSource
     Friend WithEvents RecargosTableAdapter As dsParametrosTableAdapters.recargosTableAdapter
     Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents ToolStripLabel2 As ToolStripLabel
+    Friend WithEvents lblCurrentMenu As ToolStripLabel
+    Friend WithEvents ToolStripLabel1 As ToolStripLabel
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
 End Class

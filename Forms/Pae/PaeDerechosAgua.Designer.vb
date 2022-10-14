@@ -40,22 +40,18 @@ Partial Class PaeDerechosAgua
         Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim ValueListItem9 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
-        Dim ValueListItem12 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
-        Dim ValueListItem17 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
-        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim ValueListItem18 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
         Dim ValueListItem19 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
         Dim ValueListItem20 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
-        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim ValueListItem14 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
         Dim ValueListItem15 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
         Dim ValueListItem16 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
-        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim ValueListItem7 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
         Dim ValueListItem8 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
         Dim ValueListItem13 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
-        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Me.gruReporte = New Infragistics.Win.Misc.UltraGroupBox()
         Me.panDiagMontAdeudo = New Infragistics.Win.Misc.UltraPanel()
         Me.uneDiagMontoAdeudoAl = New Infragistics.Win.UltraWinEditors.UltraNumericEditor()
@@ -89,8 +85,6 @@ Partial Class PaeDerechosAgua
         Me.lblNombre = New Infragistics.Win.Misc.UltraLabel()
         Me.txtNombreNotificador = New Infragistics.Win.UltraWinEditors.UltraTextEditor()
         Me.UltraGroupBox5 = New Infragistics.Win.Misc.UltraGroupBox()
-        Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox()
-        Me.optTipoServicio = New Infragistics.Win.UltraWinEditors.UltraOptionSet()
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox()
         Me.optTipoUsuario = New Infragistics.Win.UltraWinEditors.UltraOptionSet()
         Me.gruDocumentospae = New Infragistics.Win.Misc.UltraGroupBox()
@@ -143,9 +137,6 @@ Partial Class PaeDerechosAgua
         CType(Me.txtNumerocredencial, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtNombreNotificador, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.UltraGroupBox2.SuspendLayout()
-        CType(Me.optTipoServicio, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox1.SuspendLayout()
         CType(Me.optTipoUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -594,40 +585,12 @@ Partial Class PaeDerechosAgua
         Me.UltraGroupBox5.TabIndex = 2
         Me.UltraGroupBox5.Text = "Documentos PAE"
         '
-        'UltraGroupBox2
-        '
-        Appearance9.BackColor = System.Drawing.Color.White
-        Me.UltraGroupBox2.Appearance = Appearance9
-        Me.UltraGroupBox2.Controls.Add(Me.optTipoServicio)
-        Me.UltraGroupBox2.Location = New System.Drawing.Point(640, 65)
-        Me.UltraGroupBox2.Name = "UltraGroupBox2"
-        Me.UltraGroupBox2.Size = New System.Drawing.Size(150, 170)
-        Me.UltraGroupBox2.TabIndex = 15
-        Me.UltraGroupBox2.Text = "Tipo de servicio"
-        Me.UltraGroupBox2.UseAppStyling = False
-        '
-        'optTipoServicio
-        '
-        ValueListItem9.DataValue = "1"
-        ValueListItem9.DisplayText = "Medido"
-        ValueListItem12.DataValue = "2"
-        ValueListItem12.DisplayText = "Cuota fija"
-        ValueListItem17.CheckState = System.Windows.Forms.CheckState.Checked
-        ValueListItem17.DataValue = "3"
-        ValueListItem17.DisplayText = "General"
-        Me.optTipoServicio.Items.AddRange(New Infragistics.Win.ValueListItem() {ValueListItem9, ValueListItem12, ValueListItem17})
-        Me.optTipoServicio.ItemSpacingVertical = 5
-        Me.optTipoServicio.Location = New System.Drawing.Point(17, 52)
-        Me.optTipoServicio.Name = "optTipoServicio"
-        Me.optTipoServicio.Size = New System.Drawing.Size(112, 95)
-        Me.optTipoServicio.TabIndex = 3
-        '
         'UltraGroupBox1
         '
-        Appearance10.BackColor = System.Drawing.Color.White
-        Me.UltraGroupBox1.Appearance = Appearance10
+        Appearance9.BackColor = System.Drawing.Color.White
+        Me.UltraGroupBox1.Appearance = Appearance9
         Me.UltraGroupBox1.Controls.Add(Me.optTipoUsuario)
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(481, 65)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(566, 65)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
         Me.UltraGroupBox1.Size = New System.Drawing.Size(144, 170)
         Me.UltraGroupBox1.TabIndex = 14
@@ -652,8 +615,8 @@ Partial Class PaeDerechosAgua
         '
         'gruDocumentospae
         '
-        Appearance11.BackColor = System.Drawing.Color.White
-        Me.gruDocumentospae.Appearance = Appearance11
+        Appearance10.BackColor = System.Drawing.Color.White
+        Me.gruDocumentospae.Appearance = Appearance10
         Me.gruDocumentospae.Controls.Add(Me.optDocumentospae)
         Me.gruDocumentospae.Enabled = False
         Me.gruDocumentospae.Location = New System.Drawing.Point(481, 427)
@@ -680,8 +643,8 @@ Partial Class PaeDerechosAgua
         '
         'gruDocAuxCobranza
         '
-        Appearance12.BackColor = System.Drawing.Color.White
-        Me.gruDocAuxCobranza.Appearance = Appearance12
+        Appearance11.BackColor = System.Drawing.Color.White
+        Me.gruDocAuxCobranza.Appearance = Appearance11
         Me.gruDocAuxCobranza.Controls.Add(Me.optDocAuxCobranza)
         Me.gruDocAuxCobranza.Enabled = False
         Me.gruDocAuxCobranza.Location = New System.Drawing.Point(481, 324)
@@ -708,11 +671,11 @@ Partial Class PaeDerechosAgua
         '
         'UltraLabel2
         '
-        Appearance13.BackColor = System.Drawing.Color.LightGray
-        Appearance13.BackColor2 = System.Drawing.Color.White
-        Appearance13.TextHAlignAsString = "Center"
-        Appearance13.TextVAlignAsString = "Middle"
-        Me.UltraLabel2.Appearance = Appearance13
+        Appearance12.BackColor = System.Drawing.Color.LightGray
+        Appearance12.BackColor2 = System.Drawing.Color.White
+        Appearance12.TextHAlignAsString = "Center"
+        Appearance12.TextVAlignAsString = "Middle"
+        Me.UltraLabel2.Appearance = Appearance12
         Me.UltraLabel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.UltraLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UltraLabel2.Location = New System.Drawing.Point(0, 0)
@@ -858,7 +821,6 @@ Partial Class PaeDerechosAgua
         Me.Controls.Add(Me.UltraLabel2)
         Me.Controls.Add(Me.gruDocumentospae)
         Me.Controls.Add(Me.gruDocAuxCobranza)
-        Me.Controls.Add(Me.UltraGroupBox2)
         Me.Controls.Add(Me.gruSeldatos)
         Me.Controls.Add(Me.UltraGroupBox1)
         Me.Controls.Add(Me.gruReporte)
@@ -897,9 +859,6 @@ Partial Class PaeDerechosAgua
         CType(Me.txtNumerocredencial, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtNombreNotificador, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.UltraGroupBox2.ResumeLayout(False)
-        CType(Me.optTipoServicio, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox1.ResumeLayout(False)
         CType(Me.optTipoUsuario, System.ComponentModel.ISupportInitialize).EndInit()
@@ -940,8 +899,6 @@ Partial Class PaeDerechosAgua
     Friend WithEvents lblNombre As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents txtNombreNotificador As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents UltraGroupBox5 As Infragistics.Win.Misc.UltraGroupBox
-    Friend WithEvents UltraGroupBox2 As Infragistics.Win.Misc.UltraGroupBox
-    Friend WithEvents optTipoServicio As Infragistics.Win.UltraWinEditors.UltraOptionSet
     Friend WithEvents UltraGroupBox1 As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents optTipoUsuario As Infragistics.Win.UltraWinEditors.UltraOptionSet
     Friend WithEvents txtClavecatastralAl As Infragistics.Win.UltraWinEditors.UltraTextEditor

@@ -4,50 +4,44 @@ Imports System.ComponentModel
 
 Public Class frmTarifasPredial
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
-    Public idUsuario As String = My.User.Name
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
     Private cxn As New cxnData
-    Private newrow As Object
-    Public parent As Form = Nothing
-    Private currentmenu As String = ""
 
     Private Sub frmTarifasPredial_Load(sender As Object, e As EventArgs) Handles Me.Load
+        TabOrderSequence(Me, SMcMaster.TabOrderManager.TabScheme.AcrossFirst)
+        If id <> "0" Then
+            Me.Tbl_predialTableAdapter.Fill(Me.DsParametros.tbl_predial)
+            Me.BindingSource.Position = Me.BindingSource.Find("id_tarifa_predial", id)
+        End If
+        load_Permiso()
+    End Sub
+    Private Sub load_Permiso()
+        Me.btnElimina.Visible = False
+        Me.btnNuevo.Visible = Insertar
+        Me.btnGuardar.Visible = IIf(id = "0", Insertar, False)
+        Me.btnEditar.Visible = IIf(id = "0", False, Editar)
 
-        'TODO: esta línea de código carga datos en la tabla 'DsParametros1.tbl_predial' Puede moverla o quitarla según sea necesario.
         If id <> "0" Then
             lblOperacion.Text = "Modifica Tarifa"
-            'TODO: esta línea de código carga datos en la tabla 'DsParametros1.tbl1_predial' Puede moverla o quitarla según sea necesario.
-            Me.Tbl1_predialTableAdapter.Fill(Me.DsParametros1.tbl1_predial)
-            Me.Tbl1predialBindingSource.Position = Me.Tbl1predialBindingSource.Find("id_grupo_imp", id)
-            Me.Tbl_predialTableAdapter.FillByKey(Me.DsParametros1.tbl_predial, id)
+            Me.Tbl_predialTableAdapter.Fill(Me.DsParametros.tbl_predial)
+            Me.BindingSource.Position = Me.BindingSource.Find("id_tarifa_predial", id)
             uneAnio.ReadOnly = True
             Me.grpdata.Visible = True
-            If griDatatable.RowCount > 0 Then
-                btnEditar.Visible = True
-                btnEliminar.Visible = True
-            Else
-                btnEditar.Visible = False
-                btnEliminar.Visible = False
-            End If
-            btnNuevo.Visible = True
+            btnNuevo.Visible = Insertar
         Else
             uneAnio.Value = Nothing
             lblOperacion.Text = "Alta Concepto Tarifa"
             txtFraccion.Text = ""
-            txtGrupoMunicipio.Text = ""
             uneAnio.Value = Nothing
             grpdata.Enabled = True
             Me.grpdata.Visible = True
-            Me.grpRangos.Visible = False
-            Me.griDatatable.Visible = False
             btnEditar.Visible = False
-            btnGuardar.Visible = True
+            btnGuardar.Visible = Editar
             btnNuevo.Visible = False
             uneAnio.ReadOnly = False
             uneAnio.Focus()
@@ -56,39 +50,32 @@ Public Class frmTarifasPredial
 
     Private Sub btnUndo_Click(sender As Object, e As EventArgs) Handles btnUndo.Click
         ErrorProvider1.Clear()
-        BindingSource1.CancelEdit()
+        BindingSource.CancelEdit()
         lblOperacion.Text = ""
 
         If id <> "0" Then
-            btnEliminar.Visible = True
+            btnElimina.Visible = True
             btnGuardar.Visible = False
             btnEditar.Visible = True
-            grpdata.Enabled = False
+            grpdata.Enabled = True
         Else
-            btnEliminar.Visible = False
+            btnElimina.Visible = False
             btnGuardar.Visible = True
             btnEditar.Visible = False
             grpdata.Enabled = True
             uneAnio.Value = Nothing
             txtFraccion.Text = ""
-            txtGrupoMunicipio.Text = ""
             optTipoTributo.Value = 0
             uneAnio.SelectAll()
         End If
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Enabled = True
-        Me.Close()
-        Me.Dispose()
+        GenericCloseChlildForm(Me)
     End Sub
 
     Private Sub frmTarifasPredial_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Visible = True
+        GenericCloseChlildForm(Me)
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
@@ -97,38 +84,31 @@ Public Class frmTarifasPredial
                 If lblOperacion.Text = "Modifica Rango Tarifa" Then
                     If valida_datos_Alta_Rango_Tarifa() = False Then
                         Me.Validate()
-                        Me.BindingSource1.EndEdit()
-                        Me.Tbl_predialTableAdapter.Update(Me.DsParametros1.tbl_predial)
+                        Me.BindingSource.EndEdit()
+                        Me.Tbl_predialTableAdapter.Update(Me.DsParametros.tbl_predial)
                         Me.grpdata.Enabled = False
-                        Me.griDatatable.Enabled = True
-                        Me.grpRangos.Enabled = False
                         Me.btnGuardar.Visible = False
                         Me.btnEditar.Visible = True
-                        Me.btnEliminar.Visible = True
+                        Me.btnElimina.Visible = True
                         cMensajes.DisplayMessage(Me, "Datos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                     End If
                 End If
 
-                    If lblOperacion.Text = "Alta Rango Tarifa" Then
+                If lblOperacion.Text = "Alta Rango Tarifa" Then
                     If valida_datos_Alta_Rango_Tarifa() = False Then
-                        Me.Tbl_predialTableAdapter.Insert(CInt(id), CDec(uneAnio.Value), CDec(uneLimiteInferior.Value), CDec(uneLimiteSuperior.Value) _
-                                                      , CDec(0), CDec(0), CDec(0), CDec(0), CDec(uneCuotaMinima.Value), CDec(uneFactor.Value), CDec(0) _
-                                                      , CDec(0), "", CDec("0"), "")
+                        Me.Tbl_predialTableAdapter.Insert(CDec(uneAnio.Value), CDec(uneLimiteInferior.Value), CDec(uneLimiteSuperior.Value), CDec(uneCuotaMinima.Value), CDec(uneFactor.Value), "", "")
 
-                        Me.Tbl_predialTableAdapter.FillByKey(Me.DsParametros1.tbl_predial, id)
+                        'Me.Tbl_predialTableAdapter.FillByKey(Me.DsParametros.tbl_predial, id)
                         Me.grpdata.Enabled = False
-                        Me.grpRangos.Enabled = False
-                        Me.griDatatable.Enabled = True
                         Me.btnGuardar.Visible = False
                         Me.btnEditar.Visible = True
-                        Me.btnEliminar.Visible = True
+                        Me.btnElimina.Visible = True
                         cMensajes.DisplayMessage(Me, "Datos Registrados ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                     End If
                 End If
             Else
                 If valida_datos_Alta_Concepto_Tarifa() = False Then
                     'ya validados los campos se verifica no se duplique las tarifas
-                    cxn.Select_SQL("select count(*) from tbl1_predial where año_fiscal= '" & uneAnio.Value.ToString & "' and tip_impuesto='" & optTipoTributo.Value.ToString & "' and fracc_articulo='" & txtFraccion.Text.Trim & "' and gpo_mun='" & txtGrupoMunicipio.Text.Trim & "'")
                     Dim Registros As Integer = cxn.arrayValores(0)
 
                     If Registros > 0 Then
@@ -139,14 +119,13 @@ Public Class frmTarifasPredial
                     End If
 
 
-                    Me.Tbl1_predialTableAdapter.Insert(uneAnio.Value, optTipoTributo.Value, txtFraccion.Text, txtGrupoMunicipio.Text)
+                    'Me.Tbl_predialTableAdapter.Insert(uneAnio.Value, optTipoTributo.Value, txtFraccion.Text, txtGrupoMunicipio.Text)
                     Me.btnGuardar.Visible = False
                     Me.btnEditar.Visible = True
-                    Me.btnEliminar.Visible = False
-                    Me.grpRangos.Enabled = False
+                    Me.btnElimina.Visible = False
                     cMensajes.DisplayMessage(Me, "Datos Registrados ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
 
-                    Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
+                    Dim Mainbar As ToolStrip = TryCast(myparent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
                     Mainbar.Enabled = True
                     Me.Close()
                     Me.Dispose()
@@ -215,7 +194,7 @@ Public Class frmTarifasPredial
                 Me.uneAnio.Focus()
             End If
 
-            If uneAnio.Value < 2000 Or uneAnio.Value > 2050 Then
+            If uneAnio.Value < 2015 Or uneAnio.Value > 2050 Then
                 ErrorProvider1.SetError(uneAnio, "Error")
                 ocurriounError += 1
                 mensaje += "- " & "El año ingresado no corresponde al rango permitido" & "<br />"
@@ -229,12 +208,6 @@ Public Class frmTarifasPredial
                 Me.txtFraccion.Focus()
             End If
 
-            If txtGrupoMunicipio.Text.Trim = "" Then
-                ErrorProvider1.SetError(txtGrupoMunicipio, "Error")
-                ocurriounError += 1
-                mensaje += "- " & "El campo grupo municipio es requerido" & "<br />"
-                Me.txtGrupoMunicipio.Focus()
-            End If
 
             If optTipoTributo.Value = "" Then
                 ErrorProvider1.SetError(optTipoTributo, "Error")
@@ -258,20 +231,18 @@ Public Class frmTarifasPredial
     End Function
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
         lblOperacion.Text = "Modifica Rango Tarifa"
-        grpRangos.Enabled = True
-        griDatatable.Enabled = True
         btnEditar.Visible = False
         btnGuardar.Visible = True
-        btnEliminar.Visible = False
+        btnElimina.Visible = False
+        grpdata.Enabled = True
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
         lblOperacion.Text = "Alta Rango Tarifa"
         Me.btnGuardar.Visible = True
         Me.btnEditar.Visible = False
-        Me.btnEliminar.Visible = False
+        Me.btnElimina.Visible = False
         grpdata.Enabled = False
-        grpRangos.Enabled = True
         uneLimiteInferior.Value = 0
         uneLimiteSuperior.Value = 0
         uneCuotaMinima.Value = 0
@@ -279,12 +250,12 @@ Public Class frmTarifasPredial
         uneLimiteInferior.SelectAll()
     End Sub
 
-    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnElimina.Click
         Try
             If MsgBox("¿Seguro de Eliminar el Registro?", vbYesNo, "Confirmación") = vbYes Then
                 Me.Validate()
-                Me.BindingNavigator2.BindingSource.RemoveCurrent()
-                Me.Tbl_predialTableAdapter.Update(Me.DsParametros1.tbl_predial)
+                Me.BindingNavigator.BindingSource.RemoveCurrent()
+                Me.Tbl_predialTableAdapter.Update(Me.DsParametros.tbl_predial)
                 cMensajes.DisplayMessage(Me, "Datos eliminados", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1)
             End If
 

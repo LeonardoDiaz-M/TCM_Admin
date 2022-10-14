@@ -23,50 +23,20 @@ Partial Class frmMenuRoot
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.btnGuardar = New System.Windows.Forms.ToolStripButton()
         Me.lblCve = New System.Windows.Forms.Label()
         Me.lblDesc = New System.Windows.Forms.Label()
         Me.txtDesc = New System.Windows.Forms.TextBox()
         Me.chkStatus = New System.Windows.Forms.CheckBox()
-        Me.SystemMessages1 = New TCMAdmin.SystemMessages()
+        Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.btnBack = New System.Windows.Forms.ToolStripButton()
+        Me.btnGuardar = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
+        Me.lblCurrentMenu = New System.Windows.Forms.ToolStripLabel()
+        Me.txtClave = New System.Windows.Forms.TextBox()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'BindingNavigator1
-        '
-        Me.BindingNavigator1.AddNewItem = Nothing
-        Me.BindingNavigator1.CountItem = Nothing
-        Me.BindingNavigator1.DeleteItem = Nothing
-        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.btnGuardar})
-        Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
-        Me.BindingNavigator1.MoveFirstItem = Nothing
-        Me.BindingNavigator1.MoveLastItem = Nothing
-        Me.BindingNavigator1.MoveNextItem = Nothing
-        Me.BindingNavigator1.MovePreviousItem = Nothing
-        Me.BindingNavigator1.Name = "BindingNavigator1"
-        Me.BindingNavigator1.PositionItem = Nothing
-        Me.BindingNavigator1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.BindingNavigator1.Size = New System.Drawing.Size(535, 25)
-        Me.BindingNavigator1.TabIndex = 5
-        Me.BindingNavigator1.Text = "BindingNavigator1"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
-        '
-        'btnGuardar
-        '
-        Me.btnGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnGuardar.Image = Global.TCMAdmin.My.Resources.Resources.save
-        Me.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(23, 22)
-        Me.btnGuardar.Text = "ToolStripButton1"
-        Me.btnGuardar.ToolTipText = "Guardar Datos"
         '
         'lblCve
         '
@@ -107,15 +77,73 @@ Partial Class frmMenuRoot
         Me.chkStatus.Text = "&Activo"
         Me.chkStatus.UseVisualStyleBackColor = True
         '
-        'SystemMessages1
+        'BindingNavigator1
         '
-        Me.SystemMessages1.AutoScroll = True
-        Me.SystemMessages1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.SystemMessages1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.SystemMessages1.Location = New System.Drawing.Point(0, 29)
-        Me.SystemMessages1.Name = "SystemMessages1"
-        Me.SystemMessages1.Size = New System.Drawing.Size(551, 26)
-        Me.SystemMessages1.TabIndex = 10
+        Me.BindingNavigator1.AddNewItem = Nothing
+        Me.BindingNavigator1.BackColor = System.Drawing.Color.White
+        Me.BindingNavigator1.CountItem = Nothing
+        Me.BindingNavigator1.DeleteItem = Nothing
+        Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(36, 36)
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnGuardar, Me.ToolStripSeparator1, Me.ToolStripLabel2, Me.lblCurrentMenu})
+        Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
+        Me.BindingNavigator1.MoveFirstItem = Nothing
+        Me.BindingNavigator1.MoveLastItem = Nothing
+        Me.BindingNavigator1.MoveNextItem = Nothing
+        Me.BindingNavigator1.MovePreviousItem = Nothing
+        Me.BindingNavigator1.Name = "BindingNavigator1"
+        Me.BindingNavigator1.PositionItem = Nothing
+        Me.BindingNavigator1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.BindingNavigator1.Size = New System.Drawing.Size(535, 43)
+        Me.BindingNavigator1.TabIndex = 19
+        Me.BindingNavigator1.Text = "BindingNavigator1"
+        '
+        'btnBack
+        '
+        Me.btnBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnBack.Image = Global.TCMAdmin.My.Resources.Resources.IconBack
+        Me.btnBack.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.btnBack.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(28, 40)
+        Me.btnBack.Text = "ToolStripButton1"
+        Me.btnBack.ToolTipText = "Regresar"
+        '
+        'btnGuardar
+        '
+        Me.btnGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnGuardar.Image = Global.TCMAdmin.My.Resources.Resources.IconSave
+        Me.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(40, 40)
+        Me.btnGuardar.Text = "ToolStripButton2"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 43)
+        '
+        'ToolStripLabel2
+        '
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(40, 40)
+        Me.ToolStripLabel2.Text = "           "
+        '
+        'lblCurrentMenu
+        '
+        Me.lblCurrentMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentMenu.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblCurrentMenu.Name = "lblCurrentMenu"
+        Me.lblCurrentMenu.Size = New System.Drawing.Size(119, 40)
+        Me.lblCurrentMenu.Text = "ToolStripLabel2"
+        '
+        'txtClave
+        '
+        Me.txtClave.Location = New System.Drawing.Point(138, 49)
+        Me.txtClave.MaxLength = 50
+        Me.txtClave.Name = "txtClave"
+        Me.txtClave.Size = New System.Drawing.Size(154, 20)
+        Me.txtClave.TabIndex = 20
+        Me.txtClave.WordWrap = False
         '
         'frmMenuRoot
         '
@@ -123,12 +151,12 @@ Partial Class frmMenuRoot
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(535, 132)
-        Me.Controls.Add(Me.SystemMessages1)
+        Me.Controls.Add(Me.txtClave)
+        Me.Controls.Add(Me.BindingNavigator1)
         Me.Controls.Add(Me.chkStatus)
         Me.Controls.Add(Me.txtDesc)
         Me.Controls.Add(Me.lblDesc)
         Me.Controls.Add(Me.lblCve)
-        Me.Controls.Add(Me.BindingNavigator1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "frmMenuRoot"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -141,13 +169,15 @@ Partial Class frmMenuRoot
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents BindingNavigator1 As BindingNavigator
-    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents btnGuardar As ToolStripButton
     Friend WithEvents lblCve As Label
     Friend WithEvents lblDesc As Label
     Friend WithEvents txtDesc As TextBox
     Friend WithEvents chkStatus As CheckBox
-    Friend WithEvents SystemMessages1 As SystemMessages
+    Friend WithEvents BindingNavigator1 As BindingNavigator
+    Friend WithEvents btnBack As ToolStripButton
+    Friend WithEvents btnGuardar As ToolStripButton
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents ToolStripLabel2 As ToolStripLabel
+    Friend WithEvents lblCurrentMenu As ToolStripLabel
+    Friend WithEvents txtClave As TextBox
 End Class

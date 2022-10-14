@@ -4,22 +4,16 @@ Imports Infragistics.Win
 Imports Infragistics.Win.UltraWinGrid
 Public Class frmAguaLecturasPorCuenta
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
-    Public idUsuario As String = My.User.Name
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public myparent As Form = Nothing
+    Public idUsuario As String = CurrentUsrName
     Private cxn As New cxnData
     Private idColonia As Integer = -1
-    Private newrow As Object
-    Public parent As Form = Nothing
 
     Private Sub frmAguaLecturasPorCuenta_Load(sender As Object, e As EventArgs) Handles Me.Load
-        'TODO: esta línea de código carga datos en la tabla 'DsAgua.Forma_Calculo_Consumo_Agua' Puede moverla o quitarla según sea necesario.
-        Me.Forma_Calculo_Consumo_AguaTableAdapter.Fill(Me.DsAgua.Forma_Calculo_Consumo_Agua)
         Try
             Me.lblCurrentMenu.Text = "Consumo Agua por Número de Cuenta"
             load_Combos()
@@ -44,9 +38,13 @@ Public Class frmAguaLecturasPorCuenta
 
         Año = uneUltAnio.Value
 
-        If griLecturasPeriodo.Rows.Count <= 0 Then
+        If griLecturasPeriodo.Rows.Count = 0 Then 'No hay pagos registrados
             Año = uneUltAnio.Value
-            UltimoPeriodo = ucoUltMes.Text
+            If optFormaPago.Value = 1 Then 'Pago bimestral
+                UltimoPeriodo = ucoUltMes.Text / 2
+            Else
+                UltimoPeriodo = ucoUltMes.Text 'Pago Mensual
+            End If
             LecturaAnterior = uneUltimaLectura.Value
         Else
             'determina ultima lectura
@@ -56,24 +54,18 @@ Public Class frmAguaLecturasPorCuenta
             LecturaAnterior = cxn.arrayValores(2)
         End If
 
-
         'valida captura de lecturas
-        Dim MesActual As Integer
-        MesActual = Month(Date.Now)
+        Dim MesActual As Integer = Month(Date.Now)
+        Dim AñoActual As Integer = Year(Date.Now)
 
         If optFormaPago.Value = 1 Then  'forma de pago bimestral
             If UltimoPeriodo = 6 Then
                 UltimoPeriodo = 1
                 Año = Año + 1
             Else
-                If griLecturasPeriodo.Rows.Count <= 0 Then
-                    UltimoPeriodo = UltimoPeriodo / 2 + 1 'se divide entre dos ya que se toma el dato del ultimo periodo pagado
-                Else
-                    UltimoPeriodo = UltimoPeriodo + 1
-                End If
+                UltimoPeriodo = UltimoPeriodo + 1
             End If
-
-            If UltimoPeriodo * 2 + 1 > MesActual Then
+            If UltimoPeriodo * 2 + 1 > MesActual And Año = AñoActual Then
                 MsgBox("El ingreso de lecturas por periodo supera la fecha actual")
                 Exit Sub
             End If
@@ -91,34 +83,24 @@ Public Class frmAguaLecturasPorCuenta
                 Exit Sub
             End If
         End If
-
-
         frm.txtNumeroCuenta.Text = txtCuenta.Text
         frm.txtNombre.Text = txtNombre.Text
         frm.txtanio.Text = Año
         frm.unePeriodo.Text = UltimoPeriodo
         frm.uneLecturaAnterior.Value = LecturaAnterior
         frm.txtRuta.Text = ucoRuta.Value
-
         frm.ShowDialog()
-
         Me.TblconsumoaguaBindingSource.EndEdit()
-
         Me.Arc_aguaTableAdapter.Fill(Me.DsAgua.arc_agua, id)
         Me.Tbl_consumo_aguaTableAdapter.FillByNumeroCuenta(Me.DsAgua.tbl_consumo_agua, id)
-
-
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Enabled = True
-        Me.Close()
+        GenericCloseChlildForm(Me)
     End Sub
 
     Private Sub frmAguaLecturasPorCuenta_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
+        GenericCloseChlildForm(Me)
     End Sub
     Private Sub griLecturasPeriodo_InitializeRow(sender As Object, e As InitializeRowEventArgs) Handles griLecturasPeriodo.InitializeRow
         Dim rowError As String = ""
@@ -190,7 +172,7 @@ Public Class frmAguaLecturasPorCuenta
                         Consumo = LecturaActual - LecturaAnterior
 
                         griLecturasPeriodo.ActiveRow.Cells("consumo_bim").Value = Consumo
-                        griLecturasPeriodo.ActiveRow.Cells("usuario").Value = NombreUsuario
+                        griLecturasPeriodo.ActiveRow.Cells("usuario").Value = Me.idUsuario
                         griLecturasPeriodo.Focus()
                         griLecturasPeriodo.PerformAction(Infragistics.Win.UltraWinGrid.UltraGridAction.EnterEditMode)
                         griLecturasPeriodo.ActiveCell.SelectAll()
@@ -210,7 +192,7 @@ Public Class frmAguaLecturasPorCuenta
                     'asigno valores a celdas del grid
                     griLecturasPeriodo.ActiveRow.Cells("lect_act").Value = LecturaAnterior
                     griLecturasPeriodo.ActiveRow.Cells("consumo_bim").Value = Consumo
-                    griLecturasPeriodo.ActiveRow.Cells("usuario").Value = NombreUsuario
+                    griLecturasPeriodo.ActiveRow.Cells("usuario").Value = Me.idUsuario
                     'muevo el foco a la celda de lectura actual
                     griLecturasPeriodo.ActiveCell = aCell
                     griLecturasPeriodo.PerformAction(UltraGridAction.ExitEditMode, False, False)
@@ -225,7 +207,7 @@ Public Class frmAguaLecturasPorCuenta
                     Consumo = ConsumoMinimo
                     griLecturasPeriodo.ActiveRow.Cells("lect_act").Value = LecturaAnterior
                     griLecturasPeriodo.ActiveRow.Cells("consumo_bim").Value = Consumo
-                    griLecturasPeriodo.ActiveRow.Cells("usuario").Value = NombreUsuario
+                    griLecturasPeriodo.ActiveRow.Cells("usuario").Value = Me.idUsuario
                     'muevo el foco a la celda de lectura actual
                     griLecturasPeriodo.ActiveCell = aCell
                     griLecturasPeriodo.PerformAction(UltraGridAction.ExitEditMode, False, False)
@@ -238,8 +220,6 @@ Public Class frmAguaLecturasPorCuenta
                 If TotalRenglones > RenglonActual Then
 
                 End If
-
-
             Case Keys.Right
                 griLecturasPeriodo.PerformAction(UltraGridAction.ExitEditMode, False, False)
                 griLecturasPeriodo.PerformAction(UltraGridAction.NextCellByTab, False, False)

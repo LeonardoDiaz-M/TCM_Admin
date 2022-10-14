@@ -57,8 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-FORE0PK\SQLDBSERVER;Initial Catalog=base_mpio207;User ID=sa;P"& _ 
-            "assword=@sa@")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=LAPDESANUEVA;Initial Catalog=base_mpio;Persist Security Info=True;Use"& _ 
+            "r ID=sa;Password=Admin#1")>  _
         Public ReadOnly Property base_mpioConnectionString() As String
             Get
                 Return CType(Me("base_mpioConnectionString"),String)
@@ -68,11 +68,10 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-FORE0PK\SQLDBSERVER;Initial Catalog=BASE_MPIO_SEC;Integrated "& _ 
-            "Security=True")>  _
-        Public ReadOnly Property BASE_MPIO_SECConnectionString() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=lapdesanueva;Initial Catalog=base_mpio;Integrated Security=True")>  _
+        Public ReadOnly Property base_mpioConnectionString1() As String
             Get
-                Return CType(Me("BASE_MPIO_SECConnectionString"),String)
+                Return CType(Me("base_mpioConnectionString1"),String)
             End Get
         End Property
     End Class

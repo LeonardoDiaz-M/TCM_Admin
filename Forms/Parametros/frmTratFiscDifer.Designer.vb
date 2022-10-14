@@ -38,13 +38,15 @@ Partial Class frmTratFiscDifer
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
         Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
+        Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
         Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Me.BindingNavigator2 = New System.Windows.Forms.BindingNavigator(Me.components)
+        Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
+        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem()
+        Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DsParametros1 = New TCMAdmin.dsParametros()
         Me.btnNTotal = New System.Windows.Forms.ToolStripLabel()
@@ -94,8 +96,8 @@ Partial Class frmTratFiscDifer
         Me.UltraLabel1 = New Infragistics.Win.Misc.UltraLabel()
         Me.Arc_subTableAdapter = New TCMAdmin.dsParametrosTableAdapters.arc_subTableAdapter()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        CType(Me.BindingNavigator2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.BindingNavigator2.SuspendLayout()
+        CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.BindingNavigator1.SuspendLayout()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DsParametros1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpdata, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -121,25 +123,26 @@ Partial Class frmTratFiscDifer
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'BindingNavigator2
+        'BindingNavigator1
         '
-        Me.BindingNavigator2.AddNewItem = Nothing
-        Me.BindingNavigator2.BindingSource = Me.BindingSource1
-        Me.BindingNavigator2.CountItem = Me.btnNTotal
-        Me.BindingNavigator2.DeleteItem = Nothing
-        Me.BindingNavigator2.ImageScalingSize = New System.Drawing.Size(30, 30)
-        Me.BindingNavigator2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnEditar, Me.btnGuardar, Me.btnEliminar, Me.ToolStripLabel2, Me.btnNPrimero, Me.btnNPrevio, Me.btnNCurrent, Me.btnNTotal, Me.btnNSiguiente, Me.btnNUltimo})
-        Me.BindingNavigator2.Location = New System.Drawing.Point(0, 0)
-        Me.BindingNavigator2.MoveFirstItem = Me.btnNPrimero
-        Me.BindingNavigator2.MoveLastItem = Me.btnNUltimo
-        Me.BindingNavigator2.MoveNextItem = Me.btnNSiguiente
-        Me.BindingNavigator2.MovePreviousItem = Me.btnNPrevio
-        Me.BindingNavigator2.Name = "BindingNavigator2"
-        Me.BindingNavigator2.PositionItem = Me.btnNCurrent
-        Me.BindingNavigator2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.BindingNavigator2.Size = New System.Drawing.Size(934, 37)
-        Me.BindingNavigator2.TabIndex = 3
-        Me.BindingNavigator2.Text = "BindingNavigator2"
+        Me.BindingNavigator1.AddNewItem = Nothing
+        Me.BindingNavigator1.BackColor = System.Drawing.Color.White
+        Me.BindingNavigator1.BindingSource = Me.BindingSource1
+        Me.BindingNavigator1.CountItem = Me.btnNTotal
+        Me.BindingNavigator1.DeleteItem = Nothing
+        Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(30, 30)
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnUndo, Me.btnEditar, Me.btnGuardar, Me.btnEliminar, Me.ToolStripLabel2, Me.btnNPrimero, Me.btnNPrevio, Me.btnNCurrent, Me.btnNTotal, Me.btnNSiguiente, Me.btnNUltimo})
+        Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
+        Me.BindingNavigator1.MoveFirstItem = Me.btnNPrimero
+        Me.BindingNavigator1.MoveLastItem = Me.btnNUltimo
+        Me.BindingNavigator1.MoveNextItem = Me.btnNSiguiente
+        Me.BindingNavigator1.MovePreviousItem = Me.btnNPrevio
+        Me.BindingNavigator1.Name = "BindingNavigator1"
+        Me.BindingNavigator1.PositionItem = Me.btnNCurrent
+        Me.BindingNavigator1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.BindingNavigator1.Size = New System.Drawing.Size(934, 37)
+        Me.BindingNavigator1.TabIndex = 3
+        Me.BindingNavigator1.Text = "BindingNavigator2"
         '
         'BindingSource1
         '
@@ -155,8 +158,8 @@ Partial Class frmTratFiscDifer
         'btnNTotal
         '
         Me.btnNTotal.Name = "btnNTotal"
-        Me.btnNTotal.Size = New System.Drawing.Size(37, 34)
-        Me.btnNTotal.Text = "de {0}"
+        Me.btnNTotal.Size = New System.Drawing.Size(35, 34)
+        Me.btnNTotal.Text = "of {0}"
         Me.btnNTotal.ToolTipText = "Número total de elementos"
         '
         'btnBack
@@ -267,7 +270,7 @@ Partial Class frmTratFiscDifer
         '
         'lblEjFiscal
         '
-        Me.lblEjFiscal.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.lblEjFiscal.BackColor = System.Drawing.Color.White
         Me.lblEjFiscal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblEjFiscal.Dock = System.Windows.Forms.DockStyle.Top
         Me.lblEjFiscal.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -284,6 +287,7 @@ Partial Class frmTratFiscDifer
         Me.grpdata.Dock = System.Windows.Forms.DockStyle.Top
         Me.grpdata.Enabled = False
         Me.grpdata.ExpandedSize = New System.Drawing.Size(934, 149)
+        Me.grpdata.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpdata.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpdata.Location = New System.Drawing.Point(0, 80)
         Me.grpdata.Name = "grpdata"
@@ -299,9 +303,9 @@ Partial Class frmTratFiscDifer
         Me.grParImpPred.Controls.Add(Me.UltraLabel6)
         Me.grParImpPred.Controls.Add(Me.lblPae)
         Me.grParImpPred.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grParImpPred.Location = New System.Drawing.Point(2, 22)
+        Me.grParImpPred.Location = New System.Drawing.Point(2, 21)
         Me.grParImpPred.Name = "grParImpPred"
-        Me.grParImpPred.Size = New System.Drawing.Size(930, 125)
+        Me.grParImpPred.Size = New System.Drawing.Size(930, 126)
         Me.grParImpPred.TabIndex = 0
         '
         'ucoCuenta
@@ -461,6 +465,7 @@ Partial Class frmTratFiscDifer
         Me.grpCuotas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grpCuotas.Enabled = False
         Me.grpCuotas.ExpandedSize = New System.Drawing.Size(934, 392)
+        Me.grpCuotas.ExpansionIndicator = Infragistics.Win.Misc.GroupBoxExpansionIndicator.None
         Me.grpCuotas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpCuotas.Location = New System.Drawing.Point(0, 229)
         Me.grpCuotas.Name = "grpCuotas"
@@ -496,9 +501,9 @@ Partial Class frmTratFiscDifer
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.UltraLabel2)
         Me.UltraExpandableGroupBoxPanel1.Controls.Add(Me.UltraLabel1)
         Me.UltraExpandableGroupBoxPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraExpandableGroupBoxPanel1.Location = New System.Drawing.Point(2, 22)
+        Me.UltraExpandableGroupBoxPanel1.Location = New System.Drawing.Point(2, 21)
         Me.UltraExpandableGroupBoxPanel1.Name = "UltraExpandableGroupBoxPanel1"
-        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(930, 368)
+        Me.UltraExpandableGroupBoxPanel1.Size = New System.Drawing.Size(930, 369)
         Me.UltraExpandableGroupBoxPanel1.TabIndex = 0
         '
         'dtpFechaVencimiento
@@ -672,19 +677,25 @@ Partial Class frmTratFiscDifer
         '
         'optTipo
         '
+        Appearance12.FontData.BoldAsString = "True"
+        Me.optTipo.Appearance = Appearance12
+        Me.optTipo.BackColor = System.Drawing.Color.White
+        Me.optTipo.BackColorInternal = System.Drawing.Color.White
         Me.optTipo.BorderStyle = Infragistics.Win.UIElementBorderStyle.Rounded4Thick
         Me.optTipo.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource1, "tipo", True))
-        Appearance12.FontData.BoldAsString = "False"
-        ValueListItem1.Appearance = Appearance12
+        Appearance13.FontData.BoldAsString = "True"
+        Me.optTipo.ItemAppearance = Appearance13
+        Appearance14.FontData.BoldAsString = "False"
+        ValueListItem1.Appearance = Appearance14
         ValueListItem1.CheckState = System.Windows.Forms.CheckState.Checked
         ValueListItem1.DataValue = "G"
         ValueListItem1.DisplayText = "General"
-        Appearance13.FontData.BoldAsString = "False"
-        ValueListItem2.Appearance = Appearance13
+        Appearance15.FontData.BoldAsString = "False"
+        ValueListItem2.Appearance = Appearance15
         ValueListItem2.DataValue = "P"
         ValueListItem2.DisplayText = "Parcial"
-        Appearance14.FontData.BoldAsString = "False"
-        ValueListItem3.Appearance = Appearance14
+        Appearance16.FontData.BoldAsString = "False"
+        ValueListItem3.Appearance = Appearance16
         ValueListItem3.DataValue = "U"
         ValueListItem3.DisplayText = "Único"
         Me.optTipo.Items.AddRange(New Infragistics.Win.ValueListItem() {ValueListItem1, ValueListItem2, ValueListItem3})
@@ -750,18 +761,20 @@ Partial Class frmTratFiscDifer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(934, 621)
+        Me.ControlBox = False
         Me.Controls.Add(Me.grpCuotas)
         Me.Controls.Add(Me.grpdata)
         Me.Controls.Add(Me.lblEjFiscal)
-        Me.Controls.Add(Me.BindingNavigator2)
+        Me.Controls.Add(Me.BindingNavigator1)
         Me.KeyPreview = True
         Me.Name = "frmTratFiscDifer"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Catálogo de tratamientos fiscales diferenciales"
-        CType(Me.BindingNavigator2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.BindingNavigator2.ResumeLayout(False)
-        Me.BindingNavigator2.PerformLayout()
+        CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.BindingNavigator1.ResumeLayout(False)
+        Me.BindingNavigator1.PerformLayout()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DsParametros1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpdata, System.ComponentModel.ISupportInitialize).EndInit()
@@ -792,7 +805,7 @@ Partial Class frmTratFiscDifer
 
     End Sub
 
-    Friend WithEvents BindingNavigator2 As BindingNavigator
+    Friend WithEvents BindingNavigator1 As BindingNavigator
     Friend WithEvents btnNTotal As ToolStripLabel
     Friend WithEvents btnBack As ToolStripButton
     Friend WithEvents btnUndo As ToolStripButton

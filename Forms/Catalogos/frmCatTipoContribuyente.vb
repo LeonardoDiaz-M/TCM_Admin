@@ -3,32 +3,29 @@ Imports Infragistics.Win.UltraWinTabControl
 Imports System.Web.Security
 Public Class frmCatTipoContribuyente
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
-    Private cxn As New cxnData
-    Private newrow As Object
-    Public parent As Form = Nothing
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public myParent As Form = Nothing
     Private Sub frmCatTipoinmueble_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TabOrderSequence(Me, SMcMaster.TabOrderManager.TabScheme.AcrossFirst)
+        load_Permiso()
+        Me.Tip_contribuyenteTableAdapter.Fill(Me.DsCatalogos.tip_contribuyente)
         If id <> "0" Then
-            Me.Tip_contribuyenteTableAdapter.Fill(Me.DsCatalogos.tip_contribuyente)
             Me.TipcontribuyenteBindingSource.Position = Me.TipcontribuyenteBindingSource.Find("cve_tip_con", id)
-        Else
-            uexDatos.Enabled = True
-            btnEditar.Visible = False
-            btnGuardar.Visible = True
-            txtDescripcion.SelectAll()
         End If
-        'LoadRol()
+        txtDescripcion.SelectAll()
     End Sub
-    Private Sub LoadRol()
-        btnEditar.Enabled = Roles.IsUserInRole(Usuario, Editar)
-        btnElimina.Enabled = Roles.IsUserInRole(Usuario, Borrar)
-        btnGuardar.Enabled = Roles.IsUserInRole(Usuario, Insertar)
+    Private Sub load_Permiso()
+        Me.lblCurrentMenu.Text = Me.Text
+        Me.btnElimina.Visible = False
+        Me.btnGuardar.Visible = IIf(id = "0", Insertar, False)
+        Me.btnEditar.Visible = IIf(id = "0", False, Editar)
+        Me.uexDatos.Enabled = IIf(id = "0", True, False)
+        If id = "0" Then
+            Me.BindingNavigator1.BindingSource.AddNew()
+        End If
     End Sub
     Private Function valida_datos() As Boolean
         Dim ban As Boolean = False
@@ -66,10 +63,8 @@ Public Class frmCatTipoContribuyente
                     cMensajes.DisplayMessage(Me, "Datos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                 Else
                     Tip_contribuyenteTableAdapter.Insert(txtId.Text, txtDescripcion.Text.Trim)
-                    btnGuardar.Visible = False
-                    btnEditar.Visible = False
-                    uexDatos.Enabled = False
-
+                    Me.Tip_contribuyenteTableAdapter.Update(DsCatalogos.tip_contribuyente)
+                    id = Me.txtId.Text
                     cMensajes.DisplayMessage(Me, "Datos Registrados ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                 End If
             End If
@@ -79,22 +74,20 @@ Public Class frmCatTipoContribuyente
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Enabled = True
-        Me.Close()
+        GenericCloseChlildForm(Me)
     End Sub
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
-        uexDatos.Enabled = True
-        btnGuardar.Visible = True
-        btnEditar.Visible = False
+        Me.btnEditar.Visible = False
+        Me.btnGuardar.Visible = Editar
+        Me.btnElimina.Visible = Borrar
+        If Me.btnGuardar.Visible Then
+            Me.uexDatos.Enabled = True
+        End If
     End Sub
 
     Private Sub frmCatTipoContribuyente_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Visible = True
+        GenericCloseChlildForm(Me)
     End Sub
 
     Private Sub btnElimina_Click(sender As Object, e As EventArgs) Handles btnElimina.Click

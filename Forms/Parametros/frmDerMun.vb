@@ -6,58 +6,46 @@ Imports Infragistics.Win.UltraMessageBox
 Imports System.Web.Security
 Public Class frmDerMun
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
-    Public idUsuario As String = My.User.Name
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
     Private cxn As New cxnData
-    Private newrow As Object
-    Public parent As Form = Nothing
-    Private currentmenu As String = ""
-
+    Private currentmenu As String = currentmenu
 
     Private Sub frmDerMun_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DsParametros1.tbl_derechos' table. You can move, or remove it, as needed.
+        TabOrderSequence(Me, SMcMaster.TabOrderManager.TabScheme.AcrossFirst)
         Try
             load_combos()
-
-            If id <> "0" Then
-                Me.Tbl_derechosTableAdapter.Fill(Me.DsParametros.tbl_derechos)
-                Me.Tbl_derechosTableAdapter.FillByDerechoId(Me.DsParametros.tbl_derechos, id)
-                'Me.BindingSource1.Position = Me.BindingSource1.Find("derecho_id", id)
-                btnEliminar.Visible = True
-                uneAnio.ReadOnly = True
-            Else
-                grpCuotas.Enabled = True
-                grpdata.Enabled = True
-                btnEditar.Visible = False
-                btnGuardar.Visible = True
-                uneAnio.Value = Nothing
-                uneAnio.ReadOnly = False
-                uneAnio.SelectAll()
-            End If
-            'LoadRol()
+            Me.Tbl_derechosTableAdapter.Fill(Me.DsParametros.tbl_derechos)
+            load_Permiso()
         Catch ex As Exception
             cMensajes.DisplayMessage(Me, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
         End Try
     End Sub
-    Private Sub LoadRol()
-        btnEditar.Enabled = Roles.IsUserInRole(Usuario, Editar)
-        btnEliminar.Enabled = Roles.IsUserInRole(Usuario, Borrar)
-        btnGuardar.Enabled = Roles.IsUserInRole(Usuario, Insertar)
+    Private Sub load_Permiso()
+        Me.lblCurrentMenu.Text = Me.Text
+        uneAnio.SelectAll()
+        Me.btnElimina.Visible = False
+        Me.btnGuardar.Visible = IIf(id = "0", Insertar, False)
+        Me.btnEditar.Visible = IIf(id = "0", False, Editar)
+        Me.grpCuotas.Enabled = IIf(id = "0", True, False)
+        Me.grpdata.Enabled = IIf(id = "0", True, False)
+        If id = "0" Then
+            Me.BindingNavigator1.BindingSource.AddNew()
+            uneAnio.Value = Nothing
+            uneAnio.ReadOnly = False
+        Else
+            Me.Tbl_derechosTableAdapter.FillByDerechoId(Me.DsParametros.tbl_derechos, id)
+        End If
     End Sub
     Private Sub frmDerMun_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Visible = True
+        GenericCloseChlildForm(Me)
     End Sub
     Private Sub load_combos()
-        cxn.fLlenaDropDownUltra(ucoCuenta, "select distinct cve_cuenta,cve_cuenta + ' - ' + nombre as texto  from [dbo].cat_cuentas")
+        cxn.fLlenaDropDownUltra(ucoCuenta, "select distinct cve_cuenta,cve_cuenta + ' - ' + nombre as texto  from [dbo].cat_cuentas order by cve_cuenta")
         cxn.fLlenaDropDownUltra(ucoDependencia, "select id_dep,nombre from dependencias ")
     End Sub
 
@@ -157,7 +145,7 @@ Public Class frmDerMun
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Try
             If valida_datos() = False Then
-                If id <> "0" Then
+                If Editar And id <> "0" Then
                     Me.Validate()
                     Me.BindingSource1.EndEdit()
                     Me.Tbl_derechosTableAdapter.Update(Me.DsParametros.tbl_derechos)
@@ -168,7 +156,7 @@ Public Class frmDerMun
                     cMensajes.DisplayMessage(Me, "Datos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                 Else
                     cxn.Select_SQL("select year(getdate())")
-                    Tbl_derechosTableAdapter.Insert(Me.uneAnio.Value.ToString,
+                    id = Tbl_derechosTableAdapter.Insert(Me.uneAnio.Value.ToString,
                                                     Me.ucoCuenta.Value.ToString,
                                                     Me.txtSubcuenta.Text.Trim,
                                                     Me.txtArticulo.Text.Trim,
@@ -191,10 +179,13 @@ Public Class frmDerMun
                                                     "",
                                                     Me.ucoDependencia.Value.ToString)
                     Me.Tbl_derechosTableAdapter.Update(Me.DsParametros.tbl_derechos)
-                    Me.btnGuardar.Visible = False
-                    Me.btnEditar.Visible = True
-                    cMensajes.DisplayMessage(Me, "Datos Registrados ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                    If id > 0 Then
+                        cMensajes.DisplayMessage(Me, "Datos Registrados ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+                    Else
+                        cMensajes.DisplayMessage(Me, "Ocurrio un error al generar el registro.. ", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1)
+                    End If
                 End If
+                Me.frmDerMun_Load(Nothing, Nothing)
             End If
         Catch ex As Exception
             cMensajes.DisplayMessage(Me, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
@@ -202,10 +193,7 @@ Public Class frmDerMun
     End Sub
 
     Private Sub btnBack_Click_1(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Enabled = True
-        Me.Close()
-        Me.Dispose()
+        GenericCloseChlildForm(Me)
     End Sub
 
     Private Sub btnUndo_Click(sender As Object, e As EventArgs) Handles btnUndo.Click
@@ -217,8 +205,8 @@ Public Class frmDerMun
         grpCuotas.Enabled = True
         grpdata.Enabled = True
         btnEditar.Visible = False
-        btnGuardar.Visible = True
-
+        btnGuardar.Visible = Editar
+        Me.btnElimina.Visible = Borrar
     End Sub
 
     Private Sub frmDerMun_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
@@ -235,11 +223,11 @@ Public Class frmDerMun
         End If
     End Sub
 
-    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnElimina.Click
         Try
             If MsgBox("¿Seguro de Eliminar el Registro?", vbYesNo, "Confirmación") = vbYes Then
                 Me.Validate()
-                Me.BindingNavigator2.BindingSource.RemoveCurrent()
+                Me.BindingNavigator1.BindingSource.RemoveCurrent()
                 Me.Tbl_derechosTableAdapter.Update(Me.DsParametros.tbl_derechos)
                 cMensajes.DisplayMessage(Me, "Datos eliminados", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1)
                 Me.Close()

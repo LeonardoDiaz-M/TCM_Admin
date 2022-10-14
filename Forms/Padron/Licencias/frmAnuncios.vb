@@ -5,76 +5,36 @@ Imports System.Text.RegularExpressions
 Imports System.Web.Security
 Public Class frmAnuncios
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-
-    Public delete_record As Boolean = False
-    Public tipo_Permiso As Integer = 0
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
     Private cxn As New cxnData
-    Private newrow As Object
-    Public parent As Form = Nothing
     Private Sub frmAnuncios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+            TabOrderSequence(Me, SMcMaster.TabOrderManager.TabScheme.AcrossFirst)
             Me.lblCurrentMenu2.Text = Me.Text
             load_Combos()
-            If id <> "0" Then
-                btnEditar.Visible = True
-                btnGuardar.Visible = False
-                btnElimina.Visible = True
-            Else
-                ActivaFormulario(True)
-                btnGuardar.Visible = True
-                btnEditar.Visible = False
-                btnElimina.Visible = False
-            End If
             Me.Tbl_lic_municipalesTableAdapter.FillByPA(Me.DsLicencias1.tbl_lic_municipales, id)
-            LoadRol()
-
+            load_Permiso()
         Catch ex As Exception
             cMensajes.DisplayMessage(Me, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
         End Try
     End Sub
-    Private Sub LoadRol()
-        btnEditar.Enabled = Roles.IsUserInRole(Usuario, Editar)
-        btnElimina.Enabled = Roles.IsUserInRole(Usuario, Borrar)
-        btnGuardar.Enabled = Roles.IsUserInRole(Usuario, Insertar)
-    End Sub
     Private Sub load_Permiso()
-        Me.btnGuardar.Visible = False
-        btnElimina.Visible = False
+        Me.btnElimina.Visible = False
         btnUndo.Visible = False
         Me.txtNoLic.Enabled = False
-        Dim cxn_load As New cxnData
-        Me.Text = "Detalle de la Licencia  " & id.ToString
-        'If id <> "0" Then
-        '    'cxn_load.Select_SQL("SELECT cve_col,cve_loc,cve_catastral from tbl_lic_municipales where cve_licencia='" & id.ToString & "'")
-        '    'Me.txtClavecatastral.Text = cxn_load.arrayValores(2)
-        '    'Me.cmbLocalidad.SelectedValue = cxn_load.arrayValores(1)
-        '    If cxn_load.arrayValores(1) <> "-1" And cxn_load.arrayValores(1) IsNot Nothing Then
-        '        'cmbLocalidad_SelectedValueChanged(Nothing, Nothing)
-        '        Me.ucoColonia.Value = cxn.arrayValores(0)
-        '    End If
-        'End If
-        If tipo_Permiso = 0 And Not delete_record Then 'Solo Lectura
-            Me.grpDatosCuenta.Enabled = False
-            Me.grpPropietario.Enabled = False
-            Me.grpPAE.Enabled = False
-        ElseIf tipo_Permiso = 1 And delete_record Then 'Eliminar Registro
-            Me.grpDatosCuenta.Enabled = False
-            Me.grpPropietario.Enabled = False
-            Me.grpPAE.Enabled = False
-            btnElimina.Visible = True
-            btnUndo.Visible = True
-        ElseIf tipo_Permiso = 1 And id <> "0" Then  'Actualizar Registro
-            Me.grpDatosCuenta.Enabled = True
-            Me.btnGuardar.Visible = True
-            btnUndo.Visible = True
-        ElseIf tipo_Permiso = 1 And id = "0" Then 'Agregar Registro
-            Me.Text = "Nuevo Licencia"
-            Me.grpDatosCuenta.Enabled = True
-            Me.btnGuardar.Visible = True
+        Me.btnGuardar.Visible = IIf(id = "0", Insertar, False)
+        Me.btnEditar.Visible = IIf(id = "0", False, Editar)
+        Me.grpDatosCuenta.Enabled = IIf(id = "0", True, False)
+        Me.grpPAE.Enabled = IIf(id = "0", True, False)
+        Me.grpPropietario.Enabled = IIf(id = "0", True, False)
+        Me.grpUltimoPago.Enabled = IIf(id = "0", True, False)
+        If id = "0" Then
+            Dim cxn_load As New cxnData
             Me.BindingNavigator1.BindingSource.AddNew()
             cxn_load.Select_SQL("exec sp_DDL_Derechos 'PA',''")
             Me.BindingSource1.Current("cve_licencia") = cxn_load.arrayValores(0)
@@ -82,15 +42,10 @@ Public Class frmAnuncios
             Me.BindingSource1.Current("ult_año_pago") = cxn_load.arrayValores(2)
             Me.BindingSource1.Current("ult_mes_pago") = cxn_load.arrayValores(1)
             Me.BindingSource1.Current("fecha_ini_oper") = cxn_load.arrayValores(0)
-
-            'ucoTipoContribuyente.SelectedValue = -1
-            'cmbSituacion.SelectedValue = -1
-            'cmbLocalidad.SelectedValue = -1
             ucoPae.Value = -1
             cmbTipoAnuncio.SelectedValue = -1
         End If
     End Sub
-
     Private Sub load_Combos()
         cxn.Get_SQL_Combobox("exec sp_DDL_Derechos 'Anuncio',''", Me.cmbTipoAnuncio, "Descripcion", "clave")
         cxn.fLlenaDropDownUltra(ucoStatus, "Select cve_status, descripcion from tbl_Status_Contribuyente")
@@ -405,7 +360,7 @@ Public Class frmAnuncios
                                                                CDec(Me.uneLargo.Value),'largo
                                                                CDec(Me.uneAncho.Value),'ancho                                                           
                                                               Me.chkNotificado.Checked,
-                                                            IIf(Me.chkNotificado.Checked = True, Me.txtNoOficioPae.Text, Nothing),'numero oficio pae,
+                                                              IIf(Me.chkNotificado.Checked = True, Me.txtNoOficioPae.Text, Nothing),'numero oficio pae,
                                                               IIf(Me.chkNotificado.Checked = True, Me.txtFecPAE.Value, Nothing),'fec notif
                                                                "",'folio rec 
                                                                CDec(Me.ucoStatus.Value),'status
@@ -416,16 +371,15 @@ Public Class frmAnuncios
                                                                CDate(Me.txtFechaIniOp.Value).ToShortDateString,'Fecha_ini _operacion
                                                                IIf(Me.chkNotificado.Checked = True, Me.ucoPae.Value, Nothing),
                                                                IIf(Me.chkNotificado.Checked = True, Me.txtNoActos.Value, Nothing),
-                                                               Me.txtCurp.Text,
                                                                Me.txtemail.Text,
-                                                               Usuario.ToString, "", ""
+                                                               Me.txtCurp.Text,
+                                                               CurrentUsrName.ToString, "", ""
                                                                )
                     Me.Tbl_lic_municipalesTableAdapter.Update(Me.DsLicencias1.tbl_lic_municipales)
                     cMensajes.DisplayMessage(Me, "Datos Registrados correctamente!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
 
                     ActivaFormulario(False)
                     id = Me.txtNoLic.Text
-                    tipo_Permiso = 1
                     System.Threading.Thread.Sleep(1500)
                     frmAnuncios_Load(Nothing, Nothing)
                 End If
@@ -437,8 +391,9 @@ Public Class frmAnuncios
     End Sub
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
         Try
-            'valida permiso de edicion
+            'valida permiso de edicion            
             ActivaFormulario(True)
+            Me.btnElimina.Visible = Borrar
             btnGuardar.Visible = True
             btnEditar.Visible = False
             txtClavecatastral.Focus()
@@ -466,13 +421,10 @@ Public Class frmAnuncios
         End Try
     End Sub
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
-        Mainbar.Enabled = True
-        Me.Close()
+        GenericCloseChlildForm(Me)
     End Sub
     Private Sub frmAnuncios_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        Dim Maintab As UltraTabControl = TryCast(parent.Controls.Find("tabPrincipal", True).FirstOrDefault(), UltraTabControl)
-        Maintab.Visible = True
+        GenericCloseChlildForm(Me)
     End Sub
     Private Sub txtClavecatastral_TextChanged(sender As Object, e As EventArgs) Handles txtClavecatastral.TextChanged
         If Me.txtClavecatastral.Text.Length = 16 Then
@@ -485,7 +437,7 @@ Public Class frmAnuncios
     End Sub
     Private Sub frmAnuncios_Activated(sender As Object, e As EventArgs) Handles Me.Activated
         txtClavecatastral.Focus()
-        Dim Mainbar As ToolStrip = TryCast(parent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
+        Dim Mainbar As ToolStrip = TryCast(Me.myparent.Controls.Find("CommandBar", True).FirstOrDefault(), ToolStrip)
         Mainbar.Enabled = False
     End Sub
     Private Sub frmAnuncios_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
@@ -596,5 +548,17 @@ Public Class frmAnuncios
     Private Sub btnImage_Click(sender As Object, e As EventArgs) Handles btnImage.Click
         Dim frm As New Padron_Imagenes
         frm.Show(txtNoLic.Text.Trim, "ANUNCIOS", Me)
+    End Sub
+
+    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles btnMapa.Click
+        Dim frm As New frmGoogleMaps
+        frm.txtLatitud.Text = Me.txtLatitud.Text
+        frm.txtLongitud.Text = Me.txtLongitud.Text
+        frm.lblTipoPadron.Text = "tbl_lic_municipales"
+        frm.lblClavePadron.Text = Me.txtNoLic.Text
+        frm.lblCampo.Text = "cve_licencia"
+        frm.lblNombreContribuyente.Text = Me.txtNombre.Text
+        frm.ShowDialog(Me)
+        Me.frmAnuncios_Load(Nothing, Nothing)
     End Sub
 End Class

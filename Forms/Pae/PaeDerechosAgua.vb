@@ -1,19 +1,17 @@
 ﻿Imports System.ComponentModel
 Public Class PaeDerechosAgua
-    Dim TotalRegistrosACalcular As Integer = 0
     Public id As String = "0"
-    Public Lectura As String = "0"
-    Public Insertar As String = "0"
-    Public Borrar As String = "0"
-    Public Editar As String = "0"
-    Public delete_record As Boolean = False
+    Public Lectura As Boolean = False
+    Public Insertar As Boolean = False
+    Public Borrar As Boolean = False
+    Public Editar As Boolean = False
+    Public idUsuario As String = CurrentUsrName
+    Public myparent As Form = Nothing
+    Private cxn As New cxnData
+    Dim TotalRegistrosACalcular As Integer = 0
     Dim ClavePredio As String = ""
-    Public parent As Form = Nothing
-    Dim cxn As New cxnData
     Dim valor As Integer
-    Private Sub PaeDerechosAgua_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    End Sub
     Private Sub optSelDatos_ValueChanged(sender As Object, e As EventArgs) Handles optSelDatos.ValueChanged
         Dim Editor = TryCast(sender, Infragistics.Win.UltraWinEditors.UltraOptionSet)
         If Editor IsNot Nothing Then
@@ -89,7 +87,7 @@ Public Class PaeDerechosAgua
             TipoDocumento = "M"  'manejamos la constante M /Mandamiento ejecucion ya que es el Unico que lleva MOTIVACION
 
             TipoUsuario = optTipoUsuario.Value
-            TipoServicio = optTipoServicio.Value
+            'TipoServicio = optTipoServicio.Value
 
             If TipoUsuario = 3 Then TipoUsuario = 0
             If TipoServicio = 3 Then TipoServicio = 0
@@ -139,13 +137,6 @@ Public Class PaeDerechosAgua
                 mensaje += "- " & "Seleccione el tipo de usuario." & "<br />"
                 optTipoUsuario.Select()
             End If
-            If optTipoServicio.Value = 0 Then
-                ErrorProvider1.SetError(optTipoServicio, "Error")
-                ocurriounError += 1
-                mensaje += "- " & "Seleccione el tipo de servicio." & "<br />"
-                optTipoServicio.Select()
-            End If
-
 
             'Seleccion clave catastral
             If optSelDatos.Value = 1 Then
@@ -264,6 +255,7 @@ Public Class PaeDerechosAgua
             RutasDel = uneRutaDel.Value
             RutasAl = uneRutaAl.Value
             TotalRegistrosACalcular = DB.fExecuteScalarInt("select COUNT(num_cuenta) from arc_agua where id_ruta BETWEEN '" & RutasDel & "' AND '" & RutasAl & "'")
+            ' substring(cve_catastral,4,5) BETWEEN '" & Zona + ManzanaDel & "' AND '" & Zona + ManzanaAl & "' AND ult_año_pag<YEAR(GETDATE())")
         End If
         If optSelDatos.Value = 3 Then
             PredioDel = txtClavecatastralDel.Text
@@ -395,7 +387,7 @@ Public Class PaeDerechosAgua
         btnProcesar.Enabled = True
     End Sub
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Me.Close()
-        Me.Dispose()
+        GenericCloseChlildForm(Me)
     End Sub
+
 End Class

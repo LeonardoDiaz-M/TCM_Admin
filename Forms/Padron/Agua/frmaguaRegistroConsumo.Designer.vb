@@ -97,7 +97,8 @@ Partial Class frmaguaRegistroConsumo
         Me.btnGenerar = New System.Windows.Forms.ToolStripButton()
         Me.btnConsulta = New System.Windows.Forms.ToolStripButton()
         Me.btnGuardar = New System.Windows.Forms.ToolStripButton()
-        Me.tssConsulta = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
+        Me.lblCurrentMenu = New System.Windows.Forms.ToolStripLabel()
         Me.ucoRuta = New Infragistics.Win.UltraWinGrid.UltraCombo()
         Me.UltraExpandableGroupBox1 = New Infragistics.Win.Misc.UltraExpandableGroupBox()
         Me.UltraExpandableGroupBoxPanel1 = New Infragistics.Win.Misc.UltraExpandableGroupBoxPanel()
@@ -143,7 +144,7 @@ Partial Class frmaguaRegistroConsumo
         Me.BindingNavigator1.CountItem = Nothing
         Me.BindingNavigator1.DeleteItem = Nothing
         Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(36, 36)
-        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnGenerar, Me.btnConsulta, Me.btnGuardar, Me.tssConsulta})
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnBack, Me.btnGenerar, Me.btnConsulta, Me.btnGuardar, Me.ToolStripLabel2, Me.lblCurrentMenu})
         Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
         Me.BindingNavigator1.MoveFirstItem = Nothing
         Me.BindingNavigator1.MoveLastItem = Nothing
@@ -208,12 +209,19 @@ Partial Class frmaguaRegistroConsumo
         Me.btnGuardar.ToolTipText = "Guardar Cambios"
         Me.btnGuardar.Visible = False
         '
-        'tssConsulta
+        'ToolStripLabel2
         '
-        Me.tssConsulta.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.tssConsulta.AutoSize = False
-        Me.tssConsulta.Name = "tssConsulta"
-        Me.tssConsulta.Size = New System.Drawing.Size(230, 43)
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(40, 40)
+        Me.ToolStripLabel2.Text = "           "
+        '
+        'lblCurrentMenu
+        '
+        Me.lblCurrentMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrentMenu.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblCurrentMenu.Name = "lblCurrentMenu"
+        Me.lblCurrentMenu.Size = New System.Drawing.Size(119, 40)
+        Me.lblCurrentMenu.Text = "ToolStripLabel2"
         '
         'ucoRuta
         '
@@ -645,7 +653,6 @@ Partial Class frmaguaRegistroConsumo
     Friend WithEvents UltraLabel2 As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents UltraLabel1 As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents lblCveCat As Infragistics.Win.Misc.UltraLabel
-    Friend WithEvents tssConsulta As ToolStripSeparator
     Friend WithEvents DsAgua As dsAgua
     Friend WithEvents TblconsumoaguaBindingSource As BindingSource
     Friend WithEvents Tbl_consumo_aguaTableAdapter As dsAguaTableAdapters.tbl_consumo_aguaTableAdapter
@@ -656,4 +663,6 @@ Partial Class frmaguaRegistroConsumo
     Friend WithEvents btnConsulta As ToolStripButton
     Friend WithEvents griLecturasPeriodo As Infragistics.Win.UltraWinGrid.UltraGrid
     Friend WithEvents ucoFormaCalculoLectura As Infragistics.Win.UltraWinGrid.UltraDropDown
+    Friend WithEvents lblCurrentMenu As ToolStripLabel
+    Friend WithEvents ToolStripLabel2 As ToolStripLabel
 End Class

@@ -4,7 +4,7 @@
         Dim OpcionCalculo As Integer = 0
         OpcionCalculo = optLectura.Value
         If valida_datos() = False Then
-            Tbl_consumo_aguaTableAdapter.Insert(txtNumeroCuenta.Text, CType(txtanio.Value, Decimal), unePeriodo.Value, CType(uneConsumo.Value, Decimal), CType(uneLecturaActual.Value, Decimal), CType(uneLecturaAnterior.Value, Decimal), Date.Now, OpcionCalculo, NombreUsuario, CType(txtRuta.Text, Integer))
+            Tbl_consumo_aguaTableAdapter.Insert(txtNumeroCuenta.Text, CType(txtanio.Value, Decimal), unePeriodo.Value, CType(uneConsumo.Value, Decimal), CType(uneLecturaActual.Value, Decimal), CType(uneLecturaAnterior.Value, Decimal), Date.Now, OpcionCalculo, CurrentUsrName, CType(txtRuta.Text, Integer))
             cMensajes.DisplayMessage(Me, "Registro guardado!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
             Me.Close()
         End If
