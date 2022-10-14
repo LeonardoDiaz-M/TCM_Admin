@@ -340,7 +340,7 @@ Partial Class frmCatRutas
         Me.ucoColonia.Appearance = Appearance1
         Me.ucoColonia.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest
         Me.ucoColonia.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
-        Me.ucoColonia.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "id_colonia", True))
+        Me.ucoColonia.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource1, "id_colonia", True))
         UltraGridBand1.ColHeadersVisible = False
         UltraGridColumn5.Header.Editor = Nothing
         UltraGridColumn5.Header.VisiblePosition = 0
@@ -370,7 +370,7 @@ Partial Class frmCatRutas
         Me.ucoLocalidad.Appearance = Appearance2
         Me.ucoLocalidad.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest
         Me.ucoLocalidad.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
-        Me.ucoLocalidad.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "cve_loc", True))
+        Me.ucoLocalidad.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BindingSource1, "cve_loc", True))
         UltraGridBand2.ColHeadersVisible = False
         UltraGridColumn7.Header.Editor = Nothing
         UltraGridColumn7.Header.VisiblePosition = 0

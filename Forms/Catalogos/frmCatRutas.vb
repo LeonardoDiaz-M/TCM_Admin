@@ -36,7 +36,9 @@ Public Class frmCatRutas
         Try
             If Me.ucoLocalidad.Value IsNot Nothing Then
                 cxn.fLlenaDropDownUltra(ucoColonia, "SELECT id_colonia,nom_colonia from colonias where cve_loc='" & Me.ucoLocalidad.Value.ToString & "'")
-                ucoColonia.Value = Nothing
+                If id = "0" Then
+                    ucoColonia.Value = Nothing
+                End If
             End If
         Catch ex As Exception
             cMensajes.DisplayMessage(Me, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
@@ -67,8 +69,7 @@ Public Class frmCatRutas
                 If id <> "0" Then
                     Me.Validate()
                     Me.BindingSource1.EndEdit()
-                    'MsgBox(Me.ucoLocalidad.Value.ToString + "  " + Me.ucoColonia.Value.ToString)
-
+                    'MsgBox(Me.ucoLocalidad.Value.ToString + "  " + Me.ucoColonia.Value.ToString)                    
                     Me.RutasTableAdapter.Update(Me.DsAgua.rutas)
                     cMensajes.DisplayMessage(Me, "Datos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
                 Else
